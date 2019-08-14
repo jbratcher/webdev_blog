@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@charset "UTF-8";
 
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
@@ -10656,8 +10656,13 @@ html,
 body,
 header,
 main {
+  font-family: "Source Sans Pro", sans-serif;
   min-width: 100vw;
-  overflow: hidden;
+  overflow-x: hidden;
+}
+
+a.navbar-brand {
+  font-family: "Lalezar", cursive;
 }
 
 .background-image {
@@ -10677,6 +10682,32 @@ main {
 }
 
 @media only screen and (min-width: 768px) {
+  nav {
+    margin: 0 2rem;
+  }
+
+  #navbarNav {
+    justify-content: flex-end;
+  }
+
+  main .jumbotron-fluid {
+    padding-top: 0.5rem;
+    padding-bottom: 1rem;
+  }
+
+  main .jumbotron-fluid h1,
+  main .jumbotron-fluid p {
+    margin: 0;
+  }
+
+  .posts-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+    justify-items: center;
+    list-style: none;
+  }
+
   .background-image {
     background: rgba(236, 51, 55, 0.7);
   }
