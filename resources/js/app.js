@@ -7,7 +7,30 @@
 require('./bootstrap');
 
 import Vue from 'vue';
-import Home from "./components/Home";
+import VueRouter from 'vue-router';
+
+Vue.use(VueRouter);
+
+import App from './views/App'
+import Home from './views/Home'
+import Blog from "./views/Blog";
+
+const router = new VueRouter({
+    mode: "history",
+    routes: [
+        {
+            path: "/",
+            name: "home",
+            component: Home
+        },
+        {
+            path: "/blog",
+            name: "blog",
+            component: Blog
+        },
+
+    ]
+})
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -17,5 +40,8 @@ import Home from "./components/Home";
 
 const app = new Vue({
     el: '#app',
-    components: { Home },
+    components: {
+        App,
+    },
+    router,
 });

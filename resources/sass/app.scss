@@ -21,9 +21,13 @@ a.navbar-brand {
     font-family: 'Lalezar', cursive;
 }
 
+.posts-list {
+    list-style: none;
+}
+
 
 .background-image {
-    background: bottom center url('../resources/images/profile.jpg') no-repeat, rgba(236, 51, 55, 0.7);
+    background: bottom center url('../resources/images/profile.jpg') no-repeat, linear-gradient(to top right, rgba(	244, 67, 54, 0.7), rgba(236, 51, 55, 0.7));
     background-blend-mode: multiply;
     background-size: cover;
 
@@ -69,11 +73,10 @@ a.navbar-brand {
         grid-template-columns: 1fr 1fr;
         grid-gap: 1rem;
         justify-items: center;
-        list-style: none;
     }
 
     .background-image {
-        background:  rgba(236, 51, 55, 0.7)
+        background: linear-gradient(to top left, rgba(	244, 67, 54, 0.7), rgba(236, 51, 55, 1));
     }
 }
 

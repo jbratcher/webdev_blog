@@ -7,7 +7,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <script> window.Laravel = { csrfToken: 'csrf_token() ' } </script>
 
-        <title>Laravel</title>
+        <title>Jeremy Bratcher, Web Developer</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Lalezar|Source+Sans+Pro&display=swap" rel="stylesheet">
@@ -20,7 +20,7 @@
 
         <div id="app">
 
-            <Home></Home>
+            <app></app>
 
         </div>
 
