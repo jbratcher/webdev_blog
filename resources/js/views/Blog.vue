@@ -31,8 +31,8 @@
         methods: {
             getPosts() {
                 axios.get("/api/posts").then(response => {
-                    console.log(`Response: ${response}`);
-                    this.posts = response;
+                    console.log(`Response: ${response.data}`);
+                    this.posts = response.data;
                 })
                 .catch(error => {
                     this.loading = false;

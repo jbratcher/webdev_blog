@@ -1892,8 +1892,8 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get("/api/posts").then(function (response) {
-        console.log("Response: ".concat(response));
-        _this.posts = response;
+        console.log("Response: ".concat(response.data));
+        _this.posts = response.data;
       })["catch"](function (error) {
         _this.loading = false;
         _this.error = error.response.data.message || error.message;
