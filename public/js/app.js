@@ -1875,8 +1875,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.getPosts();
@@ -2067,43 +2065,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
-    // this.getPosts();
+    this.getPosts();
     console.log("Home vue mounted");
   },
   data: function data() {
@@ -2115,8 +2079,12 @@ __webpack_require__.r(__webpack_exports__);
     getPosts: function getPosts() {
       var _this = this;
 
-      axios.get("/posts").then(function (response) {
+      axios.get("/api/posts").then(function (response) {
+        console.log("Response: ".concat(response.data));
         _this.posts = response.data;
+      })["catch"](function (error) {
+        _this.loading = false;
+        _this.error = error.response.data.message || error.message;
       });
       console.log("Posts object: " + this.posts);
     },
@@ -37459,9 +37427,7 @@ var render = function() {
           _c("h3", { staticClass: "card-title" }, [_vm._v(_vm._s(post.title))]),
           _vm._v(" "),
           _c("p", { staticClass: "card-text" }, [_vm._v(_vm._s(post.body))])
-        ]),
-        _vm._v(" "),
-        _c("p", { staticClass: "post-title" }, [_vm._v(_vm._s(post.title))])
+        ])
       ])
     }),
     0
@@ -37553,9 +37519,58 @@ var render = function() {
       )
     ]),
     _vm._v(" "),
-    _vm._m(4),
+    _c("main", [
+      _vm._m(4),
+      _vm._v(" "),
+      _c("section", { staticClass: "container" }, [
+        _c("h1", { staticClass: "display-" }, [_vm._v("Blog")]),
+        _vm._v(" "),
+        _c("p", [_vm._v("Latest posts")]),
+        _vm._v(" "),
+        _c(
+          "ul",
+          { staticClass: "posts-list" },
+          _vm._l(_vm.posts, function(post) {
+            return _c("li", { key: post.id }, [
+              _c("a", { attrs: { href: "#" } }, [
+                _c("section", { staticClass: "card" }, [
+                  _c("img", {
+                    staticClass: "card-img-top",
+                    attrs: {
+                      src: "https://via.placeholder.com/350x150",
+                      alt: "Card image cap"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("h5", { staticClass: "card-title" }, [
+                      _vm._v(_vm._s(post.title))
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "card-text" }, [
+                      _vm._v(_vm._s(post.body.substring(0, 144) + "..."))
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      { staticClass: "btn btn-primary", attrs: { href: "#" } },
+                      [_vm._v("Go somewhere")]
+                    )
+                  ])
+                ])
+              ])
+            ])
+          }),
+          0
+        )
+      ]),
+      _vm._v(" "),
+      _vm._m(5),
+      _vm._v(" "),
+      _vm._m(6)
+    ]),
     _vm._v(" "),
-    _vm._m(5)
+    _vm._m(7)
   ])
 }
 var staticRenderFns = [
@@ -37613,8 +37628,10 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("main", [
-      _c("div", { staticClass: "jumbotron jumbotron-fluid background-image" }, [
+    return _c(
+      "div",
+      { staticClass: "jumbotron jumbotron-fluid background-image" },
+      [
         _c("div", { staticClass: "container" }, [
           _c("h1", { staticClass: "display-4" }, [
             _vm._v("Full Stack Web Dev")
@@ -37624,288 +37641,152 @@ var staticRenderFns = [
             _vm._v("Creating software, creating change.")
           ])
         ])
-      ]),
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "container" }, [
+      _c("h1", { staticClass: "display-" }, [_vm._v("Projects")]),
       _vm._v(" "),
-      _c("section", { staticClass: "container" }, [
-        _c("h1", { staticClass: "display-" }, [_vm._v("Blog")]),
+      _c("p", [_vm._v("Some of my best work")]),
+      _vm._v(" "),
+      _c("ul", { staticClass: "posts-list" }, [
+        _c("li", [
+          _c("a", { attrs: { href: "#" } }, [
+            _c("section", { staticClass: "card" }, [
+              _c("img", {
+                staticClass: "card-img-top",
+                attrs: {
+                  src: "https://via.placeholder.com/350x150",
+                  alt: "Card image cap"
+                }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "card-text" }, [
+                  _vm._v(
+                    "Some quick example text to build on the card title and make up the bulk of the card's content."
+                  )
+                ]),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  { staticClass: "btn btn-primary", attrs: { href: "#" } },
+                  [_vm._v("Go somewhere")]
+                )
+              ])
+            ])
+          ])
+        ]),
         _vm._v(" "),
-        _c("p", [_vm._v("Latest posts")]),
+        _c("li", [
+          _c("a", { attrs: { href: "#" } }, [
+            _c("section", { staticClass: "card" }, [
+              _c("img", {
+                staticClass: "card-img-top",
+                attrs: {
+                  src: "https://via.placeholder.com/350x150",
+                  alt: "Card image cap"
+                }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "card-text" }, [
+                  _vm._v(
+                    "Some quick example text to build on the card title and make up the bulk of the card's content."
+                  )
+                ]),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  { staticClass: "btn btn-primary", attrs: { href: "#" } },
+                  [_vm._v("Go somewhere")]
+                )
+              ])
+            ])
+          ])
+        ]),
         _vm._v(" "),
-        _c("ul", { staticClass: "posts-list" }, [
-          _c("li", [
-            _c("a", { attrs: { href: "#" } }, [
-              _c("section", { staticClass: "card" }, [
-                _c("img", {
-                  staticClass: "card-img-top",
-                  attrs: {
-                    src: "https://via.placeholder.com/350x150",
-                    alt: "Card image cap"
-                  }
-                }),
+        _c("li", [
+          _c("a", { attrs: { href: "#" } }, [
+            _c("section", { staticClass: "card" }, [
+              _c("img", {
+                staticClass: "card-img-top",
+                attrs: {
+                  src: "https://via.placeholder.com/350x150",
+                  alt: "Card image cap"
+                }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
                 _vm._v(" "),
-                _c("div", { staticClass: "card-body" }, [
-                  _c("h5", { staticClass: "card-title" }, [
-                    _vm._v("Card title")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "card-text" }, [
-                    _vm._v(
-                      "Some quick example text to build on the card title and make up the bulk of the card's content."
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    { staticClass: "btn btn-primary", attrs: { href: "#" } },
-                    [_vm._v("Go somewhere")]
+                _c("p", { staticClass: "card-text" }, [
+                  _vm._v(
+                    "Some quick example text to build on the card title and make up the bulk of the card's content."
                   )
-                ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  { staticClass: "btn btn-primary", attrs: { href: "#" } },
+                  [_vm._v("Go somewhere")]
+                )
               ])
             ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { attrs: { href: "#" } }, [
-              _c("section", { staticClass: "card" }, [
-                _c("img", {
-                  staticClass: "card-img-top",
-                  attrs: {
-                    src: "https://via.placeholder.com/350x150",
-                    alt: "Card image cap"
-                  }
-                }),
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "#" } }, [
+            _c("section", { staticClass: "card" }, [
+              _c("img", {
+                staticClass: "card-img-top",
+                attrs: {
+                  src: "https://via.placeholder.com/350x150",
+                  alt: "Card image cap"
+                }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
                 _vm._v(" "),
-                _c("div", { staticClass: "card-body" }, [
-                  _c("h5", { staticClass: "card-title" }, [
-                    _vm._v("Card title")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "card-text" }, [
-                    _vm._v(
-                      "Some quick example text to build on the card title and make up the bulk of the card's content."
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    { staticClass: "btn btn-primary", attrs: { href: "#" } },
-                    [_vm._v("Go somewhere")]
+                _c("p", { staticClass: "card-text" }, [
+                  _vm._v(
+                    "Some quick example text to build on the card title and make up the bulk of the card's content."
                   )
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { attrs: { href: "#" } }, [
-              _c("section", { staticClass: "card" }, [
-                _c("img", {
-                  staticClass: "card-img-top",
-                  attrs: {
-                    src: "https://via.placeholder.com/350x150",
-                    alt: "Card image cap"
-                  }
-                }),
+                ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "card-body" }, [
-                  _c("h5", { staticClass: "card-title" }, [
-                    _vm._v("Card title")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "card-text" }, [
-                    _vm._v(
-                      "Some quick example text to build on the card title and make up the bulk of the card's content."
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    { staticClass: "btn btn-primary", attrs: { href: "#" } },
-                    [_vm._v("Go somewhere")]
-                  )
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { attrs: { href: "#" } }, [
-              _c("section", { staticClass: "card" }, [
-                _c("img", {
-                  staticClass: "card-img-top",
-                  attrs: {
-                    src: "https://via.placeholder.com/350x150",
-                    alt: "Card image cap"
-                  }
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-body" }, [
-                  _c("h5", { staticClass: "card-title" }, [
-                    _vm._v("Card title")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "card-text" }, [
-                    _vm._v(
-                      "Some quick example text to build on the card title and make up the bulk of the card's content."
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    { staticClass: "btn btn-primary", attrs: { href: "#" } },
-                    [_vm._v("Go somewhere")]
-                  )
-                ])
+                _c(
+                  "a",
+                  { staticClass: "btn btn-primary", attrs: { href: "#" } },
+                  [_vm._v("Go somewhere")]
+                )
               ])
             ])
           ])
         ])
-      ]),
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "container" }, [
+      _c("h1", { staticClass: "display-4" }, [_vm._v("About Me")]),
       _vm._v(" "),
-      _c("section", { staticClass: "container" }, [
-        _c("h1", { staticClass: "display-" }, [_vm._v("Projects")]),
-        _vm._v(" "),
-        _c("p", [_vm._v("Some of my best work")]),
-        _vm._v(" "),
-        _c("ul", { staticClass: "posts-list" }, [
-          _c("li", [
-            _c("a", { attrs: { href: "#" } }, [
-              _c("section", { staticClass: "card" }, [
-                _c("img", {
-                  staticClass: "card-img-top",
-                  attrs: {
-                    src: "https://via.placeholder.com/350x150",
-                    alt: "Card image cap"
-                  }
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-body" }, [
-                  _c("h5", { staticClass: "card-title" }, [
-                    _vm._v("Card title")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "card-text" }, [
-                    _vm._v(
-                      "Some quick example text to build on the card title and make up the bulk of the card's content."
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    { staticClass: "btn btn-primary", attrs: { href: "#" } },
-                    [_vm._v("Go somewhere")]
-                  )
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { attrs: { href: "#" } }, [
-              _c("section", { staticClass: "card" }, [
-                _c("img", {
-                  staticClass: "card-img-top",
-                  attrs: {
-                    src: "https://via.placeholder.com/350x150",
-                    alt: "Card image cap"
-                  }
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-body" }, [
-                  _c("h5", { staticClass: "card-title" }, [
-                    _vm._v("Card title")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "card-text" }, [
-                    _vm._v(
-                      "Some quick example text to build on the card title and make up the bulk of the card's content."
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    { staticClass: "btn btn-primary", attrs: { href: "#" } },
-                    [_vm._v("Go somewhere")]
-                  )
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { attrs: { href: "#" } }, [
-              _c("section", { staticClass: "card" }, [
-                _c("img", {
-                  staticClass: "card-img-top",
-                  attrs: {
-                    src: "https://via.placeholder.com/350x150",
-                    alt: "Card image cap"
-                  }
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-body" }, [
-                  _c("h5", { staticClass: "card-title" }, [
-                    _vm._v("Card title")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "card-text" }, [
-                    _vm._v(
-                      "Some quick example text to build on the card title and make up the bulk of the card's content."
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    { staticClass: "btn btn-primary", attrs: { href: "#" } },
-                    [_vm._v("Go somewhere")]
-                  )
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { attrs: { href: "#" } }, [
-              _c("section", { staticClass: "card" }, [
-                _c("img", {
-                  staticClass: "card-img-top",
-                  attrs: {
-                    src: "https://via.placeholder.com/350x150",
-                    alt: "Card image cap"
-                  }
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-body" }, [
-                  _c("h5", { staticClass: "card-title" }, [
-                    _vm._v("Card title")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "card-text" }, [
-                    _vm._v(
-                      "Some quick example text to build on the card title and make up the bulk of the card's content."
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    { staticClass: "btn btn-primary", attrs: { href: "#" } },
-                    [_vm._v("Go somewhere")]
-                  )
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "container" }, [
-        _c("h1", { staticClass: "display-4" }, [_vm._v("About Me")]),
-        _vm._v(" "),
-        _c("p", [
-          _vm._v(
-            "Tech enthusiast with a strong eye for visual design and a knack for problem solving. Interested in UI/UX and SPA/PWAs."
-          )
-        ])
+      _c("p", [
+        _vm._v(
+          "Tech enthusiast with a strong eye for visual design and a knack for problem solving. Interested in UI/UX and SPA/PWAs."
+        )
       ])
     ])
   },

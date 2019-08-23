@@ -9,8 +9,6 @@
                 <p class="card-text">{{post.body}}</p>
             </section>
 
-            <p class="post-title">{{ post.title }}</p>
-
         </section>
 
     </section>

@@ -42,54 +42,20 @@
                 <h1 class="display-">Blog</h1>
                 <p>Latest posts</p>
                 <ul class="posts-list">
-                    <li>
+
+                    <li v-for="post in posts" :key="post.id">
                         <a href="#">
                             <section class="card">
                                 <img class="card-img-top" src="https://via.placeholder.com/350x150" alt="Card image cap">
                                 <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <h5 class="card-title">{{post.title}}</h5>
+                                    <p class="card-text">{{post.body.substring(0,144)+"..."}}</p>
                                     <a href="#" class="btn btn-primary">Go somewhere</a>
                                 </div>
                             </section>
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
-                            <section class="card">
-                                <img class="card-img-top" src="https://via.placeholder.com/350x150" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </section>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <section class="card">
-                                <img class="card-img-top" src="https://via.placeholder.com/350x150" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </section>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <section class="card">
-                                <img class="card-img-top" src="https://via.placeholder.com/350x150" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </section>
-                        </a>
-                    </li>
+
                 </ul>
             </section>
 
@@ -181,7 +147,7 @@
 <script>
     export default {
         mounted() {
-            // this.getPosts();
+            this.getPosts();
             console.log("Home vue mounted");
         },
         data() {
@@ -191,8 +157,13 @@
         },
         methods: {
             getPosts() {
-                axios.get("/posts").then(response => {
+                axios.get("/api/posts").then(response => {
+                    console.log(`Response: ${response.data}`);
                     this.posts = response.data;
+                })
+                .catch(error => {
+                    this.loading = false;
+                    this.error = error.response.data.message || error.message;
                 });
                 console.log("Posts object: " + this.posts);
             },
