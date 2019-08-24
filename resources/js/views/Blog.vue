@@ -1,12 +1,18 @@
 <template>
 
-    <section id="posts">
+    <section>
 
-        <section class="card" v-for="post in posts" :key="post.id">
+        <global-header />
 
-            <section class="card-body">
-                <h3 class="card-title">{{post.title}}</h3>
-                <p class="card-text">{{post.body}}</p>
+        <section id="posts">
+
+            <section class="card" v-for="post in posts" :key="post.id">
+
+                <section class="card-body">
+                    <h3 class="card-title">{{post.title}}</h3>
+                    <p class="card-text">{{post.body}}</p>
+                </section>
+
             </section>
 
         </section>
