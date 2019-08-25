@@ -1913,6 +1913,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.getPosts();
@@ -1970,6 +1984,50 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -1977,8 +2035,36 @@ __webpack_require__.r(__webpack_exports__);
       editor: _ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_0___default.a,
       editorData: '<p>Content of the editor.</p>',
       editorConfig: {// The configuration of the editor.
-      }
+      },
+      error: false,
+      errors: [],
+      successful: false
     };
+  },
+  methods: {
+    create: function create() {
+      var _this = this;
+
+      var formData = new FormData();
+      formData.append("title", this.$refs.title.value);
+      formData.append("body", this.$refs.body.value);
+      formData.append("image", this.$refs.image.files[0]);
+      axios.post("/api/posts", formData).then(function (response) {
+        _this.successful = true;
+        _this.error = false;
+        _this.errors = [];
+      })["catch"](function (error) {
+        if (!_.isEmpty(error.response)) {
+          if (error.response.status = 422) {
+            _this.errors = error.response.data.errors;
+            _this.successful = false;
+            _this.error = true;
+          }
+        }
+      });
+      this.$refs.title.value = "";
+      this.$refs.body.value = "";
+    }
   }
 });
 
@@ -2036,6 +2122,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
 //
 //
 //
@@ -37514,19 +37603,42 @@ var render = function() {
     [
       _c("global-header"),
       _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "li",
+        { staticClass: "nav-item" },
+        [
+          _c(
+            "router-link",
+            { staticClass: "nav-link", attrs: { to: { name: "create" } } },
+            [_vm._v("New Post")]
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
       _c(
         "section",
         { attrs: { id: "posts" } },
         _vm._l(_vm.posts, function(post) {
-          return _c("section", { key: post.id, staticClass: "card" }, [
-            _c("section", { staticClass: "card-body" }, [
-              _c("h3", { staticClass: "card-title" }, [
-                _vm._v(_vm._s(post.title))
+          return _c(
+            "section",
+            { key: post.id, staticClass: "card post-card" },
+            [
+              _c("section", { staticClass: "card-header" }, [
+                _c("h3", { staticClass: "card-title" }, [
+                  _vm._v(_vm._s(post.title))
+                ])
               ]),
               _vm._v(" "),
-              _c("p", { staticClass: "card-text" }, [_vm._v(_vm._s(post.body))])
-            ])
-          ])
+              _c("section", { staticClass: "card-body" }, [
+                _c("p", { staticClass: "card-text" }, [
+                  _vm._v(_vm._s(post.body))
+                ])
+              ])
+            ]
+          )
         }),
         0
       )
@@ -37534,7 +37646,28 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "jumbotron jumbotron-fluid background-image" },
+      [
+        _c("div", { staticClass: "container" }, [
+          _c("h1", { staticClass: "display-4" }, [
+            _vm._v("Web Development Blog")
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "lead" }, [
+            _vm._v("Read about my latest development experiences.")
+          ])
+        ])
+      ]
+    )
+  }
+]
 render._withStripped = true
 
 
@@ -37558,18 +37691,127 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "section",
-    { staticClass: "card" },
     [
-      _c("ckeditor", {
-        attrs: { editor: _vm.editor, config: _vm.editorConfig },
-        model: {
-          value: _vm.editorData,
-          callback: function($$v) {
-            _vm.editorData = $$v
+      _c("global-header"),
+      _vm._v(" "),
+      _c("h1", { staticClass: "post-edit-header" }, [_vm._v("Create a post")]),
+      _vm._v(" "),
+      _c("form", [
+        _c(
+          "div",
+          {
+            class: ["form-group m-1 p-3", _vm.successful ? "alert-success" : ""]
           },
-          expression: "editorData"
-        }
-      })
+          [
+            _vm.successful
+              ? _c("span", { staticClass: "label label-sucess" }, [
+                  _vm._v("Published!")
+                ])
+              : _vm._e()
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { class: ["form-group m-1 p-3", _vm.error ? "alert-danger" : ""] },
+          [
+            _vm.errors.title
+              ? _c("span", { staticClass: "label label-danger" }, [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(_vm.errors.title[0]) +
+                      "\n            "
+                  )
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.errors.body
+              ? _c("span", { staticClass: "label label-danger" }, [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(_vm.errors.body[0]) +
+                      "\n            "
+                  )
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.errors.image
+              ? _c("span", { staticClass: "label label-danger" }, [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(_vm.errors.image[0]) +
+                      "\n            "
+                  )
+                ])
+              : _vm._e()
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("input", {
+            ref: "title",
+            staticClass: "form-control",
+            attrs: {
+              type: "title",
+              id: "title",
+              placeholder: "Enter title",
+              required: ""
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "form-group" },
+          [
+            _c("ckeditor", {
+              ref: "body",
+              staticClass: "form-control",
+              attrs: {
+                id: "body",
+                editor: _vm.editor,
+                config: _vm.editorConfig,
+                required: ""
+              },
+              model: {
+                value: _vm.editorData,
+                callback: function($$v) {
+                  _vm.editorData = $$v
+                },
+                expression: "editorData"
+              }
+            })
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "custom-file mb-3" }, [
+          _c("input", {
+            ref: "image",
+            staticClass: "custom-file-input",
+            attrs: { type: "file", name: "image", id: "image" }
+          }),
+          _vm._v(" "),
+          _c("label", { staticClass: "custom-file-label" }, [
+            _vm._v("Choose file...")
+          ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary block",
+            attrs: { type: "submit" },
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                return _vm.create($event)
+              }
+            }
+          },
+          [_vm._v("\n            Submit\n        ")]
+        )
+      ])
     ],
     1
   )

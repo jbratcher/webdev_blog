@@ -4,13 +4,27 @@
 
         <global-header />
 
+        <div class="jumbotron jumbotron-fluid background-image">
+            <div class="container">
+                <h1 class="display-4">Web Development Blog</h1>
+                <p class="lead">Read about my latest development experiences.</p>
+            </div>
+        </div>
+
+        <li class="nav-item">
+            <router-link class="nav-link" :to="{ name: 'create' }">New Post</router-link>
+        </li>
+
         <section id="posts">
 
-            <section class="card" v-for="post in posts" :key="post.id">
+            <section class="card post-card" v-for="post in posts" :key="post.id">
+
+                <section class="card-header">
+                    <h3 class="card-title">{{ post.title }}</h3>
+                </section>
 
                 <section class="card-body">
-                    <h3 class="card-title">{{post.title}}</h3>
-                    <p class="card-text">{{post.body}}</p>
+                    <p class="card-text">{{ post.body }}</p>
                 </section>
 
             </section>

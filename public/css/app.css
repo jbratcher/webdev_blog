@@ -10669,6 +10669,15 @@ a.navbar-brand {
   list-style: none;
 }
 
+.post-card {
+  margin: 2rem 0;
+}
+
+.post-edit-header {
+  border-top: 1px solid black;
+  padding: 2rem 4rem 0;
+}
+
 .background-image {
   background: bottom center url(/images/profile.jpg?8f0eaf1cae8fd87ccd95836a2e5f0f96) no-repeat, linear-gradient(to top right, rgba(244, 67, 54, 0.7), rgba(236, 51, 55, 0.7));
   background-blend-mode: multiply;
