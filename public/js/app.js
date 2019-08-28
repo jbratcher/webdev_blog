@@ -1927,6 +1927,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.getPosts();
@@ -1973,6 +1975,14 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @ckeditor/ckeditor5-build-classic */ "./node_modules/@ckeditor/ckeditor5-build-classic/build/ckeditor.js");
 /* harmony import */ var _ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -37605,18 +37615,20 @@ var render = function() {
       _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
-      _c(
-        "li",
-        { staticClass: "nav-item" },
-        [
-          _c(
-            "router-link",
-            { staticClass: "nav-link", attrs: { to: { name: "create" } } },
-            [_vm._v("New Post")]
-          )
-        ],
-        1
-      ),
+      _c("ul", { staticClass: "navbar-nav" }, [
+        _c(
+          "li",
+          { staticClass: "nav-item" },
+          [
+            _c(
+              "router-link",
+              { staticClass: "nav-link", attrs: { to: { name: "create" } } },
+              [_vm._v("New Post")]
+            )
+          ],
+          1
+        )
+      ]),
       _vm._v(" "),
       _c(
         "section",

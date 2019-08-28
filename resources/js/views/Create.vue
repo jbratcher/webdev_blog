@@ -7,6 +7,7 @@
         <h1 class="post-edit-header">Create a post</h1>
 
         <form>
+
             <div :class="['form-group m-1 p-3', (successful ? 'alert-success' : '')]">
                 <span v-if="successful" class="label label-sucess">Published!</span>
             </div>
@@ -23,7 +24,14 @@
             </div>
 
             <div class="form-group">
-                <input type="title" ref="title" class="form-control" id="title" placeholder="Enter title" required>
+                <input
+                    type="title"
+                    ref="title"
+                    class="form-control"
+                    id="title"
+                    placeholder="Enter title"
+                    required
+                >
             </div>
 
             <div class="form-group">
