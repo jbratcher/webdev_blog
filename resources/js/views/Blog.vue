@@ -10,12 +10,14 @@
                 <p class="lead">Read about my latest development experiences.</p>
             </div>
         </div>
-        <ul class="navbar-nav">
-             <li class="nav-item">
-                <router-link class="nav-link" :to="{ name: 'create' }">New Post</router-link>
-            </li>
-        </ul>
-
+        <div class="container">
+            <ul class="navbar-nav">
+                <li class="nav-item menu-item">
+                    <i class="fas fa-plus-circle fa-2x"></i>
+                    <router-link class="nav-link menu-link" :to="{ name: 'create' }">New Post</router-link>
+                </li>
+            </ul>
+        </div>
 
         <section id="posts">
 

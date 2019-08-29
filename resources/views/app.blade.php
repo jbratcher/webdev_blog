@@ -12,6 +12,9 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Lalezar|Source+Sans+Pro&display=swap" rel="stylesheet">
 
+        <!-- Icons -->
+        <script src="https://kit.fontawesome.com/42714493db.js"></script>
+
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 

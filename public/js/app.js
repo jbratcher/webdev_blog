@@ -1929,6 +1929,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.getPosts();
@@ -37615,19 +37617,26 @@ var render = function() {
       _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
-      _c("ul", { staticClass: "navbar-nav" }, [
-        _c(
-          "li",
-          { staticClass: "nav-item" },
-          [
-            _c(
-              "router-link",
-              { staticClass: "nav-link", attrs: { to: { name: "create" } } },
-              [_vm._v("New Post")]
-            )
-          ],
-          1
-        )
+      _c("div", { staticClass: "container" }, [
+        _c("ul", { staticClass: "navbar-nav" }, [
+          _c(
+            "li",
+            { staticClass: "nav-item menu-item" },
+            [
+              _c("i", { staticClass: "fas fa-plus-circle fa-2x" }),
+              _vm._v(" "),
+              _c(
+                "router-link",
+                {
+                  staticClass: "nav-link menu-link",
+                  attrs: { to: { name: "create" } }
+                },
+                [_vm._v("New Post")]
+              )
+            ],
+            1
+          )
+        ])
       ]),
       _vm._v(" "),
       _c(
