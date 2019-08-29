@@ -55,7 +55,7 @@ class PostController extends Controller
             $post->image = $name;
         }
 
-        // $post->user_id = $request->user_id;
+        $post->user_id = $request->user_id;
         $post->title = $request->title;
         $post->body = $request->body;
         $post->save();

@@ -10,7 +10,8 @@
                 <p class="lead">Read about my latest development experiences.</p>
             </div>
         </div>
-        <div class="container">
+
+        <div class="container" v-if="userId">
             <ul class="navbar-nav">
                 <li class="nav-item menu-item">
                     <i class="fas fa-plus-circle fa-2x"></i>
@@ -65,6 +66,14 @@
             deletePost(id) {
                 axios.delete("/api/posts/" + id).then(response => this.getPosts())
             },
+        },
+         props: {
+            userId: {
+                type: Number
+            },
+            userName: {
+                type: String
+            }
         }
     };
 </script>

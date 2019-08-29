@@ -23,7 +23,12 @@
 
         <div id="app">
 
-            <app></app>
+            <app
+                @if(auth()->user())
+                    :user-name='@json(auth()->user()->name)'
+                    :user-id='@json(auth()->user()->id)'
+                @endif
+            ></app>
 
         </div>
 

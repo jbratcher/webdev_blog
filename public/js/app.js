@@ -1877,7 +1877,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    userId: {
+      type: Number
+    },
+    userName: {
+      type: String
+    }
+  }
+});
 
 /***/ }),
 
@@ -1890,6 +1902,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -1960,6 +1973,14 @@ __webpack_require__.r(__webpack_exports__);
       axios["delete"]("/api/posts/" + id).then(function (response) {
         return _this2.getPosts();
       });
+    }
+  },
+  props: {
+    userId: {
+      type: Number
+    },
+    userName: {
+      type: String
     }
   }
 });
@@ -2060,6 +2081,7 @@ __webpack_require__.r(__webpack_exports__);
       var formData = new FormData();
       formData.append("title", this.$refs.title.value);
       formData.append("body", this.$refs.body.value);
+      formData.append("user_id", this.userId);
       formData.append("image", this.$refs.image.files[0]);
       axios.post("/api/posts", formData).then(function (response) {
         _this.successful = true;
@@ -2076,6 +2098,14 @@ __webpack_require__.r(__webpack_exports__);
       });
       this.$refs.title.value = "";
       this.$refs.body.value = "";
+    }
+  },
+  props: {
+    userId: {
+      type: Number
+    },
+    userName: {
+      type: String
     }
   }
 });
@@ -37586,7 +37616,15 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", [_c("router-view")], 1)
+  return _c(
+    "section",
+    [
+      _c("router-view", {
+        attrs: { userId: _vm.userId, userName: _vm.userName }
+      })
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -37617,27 +37655,29 @@ var render = function() {
       _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
-      _c("div", { staticClass: "container" }, [
-        _c("ul", { staticClass: "navbar-nav" }, [
-          _c(
-            "li",
-            { staticClass: "nav-item menu-item" },
-            [
-              _c("i", { staticClass: "fas fa-plus-circle fa-2x" }),
-              _vm._v(" "),
+      _vm.userId
+        ? _c("div", { staticClass: "container" }, [
+            _c("ul", { staticClass: "navbar-nav" }, [
               _c(
-                "router-link",
-                {
-                  staticClass: "nav-link menu-link",
-                  attrs: { to: { name: "create" } }
-                },
-                [_vm._v("New Post")]
+                "li",
+                { staticClass: "nav-item menu-item" },
+                [
+                  _c("i", { staticClass: "fas fa-plus-circle fa-2x" }),
+                  _vm._v(" "),
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "nav-link menu-link",
+                      attrs: { to: { name: "create" } }
+                    },
+                    [_vm._v("New Post")]
+                  )
+                ],
+                1
               )
-            ],
-            1
-          )
-        ])
-      ]),
+            ])
+          ])
+        : _vm._e(),
       _vm._v(" "),
       _c(
         "section",

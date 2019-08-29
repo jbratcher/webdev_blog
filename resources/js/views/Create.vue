@@ -83,6 +83,7 @@
                 const formData = new FormData();
                 formData.append("title", this.$refs.title.value);
                 formData.append("body", this.$refs.body.value);
+                formData.append("user_id", this.userId);
                 formData.append("image", this.$refs.image.files[0]);
 
                 axios
@@ -104,6 +105,14 @@
 
                 this.$refs.title.value = "";
                 this.$refs.body.value = "";
+            }
+        },
+        props: {
+            userId: {
+                type: Number
+            },
+            userName: {
+                type: String
             }
         },
     };
