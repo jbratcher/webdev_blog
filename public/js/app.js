@@ -2287,6 +2287,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.getPosts();
@@ -37905,7 +37909,7 @@ var render = function() {
       { staticClass: "navbar navbar-expand-lg navbar-light bg-light" },
       [
         _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
-          _vm._v("Jeremy Bratcher")
+          _vm._v("JB")
         ]),
         _vm._v(" "),
         _vm._m(0),
@@ -38044,8 +38048,8 @@ var render = function() {
       _c("main", [
         _vm._m(0),
         _vm._v(" "),
-        _c("section", { staticClass: "container" }, [
-          _c("h1", { staticClass: "display-" }, [_vm._v("Blog")]),
+        _c("section", { staticClass: "container blog-intro" }, [
+          _c("h1", [_vm._v("Blog")]),
           _vm._v(" "),
           _c("p", [_vm._v("Latest posts")]),
           _vm._v(" "),
@@ -38079,7 +38083,7 @@ var render = function() {
                           staticClass: "btn btn-primary",
                           attrs: { href: "#" }
                         },
-                        [_vm._v("Go somewhere")]
+                        [_vm._v("Read More")]
                       )
                     ])
                   ])
@@ -38125,8 +38129,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "container" }, [
-      _c("h1", { staticClass: "display-" }, [_vm._v("Projects")]),
+    return _c("section", { staticClass: "container project-intro" }, [
+      _c("h1", [_vm._v("Projects")]),
       _vm._v(" "),
       _c("p", [_vm._v("Some of my best work")]),
       _vm._v(" "),
@@ -38154,7 +38158,7 @@ var staticRenderFns = [
                 _c(
                   "a",
                   { staticClass: "btn btn-primary", attrs: { href: "#" } },
-                  [_vm._v("Go somewhere")]
+                  [_vm._v("Read More")]
                 )
               ])
             ])
@@ -38184,7 +38188,7 @@ var staticRenderFns = [
                 _c(
                   "a",
                   { staticClass: "btn btn-primary", attrs: { href: "#" } },
-                  [_vm._v("Go somewhere")]
+                  [_vm._v("Read More")]
                 )
               ])
             ])
@@ -38214,7 +38218,7 @@ var staticRenderFns = [
                 _c(
                   "a",
                   { staticClass: "btn btn-primary", attrs: { href: "#" } },
-                  [_vm._v("Go somewhere")]
+                  [_vm._v("Read More")]
                 )
               ])
             ])
@@ -38244,7 +38248,7 @@ var staticRenderFns = [
                 _c(
                   "a",
                   { staticClass: "btn btn-primary", attrs: { href: "#" } },
-                  [_vm._v("Go somewhere")]
+                  [_vm._v("Read More")]
                 )
               ])
             ])
@@ -38257,8 +38261,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "container" }, [
-      _c("h1", { staticClass: "display-4" }, [_vm._v("About Me")]),
+    return _c("section", { staticClass: "container about-intro" }, [
+      _c("h1", [_vm._v("About Me")]),
       _vm._v(" "),
       _c("p", [
         _vm._v(

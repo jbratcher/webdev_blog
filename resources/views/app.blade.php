@@ -10,7 +10,7 @@
         <title>Jeremy Bratcher, Web Developer</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Lalezar|Source+Sans+Pro&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
         <!-- Icons -->
         <script src="https://kit.fontawesome.com/42714493db.js"></script>

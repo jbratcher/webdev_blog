@@ -12,9 +12,9 @@
                 </div>
             </div>
 
-            <section class="container">
+            <section class="container blog-intro">
 
-                <h1 class="display-">Blog</h1>
+                <h1>Blog</h1>
                 <p>Latest posts</p>
 
                 <ul class="posts-list">
@@ -26,7 +26,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">{{post.title}}</h5>
                                     <p class="card-text">{{post.body.substring(0,144)+"..."}}</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <a href="#" class="btn btn-primary">Read More</a>
                                 </div>
                             </section>
                         </a>
@@ -36,9 +36,11 @@
 
             </section>
 
-            <section class="container">
-                <h1 class="display-">Projects</h1>
+            <section class="container project-intro">
+
+                <h1>Projects</h1>
                 <p>Some of my best work</p>
+
                 <ul class="posts-list">
                     <li>
                         <a href="#">
@@ -47,7 +49,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Card title</h5>
                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <a href="#" class="btn btn-primary">Read More</a>
                                 </div>
                             </section>
                         </a>
@@ -59,7 +61,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Card title</h5>
                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <a href="#" class="btn btn-primary">Read More</a>
                                 </div>
                             </section>
                         </a>
@@ -71,7 +73,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Card title</h5>
                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <a href="#" class="btn btn-primary">Read More</a>
                                 </div>
                             </section>
                         </a>
@@ -83,7 +85,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Card title</h5>
                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <a href="#" class="btn btn-primary">Read More</a>
                                 </div>
                             </section>
                         </a>
@@ -91,9 +93,11 @@
                 </ul>
             </section>
 
-            <section class="container">
-                <h1 class="display-4">About Me</h1>
+            <section class="container about-intro">
+
+                <h1>About Me</h1>
                 <p>Tech enthusiast with a strong eye for visual design and a knack for problem solving. Interested in UI/UX and SPA/PWAs.</p>
+
             </section>
 
         </main>

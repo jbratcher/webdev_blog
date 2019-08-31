@@ -11,18 +11,63 @@
 }
 
 html, body, header, main {
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Roboto', sans-serif;
     min-width: 100vw;
     overflow-x: hidden;
 }
 
+.navbar-light .navbar-brand {
+    color: #000;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
 
 a.navbar-brand {
-    font-family: 'Lalezar', cursive;
+    background: rgba(244, 67, 54, 1);
+    background: linear-gradient(to top right, rgb(244, 67, 54), rgb(236, 51, 55));
+    padding: 1.25rem 0.25rem 0 1.25rem;
+}
+
+.navbar-light .navbar-toggler {
+    border: none;
+
+    .navbar-toggler-icon {
+        font-size: 1.5rem;
+    }
+
+}
+
+.jumbotron-fluid {
+    margin: 1rem 0 5rem;
+}
+
+.container {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.blog-intro, .project-intro, .about-intro {
+
+    h1 {
+        font-size: 2rem;
+        font-weight: 900;
+        margin: 1rem 0;
+    }
+
+    p {
+        font-size: 1.33rem;
+    }
+
 }
 
 .posts-list {
     list-style: none;
+    margin: 4rem 0;
+
+    li {
+        margin: 1rem 0;
+    }
+
 }
 
 .post-card {
@@ -36,11 +81,11 @@ a.navbar-brand {
 
 .background-image {
     background: rgba(236, 51, 55);
-    background: linear-gradient(to top right, rgb(	244, 67, 54), rgb(236, 51, 55));
-    background: bottom center url('../resources/images/profile.jpg') no-repeat,
-                linear-gradient(to top right, rgba(	244, 67, 54, 0.7), rgba(236, 51, 55, 0.7));
-    background-blend-mode: multiply;
-    background-size: cover;
+    background: linear-gradient(to top right, rgb(244, 67, 54), rgb(236, 51, 55));
+    // background: linear-gradient(to top right, rgba(	244, 67, 54, 0.7), rgba(236, 51, 55, 0.7));
+    // background-blend-mode: multiply;
+    // background-size: cover;
+    // bottom center url('../resources/images/profile.jpg') no-repeat
 
     div {
         color: white;
@@ -94,6 +139,10 @@ a.navbar-brand {
         grid-template-columns: 1fr 1fr;
         grid-gap: 1rem;
         justify-items: center;
+
+        li {
+            min-width: 100%;
+        }
     }
 
     .background-image {
