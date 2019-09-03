@@ -55,14 +55,14 @@ a.navbar-brand {
     }
 
     p {
-        font-size: 1.33rem;
+        color: #000;
     }
 
 }
 
 .posts-list {
     list-style: none;
-    margin: 4rem 0;
+    margin: 1rem 0 5rem 0;
 
     li {
         margin: 1rem 0;
@@ -86,16 +86,15 @@ a.navbar-brand {
     // background-blend-mode: multiply;
     // background-size: cover;
     // bottom center url('../resources/images/profile.jpg') no-repeat
+    color: #fff;
+    margin-top: 1rem;
+    padding: 1rem;
 
-    div {
-        color: white;
 
-        h1 {
-            font-weight: bold;
-            text-shadow: 0px 5px 10px #af2424;
-            width: 50%;
-        }
-
+    h1 {
+        font-weight: bold;
+        text-shadow: 0px 5px 10px #af2424;
+        width: 50%;
     }
 
 }
@@ -111,6 +110,9 @@ a.navbar-brand {
     }
 
 }
+
+// Blog page
+
 
 @media only screen and (min-width: 768px) {
 
@@ -150,4 +152,18 @@ a.navbar-brand {
     }
 }
 
+// Blog page
 
+ul#posts {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    li {
+        list-style-type: none;
+        width: inherit;
+        max-width: 80vw;
+    }
+
+}

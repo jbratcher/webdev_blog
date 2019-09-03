@@ -20,21 +20,22 @@
             </ul>
         </div>
 
-        <section id="posts">
+        <ul class="container" id="posts">
 
-            <section class="card post-card" v-for="post in posts" :key="post.id">
+            <li class="post-card" v-for="post in posts" :key="post.id">
+                <a href="#">
+                    <section class="card">
+                        <img class="card-img-top" src="https://via.placeholder.com/350x150" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{post.title}}</h5>
+                            <p class="card-text">{{post.body.substring(0,144)+"..."}}</p>
+                            <a href="#" class="btn btn-primary">Read More</a>
+                        </div>
+                    </section>
+                </a>
+            </li>
 
-                <section class="card-header">
-                    <h3 class="card-title">{{ post.title }}</h3>
-                </section>
-
-                <section class="card-body">
-                    <p class="card-text">{{ post.body }}</p>
-                </section>
-
-            </section>
-
-        </section>
+        </ul>
 
     </section>
 

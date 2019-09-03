@@ -5,12 +5,10 @@
 
         <main>
 
-            <div class="jumbotron jumbotron-fluid background-image">
-                <div class="container">
-                    <h1 class="display-4">Full Stack Web Dev</h1>
+                <div class="container-fluid background-image">
+                    <h1>Full Stack Web Dev</h1>
                     <p class="lead">Creating software, creating change.</p>
                 </div>
-            </div>
 
             <section class="container blog-intro">
 

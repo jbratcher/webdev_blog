@@ -1944,6 +1944,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.getPosts();
@@ -2164,8 +2165,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
 //
 //
 //
@@ -37684,26 +37683,38 @@ var render = function() {
         : _vm._e(),
       _vm._v(" "),
       _c(
-        "section",
-        { attrs: { id: "posts" } },
+        "ul",
+        { staticClass: "container", attrs: { id: "posts" } },
         _vm._l(_vm.posts, function(post) {
-          return _c(
-            "section",
-            { key: post.id, staticClass: "card post-card" },
-            [
-              _c("section", { staticClass: "card-header" }, [
-                _c("h3", { staticClass: "card-title" }, [
-                  _vm._v(_vm._s(post.title))
-                ])
-              ]),
-              _vm._v(" "),
-              _c("section", { staticClass: "card-body" }, [
-                _c("p", { staticClass: "card-text" }, [
-                  _vm._v(_vm._s(post.body))
+          return _c("li", { key: post.id, staticClass: "post-card" }, [
+            _c("a", { attrs: { href: "#" } }, [
+              _c("section", { staticClass: "card" }, [
+                _c("img", {
+                  staticClass: "card-img-top",
+                  attrs: {
+                    src: "https://via.placeholder.com/350x150",
+                    alt: "Card image cap"
+                  }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-body" }, [
+                  _c("h5", { staticClass: "card-title" }, [
+                    _vm._v(_vm._s(post.title))
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "card-text" }, [
+                    _vm._v(_vm._s(post.body.substring(0, 144) + "..."))
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    { staticClass: "btn btn-primary", attrs: { href: "#" } },
+                    [_vm._v("Read More")]
+                  )
                 ])
               ])
-            ]
-          )
+            ])
+          ])
         }),
         0
       )
@@ -38109,21 +38120,13 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "jumbotron jumbotron-fluid background-image" },
-      [
-        _c("div", { staticClass: "container" }, [
-          _c("h1", { staticClass: "display-4" }, [
-            _vm._v("Full Stack Web Dev")
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "lead" }, [
-            _vm._v("Creating software, creating change.")
-          ])
-        ])
-      ]
-    )
+    return _c("div", { staticClass: "container-fluid background-image" }, [
+      _c("h1", [_vm._v("Full Stack Web Dev")]),
+      _vm._v(" "),
+      _c("p", { staticClass: "lead" }, [
+        _vm._v("Creating software, creating change.")
+      ])
+    ])
   },
   function() {
     var _vm = this

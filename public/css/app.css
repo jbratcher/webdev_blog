@@ -10701,12 +10701,12 @@ a.navbar-brand {
 .blog-intro p,
 .project-intro p,
 .about-intro p {
-  font-size: 1.33rem;
+  color: #000;
 }
 
 .posts-list {
   list-style: none;
-  margin: 4rem 0;
+  margin: 1rem 0 5rem 0;
 }
 
 .posts-list li {
@@ -10725,13 +10725,12 @@ a.navbar-brand {
 .background-image {
   background: #ec3337;
   background: linear-gradient(to top right, #f44336, #ec3337);
+  color: #fff;
+  margin-top: 1rem;
+  padding: 1rem;
 }
 
-.background-image div {
-  color: white;
-}
-
-.background-image div h1 {
+.background-image h1 {
   font-weight: bold;
   text-shadow: 0px 5px 10px #af2424;
   width: 50%;
@@ -10781,5 +10780,17 @@ a.navbar-brand {
   .background-image {
     background: linear-gradient(to top left, rgba(244, 67, 54, 0.7), #ec3337);
   }
+}
+
+ul#posts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+ul#posts li {
+  list-style-type: none;
+  width: inherit;
+  max-width: 80vw;
 }
 
