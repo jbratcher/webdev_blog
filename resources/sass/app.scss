@@ -150,17 +150,11 @@ a.navbar-brand {
 // Blog page
 
 #posts {
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    li {
-        list-style-type: none;
-        width: inherit;
-        max-width: 80vw;
-    }
-
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2rem;
+    justify-items: center;
+    list-style-type: none;
 }
 
 // Portfolio page

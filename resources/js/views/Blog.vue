@@ -25,7 +25,7 @@
             <li class="post-card" v-for="post in posts" :key="post.id">
                 <a href="#">
                     <section class="card">
-                        <img class="card-img-top" src="https://via.placeholder.com/350x150" alt="Card image cap">
+                        <img class="card-img-top" :src="post.image_src" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">{{post.title}}</h5>
                             <p class="card-text">{{post.body.substring(0,144)+"..."}}</p>

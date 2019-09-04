@@ -37759,10 +37759,7 @@ var render = function() {
               _c("section", { staticClass: "card" }, [
                 _c("img", {
                   staticClass: "card-img-top",
-                  attrs: {
-                    src: "https://via.placeholder.com/350x150",
-                    alt: "Card image cap"
-                  }
+                  attrs: { src: post.image_src, alt: "Card image cap" }
                 }),
                 _vm._v(" "),
                 _c("div", { staticClass: "card-body" }, [
@@ -38145,10 +38142,7 @@ var render = function() {
                   _c("section", { staticClass: "card" }, [
                     _c("img", {
                       staticClass: "card-img-top",
-                      attrs: {
-                        src: "https://via.placeholder.com/350x150",
-                        alt: "Card image cap"
-                      }
+                      attrs: { src: post.image_src, alt: post.title }
                     }),
                     _vm._v(" "),
                     _c("div", { staticClass: "card-body" }, [
@@ -38196,7 +38190,7 @@ var render = function() {
                         staticClass: "card-img-top",
                         attrs: {
                           src: portfolioitem.image_src,
-                          alt: "Card image cap"
+                          alt: portfolioitem.title
                         }
                       }),
                       _vm._v(" "),

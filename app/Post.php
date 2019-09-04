@@ -9,7 +9,7 @@ class Post extends Model
     /**
      * Fillable props
      */
-    protected $fillable = ['title', 'body', 'image'];
+    protected $fillable = ['title', 'body', 'image_src'];
 
     /**
      * post - user relationship
