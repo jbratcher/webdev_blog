@@ -46,7 +46,7 @@ a.navbar-brand {
     margin-bottom: 2rem;
 }
 
-.blog-intro, .project-intro, .about-intro, #posts {
+.blog-intro, .project-intro, .about-intro, #posts, #portfolio-items {
 
     h1 {
         font-size: 2rem;
@@ -59,6 +59,8 @@ a.navbar-brand {
     }
 
 }
+
+// home page blog section
 
 .posts-list {
     list-style: none;
@@ -159,4 +161,14 @@ a.navbar-brand {
         max-width: 80vw;
     }
 
+}
+
+// Portfolio page
+
+#portfolio-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2rem;
+    justify-items: center;
+    list-style-type: none;
 }

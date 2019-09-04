@@ -40,54 +40,21 @@
                 <p>Some of my best work</p>
 
                 <ul class="posts-list">
-                    <li>
+
+                    <li class="portfolio-items-card" v-for="portfolioitem in portfolioitems" :key="portfolioitem.id">
                         <a href="#">
                             <section class="card">
-                                <img class="card-img-top" src="https://via.placeholder.com/350x150" alt="Card image cap">
+                                <img class="card-img-top" :src="portfolioitem.image_src" alt="Card image cap">
                                 <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Read More</a>
+                                    <h5 class="card-title">{{portfolioitem.title}}</h5>
+                                    <p class="card-text">{{portfolioitem.body.substring(0,144)+"..."}}</p>
+                                    <a :href="portfolioitem.demo_url" class="btn btn-primary">Demo</a>
+                                    <a :href="portfolioitem.repo_url" class="btn btn-primary">Github Repo</a>
                                 </div>
                             </section>
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
-                            <section class="card">
-                                <img class="card-img-top" src="https://via.placeholder.com/350x150" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Read More</a>
-                                </div>
-                            </section>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <section class="card">
-                                <img class="card-img-top" src="https://via.placeholder.com/350x150" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Read More</a>
-                                </div>
-                            </section>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <section class="card">
-                                <img class="card-img-top" src="https://via.placeholder.com/350x150" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Read More</a>
-                                </div>
-                            </section>
-                        </a>
-                    </li>
+
                 </ul>
             </section>
 
@@ -127,11 +94,13 @@
     export default {
         mounted() {
             this.getPosts();
+            this.getPortfolioItems();
             console.log("Home vue mounted");
         },
         data() {
             return {
                 posts: {},
+                portfolioitems: {},
             };
         },
         methods: {
@@ -148,6 +117,20 @@
             },
             deletePost(id) {
                 axios.delete("/posts/" + id).then(response => this.getPosts())
+            },
+            getPortfolioItems() {
+                axios.get("/api/portfolioitems").then(response => {
+                    console.log(`Response: ${response.data}`);
+                    this.portfolioitems = response.data;
+                })
+                .catch(error => {
+                    this.loading = false;
+                    this.error = error.response.data.message || error.message;
+                });
+                console.log("Portfolio object: " + this.portfolioitems);
+            },
+            deletePost(id) {
+                axios.delete("/api/portfolioitems/" + id).then(response => this.getPortfolioItems())
             },
         }
     };

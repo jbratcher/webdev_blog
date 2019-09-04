@@ -2165,39 +2165,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -2293,14 +2262,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.getPosts();
+    this.getPortfolioItems();
     console.log("Home vue mounted");
   },
   data: function data() {
     return {
-      posts: {}
+      posts: {},
+      portfolioitems: {}
     };
   },
-  methods: {
+  methods: _defineProperty({
     getPosts: function getPosts() {
       var _this = this;
 
@@ -2319,8 +2290,26 @@ __webpack_require__.r(__webpack_exports__);
       axios["delete"]("/posts/" + id).then(function (response) {
         return _this2.getPosts();
       });
+    },
+    getPortfolioItems: function getPortfolioItems() {
+      var _this3 = this;
+
+      axios.get("/api/portfolioitems").then(function (response) {
+        console.log("Response: ".concat(response.data));
+        _this3.portfolioitems = response.data;
+      })["catch"](function (error) {
+        _this3.loading = false;
+        _this3.error = error.response.data.message || error.message;
+      });
+      console.log("Portfolio object: " + this.portfolioitems);
     }
-  }
+  }, "deletePost", function deletePost(id) {
+    var _this4 = this;
+
+    axios["delete"]("/api/portfolioitems/" + id).then(function (response) {
+      return _this4.getPortfolioItems();
+    });
+  })
 });
 
 /***/ }),
@@ -2369,52 +2358,35 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
-    this.getPosts();
-    console.log("Blog vue mounted");
+    this.getPortfolioItems();
+    console.log("Portfolio mounted");
   },
   data: function data() {
     return {
-      posts: {}
+      portfolioitems: {}
     };
   },
   methods: {
-    getPosts: function getPosts() {
+    getPortfolioItems: function getPortfolioItems() {
       var _this = this;
 
-      axios.get("/api/posts").then(function (response) {
+      axios.get("/api/portfolioitems").then(function (response) {
         console.log("Response: ".concat(response.data));
-        _this.posts = response.data;
+        _this.portfolioitems = response.data;
       })["catch"](function (error) {
         _this.loading = false;
         _this.error = error.response.data.message || error.message;
       });
-      console.log("Posts object: " + this.posts);
+      console.log("Portfolio object: " + this.portfolioitems);
     },
     deletePost: function deletePost(id) {
       var _this2 = this;
 
-      axios["delete"]("/api/posts/" + id).then(function (response) {
-        return _this2.getPosts();
+      axios["delete"]("/api/portfolioitems/" + id).then(function (response) {
+        return _this2.getPortfolioItems();
       });
-    }
-  },
-  props: {
-    userId: {
-      type: Number
-    },
-    userName: {
-      type: String
     }
   }
 });
@@ -38205,12 +38177,71 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _vm._m(1),
+        _c("section", { staticClass: "container project-intro" }, [
+          _c("h1", [_vm._v("Projects")]),
+          _vm._v(" "),
+          _c("p", [_vm._v("Some of my best work")]),
+          _vm._v(" "),
+          _c(
+            "ul",
+            { staticClass: "posts-list" },
+            _vm._l(_vm.portfolioitems, function(portfolioitem) {
+              return _c(
+                "li",
+                { key: portfolioitem.id, staticClass: "portfolio-items-card" },
+                [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("section", { staticClass: "card" }, [
+                      _c("img", {
+                        staticClass: "card-img-top",
+                        attrs: {
+                          src: portfolioitem.image_src,
+                          alt: "Card image cap"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "card-body" }, [
+                        _c("h5", { staticClass: "card-title" }, [
+                          _vm._v(_vm._s(portfolioitem.title))
+                        ]),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "card-text" }, [
+                          _vm._v(
+                            _vm._s(portfolioitem.body.substring(0, 144) + "...")
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "btn btn-primary",
+                            attrs: { href: portfolioitem.demo_url }
+                          },
+                          [_vm._v("Demo")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "btn btn-primary",
+                            attrs: { href: portfolioitem.repo_url }
+                          },
+                          [_vm._v("Github Repo")]
+                        )
+                      ])
+                    ])
+                  ])
+                ]
+              )
+            }),
+            0
+          )
+        ]),
         _vm._v(" "),
-        _vm._m(2)
+        _vm._m(1)
       ]),
       _vm._v(" "),
-      _vm._m(3)
+      _vm._m(2)
     ],
     1
   )
@@ -38225,138 +38256,6 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("p", { staticClass: "lead" }, [
         _vm._v("Creating software, creating change.")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "container project-intro" }, [
-      _c("h1", [_vm._v("Projects")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Some of my best work")]),
-      _vm._v(" "),
-      _c("ul", { staticClass: "posts-list" }, [
-        _c("li", [
-          _c("a", { attrs: { href: "#" } }, [
-            _c("section", { staticClass: "card" }, [
-              _c("img", {
-                staticClass: "card-img-top",
-                attrs: {
-                  src: "https://via.placeholder.com/350x150",
-                  alt: "Card image cap"
-                }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-body" }, [
-                _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
-                _vm._v(" "),
-                _c("p", { staticClass: "card-text" }, [
-                  _vm._v(
-                    "Some quick example text to build on the card title and make up the bulk of the card's content."
-                  )
-                ]),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  { staticClass: "btn btn-primary", attrs: { href: "#" } },
-                  [_vm._v("Read More")]
-                )
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "#" } }, [
-            _c("section", { staticClass: "card" }, [
-              _c("img", {
-                staticClass: "card-img-top",
-                attrs: {
-                  src: "https://via.placeholder.com/350x150",
-                  alt: "Card image cap"
-                }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-body" }, [
-                _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
-                _vm._v(" "),
-                _c("p", { staticClass: "card-text" }, [
-                  _vm._v(
-                    "Some quick example text to build on the card title and make up the bulk of the card's content."
-                  )
-                ]),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  { staticClass: "btn btn-primary", attrs: { href: "#" } },
-                  [_vm._v("Read More")]
-                )
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "#" } }, [
-            _c("section", { staticClass: "card" }, [
-              _c("img", {
-                staticClass: "card-img-top",
-                attrs: {
-                  src: "https://via.placeholder.com/350x150",
-                  alt: "Card image cap"
-                }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-body" }, [
-                _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
-                _vm._v(" "),
-                _c("p", { staticClass: "card-text" }, [
-                  _vm._v(
-                    "Some quick example text to build on the card title and make up the bulk of the card's content."
-                  )
-                ]),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  { staticClass: "btn btn-primary", attrs: { href: "#" } },
-                  [_vm._v("Read More")]
-                )
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "#" } }, [
-            _c("section", { staticClass: "card" }, [
-              _c("img", {
-                staticClass: "card-img-top",
-                attrs: {
-                  src: "https://via.placeholder.com/350x150",
-                  alt: "Card image cap"
-                }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-body" }, [
-                _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
-                _vm._v(" "),
-                _c("p", { staticClass: "card-text" }, [
-                  _vm._v(
-                    "Some quick example text to build on the card title and make up the bulk of the card's content."
-                  )
-                ]),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  { staticClass: "btn btn-primary", attrs: { href: "#" } },
-                  [_vm._v("Read More")]
-                )
-              ])
-            ])
-          ])
-        ])
       ])
     ])
   },
@@ -38444,31 +38343,60 @@ var render = function() {
       _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
-      _vm.userId
-        ? _c("div", { staticClass: "container" }, [
-            _c("ul", { staticClass: "navbar-nav" }, [
-              _c(
-                "li",
-                { staticClass: "nav-item menu-item" },
-                [
-                  _c("i", { staticClass: "fas fa-plus-circle fa-2x" }),
+      _c(
+        "ul",
+        { staticClass: "container", attrs: { id: "portfolio-items" } },
+        _vm._l(_vm.portfolioitems, function(portfolioitem) {
+          return _c(
+            "li",
+            { key: portfolioitem.id, staticClass: "portfolio-items-card" },
+            [
+              _c("a", { attrs: { href: "#" } }, [
+                _c("section", { staticClass: "card" }, [
+                  _c("img", {
+                    staticClass: "card-img-top",
+                    attrs: {
+                      src: portfolioitem.image_src,
+                      alt: "Card image cap"
+                    }
+                  }),
                   _vm._v(" "),
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "nav-link menu-link",
-                      attrs: { to: { name: "create" } }
-                    },
-                    [_vm._v("New Post")]
-                  )
-                ],
-                1
-              )
-            ])
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _vm._m(1)
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("h5", { staticClass: "card-title" }, [
+                      _vm._v(_vm._s(portfolioitem.title))
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "card-text" }, [
+                      _vm._v(
+                        _vm._s(portfolioitem.body.substring(0, 144) + "...")
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "btn btn-primary",
+                        attrs: { href: portfolioitem.demo_url }
+                      },
+                      [_vm._v("Demo")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "btn btn-primary",
+                        attrs: { href: portfolioitem.repo_url }
+                      },
+                      [_vm._v("Github Repo")]
+                    )
+                  ])
+                ])
+              ])
+            ]
+          )
+        }),
+        0
+      )
     ],
     1
   )
@@ -38491,52 +38419,6 @@ var staticRenderFns = [
         ])
       ]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("ul", { staticClass: "container", attrs: { id: "posts" } }, [
-      _c("li", { staticClass: "post-card" }, [
-        _c("a", { attrs: { href: "#" } }, [
-          _c("section", { staticClass: "card" }, [
-            _c("img", {
-              staticClass: "card-img-top",
-              attrs: {
-                src: __webpack_require__(/*! ../../images/VoteInfoScreenshot.png */ "./resources/images/VoteInfoScreenshot.png"),
-                alt: "Card image cap"
-              }
-            }),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _c("h5", { staticClass: "card-title" }, [_vm._v("VoteInfo")]),
-              _vm._v(" "),
-              _c("p", { staticClass: "card-text" }, [
-                _vm._v("https://github.com/jbratcher/VoteInfo")
-              ]),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "btn btn-primary",
-                  attrs: { href: "https://jbratcher.github.io/VoteInfo/" }
-                },
-                [_vm._v("Demo")]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "btn btn-primary",
-                  attrs: { href: "https://github.com/jbratcher/VoteInfo" }
-                },
-                [_vm._v("Github Repo")]
-              )
-            ])
-          ])
-        ])
-      ])
-    ])
   }
 ]
 render._withStripped = true
@@ -53529,17 +53411,6 @@ module.exports = function(module) {
 	return module;
 };
 
-
-/***/ }),
-
-/***/ "./resources/images/VoteInfoScreenshot.png":
-/*!*************************************************!*\
-  !*** ./resources/images/VoteInfoScreenshot.png ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/VoteInfoScreenshot.png?b7221e78e88a7d40e3a03d8cc6fe8690";
 
 /***/ }),
 

@@ -11,26 +11,17 @@
             </div>
         </div>
 
-        <div class="container" v-if="userId">
-            <ul class="navbar-nav">
-                <li class="nav-item menu-item">
-                    <i class="fas fa-plus-circle fa-2x"></i>
-                    <router-link class="nav-link menu-link" :to="{ name: 'create' }">New Post</router-link>
-                </li>
-            </ul>
-        </div>
+        <ul class="container" id="portfolio-items">
 
-        <ul class="container" id="posts">
-
-            <li class="post-card">
+            <li class="portfolio-items-card" v-for="portfolioitem in portfolioitems" :key="portfolioitem.id">
                 <a href="#">
                     <section class="card">
-                        <img class="card-img-top" src="../../images/VoteInfoScreenshot.png" alt="Card image cap">
+                        <img class="card-img-top" :src="portfolioitem.image_src" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title">VoteInfo</h5>
-                            <p class="card-text">https://github.com/jbratcher/VoteInfo</p>
-                            <a href="https://jbratcher.github.io/VoteInfo/" class="btn btn-primary">Demo</a>
-                            <a href="https://github.com/jbratcher/VoteInfo" class="btn btn-primary">Github Repo</a>
+                            <h5 class="card-title">{{portfolioitem.title}}</h5>
+                            <p class="card-text">{{portfolioitem.body.substring(0,144)+"..."}}</p>
+                            <a :href="portfolioitem.demo_url" class="btn btn-primary">Demo</a>
+                            <a :href="portfolioitem.repo_url" class="btn btn-primary">Github Repo</a>
                         </div>
                     </section>
                 </a>
@@ -45,37 +36,29 @@
 <script>
     export default {
         mounted() {
-            this.getPosts();
-            console.log("Blog vue mounted");
+            this.getPortfolioItems();
+            console.log("Portfolio mounted");
         },
         data() {
             return {
-                posts: {},
+                portfolioitems: {},
             };
         },
         methods: {
-            getPosts() {
-                axios.get("/api/posts").then(response => {
+            getPortfolioItems() {
+                axios.get("/api/portfolioitems").then(response => {
                     console.log(`Response: ${response.data}`);
-                    this.posts = response.data;
+                    this.portfolioitems = response.data;
                 })
                 .catch(error => {
                     this.loading = false;
                     this.error = error.response.data.message || error.message;
                 });
-                console.log("Posts object: " + this.posts);
+                console.log("Portfolio object: " + this.portfolioitems);
             },
             deletePost(id) {
-                axios.delete("/api/posts/" + id).then(response => this.getPosts())
+                axios.delete("/api/portfolioitems/" + id).then(response => this.getPortfolioItems())
             },
         },
-         props: {
-            userId: {
-                type: Number
-            },
-            userName: {
-                type: String
-            }
-        }
     };
 </script>

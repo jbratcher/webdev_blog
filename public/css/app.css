@@ -10693,7 +10693,8 @@ a.navbar-brand {
 .blog-intro h1,
 .project-intro h1,
 .about-intro h1,
-#posts h1 {
+#posts h1,
+#portfolio-items h1 {
   font-size: 2rem;
   font-weight: 900;
   margin: 1rem 0;
@@ -10702,7 +10703,8 @@ a.navbar-brand {
 .blog-intro p,
 .project-intro p,
 .about-intro p,
-#posts p {
+#posts p,
+#portfolio-items p {
   color: #000;
 }
 
@@ -10794,5 +10796,13 @@ a.navbar-brand {
   list-style-type: none;
   width: inherit;
   max-width: 80vw;
+}
+
+#portfolio-items {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2rem;
+  justify-items: center;
+  list-style-type: none;
 }
 
