@@ -14,7 +14,7 @@
                         <router-link class="nav-link" :to="{ name: 'blog'}">Blog</router-link>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Portfolio</a>
+                        <router-link class="nav-link" :to="{ name: 'portfolio'}">Portfolio</router-link>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Tutorials</a>

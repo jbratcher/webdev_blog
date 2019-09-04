@@ -23,8 +23,8 @@ html, body, header, main {
 }
 
 a.navbar-brand {
-    background: rgba(244, 67, 54, 1);
-    background: linear-gradient(to top right, rgb(244, 67, 54), rgb(236, 51, 55));
+    background: rgba(236, 51, 55);
+    background: linear-gradient(to top left, rgba(	244, 67, 54, 0.7), rgba(236, 51, 55, 1));
     padding: 1.25rem 0.25rem 0 1.25rem;
 }
 
@@ -46,7 +46,7 @@ a.navbar-brand {
     margin-bottom: 2rem;
 }
 
-.blog-intro, .project-intro, .about-intro {
+.blog-intro, .project-intro, .about-intro, #posts {
 
     h1 {
         font-size: 2rem;
@@ -81,11 +81,7 @@ a.navbar-brand {
 
 .background-image {
     background: rgba(236, 51, 55);
-    background: linear-gradient(to top right, rgb(244, 67, 54), rgb(236, 51, 55));
-    // background: linear-gradient(to top right, rgba(	244, 67, 54, 0.7), rgba(236, 51, 55, 0.7));
-    // background-blend-mode: multiply;
-    // background-size: cover;
-    // bottom center url('../resources/images/profile.jpg') no-repeat
+    background: linear-gradient(to top left, rgba(	244, 67, 54, 0.7), rgba(236, 51, 55, 1));
     color: #fff;
     margin-top: 1rem;
     padding: 1rem;
@@ -110,9 +106,6 @@ a.navbar-brand {
     }
 
 }
-
-// Blog page
-
 
 @media only screen and (min-width: 768px) {
 
@@ -154,7 +147,7 @@ a.navbar-brand {
 
 // Blog page
 
-ul#posts {
+#posts {
 
     display: flex;
     flex-direction: column;

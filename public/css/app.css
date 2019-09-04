@@ -10668,8 +10668,8 @@ main {
 }
 
 a.navbar-brand {
-  background: #f44336;
-  background: linear-gradient(to top right, #f44336, #ec3337);
+  background: #ec3337;
+  background: linear-gradient(to top left, rgba(244, 67, 54, 0.7), #ec3337);
   padding: 1.25rem 0.25rem 0 1.25rem;
 }
 
@@ -10692,7 +10692,8 @@ a.navbar-brand {
 
 .blog-intro h1,
 .project-intro h1,
-.about-intro h1 {
+.about-intro h1,
+#posts h1 {
   font-size: 2rem;
   font-weight: 900;
   margin: 1rem 0;
@@ -10700,7 +10701,8 @@ a.navbar-brand {
 
 .blog-intro p,
 .project-intro p,
-.about-intro p {
+.about-intro p,
+#posts p {
   color: #000;
 }
 
@@ -10724,7 +10726,7 @@ a.navbar-brand {
 
 .background-image {
   background: #ec3337;
-  background: linear-gradient(to top right, #f44336, #ec3337);
+  background: linear-gradient(to top left, rgba(244, 67, 54, 0.7), #ec3337);
   color: #fff;
   margin-top: 1rem;
   padding: 1rem;
@@ -10782,13 +10784,13 @@ a.navbar-brand {
   }
 }
 
-ul#posts {
+#posts {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-ul#posts li {
+#posts li {
   list-style-type: none;
   width: inherit;
   max-width: 80vw;

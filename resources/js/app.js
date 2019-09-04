@@ -17,6 +17,7 @@ import App from './views/App';
 import Home from './views/Home';
 import Blog from "./views/Blog";
 import Create from "./views/Create";
+import Portfolio from "./views/Portfolio";
 
 Vue.component('global-header', require('./views/GloblaHeader').default);
 
@@ -37,6 +38,11 @@ const router = new VueRouter({
             path: "/blog/create",
             name: "create",
             component: Create
+        },
+        {
+            path: "/portfolio",
+            name: "portfolio",
+            component: Portfolio
         },
 
     ]
