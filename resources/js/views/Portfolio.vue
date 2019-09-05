@@ -5,10 +5,8 @@
         <global-header />
 
         <div class="jumbotron jumbotron-fluid background-image">
-            <div class="container">
-                <h1 class="display-4">Portfolio</h1>
-                <p class="lead">Here are my best and latest open-source projects.</p>
-            </div>
+            <h1 class="display-4">Portfolio</h1>
+            <p class="lead">Here are my best and latest open-source projects.</p>
         </div>
 
         <ul class="container" id="portfolio-items">

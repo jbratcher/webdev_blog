@@ -2356,8 +2356,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.getPortfolioItems();
@@ -38404,12 +38402,10 @@ var staticRenderFns = [
       "div",
       { staticClass: "jumbotron jumbotron-fluid background-image" },
       [
-        _c("div", { staticClass: "container" }, [
-          _c("h1", { staticClass: "display-4" }, [_vm._v("Portfolio")]),
-          _vm._v(" "),
-          _c("p", { staticClass: "lead" }, [
-            _vm._v("Here are my best and latest open-source projects.")
-          ])
+        _c("h1", { staticClass: "display-4" }, [_vm._v("Portfolio")]),
+        _vm._v(" "),
+        _c("p", { staticClass: "lead" }, [
+          _vm._v("Here are my best and latest open-source projects.")
         ])
       ]
     )

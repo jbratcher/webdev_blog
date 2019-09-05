@@ -29,5 +29,14 @@ class PortfolioItemsTableSeeder extends Seeder
         $portfolioitem->demo_url = "https://jbratcher.github.io/ShouldIRun/";
         $portfolioitem->repo_url = "https://github.com/jbratcher/ShouldIRun";
         $portfolioitem->save();
+
+        $portfolioitem = new PortfolioItem;
+        $portfolioitem->user_id = 1;
+        $portfolioitem->title = "OpenSRD Character Creator";
+        $portfolioitem->body = "Character creator for an openSRD-based roleplaying game. Puts together all the info you need to start playing now and not have to worry about calculations for bonuses.";
+        $portfolioitem->image_src = "../../images/OpenSRDCCScreenshot.png";
+        $portfolioitem->demo_url = "https://jbratcher.github.io/ShouldIRun/";
+        $portfolioitem->repo_url = "https://github.com/jbratcher/openSRD_character_creator";
+        $portfolioitem->save();
     }
 }

@@ -10662,23 +10662,31 @@ main {
 }
 
 .navbar-light .navbar-brand {
-  color: #000;
+  color: #fff;
   font-size: 1.5rem;
   font-weight: 700;
 }
 
 a.navbar-brand {
-  background: #ec3337;
-  background: linear-gradient(to top left, rgba(244, 67, 54, 0.7), #ec3337);
+  background: #00d2ff;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom right, #00d2ff, #3a7bd5);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   padding: 1.25rem 0.25rem 0 1.25rem;
 }
 
 .navbar-light .navbar-toggler {
   border: none;
+  color: #fff;
 }
 
 .navbar-light .navbar-toggler .navbar-toggler-icon {
   font-size: 1.5rem;
+}
+
+.jumbotron {
+  padding: 0;
 }
 
 .jumbotron-fluid {
@@ -10708,6 +10716,18 @@ a.navbar-brand {
   color: #000;
 }
 
+.blog-intro a,
+.project-intro a,
+.about-intro a,
+#posts a,
+#portfolio-items a {
+  text-decoration: none;
+}
+
+.card .card-body .card-title {
+  color: #01090C;
+}
+
 .posts-list {
   list-style: none;
   margin: 1rem 0 5rem 0;
@@ -10727,16 +10747,18 @@ a.navbar-brand {
 }
 
 .background-image {
-  background: #ec3337;
-  background: linear-gradient(to top left, rgba(244, 67, 54, 0.7), #ec3337);
+  background: #00d2ff;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom right, #3a7bd5, #00d2ff);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: #fff;
-  margin-top: 1rem;
-  padding: 1rem;
+  padding: 1.125rem;
 }
 
 .background-image h1 {
   font-weight: bold;
-  text-shadow: 0px 5px 10px #af2424;
+  text-shadow: 0px 5px 10px #022F40;
   width: 50%;
 }
 
@@ -10760,14 +10782,13 @@ a.navbar-brand {
     justify-content: flex-end;
   }
 
-  main .jumbotron-fluid {
-    padding-top: 0.5rem;
-    padding-bottom: 1rem;
-  }
-
   main .jumbotron-fluid h1,
   main .jumbotron-fluid p {
     margin: 0;
+  }
+
+  .background-image {
+    padding: 1rem 3rem;
   }
 
   .posts-list {
@@ -10779,10 +10800,6 @@ a.navbar-brand {
 
   .posts-list li {
     min-width: 100%;
-  }
-
-  .background-image {
-    background: linear-gradient(to top left, rgba(244, 67, 54, 0.7), #ec3337);
   }
 }
 
