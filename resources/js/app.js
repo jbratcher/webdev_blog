@@ -18,6 +18,7 @@ import Home from './views/Home';
 import Blog from "./views/Blog";
 import Create from "./views/Create";
 import Portfolio from "./views/Portfolio";
+import Contact from "./views/Contact";
 
 Vue.component('global-header', require('./views/GloblaHeader').default);
 
@@ -44,7 +45,11 @@ const router = new VueRouter({
             name: "portfolio",
             component: Portfolio
         },
-
+        {
+            path: "/contact",
+            name: "contact",
+            component: Contact
+        },
     ]
 })
 

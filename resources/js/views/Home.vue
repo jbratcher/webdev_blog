@@ -5,10 +5,10 @@
 
         <main>
 
-                <div class="container-fluid background-image">
-                    <h1>Full Stack Web Dev</h1>
-                    <p class="lead">Creating software, creating change.</p>
-                </div>
+            <div class="container-fluid background-image">
+                <h1>Full Stack Web Dev</h1>
+                <p class="lead">Creating software, creating change.</p>
+            </div>
 
             <section class="container blog-intro">
 
@@ -60,8 +60,15 @@
 
             <section class="container about-intro">
 
-                <h1>About Me</h1>
-                <p>Tech enthusiast with a strong eye for visual design and a knack for problem solving. Interested in UI/UX and SPA/PWAs.</p>
+                <router-link class="nav-link" :to="{ name: 'contact'}" v-for="user in users" :key="user.id">
+                    <section class="card">
+                        <img class="card-img-top" :src="user.profile_pic_src" :alt="user.name">
+                        <div class="card-body">
+                            <h5 class="card-title">About Me</h5>
+                            <p class="card-text">Tech enthusiast with a strong eye for visual design and a knack for problem solving. Interested in UI/UX and SPA/PWAs.</p>
+                        </div>
+                    </section>
+                </router-link>
 
             </section>
 
@@ -69,20 +76,6 @@
 
         <footer>
             <section class="container">
-                <ul class="nav flex-row">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Active</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                    </li>
-                </ul>
                 <p>Louisville, KY 2017 - 2019</p>
             </section>
         </footer>
@@ -95,42 +88,43 @@
         mounted() {
             this.getPosts();
             this.getPortfolioItems();
+            this.getUsers();
             console.log("Home vue mounted");
         },
         data() {
             return {
                 posts: {},
                 portfolioitems: {},
+                users: {},
             };
         },
         methods: {
             getPosts() {
                 axios.get("/api/posts").then(response => {
-                    console.log(`Response: ${response.data}`);
                     this.posts = response.data;
                 })
                 .catch(error => {
                     this.loading = false;
                     this.error = error.response.data.message || error.message;
                 });
-                console.log("Posts object: " + this.posts);
-            },
-            deletePost(id) {
-                axios.delete("/posts/" + id).then(response => this.getPosts())
             },
             getPortfolioItems() {
                 axios.get("/api/portfolioitems").then(response => {
-                    console.log(`Response: ${response.data}`);
                     this.portfolioitems = response.data;
                 })
                 .catch(error => {
                     this.loading = false;
                     this.error = error.response.data.message || error.message;
                 });
-                console.log("Portfolio object: " + this.portfolioitems);
             },
-            deletePost(id) {
-                axios.delete("/api/portfolioitems/" + id).then(response => this.getPortfolioItems())
+            getUsers() {
+                axios.get("/api/users").then(response => {
+                    this.users = response.data;
+                })
+                .catch(error => {
+                    this.loading = false;
+                    this.error = error.response.data.message || error.message;
+                });
             },
         }
     };
