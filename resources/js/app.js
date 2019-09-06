@@ -20,7 +20,8 @@ import Create from "./views/Create";
 import Portfolio from "./views/Portfolio";
 import Contact from "./views/Contact";
 
-Vue.component('global-header', require('./views/GloblaHeader').default);
+Vue.component('global-header', require('./views/GlobalHeader').default);
+Vue.component('global-footer', require('./views/GlobalFooter').default);
 
 const router = new VueRouter({
     mode: "history",

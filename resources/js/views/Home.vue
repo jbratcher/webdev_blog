@@ -74,11 +74,7 @@
 
         </main>
 
-        <footer>
-            <section class="container">
-                <p>Louisville, KY 2017 - 2019</p>
-            </section>
-        </footer>
+        <global-footer />
 
     </div>
 </template>

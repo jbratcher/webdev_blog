@@ -176,6 +176,38 @@ a.navbar-brand {
 
 }
 
+// About section (homepage)
+
+.about-intro {
+    background: #fff;
+
+    a {
+        padding: 2rem 0;
+    }
+
+}
+
+.about-intro, .contact-intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-intro .card, .contact-intro .card {
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+        box-shadow: 2px 2px 8px #000428;
+        border-radius: 50%;
+        width: 50%;
+    }
+
+}
+
 
 @media only screen and (min-width: 768px) {
 
@@ -221,9 +253,7 @@ a.navbar-brand {
         }
     }
 
-}
-
-// Blog page
+    // Blog page
 
 #posts {
     display: grid;
@@ -286,3 +316,7 @@ a.navbar-brand {
     }
 
 }
+
+
+}
+

@@ -27,6 +27,8 @@
 
         </ul>
 
+        <global-footer />
+
     </section>
 
 </template>
