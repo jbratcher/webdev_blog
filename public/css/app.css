@@ -10661,6 +10661,24 @@ main {
   overflow-x: hidden;
 }
 
+p,
+span {
+  font-family: "Merriweather", serif;
+}
+
+.container {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+.btn-primary {
+  background: #283E51;
+}
+
 .navbar-light .navbar-brand {
   color: #fff;
   font-size: 1.5rem;
@@ -10668,10 +10686,10 @@ main {
 }
 
 a.navbar-brand {
-  background: #00d2ff;
+  background: #4B79A1;
   /* fallback for old browsers */
   /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to bottom right, #00d2ff, #3a7bd5);
+  background: linear-gradient(to top left, #283E51, #4B79A1);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   padding: 1.25rem 0.25rem 0 1.25rem;
 }
@@ -10685,6 +10703,31 @@ a.navbar-brand {
   font-size: 1.5rem;
 }
 
+.global-banner {
+  background: #4B79A1;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom right, #283E51, #4B79A1);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: #fff;
+  padding: 1.125rem;
+}
+
+.global-banner h1 {
+  font-weight: bold;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+}
+
+.menu-item .menu-link {
+  color: #000;
+  font-size: 1.5rem;
+  margin: 0 0.5rem;
+}
+
 .jumbotron {
   padding: 0;
 }
@@ -10693,39 +10736,53 @@ a.navbar-brand {
   margin: 1rem 0 5rem;
 }
 
-.container {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
-
-.blog-intro h1,
-.project-intro h1,
-.about-intro h1,
-#posts h1,
-#portfolio-items h1 {
-  font-size: 2rem;
-  font-weight: 900;
+.blog-intro h2,
+.project-intro h2,
+.about-intro h2,
+.contact-intro h2,
+#posts h2,
+#portfolio-items h2 {
+  font-size: 3rem;
+  font-weight: 700;
   margin: 1rem 0;
 }
 
 .blog-intro p,
 .project-intro p,
 .about-intro p,
+.contact-intro p,
 #posts p,
 #portfolio-items p {
   color: #000;
 }
 
+.blog-intro p.lead,
+.project-intro p.lead,
+.about-intro p.lead,
+.contact-intro p.lead,
+#posts p.lead,
+#portfolio-items p.lead {
+  font-size: 1.33rem;
+  margin: 1rem 0;
+}
+
 .blog-intro a,
 .project-intro a,
 .about-intro a,
+.contact-intro a,
 #posts a,
 #portfolio-items a {
   text-decoration: none;
 }
 
 .card .card-body .card-title {
-  color: #01090C;
+  color: #000;
+  font-size: 1.5rem;
+}
+
+.card .card-body .card-text {
+  color: #000;
+  font-size: 1rem;
 }
 
 .posts-list {
@@ -10746,36 +10803,29 @@ a.navbar-brand {
   padding: 2rem 4rem 0;
 }
 
-.background-image {
-  background: #00d2ff;
-  /* fallback for old browsers */
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to bottom right, #3a7bd5, #00d2ff);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  color: #fff;
-  padding: 1.125rem;
+.portfolio-items-card .card {
+  background: none;
+  border: none;
 }
 
-.background-image h1 {
-  font-weight: bold;
-  text-shadow: 0px 2px 2px #022F40;
-  width: 50%;
+.portfolio-items-card .card img {
+  margin: 1rem 0;
 }
 
-.menu-item {
-  display: flex;
-  align-items: center;
-}
-
-.menu-item .menu-link {
-  color: #000;
-  font-size: 1.5rem;
-  margin: 0 0.5rem;
+.portfolio-items-card .card .card-body {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 @media only screen and (min-width: 768px) {
   nav {
     margin: 0 2rem;
+  }
+
+  .navbar-nav li {
+    font-size: 1.33rem;
+    margin: 0 1.5rem;
   }
 
   #navbarNav {
@@ -10787,14 +10837,14 @@ a.navbar-brand {
     margin: 0;
   }
 
-  .background-image {
+  .global-banner {
     padding: 1rem 3rem;
   }
 
   .posts-list {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 1rem;
+    grid-gap: 2rem;
     justify-items: center;
   }
 
@@ -10828,7 +10878,22 @@ a.navbar-brand {
   min-width: 30vw;
 }
 
-.about-intro .card {
+.about-intro {
+  background: #fff;
+}
+
+.about-intro a {
+  padding: 2rem 0;
+}
+
+.about-intro,
+.contact-intro {
+  display: flex;
+  justify-content: center;
+}
+
+.about-intro .card,
+.contact-intro .card {
   background: none;
   border: none;
   display: flex;
@@ -10837,12 +10902,9 @@ a.navbar-brand {
   max-width: 30vw;
 }
 
-.about-intro .card .card-title {
-  font-weight: bold;
-}
-
-.about-intro .card img {
-  box-shadow: 2px 2px 8px #022F40;
+.about-intro .card img,
+.contact-intro .card img {
+  box-shadow: 2px 2px 8px #000428;
   border-radius: 50%;
   width: 50%;
 }

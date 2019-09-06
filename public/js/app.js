@@ -37863,12 +37863,10 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: "jumbotron jumbotron-fluid background-image" },
+      { staticClass: "jumbotron jumbotron-fluid global-banner" },
       [
         _c("div", { staticClass: "container" }, [
-          _c("h1", { staticClass: "display-4" }, [
-            _vm._v("Web Development Blog")
-          ]),
+          _c("h1", [_vm._v("Web Development Blog")]),
           _vm._v(" "),
           _c("p", { staticClass: "lead" }, [
             _vm._v("Read about my latest development experiences.")
@@ -37908,7 +37906,7 @@ var render = function() {
       _c("main", [
         _c(
           "section",
-          { staticClass: "container about-intro", attrs: { id: "contact" } },
+          { staticClass: "container contact-intro", attrs: { id: "contact" } },
           [
             _vm._l(_vm.users, function(user) {
               return _c("a", { key: user.id, attrs: { href: "#" } }, [
@@ -38330,9 +38328,9 @@ var render = function() {
         _vm._m(0),
         _vm._v(" "),
         _c("section", { staticClass: "container blog-intro" }, [
-          _c("h1", [_vm._v("Blog")]),
+          _c("h2", [_vm._v("Blog")]),
           _vm._v(" "),
-          _c("p", [_vm._v("Latest posts")]),
+          _c("p", { staticClass: "lead" }, [_vm._v("Latest posts")]),
           _vm._v(" "),
           _c(
             "ul",
@@ -38373,9 +38371,9 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("section", { staticClass: "container project-intro" }, [
-          _c("h1", [_vm._v("Projects")]),
+          _c("h2", [_vm._v("Projects")]),
           _vm._v(" "),
-          _c("p", [_vm._v("Some of my best work")]),
+          _c("p", { staticClass: "lead" }, [_vm._v("Some of my best work")]),
           _vm._v(" "),
           _c(
             "ul",
@@ -38435,7 +38433,7 @@ var render = function() {
         _vm._v(" "),
         _c(
           "section",
-          { staticClass: "container about-intro" },
+          { staticClass: "container-fluid about-intro" },
           _vm._l(_vm.users, function(user) {
             return _c(
               "router-link",
@@ -38480,12 +38478,10 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container-fluid background-image" }, [
-      _c("h1", [_vm._v("Full Stack Web Dev")]),
+    return _c("div", { staticClass: "container-fluid global-banner" }, [
+      _c("h1", [_vm._v("Jeremy Bratcher")]),
       _vm._v(" "),
-      _c("p", { staticClass: "lead" }, [
-        _vm._v("Creating software, creating change.")
-      ])
+      _c("h2", { staticClass: "lead" }, [_vm._v("Full Stack Web Developer")])
     ])
   },
   function() {
@@ -38592,7 +38588,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: "jumbotron jumbotron-fluid background-image" },
+      { staticClass: "jumbotron jumbotron-fluid global-banner" },
       [
         _c("h1", { staticClass: "display-4" }, [_vm._v("Portfolio")]),
         _vm._v(" "),

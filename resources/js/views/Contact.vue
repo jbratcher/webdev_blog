@@ -5,7 +5,7 @@
 
         <main>
 
-            <section id="contact" class="container about-intro">
+            <section id="contact" class="container contact-intro">
 
                 <a href="#" v-for="user in users" :key="user.id">
                     <section class="card">

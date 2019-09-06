@@ -4,7 +4,7 @@
 
         <global-header />
 
-        <div class="jumbotron jumbotron-fluid background-image">
+        <div class="jumbotron jumbotron-fluid global-banner">
             <h1 class="display-4">Portfolio</h1>
             <p class="lead">Here are my best and latest open-source projects.</p>
         </div>

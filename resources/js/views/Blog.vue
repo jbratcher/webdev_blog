@@ -4,9 +4,9 @@
 
         <global-header />
 
-        <div class="jumbotron jumbotron-fluid background-image">
+        <div class="jumbotron jumbotron-fluid global-banner">
             <div class="container">
-                <h1 class="display-4">Web Development Blog</h1>
+                <h1>Web Development Blog</h1>
                 <p class="lead">Read about my latest development experiences.</p>
             </div>
         </div>

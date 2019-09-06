@@ -5,15 +5,15 @@
 
         <main>
 
-            <div class="container-fluid background-image">
-                <h1>Full Stack Web Dev</h1>
-                <p class="lead">Creating software, creating change.</p>
+            <div class="container-fluid global-banner">
+                <h1>Jeremy Bratcher</h1>
+                <h2 class="lead">Full Stack Web Developer</h2>
             </div>
 
             <section class="container blog-intro">
 
-                <h1>Blog</h1>
-                <p>Latest posts</p>
+                <h2>Blog</h2>
+                <p class="lead">Latest posts</p>
 
                 <ul class="posts-list">
 
@@ -36,8 +36,8 @@
 
             <section class="container project-intro">
 
-                <h1>Projects</h1>
-                <p>Some of my best work</p>
+                <h2>Projects</h2>
+                <p class="lead">Some of my best work</p>
 
                 <ul class="posts-list">
 
@@ -58,7 +58,7 @@
                 </ul>
             </section>
 
-            <section class="container about-intro">
+            <section class="container-fluid about-intro">
 
                 <router-link class="nav-link" :to="{ name: 'contact'}" v-for="user in users" :key="user.id">
                     <section class="card">
