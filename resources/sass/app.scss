@@ -277,7 +277,26 @@ a.navbar-brand {
 
 #contact {
     display: flex;
+    flex-direction: row;
     justify-content: space-around;
+    margin: 8rem 0;
+
+    .about {
+        align-self: flex-start;
+    }
+
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+
+        h2 {
+            font-size: 1.5rem;
+        }
+
+        .open {
+            color: #4CAF50;
+        }
+    }
 
     form {
         min-width: 30vw;

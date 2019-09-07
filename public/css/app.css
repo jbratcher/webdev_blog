@@ -10901,7 +10901,26 @@ a.navbar-brand {
 
   #contact {
     display: flex;
+    flex-direction: row;
     justify-content: space-around;
+    margin: 8rem 0;
+  }
+
+  #contact .about {
+    align-self: flex-start;
+  }
+
+  #contact .contact-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #contact .contact-form h2 {
+    font-size: 1.5rem;
+  }
+
+  #contact .contact-form .open {
+    color: #4CAF50;
   }
 
   #contact form {
