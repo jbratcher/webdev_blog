@@ -20,17 +20,22 @@
                     <p>I am currently <span class="open">open to new prospects</span>.</p>
                     <form @submit.prevent="submit">
                         <div class="form-group">
-                            <label for="name">Your Name</label>
+                            <label for="name">Name</label>
                             <input type="text" class="form-control" id="name" name="name" v-model="fields.name">
                             <div v-if="errors && errors.name" class="text-danger">{{ errors.name[0] }}</div>
                         </div>
                         <div class="form-group">
-                            <label for="email">Your Email</label>
+                            <label for="email">Email</label>
                             <input type="email" class="form-control" id="email" name="email" v-model="fields.email">
                             <div v-if="errors && errors.email" class="text-danger">{{ errors.email[0] }}</div>
                         </div>
                         <div class="form-group">
-                            <label for="message">Your message</label>
+                            <label for="subject">Subject</label>
+                            <input type="text" class="form-control" id="subject" name="subject" v-model="fields.subject">
+                            <div v-if="errors && errors.subject" class="text-danger">{{ errors.email[0] }}</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message"> essage</label>
                             <textarea class="form-control" id="message" name="message" rows="5"  v-model="fields.message"></textarea>
                             <div v-if="errors && errors.message" class="text-danger">{{ errors.message[0] }}</div>
                         </div>
@@ -52,9 +57,9 @@
 
 <script>
     export default {
-        mounted() {
+        created() {
             this.getUsers();
-            console.log("About page mounted");
+            console.log("Contact page mounted");
         },
         data() {
             return {
@@ -68,33 +73,31 @@
         methods: {
             getUsers() {
                 axios.get("/api/users").then(response => {
-                    console.log(`Response: ${response.data}`);
                     this.users = response.data;
                 })
                 .catch(error => {
                     this.loading = false;
                     this.error = error.response.data.message || error.message;
                 });
-                console.log("Users object: " + this.users);
             },
             submit() {
-            if (this.loaded) {
-                this.loaded = false;
-                this.success = false;
-                this.errors = {};  // Clear errors
-                axios.post('/submit', this.fields).then(response => {
-                    this.fields = {};  //Clear input fields.
-                    this.loaded = true;
-                    this.success = true;
-                })
-                .catch(error => {
-                    this.loaded = true;
-                    if (error.response.status === 422) {
-                        this.errors = error.response.data.errors || {};
-                    }
-                });
-            }
-    },
+                if (this.loaded) {
+                    this.loaded = false;
+                    this.success = false;
+                    this.errors = {};  // Clear errors
+                    axios.post('/submit', this.fields).then(response => {
+                        this.fields = {};  //Clear input fields.
+                        this.loaded = true;
+                        this.success = true;
+                    })
+                    .catch(error => {
+                        this.loaded = true;
+                        if (error.response.status === 422) {
+                            this.errors = error.response.data.errors || {};
+                        }
+                    });
+                }
+            },
         }
     };
 </script>
