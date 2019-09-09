@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\ContactEmail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\ContactEmail;
+use App\Mail\ContactMail;
 
 class ContactFormController extends Controller
 {
@@ -30,25 +31,20 @@ class ContactFormController extends Controller
 
         // get last contact form submitted as last contact email row in table
 
-        $latest_email = DB::table('contact_emails')->latest->first();
+        $latest_email = DB::table('contact_emails')->latest()->first();
 
-        //  Add mail functionality here.
+        $latest_email_array = json_decode(json_encode($latest_email), true);
 
-        // try
-        // {
-        //     Mail::send($email);
-        //     print("Message sent successfully");
-        // }
-        // catch(Exception $e)
-        // {
-        //     print("Message not sent");
-        // }
+        //  Send mail to mailtrap inbox
+
+        Mail::to('jeremybratcher@gmail.com')->send(new ContactMail($email));
+
+        // Mail::send('emails.contact', $latest_email_array, function($message) use($latest_email_array) {
+        //     $message->from($latest_email_array['email'] , $latest_email_array['name']);
+        //     $message->to('jeremybratcher@gmail.com' , 'Jeremy');
+        // });
 
         $json = response()->json(null, 200);
-
-        print_r("email: " . print_r($latest_email) . PHP_EOL);
-
-        print_r("json: " . print_r($json) . PHP_EOL);
 
         return $json;
     }

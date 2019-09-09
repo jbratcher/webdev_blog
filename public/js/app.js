@@ -38097,7 +38097,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group" }, [
                     _c("label", { attrs: { for: "message" } }, [
-                      _vm._v(" essage")
+                      _vm._v(" Message")
                     ]),
                     _vm._v(" "),
                     _c("textarea", {

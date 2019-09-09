@@ -35,7 +35,7 @@
                             <div v-if="errors && errors.subject" class="text-danger">{{ errors.email[0] }}</div>
                         </div>
                         <div class="form-group">
-                            <label for="message"> essage</label>
+                            <label for="message"> Message</label>
                             <textarea class="form-control" id="message" name="message" rows="5"  v-model="fields.message"></textarea>
                             <div v-if="errors && errors.message" class="text-danger">{{ errors.message[0] }}</div>
                         </div>
