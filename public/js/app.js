@@ -1945,8 +1945,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.getPosts();
@@ -2242,6 +2240,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -37919,19 +37918,13 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "jumbotron jumbotron-fluid global-banner" },
-      [
-        _c("div", { staticClass: "container" }, [
-          _c("h1", [_vm._v("Web Development Blog")]),
-          _vm._v(" "),
-          _c("p", { staticClass: "lead" }, [
-            _vm._v("Read about my latest development experiences.")
-          ])
-        ])
-      ]
-    )
+    return _c("div", { staticClass: "container-fluid global-banner" }, [
+      _c("h1", [_vm._v("Web Development Blog")]),
+      _vm._v(" "),
+      _c("p", { staticClass: "lead" }, [
+        _vm._v("Read about my latest development experiences.")
+      ])
+    ])
   }
 ]
 render._withStripped = true
@@ -38363,7 +38356,9 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("footer", [
       _c("section", { staticClass: "container" }, [
-        _c("p", [_vm._v("Louisville, KY 2017 - 2019")])
+        _c("p", [_vm._v("Louisville, KY")]),
+        _vm._v(" "),
+        _c("p", [_vm._v("2017 - 2019")])
       ])
     ])
   }
@@ -38793,17 +38788,13 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "jumbotron jumbotron-fluid global-banner" },
-      [
-        _c("h1", { staticClass: "display-4" }, [_vm._v("Portfolio")]),
-        _vm._v(" "),
-        _c("p", { staticClass: "lead" }, [
-          _vm._v("Here are my best and latest open-source projects.")
-        ])
-      ]
-    )
+    return _c("div", { staticClass: "container-fluid global-banner" }, [
+      _c("h1", { staticClass: "display-4" }, [_vm._v("Portfolio")]),
+      _vm._v(" "),
+      _c("p", { staticClass: "lead" }, [
+        _vm._v("Here are my best and latest open-source projects.")
+      ])
+    ])
   }
 ]
 render._withStripped = true

@@ -20,6 +20,10 @@ p, span {
     font-family: 'Merriweather', serif;
 }
 
+ul {
+    list-style-type: none;
+}
+
 .container {
     margin-top: 2rem;
     margin-bottom: 2rem;
@@ -39,6 +43,10 @@ p, span {
     color: #fff;
     font-size: 1.5rem;
     font-weight: 700;
+
+    &:hover, &:focus {
+        color: #fff;
+    }
 }
 
 a.navbar-brand {
@@ -58,6 +66,15 @@ a.navbar-brand {
 
 }
 
+#navbarNav {
+    margin: 1rem 0;
+
+    li {
+        font-size: 1.33rem;
+    }
+
+}
+
 // global header
 
 .global-banner {
@@ -69,6 +86,7 @@ a.navbar-brand {
 
     h1 {
         font-weight: bold;
+        letter-spacing: 3px;
     }
 
 }
@@ -96,7 +114,6 @@ a.navbar-brand {
 .blog-intro, .project-intro, .about-intro, .contact-intro, #posts, #portfolio-items {
 
     h2 {
-        font-size: 3rem;
         font-weight: 700;
         margin: 1rem 0;
     }
@@ -106,7 +123,7 @@ a.navbar-brand {
     }
 
     p.lead {
-        font-size: 1.33rem;
+        font-size: 1rem;
         margin: 1rem 0;
     }
 
@@ -116,7 +133,13 @@ a.navbar-brand {
 
 }
 
-// card theme
+#posts, #portfolio-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+// card theme (mobile)
 
 .card {
 
@@ -129,7 +152,7 @@ a.navbar-brand {
 
         .card-text {
             color:  #000;
-            font-size: 1rem;
+            font-size: 0.8rem;
         }
 
     }
@@ -208,6 +231,11 @@ a.navbar-brand {
 
 }
 
+footer .container {
+    display: flex;
+    justify-content: space-around;
+}
+
 
 @media only screen and (min-width: 768px) {
 
@@ -219,7 +247,7 @@ a.navbar-brand {
 
         li {
             font-size: 1.33rem;
-            margin: 0 1.5rem;
+            margin: 0 1rem;
         }
 
     }
@@ -253,89 +281,123 @@ a.navbar-brand {
         }
     }
 
-    // Blog page
+    // page section headers and text
 
-#posts {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 2rem;
-    justify-items: center;
-    list-style-type: none;
-}
-
-// Portfolio page
-
-#portfolio-items {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 2rem;
-    justify-items: center;
-    list-style-type: none;
-}
-
-// Contact page
-
-#contact {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin: 8rem 0;
-
-    .about {
-        align-self: flex-start;
-    }
-
-    .contact-form {
-        display: flex;
-        flex-direction: column;
+    .blog-intro, .project-intro, .about-intro, .contact-intro, #posts, #portfolio-items {
 
         h2 {
-            font-size: 1.5rem;
+            font-size: 3rem;
         }
 
-        .open {
-            color: #4CAF50;
+        p.lead {
+            font-size: 1.33rem;
+            margin: 1rem 0;
         }
+
     }
 
-    form {
-        min-width: 30vw;
+    // card theme
+
+    .card {
+
+        .card-body {
+
+            .card-title {
+                color:  #000;
+                font-size: 1.8rem;
+            }
+
+            .card-text {
+                color:  #000;
+                font-size: 1rem;
+            }
+
+        }
+
     }
 
-}
+    // Blog page
 
-// About section and contact page
-
-.about-intro {
-    background: #fff;
-
-    a {
-        padding: 2rem 0;
+    #posts {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 2rem;
+        justify-items: center;
+        list-style-type: none;
     }
 
-}
+    // Portfolio page
 
-.about-intro, .contact-intro {
-    display: flex;
-    justify-content: center;
-}
-
-.about-intro .card, .contact-intro .card {
-    background: none;
-    border: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 30vw;
-
-    img {
-        box-shadow: 2px 2px 8px #000428;
-        border-radius: 50%;
-        width: 50%;
+    #portfolio-items {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 2rem;
+        justify-items: center;
+        list-style-type: none;
     }
 
-}
+    // Contact page
 
+    #contact {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        margin: 8rem 0;
+
+        .about {
+            align-self: flex-start;
+        }
+
+        section.contact-form {
+            display: flex;
+            flex-direction: column;
+
+            h2 {
+                letter-spacing: 1px;
+            }
+
+            .open {
+                color: #4CAF50;
+            }
+        }
+
+        form {
+            min-width: 30vw;
+        }
+
+    }
+
+    // About section and contact page
+
+    .about-intro {
+        background: #fff;
+
+        a {
+            padding: 2rem 0;
+        }
+
+    }
+
+    .about-intro, .contact-intro {
+        display: flex;
+        justify-content: center;
+    }
+
+    .about-intro .card, .contact-intro .card {
+        background: none;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 30vw;
+
+        img {
+            box-shadow: 2px 2px 8px #000428;
+            border-radius: 50%;
+            width: 50%;
+        }
+
+    }
 
 }
 

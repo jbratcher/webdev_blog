@@ -10666,6 +10666,10 @@ span {
   font-family: "Merriweather", serif;
 }
 
+ul {
+  list-style-type: none;
+}
+
 .container {
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -10683,6 +10687,11 @@ span {
   color: #fff;
   font-size: 1.5rem;
   font-weight: 700;
+}
+
+.navbar-light .navbar-brand:hover,
+.navbar-light .navbar-brand:focus {
+  color: #fff;
 }
 
 a.navbar-brand {
@@ -10703,6 +10712,14 @@ a.navbar-brand {
   font-size: 1.5rem;
 }
 
+#navbarNav {
+  margin: 1rem 0;
+}
+
+#navbarNav li {
+  font-size: 1.33rem;
+}
+
 .global-banner {
   background: #4B79A1;
   /* fallback for old browsers */
@@ -10715,6 +10732,7 @@ a.navbar-brand {
 
 .global-banner h1 {
   font-weight: bold;
+  letter-spacing: 3px;
 }
 
 .menu-item {
@@ -10742,7 +10760,6 @@ a.navbar-brand {
 .contact-intro h2,
 #posts h2,
 #portfolio-items h2 {
-  font-size: 3rem;
   font-weight: 700;
   margin: 1rem 0;
 }
@@ -10762,7 +10779,7 @@ a.navbar-brand {
 .contact-intro p.lead,
 #posts p.lead,
 #portfolio-items p.lead {
-  font-size: 1.33rem;
+  font-size: 1rem;
   margin: 1rem 0;
 }
 
@@ -10775,6 +10792,13 @@ a.navbar-brand {
   text-decoration: none;
 }
 
+#posts,
+#portfolio-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .card .card-body .card-title {
   color: #000;
   font-size: 1.5rem;
@@ -10782,7 +10806,7 @@ a.navbar-brand {
 
 .card .card-body .card-text {
   color: #000;
-  font-size: 1rem;
+  font-size: 0.8rem;
 }
 
 .posts-list {
@@ -10849,6 +10873,11 @@ a.navbar-brand {
   width: 50%;
 }
 
+footer .container {
+  display: flex;
+  justify-content: space-around;
+}
+
 @media only screen and (min-width: 768px) {
   nav {
     margin: 0 2rem;
@@ -10856,7 +10885,7 @@ a.navbar-brand {
 
   .navbar-nav li {
     font-size: 1.33rem;
-    margin: 0 1.5rem;
+    margin: 0 1rem;
   }
 
   #navbarNav {
@@ -10881,6 +10910,35 @@ a.navbar-brand {
 
   .posts-list li {
     min-width: 100%;
+  }
+
+  .blog-intro h2,
+  .project-intro h2,
+  .about-intro h2,
+  .contact-intro h2,
+  #posts h2,
+  #portfolio-items h2 {
+    font-size: 3rem;
+  }
+
+  .blog-intro p.lead,
+  .project-intro p.lead,
+  .about-intro p.lead,
+  .contact-intro p.lead,
+  #posts p.lead,
+  #portfolio-items p.lead {
+    font-size: 1.33rem;
+    margin: 1rem 0;
+  }
+
+  .card .card-body .card-title {
+    color: #000;
+    font-size: 1.8rem;
+  }
+
+  .card .card-body .card-text {
+    color: #000;
+    font-size: 1rem;
   }
 
   #posts {
@@ -10910,16 +10968,16 @@ a.navbar-brand {
     align-self: flex-start;
   }
 
-  #contact .contact-form {
+  #contact section.contact-form {
     display: flex;
     flex-direction: column;
   }
 
-  #contact .contact-form h2 {
-    font-size: 1.5rem;
+  #contact section.contact-form h2 {
+    letter-spacing: 1px;
   }
 
-  #contact .contact-form .open {
+  #contact section.contact-form .open {
     color: #4CAF50;
   }
 

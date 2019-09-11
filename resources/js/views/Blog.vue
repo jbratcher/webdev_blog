@@ -4,11 +4,9 @@
 
         <global-header />
 
-        <div class="jumbotron jumbotron-fluid global-banner">
-            <div class="container">
-                <h1>Web Development Blog</h1>
-                <p class="lead">Read about my latest development experiences.</p>
-            </div>
+        <div class="container-fluid global-banner">
+            <h1>Web Development Blog</h1>
+            <p class="lead">Read about my latest development experiences.</p>
         </div>
 
         <div class="container" v-if="userId">
