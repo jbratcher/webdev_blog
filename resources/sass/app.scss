@@ -145,6 +145,10 @@ a.navbar-brand {
 
     .card-body {
 
+        &>* {
+            margin: 1rem 0;
+        }
+
         .card-title {
             color:  #000;
             font-size: 1.5rem;
@@ -236,6 +240,8 @@ footer .container {
     justify-content: space-around;
 }
 
+
+// Tablet and desktop styles
 
 @media only screen and (min-width: 768px) {
 
@@ -342,7 +348,7 @@ footer .container {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
-        margin: 8rem 0;
+        margin: 8rem auto;
 
         .about {
             align-self: flex-start;
@@ -351,9 +357,18 @@ footer .container {
         section.contact-form {
             display: flex;
             flex-direction: column;
+            max-width: 50%;
+
+            &>* {
+                margin: 1rem 0;
+            }
 
             h2 {
                 letter-spacing: 1px;
+            }
+
+            p, label, button {
+                font-size: 1.33rem;
             }
 
             .open {

@@ -10799,6 +10799,10 @@ a.navbar-brand {
   align-items: center;
 }
 
+.card .card-body > * {
+  margin: 1rem 0;
+}
+
 .card .card-body .card-title {
   color: #000;
   font-size: 1.5rem;
@@ -10961,7 +10965,7 @@ footer .container {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    margin: 8rem 0;
+    margin: 8rem auto;
   }
 
   #contact .about {
@@ -10971,10 +10975,21 @@ footer .container {
   #contact section.contact-form {
     display: flex;
     flex-direction: column;
+    max-width: 50%;
+  }
+
+  #contact section.contact-form > * {
+    margin: 1rem 0;
   }
 
   #contact section.contact-form h2 {
     letter-spacing: 1px;
+  }
+
+  #contact section.contact-form p,
+  #contact section.contact-form label,
+  #contact section.contact-form button {
+    font-size: 1.33rem;
   }
 
   #contact section.contact-form .open {

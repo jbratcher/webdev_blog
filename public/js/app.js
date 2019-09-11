@@ -38157,7 +38157,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-body" }, [
-      _c("h5", { staticClass: "card-title" }, [_vm._v("About Me")]),
+      _c("h2", { staticClass: "card-title" }, [_vm._v("About Me")]),
       _vm._v(" "),
       _c("p", { staticClass: "card-text" }, [
         _vm._v(
@@ -38660,7 +38660,7 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("div", { staticClass: "card-body" }, [
-                    _c("h5", { staticClass: "card-title" }, [
+                    _c("h2", { staticClass: "card-title" }, [
                       _vm._v("About Me")
                     ]),
                     _vm._v(" "),

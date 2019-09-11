@@ -64,7 +64,7 @@
                     <section class="card">
                         <img class="card-img-top" :src="user.profile_pic_src" :alt="user.name">
                         <div class="card-body">
-                            <h5 class="card-title">About Me</h5>
+                            <h2 class="card-title">About Me</h2>
                             <p class="card-text">Tech enthusiast with a strong eye for visual design and a knack for problem solving. Interested in UI/UX and SPA/PWAs.</p>
                         </div>
                     </section>
