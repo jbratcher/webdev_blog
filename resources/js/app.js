@@ -18,6 +18,7 @@ import Home from './views/Home';
 import Blog from "./views/Blog";
 import Create from "./views/Create";
 import Portfolio from "./views/Portfolio";
+import Tutorials from "./views/Tutorials";
 import Contact from "./views/Contact";
 
 Vue.component('global-header', require('./views/GlobalHeader').default);
@@ -50,6 +51,11 @@ const router = new VueRouter({
             path: "/contact",
             name: "contact",
             component: Contact
+        },
+        {
+            path: "/tutorials",
+            name: "tutorials",
+            component: Tutorials
         },
     ]
 })

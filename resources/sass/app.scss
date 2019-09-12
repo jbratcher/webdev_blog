@@ -103,13 +103,20 @@ a.navbar-brand {
 
 }
 
-.jumbotron {
-    padding: 0;
+a.nav-link.router-link-exact-active.router-link-active {
+    background: #4B79A1;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top left, #283E51, #4B79A1);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top left, #283E51, #4B79A1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border-radius: 0.75rem;
+    color: #fff;
+
+    &:hover, &:focus {
+        color: #fff;
+    }
+
 }
 
-.jumbotron-fluid {
-    margin: 1rem 0 5rem;
-}
+// sections
 
 .blog-intro, .project-intro, .about-intro, .contact-intro, #posts, #portfolio-items {
 
@@ -186,7 +193,6 @@ a.navbar-brand {
 
 // portfolio section (homepage)
 
-
 .portfolio-items-card .card {
     background: none;
     border: none;
@@ -234,6 +240,14 @@ a.navbar-brand {
     }
 
 }
+
+// Contact page form
+
+#contact section.contact-form {
+    padding: 1.25rem;
+}
+
+// Global footer
 
 footer .container {
     display: flex;
@@ -285,6 +299,7 @@ footer .container {
         li {
             min-width: 100%;
         }
+
     }
 
     // page section headers and text

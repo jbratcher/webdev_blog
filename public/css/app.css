@@ -10746,12 +10746,19 @@ a.navbar-brand {
   margin: 0 0.5rem;
 }
 
-.jumbotron {
-  padding: 0;
+a.nav-link.router-link-exact-active.router-link-active {
+  background: #4B79A1;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top left, #283E51, #4B79A1);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border-radius: 0.75rem;
+  color: #fff;
 }
 
-.jumbotron-fluid {
-  margin: 1rem 0 5rem;
+a.nav-link.router-link-exact-active.router-link-active:hover,
+a.nav-link.router-link-exact-active.router-link-active:focus {
+  color: #fff;
 }
 
 .blog-intro h2,
@@ -10875,6 +10882,10 @@ a.navbar-brand {
   box-shadow: 2px 2px 8px #000428;
   border-radius: 50%;
   width: 50%;
+}
+
+#contact section.contact-form {
+  padding: 1.25rem;
 }
 
 footer .container {

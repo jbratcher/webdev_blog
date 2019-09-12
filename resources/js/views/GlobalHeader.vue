@@ -7,7 +7,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <router-link class="nav-link" :to="{ name: 'home'}">Home</router-link>
                     </li>
                     <li class="nav-item">
@@ -17,7 +17,7 @@
                         <router-link class="nav-link" :to="{ name: 'portfolio'}">Portfolio</router-link>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Tutorials</a>
+                        <router-link class="nav-link" :to="{ name: 'tutorials'}">Tutorials</router-link>
                     </li>
                     <li class="nav-item">
                         <router-link class="nav-link" :to="{ name: 'contact'}">Contact</router-link>
@@ -29,7 +29,6 @@
 </template>
 
 <script>
-export default {
-
-}
+    export default {
+    }
 </script>
