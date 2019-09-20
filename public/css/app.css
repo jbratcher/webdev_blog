@@ -10746,6 +10746,11 @@ a.navbar-brand {
   margin: 0 0.5rem;
 }
 
+li.nav-item a {
+  box-sizing: content-box;
+  text-align: center;
+}
+
 a.nav-link.router-link-exact-active.router-link-active {
   background: #4B79A1;
   /* fallback for old browsers */
@@ -10901,6 +10906,10 @@ footer .container {
   .navbar-nav li {
     font-size: 1.33rem;
     margin: 0 1rem;
+  }
+
+  .navbar-nav li a {
+    width: 100%;
   }
 
   #navbarNav {

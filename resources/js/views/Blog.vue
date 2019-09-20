@@ -26,7 +26,7 @@
                         <img class="card-img-top" :src="post.image_src" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">{{post.title}}</h5>
-                            <p class="card-text">{{post.body.substring(0,144)+"..."}}</p>
+                            <p class="card-text" v-html="post.body"></p>
                             <a href="#" class="btn btn-primary">Read More</a>
                         </div>
                     </section>

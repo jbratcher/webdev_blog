@@ -37945,9 +37945,10 @@ var render = function() {
                     _vm._v(_vm._s(post.title))
                   ]),
                   _vm._v(" "),
-                  _c("p", { staticClass: "card-text" }, [
-                    _vm._v(_vm._s(post.body.substring(0, 144) + "..."))
-                  ]),
+                  _c("p", {
+                    staticClass: "card-text",
+                    domProps: { innerHTML: _vm._s(post.body) }
+                  }),
                   _vm._v(" "),
                   _c(
                     "a",
@@ -38617,9 +38618,10 @@ var render = function() {
                         _vm._v(_vm._s(post.title))
                       ]),
                       _vm._v(" "),
-                      _c("p", { staticClass: "card-text" }, [
-                        _vm._v(_vm._s(post.body.substring(0, 144) + "..."))
-                      ]),
+                      _c("p", {
+                        staticClass: "card-text",
+                        domProps: { innerHTML: _vm._s(post.body) }
+                      }),
                       _vm._v(" "),
                       _c(
                         "a",
