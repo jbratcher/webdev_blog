@@ -16,6 +16,7 @@ Vue.use( CKEditor );
 import App from './views/App';
 import Home from './views/Home';
 import Blog from "./views/Blog";
+import BlogPost from "./views/BlogPost";
 import Create from "./views/Create";
 import Portfolio from "./views/Portfolio";
 import Tutorials from "./views/Tutorials";
@@ -36,6 +37,11 @@ const router = new VueRouter({
             path: "/blog",
             name: "blog",
             component: Blog
+        },
+        {
+            path: '/blog/post/:post_id',
+            name: "blog-post",
+            component: BlogPost
         },
         {
             path: "/blog/create",

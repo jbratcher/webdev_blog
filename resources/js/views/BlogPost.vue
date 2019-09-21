@@ -1,0 +1,57 @@
+<template>
+
+    <section>
+
+        <global-header />
+
+
+            <section class="card">
+                <img class="card-img-top" :src="post.image_src" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{post.title}}</h5>
+                    <p class="card-text" v-html="post.body"></p>
+                </div>
+            </section>
+
+        <global-footer />
+
+    </section>
+
+</template>
+
+<script>
+    export default {
+        mounted() {
+            this.getPost();
+            console.log("Blog post vue mounted");
+            console.log("Blog param id value: " + this.$route.params.id);
+        },
+        data() {
+            return {
+                post: {},
+                posts: [],
+            };
+        },
+        methods: {
+            getPost() {
+                axios.get("/api/posts").then(response => {
+                    this.posts = response.data;
+                    this.post = this.posts[this.$route.params.post_id-1];
+                })
+                .then(() => console.log("Post: " + JSON.stringify(this.post)))
+                .catch(error => {
+                    this.loading = false;
+                    this.error = error.response.data.message || error.message;
+                });
+            },
+        },
+         props: {
+            userId: {
+                type: Number
+            },
+            userName: {
+                type: String
+            },
+        }
+    };
+</script>

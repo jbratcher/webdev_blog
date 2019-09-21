@@ -10898,6 +10898,17 @@ footer .container {
   justify-content: space-around;
 }
 
+.admin-menu {
+  display: flex;
+  align-items: center;
+}
+
+.admin-menu a {
+  color: #000;
+  font-size: 1.25rem;
+  margin: 0 0.25rem;
+}
+
 @media only screen and (min-width: 768px) {
   nav {
     margin: 0 2rem;

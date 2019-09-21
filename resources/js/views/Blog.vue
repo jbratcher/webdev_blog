@@ -9,28 +9,29 @@
             <p class="lead">Read about my latest development experiences.</p>
         </div>
 
-        <div class="container" v-if="userId">
-            <ul class="navbar-nav">
-                <li class="nav-item menu-item">
-                    <i class="fas fa-plus-circle fa-2x"></i>
-                    <router-link class="nav-link menu-link" :to="{ name: 'create' }">New Post</router-link>
-                </li>
-            </ul>
+        <div class="container admin-menu" v-if="userId">
+            <i class="fas fa-plus-circle fa-2x"></i>
+            <router-link :to="{ name: 'create' }">New Post</router-link>
         </div>
 
         <ul class="container" id="posts">
 
             <li class="post-card" v-for="post in posts" :key="post.id">
-                <a href="#">
+                <router-link :to="{ name: 'blog-post', params: { post_id: post.id} }">
                     <section class="card">
                         <img class="card-img-top" :src="post.image_src" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">{{post.title}}</h5>
                             <p class="card-text" v-html="post.body"></p>
-                            <a href="#" class="btn btn-primary">Read More</a>
+                            <router-link
+                                class="btn btn-primary"
+                                :to="{ name: 'blog-post', params: { post_id: post.id} }"
+                            >
+                                Read More
+                            </router-link>
                         </div>
                     </section>
-                </a>
+                </router-link>
             </li>
 
         </ul>
@@ -55,14 +56,13 @@
         methods: {
             getPosts() {
                 axios.get("/api/posts").then(response => {
-                    console.log(`Response: ${response.data}`);
                     this.posts = response.data;
                 })
+                .then(() => console.log("Posts object: " + JSON.stringify(this.posts)))
                 .catch(error => {
                     this.loading = false;
                     this.error = error.response.data.message || error.message;
                 });
-                console.log("Posts object: " + this.posts);
             },
             deletePost(id) {
                 axios.delete("/api/posts/" + id).then(response => this.getPosts())
