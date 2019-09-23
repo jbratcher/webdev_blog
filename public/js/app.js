@@ -2019,6 +2019,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.getPost();
@@ -38008,14 +38009,17 @@ var render = function() {
                 "router-link",
                 {
                   attrs: {
-                    to: { name: "blog-post", params: { post_id: post.id } }
+                    to: {
+                      name: "blog-post",
+                      params: { post_slug: post.slug, post_id: post.id }
+                    }
                   }
                 },
                 [
                   _c("section", { staticClass: "card" }, [
                     _c("img", {
                       staticClass: "card-img-top",
-                      attrs: { src: post.image_src, alt: "Card image cap" }
+                      attrs: { src: post.image_src, alt: post.title }
                     }),
                     _vm._v(" "),
                     _c(
@@ -38038,7 +38042,10 @@ var render = function() {
                             attrs: {
                               to: {
                                 name: "blog-post",
-                                params: { post_id: post.id }
+                                params: {
+                                  post_slug: post.slug,
+                                  post_id: post.id
+                                }
                               }
                             }
                           },
@@ -38106,21 +38113,23 @@ var render = function() {
     [
       _c("global-header"),
       _vm._v(" "),
-      _c("section", { staticClass: "card" }, [
-        _c("img", {
-          staticClass: "card-img-top",
-          attrs: { src: _vm.post.image_src, alt: "Card image cap" }
-        }),
-        _vm._v(" "),
-        _c("div", { staticClass: "card-body" }, [
-          _c("h5", { staticClass: "card-title" }, [
-            _vm._v(_vm._s(_vm.post.title))
-          ]),
+      _c("section", { staticClass: "blog-post" }, [
+        _c("section", { staticClass: "card" }, [
+          _c("img", {
+            staticClass: "card-img-top",
+            attrs: { src: _vm.post.image_src, alt: _vm.post.title }
+          }),
           _vm._v(" "),
-          _c("p", {
-            staticClass: "card-text",
-            domProps: { innerHTML: _vm._s(_vm.post.body) }
-          })
+          _c("div", { staticClass: "card-body" }, [
+            _c("h5", { staticClass: "card-title" }, [
+              _vm._v(_vm._s(_vm.post.title))
+            ]),
+            _vm._v(" "),
+            _c("p", {
+              staticClass: "card-text",
+              domProps: { innerHTML: _vm._s(_vm.post.body) }
+            })
+          ])
         ])
       ]),
       _vm._v(" "),
@@ -54107,9 +54116,10 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: "blog",
     component: _views_Blog__WEBPACK_IMPORTED_MODULE_5__["default"]
   }, {
-    path: '/blog/post/:post_id',
+    path: '/blog/post/:post_id/:post_slug',
     name: "blog-post",
-    component: _views_BlogPost__WEBPACK_IMPORTED_MODULE_6__["default"]
+    component: _views_BlogPost__WEBPACK_IMPORTED_MODULE_6__["default"],
+    props: true
   }, {
     path: "/blog/create",
     name: "create",

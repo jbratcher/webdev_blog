@@ -17,15 +17,15 @@
         <ul class="container" id="posts">
 
             <li class="post-card" v-for="post in posts" :key="post.id">
-                <router-link :to="{ name: 'blog-post', params: { post_id: post.id} }">
+                <router-link :to="{ name: 'blog-post', params: { post_slug: post.slug, post_id: post.id} }">
                     <section class="card">
-                        <img class="card-img-top" :src="post.image_src" alt="Card image cap">
+                        <img class="card-img-top" :src="post.image_src" :alt="post.title">
                         <div class="card-body">
                             <h5 class="card-title">{{post.title}}</h5>
                             <p class="card-text" v-html="post.body"></p>
                             <router-link
                                 class="btn btn-primary"
-                                :to="{ name: 'blog-post', params: { post_id: post.id} }"
+                                :to="{ name: 'blog-post', params: { post_slug: post.slug, post_id: post.id} }"
                             >
                                 Read More
                             </router-link>

@@ -4,14 +4,15 @@
 
         <global-header />
 
-
+        <section class="blog-post">
             <section class="card">
-                <img class="card-img-top" :src="post.image_src" alt="Card image cap">
+                <img class="card-img-top" :src="post.image_src" :alt="post.title">
                 <div class="card-body">
                     <h5 class="card-title">{{post.title}}</h5>
                     <p class="card-text" v-html="post.body"></p>
                 </div>
             </section>
+        </section>
 
         <global-footer />
 

@@ -276,6 +276,12 @@ footer .container {
     }
 }
 
+// blog post (single)
+
+.blog-post {
+    margin: 1rem 0.5rem;
+}
+
 
 // Tablet and desktop styles
 
@@ -371,6 +377,17 @@ footer .container {
         grid-gap: 2rem;
         justify-items: center;
         list-style-type: none;
+    }
+
+    // blog post
+
+    .blog-post {
+
+        img {
+            width: 50vw;
+            margin: 0 auto;
+        }
+
     }
 
     // Portfolio page

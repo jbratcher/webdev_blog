@@ -58,6 +58,7 @@ class PostController extends Controller
         $post->user_id = $request->user_id;
         $post->title = $request->title;
         $post->body = $request->body;
+        $post->slug = preg_replace("/\s/", "-", strtolower($post->title));
         $post->save();
 
         return new PostResource($post);
