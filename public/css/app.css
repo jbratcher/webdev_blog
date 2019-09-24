@@ -10683,24 +10683,15 @@ ul {
   background: #283E51;
 }
 
-.navbar-light .navbar-brand {
+.navbar-light {
   color: #fff;
   font-size: 1.5rem;
   font-weight: 700;
 }
 
-.navbar-light .navbar-brand:hover,
-.navbar-light .navbar-brand:focus {
+.navbar-light:hover,
+.navbar-light:focus {
   color: #fff;
-}
-
-a.navbar-brand {
-  background: #4B79A1;
-  /* fallback for old browsers */
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to top left, #283E51, #4B79A1);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  padding: 1.25rem 0.25rem 0 1.25rem;
 }
 
 .navbar-light .navbar-toggler {
@@ -10710,6 +10701,11 @@ a.navbar-brand {
 
 .navbar-light .navbar-toggler .navbar-toggler-icon {
   font-size: 1.5rem;
+}
+
+.navbar-brand img {
+  border-radius: 4px;
+  width: 110%;
 }
 
 #navbarNav {

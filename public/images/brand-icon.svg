@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="50"
+   height="50"
+   viewBox="0 0 13.229166 13.229166"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="brand-icon.svg">
+  <defs
+     id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4546">
+      <stop
+         style="stop-color:#4b79a1;stop-opacity:1;"
+         offset="0"
+         id="stop4542" />
+      <stop
+         id="stop4552"
+         offset="0.00660004"
+         style="stop-color:#4a78a0;stop-opacity:0.99215686;" />
+      <stop
+         id="stop4550"
+         offset="0.99253327"
+         style="stop-color:#283e51;stop-opacity:1" />
+      <stop
+         style="stop-color:#4b79a1;stop-opacity:0;"
+         offset="1"
+         id="stop4544" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4546"
+       id="linearGradient4548"
+       x1="64.255951"
+       y1="109.1488"
+       x2="112.25595"
+       y2="157.1488"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.24999998,0,0,0.24999998,48.191964,117.86161)" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="10.790449"
+     inkscape:cx="26.373771"
+     inkscape:cy="25.088258"
+     inkscape:document-units="px"
+     inkscape:current-layer="g4557"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="986"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     units="px" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-283.77084)">
+    <g
+       id="g4557"
+       transform="matrix(1.1024306,0,0,1.1024306,-71.003416,123.731)">
+      <rect
+         y="145.1488"
+         x="64.255951"
+         height="11.999999"
+         width="11.999999"
+         id="rect10"
+         style="opacity:1;fill:url(#linearGradient4548);fill-opacity:1;stroke:none;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <text
+         id="text819"
+         y="156.22607"
+         x="67.346184"
+         style="font-style:normal;font-weight:normal;font-size:5.15515709px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.12887895"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.24825287px;font-family:'Futura Md BT';-inkscape-font-specification:'Futura Md BT';fill:#ffffff;stroke-width:0.12887895"
+           y="156.22607"
+           x="67.346184"
+           id="tspan817"
+           sodipodi:role="line">JB</tspan></text>
+    </g>
+    <text
+       id="text823"
+       y="129.01016"
+       x="94.670395"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="stroke-width:0.26458332"
+         y="138.37393"
+         x="94.670395"
+         id="tspan821"
+         sodipodi:role="line" /></text>
+  </g>
+</svg>
