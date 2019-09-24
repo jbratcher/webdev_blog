@@ -62,6 +62,7 @@ class PortfolioItemController extends Controller
         $portfolioitem->body = $request->body;
         $portfolioitem->demo_url = $request->demo_url;
         $portfolioitem->repo_url = $request->repo_url;
+        $portfolioitem->slug = preg_replace("/\s/", "-", strtolower($portfolioitem->title));
         $portfolioitem->save();
 
         return new PortfolioItemResource($portfolioitem);

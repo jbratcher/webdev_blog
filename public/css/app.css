@@ -10905,7 +10905,8 @@ footer .container {
   margin: 0 0.25rem;
 }
 
-.blog-post {
+.blog-post,
+.portfolio-item {
   margin: 1rem 0.5rem;
 }
 
@@ -10984,7 +10985,8 @@ footer .container {
     list-style-type: none;
   }
 
-  .blog-post img {
+  .blog-post img,
+  .portfolio-item img {
     width: 50vw;
     margin: 0 auto;
   }

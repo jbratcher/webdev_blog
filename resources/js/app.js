@@ -19,6 +19,7 @@ import Blog from "./views/Blog";
 import BlogPost from "./views/BlogPost";
 import Create from "./views/Create";
 import Portfolio from "./views/Portfolio";
+import PortfolioItem from "./views/PortfolioItem";
 import Tutorials from "./views/Tutorials";
 import Contact from "./views/Contact";
 
@@ -39,7 +40,7 @@ const router = new VueRouter({
             component: Blog
         },
         {
-            path: '/blog/post/:post_id/:post_slug',
+            path: '/blog/view/:post_slug/:post_id',
             name: "blog-post",
             component: BlogPost,
             props: true,
@@ -53,6 +54,12 @@ const router = new VueRouter({
             path: "/portfolio",
             name: "portfolio",
             component: Portfolio
+        },
+        {
+            path: '/portfolio/view/:portfolio_item_slug/:portfolio_item_id',
+            name: "portfolio-item",
+            component: PortfolioItem,
+            props: true,
         },
         {
             path: "/contact",

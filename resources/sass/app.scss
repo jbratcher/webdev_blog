@@ -274,9 +274,9 @@ footer .container {
     }
 }
 
-// blog post (single)
+// resource single view
 
-.blog-post {
+.blog-post, .portfolio-item {
     margin: 1rem 0.5rem;
 }
 
@@ -379,7 +379,7 @@ footer .container {
 
     // blog post
 
-    .blog-post {
+    .blog-post, .portfolio-item {
 
         img {
             width: 50vw;

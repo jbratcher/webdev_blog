@@ -25,7 +25,7 @@
         mounted() {
             this.getPost();
             console.log("Blog post vue mounted");
-            console.log("Blog param id value: " + this.$route.params.id);
+            console.log("Blog param id value: " + this.$route.params.post_id);
         },
         data() {
             return {

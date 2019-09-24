@@ -21,6 +21,7 @@ class CreatePortfolioItemsTable extends Migration
             $table->string('image_src')->nullable();
             $table->string('demo_url')->nullable();
             $table->string('repo_url')->nullable();
+            $table->string('slug');
             $table->timestamps();
         });
     }

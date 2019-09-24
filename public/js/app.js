@@ -2024,7 +2024,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     this.getPost();
     console.log("Blog post vue mounted");
-    console.log("Blog param id value: " + this.$route.params.id);
+    console.log("Blog param id value: " + this.$route.params.post_id);
   },
   data: function data() {
     return {
@@ -2562,6 +2562,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.getPortfolioItems();
@@ -2569,7 +2570,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      portfolioitems: {}
+      portfolioItems: {}
     };
   },
   methods: {
@@ -2578,7 +2579,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/api/portfolioitems").then(function (response) {
         console.log("Response: ".concat(response.data));
-        _this.portfolioitems = response.data;
+        _this.portfolioItems = response.data;
       })["catch"](function (error) {
         _this.loading = false;
         _this.error = error.response.data.message || error.message;
@@ -2591,6 +2592,76 @@ __webpack_require__.r(__webpack_exports__);
       axios["delete"]("/api/portfolioitems/" + id).then(function (response) {
         return _this2.getPortfolioItems();
       });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/PortfolioItem.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/PortfolioItem.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    this.getPortfolioItems();
+    console.log("Portfolio item vue mounted");
+    console.log("Portfolio item param id value: " + this.$route.params.portfolio_item_id);
+  },
+  data: function data() {
+    return {
+      portfolioItem: {},
+      portfolioItems: []
+    };
+  },
+  methods: {
+    getPortfolioItems: function getPortfolioItems() {
+      var _this = this;
+
+      axios.get("/api/portfolioitems").then(function (response) {
+        _this.portfolioItems = response.data;
+        _this.portfolioItem = _this.portfolioItems[_this.$route.params.portfolio_item_id - 1];
+      }).then(function () {
+        return console.log("Portfolio Item: " + JSON.stringify(_this.portfolioItem));
+      })["catch"](function (error) {
+        _this.loading = false;
+        _this.error = error.response.data.message || error.message;
+      });
+    }
+  },
+  props: {
+    userId: {
+      type: Number
+    },
+    userName: {
+      type: String
     }
   }
 });
@@ -38962,53 +39033,90 @@ var render = function() {
       _c(
         "ul",
         { staticClass: "container", attrs: { id: "portfolio-items" } },
-        _vm._l(_vm.portfolioitems, function(portfolioitem) {
+        _vm._l(_vm.portfolioItems, function(portfolioItem) {
           return _c(
             "li",
-            { key: portfolioitem.id, staticClass: "portfolio-items-card" },
+            { key: portfolioItem.id, staticClass: "portfolio-items-card" },
             [
-              _c("a", { attrs: { href: "#" } }, [
-                _c("section", { staticClass: "card" }, [
-                  _c("img", {
-                    staticClass: "card-img-top",
-                    attrs: {
-                      src: portfolioitem.image_src,
-                      alt: "Card image cap"
+              _c(
+                "router-link",
+                {
+                  attrs: {
+                    to: {
+                      name: "portfolio-item",
+                      params: {
+                        portfolio_item_slug: portfolioItem.slug,
+                        portfolio_item_id: portfolioItem.id
+                      }
                     }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("h5", { staticClass: "card-title" }, [
-                      _vm._v(_vm._s(portfolioitem.title))
-                    ]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "card-text" }, [
-                      _vm._v(
-                        _vm._s(portfolioitem.body.substring(0, 144) + "...")
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "btn btn-primary",
-                        attrs: { href: portfolioitem.demo_url }
-                      },
-                      [_vm._v("Demo")]
-                    ),
+                  }
+                },
+                [
+                  _c("section", { staticClass: "card" }, [
+                    _c("img", {
+                      staticClass: "card-img-top",
+                      attrs: {
+                        src: portfolioItem.image_src,
+                        alt: portfolioItem.title
+                      }
+                    }),
                     _vm._v(" "),
                     _c(
-                      "a",
-                      {
-                        staticClass: "btn btn-primary",
-                        attrs: { href: portfolioitem.repo_url }
-                      },
-                      [_vm._v("Github Repo")]
+                      "div",
+                      { staticClass: "card-body" },
+                      [
+                        _c("h5", { staticClass: "card-title" }, [
+                          _vm._v(_vm._s(portfolioItem.title))
+                        ]),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "card-text" }, [
+                          _vm._v(
+                            _vm._s(portfolioItem.body.substring(0, 144) + "...")
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "router-link",
+                          {
+                            staticClass: "btn btn-primary",
+                            attrs: {
+                              to: {
+                                name: "portfolio-item",
+                                params: {
+                                  portfolio_item_slug: portfolioItem.slug,
+                                  portfolio_item_id: portfolioItem.id
+                                }
+                              }
+                            }
+                          },
+                          [_vm._v("Read More")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "btn btn-primary",
+                            attrs: { href: portfolioItem.demo_url }
+                          },
+                          [_vm._v("Demo")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "btn btn-primary",
+                            attrs: { href: portfolioItem.repo_url }
+                          },
+                          [_vm._v("Github Repo")]
+                        )
+                      ],
+                      1
                     )
                   ])
-                ])
-              ])
-            ]
+                ]
+              )
+            ],
+            1
           )
         }),
         0
@@ -39033,6 +39141,61 @@ var staticRenderFns = [
     ])
   }
 ]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/PortfolioItem.vue?vue&type=template&id=62c0cf28&":
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/PortfolioItem.vue?vue&type=template&id=62c0cf28& ***!
+  \***********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "section",
+    [
+      _c("global-header"),
+      _vm._v(" "),
+      _c("section", { staticClass: "portfolio-item" }, [
+        _c("section", { staticClass: "card" }, [
+          _c("img", {
+            staticClass: "card-img-top",
+            attrs: {
+              src: _vm.portfolioItem.image_src,
+              alt: _vm.portfolioItem.title
+            }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _c("h5", { staticClass: "card-title" }, [
+              _vm._v(_vm._s(_vm.portfolioItem.title))
+            ]),
+            _vm._v(" "),
+            _c("p", {
+              staticClass: "card-text",
+              domProps: { innerHTML: _vm._s(_vm.portfolioItem.body) }
+            })
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("global-footer")
+    ],
+    1
+  )
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -54091,8 +54254,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_BlogPost__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./views/BlogPost */ "./resources/js/views/BlogPost.vue");
 /* harmony import */ var _views_Create__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./views/Create */ "./resources/js/views/Create.vue");
 /* harmony import */ var _views_Portfolio__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./views/Portfolio */ "./resources/js/views/Portfolio.vue");
-/* harmony import */ var _views_Tutorials__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./views/Tutorials */ "./resources/js/views/Tutorials.vue");
-/* harmony import */ var _views_Contact__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./views/Contact */ "./resources/js/views/Contact.vue");
+/* harmony import */ var _views_PortfolioItem__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./views/PortfolioItem */ "./resources/js/views/PortfolioItem.vue");
+/* harmony import */ var _views_Tutorials__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./views/Tutorials */ "./resources/js/views/Tutorials.vue");
+/* harmony import */ var _views_Contact__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./views/Contact */ "./resources/js/views/Contact.vue");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -54105,6 +54269,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(_ckeditor_ckeditor5_vue__WEBPACK_IMPORTED_MODULE_2___default.a);
+
 
 
 
@@ -54126,7 +54291,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: "blog",
     component: _views_Blog__WEBPACK_IMPORTED_MODULE_5__["default"]
   }, {
-    path: '/blog/post/:post_id/:post_slug',
+    path: '/blog/view/:post_slug/:post_id',
     name: "blog-post",
     component: _views_BlogPost__WEBPACK_IMPORTED_MODULE_6__["default"],
     props: true
@@ -54139,13 +54304,18 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: "portfolio",
     component: _views_Portfolio__WEBPACK_IMPORTED_MODULE_8__["default"]
   }, {
+    path: '/portfolio/view/:portfolio_item_slug/:portfolio_item_id',
+    name: "portfolio-item",
+    component: _views_PortfolioItem__WEBPACK_IMPORTED_MODULE_9__["default"],
+    props: true
+  }, {
     path: "/contact",
     name: "contact",
-    component: _views_Contact__WEBPACK_IMPORTED_MODULE_10__["default"]
+    component: _views_Contact__WEBPACK_IMPORTED_MODULE_11__["default"]
   }, {
     path: "/tutorials",
     name: "tutorials",
-    component: _views_Tutorials__WEBPACK_IMPORTED_MODULE_9__["default"]
+    component: _views_Tutorials__WEBPACK_IMPORTED_MODULE_10__["default"]
   }]
 });
 /**
@@ -54838,6 +55008,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Portfolio_vue_vue_type_template_id_1e3e998e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Portfolio_vue_vue_type_template_id_1e3e998e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/views/PortfolioItem.vue":
+/*!**********************************************!*\
+  !*** ./resources/js/views/PortfolioItem.vue ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _PortfolioItem_vue_vue_type_template_id_62c0cf28___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PortfolioItem.vue?vue&type=template&id=62c0cf28& */ "./resources/js/views/PortfolioItem.vue?vue&type=template&id=62c0cf28&");
+/* harmony import */ var _PortfolioItem_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PortfolioItem.vue?vue&type=script&lang=js& */ "./resources/js/views/PortfolioItem.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _PortfolioItem_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _PortfolioItem_vue_vue_type_template_id_62c0cf28___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _PortfolioItem_vue_vue_type_template_id_62c0cf28___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/views/PortfolioItem.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/views/PortfolioItem.vue?vue&type=script&lang=js&":
+/*!***********************************************************************!*\
+  !*** ./resources/js/views/PortfolioItem.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PortfolioItem_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./PortfolioItem.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/PortfolioItem.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PortfolioItem_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/views/PortfolioItem.vue?vue&type=template&id=62c0cf28&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/views/PortfolioItem.vue?vue&type=template&id=62c0cf28& ***!
+  \*****************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PortfolioItem_vue_vue_type_template_id_62c0cf28___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./PortfolioItem.vue?vue&type=template&id=62c0cf28& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/PortfolioItem.vue?vue&type=template&id=62c0cf28&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PortfolioItem_vue_vue_type_template_id_62c0cf28___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PortfolioItem_vue_vue_type_template_id_62c0cf28___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
