@@ -10830,13 +10830,13 @@ a.nav-link.router-link-exact-active.router-link-active:focus {
   margin: 1rem 0;
 }
 
-.post-card {
-  margin: 2rem 0;
-}
-
 .post-edit-header {
   border-top: 1px solid black;
   padding: 2rem 4rem 0;
+}
+
+.portfolio-items-card {
+  height: 100%;
 }
 
 .portfolio-items-card .card {
@@ -10941,7 +10941,7 @@ footer .container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 2rem;
-    justify-items: center;
+    justify-items: start;
   }
 
   .posts-list li {
@@ -10967,6 +10967,10 @@ footer .container {
     margin: 1rem 0;
   }
 
+  .card {
+    height: 100%;
+  }
+
   .card .card-body .card-title {
     color: #000;
     font-size: 1.8rem;
@@ -10981,7 +10985,6 @@ footer .container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 2rem;
-    justify-items: center;
     list-style-type: none;
   }
 
@@ -10995,7 +10998,6 @@ footer .container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 2rem;
-    justify-items: center;
     list-style-type: none;
   }
 
