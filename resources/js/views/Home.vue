@@ -18,16 +18,21 @@
                 <ul class="posts-list">
 
                     <li v-for="post in posts" :key="post.id">
-                        <a href="#">
+                        <router-link :to="{ name: 'blog-post', params: { post_slug: post.slug, post_id: post.id} }">
                             <section class="card">
                                 <img class="card-img-top" :src="post.image_src" :alt="post.title">
                                 <div class="card-body">
                                     <h5 class="card-title">{{post.title}}</h5>
                                     <p class="card-text" v-html="post.body"></p>
-                                    <a href="#" class="btn btn-primary">Read More</a>
+                                    <router-link
+                                        class="btn btn-primary"
+                                        :to="{ name: 'blog-post', params: { post_slug: post.slug, post_id: post.id} }"
+                                    >
+                                        Read More
+                                    </router-link>
                                 </div>
                             </section>
-                        </a>
+                        </router-link>
                     </li>
 
                 </ul>
@@ -41,18 +46,19 @@
 
                 <ul class="posts-list">
 
-                    <li class="portfolio-items-card" v-for="portfolioitem in portfolioitems" :key="portfolioitem.id">
-                        <a href="#">
+                    <li class="portfolio-items-card" v-for="portfolioItem in portfolioItems" :key="portfolioItem.id">
+                        <router-link :to="{ name: 'portfolio-item', params: { portfolio_item_slug: portfolioItem.slug, portfolio_item_id: portfolioItem.id} }">
                             <section class="card">
-                                <img class="card-img-top" :src="portfolioitem.image_src" :alt="portfolioitem.title">
+                                <img class="card-img-top" :src="portfolioItem.image_src" :alt="portfolioItem.title">
                                 <div class="card-body">
-                                    <h5 class="card-title">{{portfolioitem.title}}</h5>
-                                    <p class="card-text">{{portfolioitem.body.substring(0,144)+"..."}}</p>
-                                    <a :href="portfolioitem.demo_url" class="btn btn-primary">Demo</a>
-                                    <a :href="portfolioitem.repo_url" class="btn btn-primary">Github Repo</a>
+                                    <h5 class="card-title">{{portfolioItem.title}}</h5>
+                                    <p class="card-text">{{portfolioItem.body.substring(0,144)+"..."}}</p>
+                                    <router-link class="btn btn-primary" :to="{ name: 'portfolio-item', params: { portfolio_item_slug: portfolioItem.slug, portfolio_item_id: portfolioItem.id} }">Read More</router-link>
+                                    <a :href="portfolioItem.demo_url" class="btn btn-primary">Demo</a>
+                                    <a :href="portfolioItem.repo_url" class="btn btn-primary">Github Repo</a>
                                 </div>
                             </section>
-                        </a>
+                        </router-link>
                     </li>
 
                 </ul>
@@ -90,7 +96,7 @@
         data() {
             return {
                 posts: {},
-                portfolioitems: {},
+                portfolioItems: {},
                 users: {},
             };
         },
@@ -106,7 +112,7 @@
             },
             getPortfolioItems() {
                 axios.get("/api/portfolioitems").then(response => {
-                    this.portfolioitems = response.data;
+                    this.portfolioItems = response.data;
                 })
                 .catch(error => {
                     this.loading = false;

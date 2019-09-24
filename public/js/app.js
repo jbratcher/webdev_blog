@@ -2468,6 +2468,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.getPosts();
@@ -2478,7 +2484,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       posts: {},
-      portfolioitems: {},
+      portfolioItems: {},
       users: {}
     };
   },
@@ -2497,7 +2503,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       axios.get("/api/portfolioitems").then(function (response) {
-        _this2.portfolioitems = response.data;
+        _this2.portfolioItems = response.data;
       })["catch"](function (error) {
         _this2.loading = false;
         _this2.error = error.response.data.message || error.message;
@@ -38852,36 +38858,69 @@ var render = function() {
             "ul",
             { staticClass: "posts-list" },
             _vm._l(_vm.posts, function(post) {
-              return _c("li", { key: post.id }, [
-                _c("a", { attrs: { href: "#" } }, [
-                  _c("section", { staticClass: "card" }, [
-                    _c("img", {
-                      staticClass: "card-img-top",
-                      attrs: { src: post.image_src, alt: post.title }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "card-body" }, [
-                      _c("h5", { staticClass: "card-title" }, [
-                        _vm._v(_vm._s(post.title))
-                      ]),
-                      _vm._v(" "),
-                      _c("p", {
-                        staticClass: "card-text",
-                        domProps: { innerHTML: _vm._s(post.body) }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "btn btn-primary",
-                          attrs: { href: "#" }
-                        },
-                        [_vm._v("Read More")]
-                      )
-                    ])
-                  ])
-                ])
-              ])
+              return _c(
+                "li",
+                { key: post.id },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      attrs: {
+                        to: {
+                          name: "blog-post",
+                          params: { post_slug: post.slug, post_id: post.id }
+                        }
+                      }
+                    },
+                    [
+                      _c("section", { staticClass: "card" }, [
+                        _c("img", {
+                          staticClass: "card-img-top",
+                          attrs: { src: post.image_src, alt: post.title }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "card-body" },
+                          [
+                            _c("h5", { staticClass: "card-title" }, [
+                              _vm._v(_vm._s(post.title))
+                            ]),
+                            _vm._v(" "),
+                            _c("p", {
+                              staticClass: "card-text",
+                              domProps: { innerHTML: _vm._s(post.body) }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "btn btn-primary",
+                                attrs: {
+                                  to: {
+                                    name: "blog-post",
+                                    params: {
+                                      post_slug: post.slug,
+                                      post_id: post.id
+                                    }
+                                  }
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                    Read More\n                                "
+                                )
+                              ]
+                            )
+                          ],
+                          1
+                        )
+                      ])
+                    ]
+                  )
+                ],
+                1
+              )
             }),
             0
           )
@@ -38895,53 +38934,92 @@ var render = function() {
           _c(
             "ul",
             { staticClass: "posts-list" },
-            _vm._l(_vm.portfolioitems, function(portfolioitem) {
+            _vm._l(_vm.portfolioItems, function(portfolioItem) {
               return _c(
                 "li",
-                { key: portfolioitem.id, staticClass: "portfolio-items-card" },
+                { key: portfolioItem.id, staticClass: "portfolio-items-card" },
                 [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("section", { staticClass: "card" }, [
-                      _c("img", {
-                        staticClass: "card-img-top",
-                        attrs: {
-                          src: portfolioitem.image_src,
-                          alt: portfolioitem.title
+                  _c(
+                    "router-link",
+                    {
+                      attrs: {
+                        to: {
+                          name: "portfolio-item",
+                          params: {
+                            portfolio_item_slug: portfolioItem.slug,
+                            portfolio_item_id: portfolioItem.id
+                          }
                         }
-                      }),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "card-body" }, [
-                        _c("h5", { staticClass: "card-title" }, [
-                          _vm._v(_vm._s(portfolioitem.title))
-                        ]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "card-text" }, [
-                          _vm._v(
-                            _vm._s(portfolioitem.body.substring(0, 144) + "...")
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            staticClass: "btn btn-primary",
-                            attrs: { href: portfolioitem.demo_url }
-                          },
-                          [_vm._v("Demo")]
-                        ),
+                      }
+                    },
+                    [
+                      _c("section", { staticClass: "card" }, [
+                        _c("img", {
+                          staticClass: "card-img-top",
+                          attrs: {
+                            src: portfolioItem.image_src,
+                            alt: portfolioItem.title
+                          }
+                        }),
                         _vm._v(" "),
                         _c(
-                          "a",
-                          {
-                            staticClass: "btn btn-primary",
-                            attrs: { href: portfolioitem.repo_url }
-                          },
-                          [_vm._v("Github Repo")]
+                          "div",
+                          { staticClass: "card-body" },
+                          [
+                            _c("h5", { staticClass: "card-title" }, [
+                              _vm._v(_vm._s(portfolioItem.title))
+                            ]),
+                            _vm._v(" "),
+                            _c("p", { staticClass: "card-text" }, [
+                              _vm._v(
+                                _vm._s(
+                                  portfolioItem.body.substring(0, 144) + "..."
+                                )
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "btn btn-primary",
+                                attrs: {
+                                  to: {
+                                    name: "portfolio-item",
+                                    params: {
+                                      portfolio_item_slug: portfolioItem.slug,
+                                      portfolio_item_id: portfolioItem.id
+                                    }
+                                  }
+                                }
+                              },
+                              [_vm._v("Read More")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-primary",
+                                attrs: { href: portfolioItem.demo_url }
+                              },
+                              [_vm._v("Demo")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-primary",
+                                attrs: { href: portfolioItem.repo_url }
+                              },
+                              [_vm._v("Github Repo")]
+                            )
+                          ],
+                          1
                         )
                       ])
-                    ])
-                  ])
-                ]
+                    ]
+                  )
+                ],
+                1
               )
             }),
             0
