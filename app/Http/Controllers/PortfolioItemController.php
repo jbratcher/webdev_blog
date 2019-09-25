@@ -110,6 +110,7 @@ class PortfolioItemController extends Controller
      */
     public function destroy(PortfolioItem $portfolioitem)
     {
-        //
+        $portfolioitem->delete();
+        return response()->json(null, 204);
     }
 }

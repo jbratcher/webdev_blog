@@ -22,6 +22,7 @@ import Portfolio from "./views/Portfolio";
 import PortfolioItem from "./views/PortfolioItem";
 import Tutorials from "./views/Tutorials";
 import Contact from "./views/Contact";
+import Admin from "./views/Admin";
 
 Vue.component('global-header', require('./views/GlobalHeader').default);
 Vue.component('global-footer', require('./views/GlobalFooter').default);
@@ -62,14 +63,19 @@ const router = new VueRouter({
             props: true,
         },
         {
+            path: "/tutorials",
+            name: "tutorials",
+            component: Tutorials
+        },
+        {
             path: "/contact",
             name: "contact",
             component: Contact
         },
         {
-            path: "/tutorials",
-            name: "tutorials",
-            component: Tutorials
+            path: "/admin",
+            name: "admin",
+            component: Admin
         },
     ]
 })
@@ -84,6 +90,7 @@ const app = new Vue({
     el: '#app',
     components: {
         App,
+        Admin
     },
     router,
 });

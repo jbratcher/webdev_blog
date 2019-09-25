@@ -10652,6 +10652,10 @@ a.text-dark:focus {
   padding: 0;
 }
 
+h5 {
+  margin: 0;
+}
+
 html,
 body,
 header,
@@ -10908,6 +10912,46 @@ footer .container {
 .blog-post,
 .portfolio-item {
   margin: 1rem 0.5rem;
+}
+
+h2 {
+  font-weight: bold;
+}
+
+.resource-list ul {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 0;
+}
+
+.resource-list ul li {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0.5rem 1rem;
+  align-items: center;
+}
+
+.resource-list ul li h5 {
+  font-weight: bold;
+}
+
+.resource-list ul li .admin-user-group {
+  display: flex;
+}
+
+.resource-list ul li .admin-user-group h5 {
+  align-self: center;
+  font-weight: bold;
+}
+
+.resource-list ul li .admin-user-group img {
+  border-radius: 50%;
+  height: 3rem;
+  margin: 0 1rem;
+}
+
+.resource-list ul li:nth-of-type(odd) {
+  background: #fff;
 }
 
 @media only screen and (min-width: 768px) {

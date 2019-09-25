@@ -10,6 +10,10 @@
     padding: 0;
 }
 
+h5 {
+    margin: 0;
+}
+
 html, body, header, main {
     font-family: 'Roboto', sans-serif;
     min-width: 100vw;
@@ -281,6 +285,53 @@ footer .container {
     margin: 1rem 0.5rem;
 }
 
+// admin dashboard page
+
+h2 {
+    font-weight: bold;
+}
+
+.resource-list {
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        margin: 2rem 0;
+
+        li {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 0.5rem 1rem;
+            align-items: center;
+
+            h5 {
+                font-weight: bold;
+            }
+
+            .admin-user-group {
+                display: flex;
+
+                h5 {
+                    align-self: center;
+                    font-weight: bold;
+                }
+
+                img {
+                    border-radius: 50%;
+                    height: 3rem;
+                    margin: 0 1rem;
+                }
+            }
+
+        }
+
+        li:nth-of-type(odd) {
+            background: #fff;
+        }
+
+    }
+
+}
 
 // Tablet and desktop styles
 
