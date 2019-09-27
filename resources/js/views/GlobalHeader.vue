@@ -32,5 +32,13 @@
 
 <script>
     export default {
+        props: {
+            userId: {
+                type: Number
+            },
+            userName: {
+                type: String
+            }
+        }
     }
 </script>

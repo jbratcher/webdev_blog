@@ -23,6 +23,7 @@ import PortfolioItem from "./views/PortfolioItem";
 import Tutorials from "./views/Tutorials";
 import Contact from "./views/Contact";
 import Admin from "./views/Admin";
+import EditPost from "./views/EditPost";
 
 Vue.component('global-header', require('./views/GlobalHeader').default);
 Vue.component('global-footer', require('./views/GlobalFooter').default);
@@ -76,6 +77,12 @@ const router = new VueRouter({
             path: "/admin",
             name: "admin",
             component: Admin
+        },
+        {
+            path: '/edit/view/:post_slug/:post_id',
+            name: "edit-post",
+            component: EditPost,
+            props: true,
         },
     ]
 })

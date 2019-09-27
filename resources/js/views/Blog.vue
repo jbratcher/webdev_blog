@@ -9,11 +9,6 @@
             <p class="lead">Read about my latest development experiences.</p>
         </div>
 
-        <div class="container admin-menu" v-if="userId">
-            <i class="fas fa-plus-circle fa-2x"></i>
-            <router-link :to="{ name: 'create' }">New Post</router-link>
-        </div>
-
         <ul class="container" id="posts">
 
             <li class="post-card" v-for="post in posts" :key="post.id">

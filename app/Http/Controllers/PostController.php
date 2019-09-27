@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\PostResource;
 use App\Post;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -95,7 +96,20 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'body' => 'required',
+            'image' => 'nullable',
+        ]);
+
+
+        $post->update([
+            'title' => $request->title,
+            'body' => $request->body,
+            'image' => $request->image
+        ]);
+
+        return response()->json(null, 204);
     }
 
     /**

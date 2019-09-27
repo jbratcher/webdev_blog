@@ -1,5 +1,6 @@
 <template>
-    <div class="main-container" v-if="userId">
+
+    <div class="main-container">
 
         <global-header />
 
@@ -13,21 +14,11 @@
 
                 <h2>Blog Posts</h2>
 
-                <div class="container admin-menu">
-                    <i class="fas fa-plus-circle fa-2x"></i>
-                    <router-link :to="{ name: 'create' }">New Post</router-link>
-                </div>
-
                 <ul>
                     <li v-for="post in posts" :key="post.id">
                         <h5>{{post.title.substring(0,80)}}</h5>
                         <section class="admin-actions">
-                            <router-link
-                                class="btn btn-primary"
-                                :to="{ name: 'edit-post', params: { post_slug: post.slug, post_id: post.id} }"
-                            >
-                                Edit
-                            </router-link>
+                            <button class="btn btn-primary" type="button">Edit</button>
                             <button class="btn btn-primary" type="button" @click="deletePost(post.id)">Delete</button>
                         </section>
                     </li>
@@ -66,7 +57,6 @@
                         </section>
                         <section class="admin-actions">
                             <button class="btn btn-primary" type="button">Edit</button>
-                            <button class="btn btn-primary" type="button">Delete</button>
                         </section>
                     </li>
 
@@ -79,6 +69,7 @@
         <global-footer />
 
     </div>
+
 </template>
 
 <script>
@@ -130,14 +121,6 @@
                     this.error = error.response.data.message || error.message;
                 });
             },
-        },
-        props: {
-            userId: {
-                type: Number
-            },
-            userName: {
-                type: String
-            }
         }
     };
 </script>
