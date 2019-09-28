@@ -2576,7 +2576,8 @@ __webpack_require__.r(__webpack_exports__);
       formData.append("title", this.$refs.title.value);
       formData.append("body", this.$refs.body.value);
       formData.append("image", this.$refs.image.files[0]);
-      formData.append("_method", "patch");
+      formData.append("_method", "patch"); // need for method spoofing in Vue for PUT/PATCH
+
       console.log(this.$refs.title.value);
       console.log(this.$refs.body.value);
       console.log("Form data: " + formData);
@@ -38582,7 +38583,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "ul",
-        { staticClass: "container", attrs: { id: "posts" } },
+        { staticClass: "container content-section", attrs: { id: "posts" } },
         _vm._l(_vm.posts, function(post) {
           return _c(
             "li",
@@ -38662,7 +38663,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "container-fluid global-banner" }, [
-      _c("h1", [_vm._v("Web Development Blog")]),
+      _c("h1", { staticClass: "underline" }, [_vm._v("Web Development Blog")]),
       _vm._v(" "),
       _c("p", { staticClass: "lead" }, [
         _vm._v("Read about my latest development experiences.")
@@ -38752,7 +38753,10 @@ var render = function() {
       _c("main", [
         _c(
           "section",
-          { staticClass: "container contact-intro", attrs: { id: "contact" } },
+          {
+            staticClass: "container content-section contact-intro",
+            attrs: { id: "contact" }
+          },
           [
             _vm._l(_vm.users, function(user) {
               return _c(
@@ -39521,8 +39525,8 @@ var render = function() {
       _c("main", [
         _vm._m(0),
         _vm._v(" "),
-        _c("section", { staticClass: "container blog-intro" }, [
-          _c("h2", [_vm._v("Blog")]),
+        _c("section", { staticClass: "container content-section" }, [
+          _c("h2", { staticClass: "underline" }, [_vm._v("Blog")]),
           _vm._v(" "),
           _c("p", { staticClass: "lead" }, [_vm._v("Latest posts")]),
           _vm._v(" "),
@@ -39598,8 +39602,8 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _c("section", { staticClass: "container project-intro" }, [
-          _c("h2", [_vm._v("Projects")]),
+        _c("section", { staticClass: "container content-section" }, [
+          _c("h2", { staticClass: "underline" }, [_vm._v("Projects")]),
           _vm._v(" "),
           _c("p", { staticClass: "lead" }, [_vm._v("Some of my best work")]),
           _vm._v(" "),
@@ -39700,7 +39704,7 @@ var render = function() {
         _vm._v(" "),
         _c(
           "section",
-          { staticClass: "container-fluid about-intro" },
+          { staticClass: "container-fluid content-section about-intro" },
           _vm._l(_vm.users, function(user) {
             return _c(
               "router-link",
@@ -39782,7 +39786,10 @@ var render = function() {
       _vm._v(" "),
       _c(
         "ul",
-        { staticClass: "container", attrs: { id: "portfolio-items" } },
+        {
+          staticClass: "container content-section",
+          attrs: { id: "portfolio-items" }
+        },
         _vm._l(_vm.portfolioItems, function(portfolioItem) {
           return _c(
             "li",
@@ -39883,7 +39890,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "container-fluid global-banner" }, [
-      _c("h1", { staticClass: "display-4" }, [_vm._v("Portfolio")]),
+      _c("h1", { staticClass: "underline" }, [_vm._v("Portfolio")]),
       _vm._v(" "),
       _c("p", { staticClass: "lead" }, [
         _vm._v("Here are my best and latest open-source projects.")

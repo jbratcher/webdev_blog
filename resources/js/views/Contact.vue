@@ -5,7 +5,7 @@
 
         <main>
 
-            <section id="contact" class="container contact-intro">
+            <section class="container content-section contact-intro" id="contact">
 
                 <section class="card about" v-for="user in users" :key="user.id">
                     <img class="card-img-top" :src="user.profile_pic_src" :alt="user.name">

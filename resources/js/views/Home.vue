@@ -10,9 +10,9 @@
                 <h2 class="lead">Full Stack Web Developer</h2>
             </div>
 
-            <section class="container blog-intro">
+            <section class="container content-section">
 
-                <h2>Blog</h2>
+                <h2 class="underline">Blog</h2>
                 <p class="lead">Latest posts</p>
 
                 <ul class="posts-list">
@@ -39,9 +39,9 @@
 
             </section>
 
-            <section class="container project-intro">
+            <section class="container content-section">
 
-                <h2>Projects</h2>
+                <h2 class="underline">Projects</h2>
                 <p class="lead">Some of my best work</p>
 
                 <ul class="posts-list">
@@ -64,7 +64,7 @@
                 </ul>
             </section>
 
-            <section class="container-fluid about-intro">
+            <section class="container-fluid content-section about-intro">
 
                 <router-link class="nav-link" :to="{ name: 'contact'}" v-for="user in users" :key="user.id">
                     <section class="card">

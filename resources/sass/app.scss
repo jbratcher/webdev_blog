@@ -10,7 +10,7 @@
     padding: 0;
 }
 
-h5 {
+h1, h2, h3, h4, h5, h6, p {
     margin: 0;
 }
 
@@ -129,7 +129,7 @@ a.nav-link.router-link-exact-active.router-link-active {
 
 // sections
 
-.blog-intro, .project-intro, .about-intro, .contact-intro, #posts, #portfolio-items {
+.content-section {
 
     h2 {
         font-weight: 700;
@@ -386,10 +386,16 @@ h2 {
 
     // page section headers and text
 
-    .blog-intro, .project-intro, .about-intro, .contact-intro, #posts, #portfolio-items {
+    .content-section {
 
         h2 {
-            font-size: 3rem;
+            font-size: 2.25rem;
+            width: max-content;
+        }
+
+        .underline {
+            border-bottom: 4px solid #283E51;
+            padding: 0 0.5rem 0.5rem 0;
         }
 
         p.lead {

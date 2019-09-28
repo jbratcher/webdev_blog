@@ -5,11 +5,11 @@
         <global-header />
 
         <div class="container-fluid global-banner">
-            <h1>Web Development Blog</h1>
+            <h1 class="underline">Web Development Blog</h1>
             <p class="lead">Read about my latest development experiences.</p>
         </div>
 
-        <ul class="container" id="posts">
+        <ul class="container content-section" id="posts">
 
             <li class="post-card" v-for="post in posts" :key="post.id">
                 <router-link :to="{ name: 'blog-post', params: { post_slug: post.slug, post_id: post.id} }">

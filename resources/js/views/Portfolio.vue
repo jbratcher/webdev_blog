@@ -5,11 +5,11 @@
         <global-header />
 
         <div class="container-fluid global-banner">
-            <h1 class="display-4">Portfolio</h1>
+            <h1 class="underline">Portfolio</h1>
             <p class="lead">Here are my best and latest open-source projects.</p>
         </div>
 
-        <ul class="container" id="portfolio-items">
+        <ul class="container content-section" id="portfolio-items">
 
             <li class="portfolio-items-card" v-for="portfolioItem in portfolioItems" :key="portfolioItem.id">
                 <router-link :to="{ name: 'portfolio-item', params: { portfolio_item_slug: portfolioItem.slug, portfolio_item_id: portfolioItem.id} }">
