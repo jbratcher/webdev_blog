@@ -37,16 +37,12 @@
                 </div>
 
                 <div class="form-group">
-                    <ckeditor
-                        class="form-control"
+                    <markdown-editor
                         ref="body"
                         id="body"
-                        :editor="editor"
-                        v-model="editorData"
-                        :config="editorConfig"
-                        required
-                    >
-                    </ckeditor>
+                        toolbar="clipboard redo undo | bold italic strikethrough heading | image link | numlist bullist code quote | preview fullscreen"
+                        v-model="editorValue"
+                    ></markdown-editor>
                 </div>
 
                 <div class="custom-file mb-3">
@@ -75,11 +71,7 @@
     export default {
         data() {
             return {
-                editor: ClassicEditor,
-                editorData: '<p>Content of the editor.</p>',
-                editorConfig: {
-                    // The configuration of the editor.
-                },
+                editorValue: "",
                 error: false,
                 errors: [],
                 successful: false,
@@ -120,7 +112,16 @@
             },
             userName: {
                 type: String
-            }
+            },
+            options: {
+                lineNumbers: true,
+                styleActiveLine: true,
+                styleSelectedText: true,
+                lineWrapping: true,
+                indentWithTabs: true,
+                tabSize: 2,
+                indentUnit: 2
+            },
         },
     };
 </script>
