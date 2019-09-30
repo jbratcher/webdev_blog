@@ -5,7 +5,7 @@
         <global-header />
 
         <div class="container-fluid global-banner">
-            <h1 class="underline">Web Development Blog</h1>
+            <h1>Web Development Blog</h1>
             <p class="lead">Read about my latest development experiences.</p>
         </div>
 

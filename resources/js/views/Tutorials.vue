@@ -5,7 +5,7 @@
         <global-header />
 
         <div class="container-fluid global-banner">
-            <h1 class="display-4">Tutorials</h1>
+            <h1>Tutorials</h1>
             <p class="lead">Coming soon...</p>
         </div>
 

@@ -14,7 +14,7 @@ h1, h2, h3, h4, h5, h6, p {
     margin: 0;
 }
 
-html, body, header, main {
+html, body {
     font-family: 'Roboto', sans-serif;
     min-width: 100vw;
     overflow-x: hidden;
@@ -38,7 +38,14 @@ ul {
 }
 
 .btn-primary {
-    background: #283E51;
+    background: linear-gradient(to right, #283E51 80%, #4B79A1)
+}
+
+// helpers
+
+.underline {
+    border-bottom: 4px solid #283E51;
+    padding: 0 0.5rem 0.5rem 0;
 }
 
 // global nav
@@ -257,6 +264,11 @@ a.nav-link.router-link-exact-active.router-link-active {
 
 #contact section.contact-form {
     padding: 1.25rem;
+
+    .open {
+        color: #4CAF50;
+    }
+
 }
 
 // Global footer
@@ -391,11 +403,6 @@ h2 {
         h2 {
             font-size: 2.25rem;
             width: max-content;
-        }
-
-        .underline {
-            border-bottom: 4px solid #283E51;
-            padding: 0 0.5rem 0.5rem 0;
         }
 
         p.lead {

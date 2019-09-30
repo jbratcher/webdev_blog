@@ -16,7 +16,7 @@
                 </section>
 
                 <section class="contact-form">
-                    <h2>Let me help you with your next project.</h2>
+                    <h2>Let me help with your next project.</h2>
                     <p>I am currently <span class="open">open to new prospects</span>.</p>
                     <form @submit.prevent="submit">
                         <div class="form-group">
