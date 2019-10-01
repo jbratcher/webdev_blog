@@ -6,10 +6,10 @@
 
         <section class="blog-post">
             <section class="card">
-                <img class="card-img-top" :src="post.image_src" :alt="post.title">
+                <img class="card-img-top" :src="post[0].image_src" :alt="post[0].title">
                 <div class="card-body">
-                    <h5 class="card-title">{{post.title}}</h5>
-                    <vue-markdown :source="post.body"></vue-markdown>
+                    <h5 class="card-title">{{post[0].title}}</h5>
+                    <vue-markdown :source="post[0].body"></vue-markdown>
                 </div>
             </section>
         </section>
@@ -29,7 +29,7 @@
         },
         data() {
             return {
-                post: {},
+                post: [],
                 posts: [],
             };
         },
@@ -37,7 +37,7 @@
             getPost() {
                 axios.get("/api/posts").then(response => {
                     this.posts = response.data;
-                    this.post = this.posts[this.$route.params.post_id-1];
+                    this.post = this.posts.filter(post => post.id === this.$route.params.post_id);
                 })
                 .then(() => console.log("Post: " + JSON.stringify(this.post)))
                 .catch(error => {

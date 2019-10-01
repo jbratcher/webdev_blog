@@ -2178,7 +2178,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      post: {},
+      post: [],
       posts: []
     };
   },
@@ -2188,7 +2188,9 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/api/posts").then(function (response) {
         _this.posts = response.data;
-        _this.post = _this.posts[_this.$route.params.post_id - 1];
+        _this.post = _this.posts.filter(function (post) {
+          return post.id === _this.$route.params.post_id;
+        });
       }).then(function () {
         return console.log("Post: " + JSON.stringify(_this.post));
       })["catch"](function (error) {
@@ -74969,7 +74971,7 @@ var render = function() {
         _c("section", { staticClass: "card" }, [
           _c("img", {
             staticClass: "card-img-top",
-            attrs: { src: _vm.post.image_src, alt: _vm.post.title }
+            attrs: { src: _vm.post[0].image_src, alt: _vm.post[0].title }
           }),
           _vm._v(" "),
           _c(
@@ -74977,10 +74979,10 @@ var render = function() {
             { staticClass: "card-body" },
             [
               _c("h5", { staticClass: "card-title" }, [
-                _vm._v(_vm._s(_vm.post.title))
+                _vm._v(_vm._s(_vm.post[0].title))
               ]),
               _vm._v(" "),
-              _c("vue-markdown", { attrs: { source: _vm.post.body } })
+              _c("vue-markdown", { attrs: { source: _vm.post[0].body } })
             ],
             1
           )
