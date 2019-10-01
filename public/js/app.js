@@ -74931,7 +74931,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "container-fluid global-banner" }, [
-      _c("h1", { staticClass: "underline" }, [_vm._v("Web Development Blog")]),
+      _c("h1", [_vm._v("Web Development Blog")]),
       _vm._v(" "),
       _c("p", { staticClass: "lead" }, [
         _vm._v("Read about my latest development experiences.")
@@ -75044,7 +75044,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("section", { staticClass: "contact-form" }, [
-              _c("h2", [_vm._v("Let me help you with your next project.")]),
+              _c("h2", [_vm._v("Let me help with your next project.")]),
               _vm._v(" "),
               _vm._m(1),
               _vm._v(" "),
@@ -76158,7 +76158,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "container-fluid global-banner" }, [
-      _c("h1", { staticClass: "underline" }, [_vm._v("Portfolio")]),
+      _c("h1", [_vm._v("Portfolio")]),
       _vm._v(" "),
       _c("p", { staticClass: "lead" }, [
         _vm._v("Here are my best and latest open-source projects.")
@@ -76260,7 +76260,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "container-fluid global-banner" }, [
-      _c("h1", { staticClass: "display-4" }, [_vm._v("Tutorials")]),
+      _c("h1", [_vm._v("Tutorials")]),
       _vm._v(" "),
       _c("p", { staticClass: "lead" }, [_vm._v("Coming soon...")])
     ])
@@ -99959,4 +99959,3 @@ module.exports = __webpack_require__(/*! C:\Users\jerem\workspaces\webdev-blog\r
 /***/ })
 
 /******/ });
->>>>>>> dev
