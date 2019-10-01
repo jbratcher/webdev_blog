@@ -40,7 +40,6 @@
                     <markdown-editor
                         ref="body"
                         id="body"
-                        :source="post.body"
                         toolbar="clipboard redo undo | bold italic strikethrough heading | image link | numlist bullist code quote | preview fullscreen"
                         v-model="editorValue"
                     ></markdown-editor>
@@ -71,6 +70,9 @@
         created() {
             console.log("Edit post vue mounted");
             this.getPost();
+        },
+        updated() {
+            this.updateEditorValue();
         },
         data() {
             return {
@@ -124,6 +126,9 @@
                     this.error = error.response.data.message || error.message;
                 });
             },
+            updateEditorValue() {
+                this.editorValue = this.post.body;
+            }
         },
         props: {
             userId: {

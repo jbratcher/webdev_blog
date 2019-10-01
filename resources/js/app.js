@@ -6,15 +6,20 @@
 
 require('./bootstrap');
 
+// Import and use statements for modules
+
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import 'v-markdown-editor/dist/index.css';
 import Editor from 'v-markdown-editor';
 import VueMarkdown from 'vue-markdown';
 
 Vue.use( VueRouter );
 Vue.use( Editor );
 Vue.use( VueMarkdown );
+
+// style imports
+
+import 'v-markdown-editor/dist/index.css';
 
 // Views
 
