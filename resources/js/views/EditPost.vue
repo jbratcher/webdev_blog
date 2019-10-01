@@ -37,16 +37,13 @@
                 </div>
 
                 <div class="form-group">
-                    <ckeditor
-                        class="form-control"
+                    <markdown-editor
                         ref="body"
                         id="body"
-                        :editor="editor"
-                        v-model="post.body"
-                        :config="editorConfig"
-                        required
-                    >
-                    </ckeditor>
+                        :source="post.body"
+                        toolbar="clipboard redo undo | bold italic strikethrough heading | image link | numlist bullist code quote | preview fullscreen"
+                        v-model="editorValue"
+                    ></markdown-editor>
                 </div>
 
                 <div class="custom-file mb-3">
@@ -70,8 +67,6 @@
 
 <script>
 
-    import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-
     export default {
         created() {
             console.log("Edit post vue mounted");
@@ -79,11 +74,7 @@
         },
         data() {
             return {
-                editor: ClassicEditor,
-                editorData: '<p>Content of the editor.</p>',
-                editorConfig: {
-                    // The configuration of the editor.
-                },
+                editorValue: "",
                 error: false,
                 errors: [],
                 post: {},
@@ -140,7 +131,16 @@
             },
             userName: {
                 type: String
-            }
+            },
+            options: {
+                lineNumbers: true,
+                styleActiveLine: true,
+                styleSelectedText: true,
+                lineWrapping: true,
+                indentWithTabs: true,
+                tabSize: 2,
+                indentUnit: 2
+            },
         },
     };
 </script>

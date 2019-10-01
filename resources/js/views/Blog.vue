@@ -9,27 +9,33 @@
             <p class="lead">Read about my latest development experiences.</p>
         </div>
 
-        <ul class="container content-section" id="posts">
+        <section class="container content-section">
 
-            <li class="post-card" v-for="post in posts" :key="post.id">
-                <router-link :to="{ name: 'blog-post', params: { post_slug: post.slug, post_id: post.id} }">
-                    <section class="card">
-                        <img class="card-img-top" :src="post.image_src" :alt="post.title">
-                        <div class="card-body">
-                            <h5 class="card-title">{{post.title}}</h5>
-                            <vue-markdown :source="post.body"></vue-markdown>
-                            <router-link
-                                class="btn btn-primary"
-                                :to="{ name: 'blog-post', params: { post_slug: post.slug, post_id: post.id} }"
-                            >
-                                Read More
-                            </router-link>
-                        </div>
-                    </section>
-                </router-link>
-            </li>
+            <ul class="posts-list" id="posts">
 
-        </ul>
+                <li class="post-card" v-for="post in posts" :key="post.id">
+                    <router-link :to="{ name: 'blog-post', params: { post_slug: post.slug, post_id: post.id} }">
+                        <section class="card">
+                            <img class="card-img-top" :src="post.image_src" :alt="post.title">
+                            <div class="card-body">
+                                <h5 class="card-title">{{post.title}}</h5>
+                                <p class="card-text">
+                                    <vue-markdown :source="post.body"></vue-markdown>
+                                </p>
+                                <router-link
+                                    class="btn btn-primary"
+                                    :to="{ name: 'blog-post', params: { post_slug: post.slug, post_id: post.id} }"
+                                >
+                                    Read More
+                                </router-link>
+                            </div>
+                        </section>
+                    </router-link>
+                </li>
+
+            </ul>
+
+        </section>
 
         <global-footer />
 
