@@ -44,7 +44,12 @@
                     <li v-for="portfolioItem in portfolioItems" :key="portfolioItem.id">
                         <h5>{{portfolioItem.title.substring(0,80)}}</h5>
                         <section class="admin-actions">
-                            <button class="btn btn-primary" type="button">Edit</button>
+                            <router-link
+                                class="btn btn-primary"
+                                :to="{ name: 'edit-portfolio-item', params: { portfolio_item_slug: portfolioItem.slug, portfolio_item_id: portfolioItem.id} }"
+                            >
+                                Edit
+                            </router-link>
                             <button class="btn btn-primary" type="button" @click="deletePortfolioItems(portfolioItem.id)">Delete</button>
                         </section>
                     </li>

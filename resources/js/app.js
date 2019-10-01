@@ -34,6 +34,7 @@ import Tutorials from "./views/Tutorials";
 import Contact from "./views/Contact";
 import Admin from "./views/Admin";
 import EditPost from "./views/EditPost";
+import EditPortfolioItem from "./views/EditPortfolioItem";
 
 // Global components
 
@@ -97,6 +98,12 @@ const router = new VueRouter({
             path: '/edit/view/:post_slug/:post_id',
             name: "edit-post",
             component: EditPost,
+            props: true,
+        },
+        {
+            path: '/edit/view/:portfolio_item_slug/:portfolio_item_id',
+            name: "edit-portfolio-item",
+            component: EditPortfolioItem,
             props: true,
         },
     ]

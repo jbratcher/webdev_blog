@@ -99,7 +99,20 @@ class PortfolioItemController extends Controller
      */
     public function update(Request $request, PortfolioItem $portfolioitem)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'body' => 'required',
+            'image' => 'nullable',
+        ]);
+
+
+        $portfolioitem->update([
+            'title' => $request->title,
+            'body' => $request->body,
+            'image' => $request->image
+        ]);
+
+        return response()->json(null, 204);
     }
 
     /**
