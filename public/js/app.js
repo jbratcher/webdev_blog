@@ -2092,12 +2092,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.getPosts();
-    this.truncatePost();
     console.log("Blog vue mounted");
   },
   data: function data() {
     return {
-      posts: {}
+      posts: []
     };
   },
   methods: {
@@ -2107,7 +2106,9 @@ __webpack_require__.r(__webpack_exports__);
       axios.get("/api/posts").then(function (response) {
         _this.posts = response.data;
       }).then(function () {
-        return console.log("Posts object: " + JSON.stringify(_this.posts));
+        return console.log("Posts array: " + JSON.stringify(_this.posts));
+      }).then(function () {
+        return _this.truncatePosts();
       })["catch"](function (error) {
         _this.loading = false;
         _this.error = error.response.data.message || error.message;
@@ -2120,8 +2121,10 @@ __webpack_require__.r(__webpack_exports__);
         return _this2.getPosts();
       });
     },
-    truncatePost: function truncatePost() {
-      this.post.body = this.post.body.substring(0, 144) + "...";
+    truncatePosts: function truncatePosts() {
+      this.posts.map(function (post) {
+        post.body = post.body.substring(0, 144) + "...";
+      });
     }
   },
   props: {
@@ -2794,9 +2797,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      posts: {},
-      portfolioItems: {},
-      users: {}
+      posts: [],
+      portfolioItems: [],
+      users: []
     };
   },
   methods: {
@@ -2805,9 +2808,16 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/api/posts").then(function (response) {
         _this.posts = response.data;
+      }).then(function () {
+        return _this.truncatePosts();
       })["catch"](function (error) {
         _this.loading = false;
         _this.error = error.response.data.message || error.message;
+      });
+    },
+    truncatePosts: function truncatePosts() {
+      this.posts.map(function (post) {
+        post.body = post.body.substring(0, 144) + "...";
       });
     },
     getPortfolioItems: function getPortfolioItems() {
@@ -2815,9 +2825,16 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/api/portfolioitems").then(function (response) {
         _this2.portfolioItems = response.data;
+      }).then(function () {
+        return _this2.truncatePortfolioItems();
       })["catch"](function (error) {
         _this2.loading = false;
         _this2.error = error.response.data.message || error.message;
+      });
+    },
+    truncatePortfolioItems: function truncatePortfolioItems() {
+      this.portfolioItems.map(function (portfolioItem) {
+        portfolioItem.body = portfolioItem.body.substring(0, 144) + "...";
       });
     },
     getUsers: function getUsers() {
@@ -98931,6 +98948,19 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     component: _views_EditPost__WEBPACK_IMPORTED_MODULE_15__["default"],
     props: true
   }]
+}); // Mixins
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.mixin({
+  methods: {
+    capitalizeFirstLetter: function capitalizeFirstLetter(str) {
+      return str.charAt(0).toUpperCase() + str.slice(1);
+    },
+    truncateResourceBody: function truncateResourceBody(resourceList) {
+      resourceList.map(function (resource) {
+        resource.body = resource.body.substring(0, 144) + "...", console.log(resource.body);
+      });
+    }
+  }
 });
 /**
  * Next, we will create a fresh Vue application instance and attach it to

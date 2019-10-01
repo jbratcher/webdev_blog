@@ -95,9 +95,9 @@
         },
         data() {
             return {
-                posts: {},
-                portfolioItems: {},
-                users: {},
+                posts: [],
+                portfolioItems: [],
+                users: [],
             };
         },
         methods: {
@@ -105,18 +105,30 @@
                 axios.get("/api/posts").then(response => {
                     this.posts = response.data;
                 })
+                .then(() => this.truncatePosts())
                 .catch(error => {
                     this.loading = false;
                     this.error = error.response.data.message || error.message;
+                });
+            },
+            truncatePosts() {
+                this.posts.map(post => {
+                    post.body = post.body.substring(0,144)+"...";
                 });
             },
             getPortfolioItems() {
                 axios.get("/api/portfolioitems").then(response => {
                     this.portfolioItems = response.data;
                 })
+                .then(() => this.truncatePortfolioItems())
                 .catch(error => {
                     this.loading = false;
                     this.error = error.response.data.message || error.message;
+                });
+            },
+            truncatePortfolioItems() {
+                this.portfolioItems.map(portfolioItem => {
+                    portfolioItem.body = portfolioItem.body.substring(0,144)+"...";
                 });
             },
             getUsers() {

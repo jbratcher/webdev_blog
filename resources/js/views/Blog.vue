@@ -41,12 +41,11 @@
     export default {
         mounted() {
             this.getPosts();
-            this.truncatePost();
             console.log("Blog vue mounted");
         },
         data() {
             return {
-                posts: {},
+                posts: [],
             };
         },
         methods: {
@@ -54,7 +53,8 @@
                 axios.get("/api/posts").then(response => {
                     this.posts = response.data;
                 })
-                .then(() => console.log("Posts object: " + JSON.stringify(this.posts)))
+                .then(() => console.log("Posts array: " + JSON.stringify(this.posts)))
+                .then(() => this.truncatePosts())
                 .catch(error => {
                     this.loading = false;
                     this.error = error.response.data.message || error.message;
@@ -63,8 +63,10 @@
             deletePost(id) {
                 axios.delete("/api/posts/" + id).then(response => this.getPosts())
             },
-            truncatePost() {
-                this.post.body = this.post.body.substring(0,144)+"...";
+            truncatePosts() {
+                this.posts.map(post => {
+                    post.body = post.body.substring(0,144)+"...";
+                });
             }
         },
          props: {
