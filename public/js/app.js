@@ -2435,15 +2435,6 @@ __webpack_require__.r(__webpack_exports__);
     },
     userName: {
       type: String
-    },
-    options: {
-      lineNumbers: true,
-      styleActiveLine: true,
-      styleSelectedText: true,
-      lineWrapping: true,
-      indentWithTabs: true,
-      tabSize: 2,
-      indentUnit: 2
     }
   }
 });
@@ -2593,15 +2584,6 @@ __webpack_require__.r(__webpack_exports__);
     },
     userName: {
       type: String
-    },
-    options: {
-      lineNumbers: true,
-      styleActiveLine: true,
-      styleSelectedText: true,
-      lineWrapping: true,
-      indentWithTabs: true,
-      tabSize: 2,
-      indentUnit: 2
     }
   }
 });
@@ -75533,11 +75515,11 @@ var render = function() {
                     "clipboard redo undo | bold italic strikethrough heading | image link | numlist bullist code quote | preview fullscreen"
                 },
                 model: {
-                  value: _vm.editorValue,
+                  value: _vm.post.body,
                   callback: function($$v) {
-                    _vm.editorValue = $$v
+                    _vm.$set(_vm.post, "body", $$v)
                   },
-                  expression: "editorValue"
+                  expression: "post.body"
                 }
               })
             ],

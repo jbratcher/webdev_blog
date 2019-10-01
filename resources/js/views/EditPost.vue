@@ -41,7 +41,7 @@
                         ref="body"
                         id="body"
                         toolbar="clipboard redo undo | bold italic strikethrough heading | image link | numlist bullist code quote | preview fullscreen"
-                        v-model="editorValue"
+                        v-model="post.body"
                     ></markdown-editor>
                 </div>
 
@@ -136,15 +136,6 @@
             },
             userName: {
                 type: String
-            },
-            options: {
-                lineNumbers: true,
-                styleActiveLine: true,
-                styleSelectedText: true,
-                lineWrapping: true,
-                indentWithTabs: true,
-                tabSize: 2,
-                indentUnit: 2
             },
         },
     };
