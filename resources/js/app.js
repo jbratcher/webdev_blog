@@ -8,10 +8,15 @@ require('./bootstrap');
 
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import CKEditor from '@ckeditor/ckeditor5-vue';
+import 'v-markdown-editor/dist/index.css';
+import Editor from 'v-markdown-editor';
+import VueMarkdown from 'vue-markdown';
 
 Vue.use( VueRouter );
-Vue.use( CKEditor );
+Vue.use( Editor );
+Vue.use( VueMarkdown );
+
+// Views
 
 import App from './views/App';
 import Home from './views/Home';
@@ -25,8 +30,13 @@ import Contact from "./views/Contact";
 import Admin from "./views/Admin";
 import EditPost from "./views/EditPost";
 
+// Global components
+
 Vue.component('global-header', require('./views/GlobalHeader').default);
 Vue.component('global-footer', require('./views/GlobalFooter').default);
+Vue.component('vue-markdown', require('vue-markdown').default);
+
+// Router
 
 const router = new VueRouter({
     mode: "history",
@@ -86,6 +96,20 @@ const router = new VueRouter({
         },
     ]
 })
+
+// Mixins
+
+Vue.mixin({
+    methods: {
+        capitalizeFirstLetter: str => str.charAt(0).toUpperCase() + str.slice(1),
+        truncateResourceBody: function(resourceList) {
+            resourceList.map(resource => {
+                resource.body = resource.body.substring(0,144)+"...",
+                console.log(resource.body)
+            })
+        }
+    }
+});
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

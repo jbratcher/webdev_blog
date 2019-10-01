@@ -17,7 +17,7 @@
                         <img class="card-img-top" :src="post.image_src" :alt="post.title">
                         <div class="card-body">
                             <h5 class="card-title">{{post.title}}</h5>
-                            <p class="card-text" v-html="post.body"></p>
+                            <vue-markdown :source="post.body"></vue-markdown>
                             <router-link
                                 class="btn btn-primary"
                                 :to="{ name: 'blog-post', params: { post_slug: post.slug, post_id: post.id} }"
@@ -45,7 +45,7 @@
         },
         data() {
             return {
-                posts: {},
+                posts: [],
             };
         },
         methods: {
@@ -53,7 +53,8 @@
                 axios.get("/api/posts").then(response => {
                     this.posts = response.data;
                 })
-                .then(() => console.log("Posts object: " + JSON.stringify(this.posts)))
+                .then(() => console.log("Posts array: " + JSON.stringify(this.posts)))
+                .then(() => this.truncatePosts())
                 .catch(error => {
                     this.loading = false;
                     this.error = error.response.data.message || error.message;
@@ -62,6 +63,11 @@
             deletePost(id) {
                 axios.delete("/api/posts/" + id).then(response => this.getPosts())
             },
+            truncatePosts() {
+                this.posts.map(post => {
+                    post.body = post.body.substring(0,144)+"...";
+                });
+            }
         },
          props: {
             userId: {
