@@ -55,6 +55,9 @@ class PostController extends Controller
             $image->move($destinationPath, $name);
             $post->image_src = $imagePath;
         }
+        else {
+            $post->image_src = "\images\blog1.jpg";
+        }
 
         $post->user_id = $request->user_id;
         $post->title = $request->title;
