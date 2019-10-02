@@ -9,6 +9,8 @@
                 <h1>Dashboard</h1>
             </div>
 
+            <!-- Blog Post Items -->
+
             <section class="container resource-list">
 
                 <h2>Blog Posts</h2>
@@ -28,12 +30,36 @@
                             >
                                 Edit
                             </router-link>
-                            <button class="btn btn-primary" type="button" @click="deletePost(post.id)">Delete</button>
+                            <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#confirmDeletePostModal">Delete</button>
+
+                            <!-- Confirm Delete Post Modal -->
+                            <div class="modal" id="confirmDeletePostModal" tabindex="-1" role="dialog">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Delete blog post</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Are you sure you want to delete this post?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-danger" @click="deletePost(post.id)">Confirm Deletion</button>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </section>
                     </li>
                 </ul>
 
             </section>
+
+            <!-- Portfolio Items -->
 
             <section class="container resource-list">
 
@@ -50,7 +76,29 @@
                             >
                                 Edit
                             </router-link>
-                            <button class="btn btn-primary" type="button" @click="deletePortfolioItems(portfolioItem.id)">Delete</button>
+                            <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#confirmDeletePortfolioItemModal">Delete</button>
+
+                            <!-- Confirm Delete Portfolio Item Modal -->
+                            <div class="modal" id="confirmDeletePortfolioItemModal" tabindex="-1" role="dialog">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Delete portfolio item</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Are you sure you want to delete this portfolio item?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-danger" @click="deletePortfolioItem(portfolioItem.id)">Confirm Deletion</button>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </section>
                     </li>
 
@@ -112,7 +160,9 @@
                 });
             },
             deletePost(id) {
-                axios.delete("/api/posts/" + id).then(response => this.getPosts())
+                axios.delete("/api/posts/" + id)
+                    .then(response => this.getPosts())
+                    $('.modal-backdrop').remove();
             },
             getPortfolioItems() {
                 axios.get("/api/portfolioitems").then(response => {
@@ -123,8 +173,10 @@
                     this.error = error.response.data.message || error.message;
                 });
             },
-            deletePortfolioItems(id) {
-                axios.delete("/api/portfolioitems/" + id).then(response => this.getPortfolioItems())
+            deletePortfolioItem(id) {
+                axios.delete("/api/portfolioitems/" + id)
+                    .then(response => this.getPortfolioItems());
+                $('.modal-backdrop').remove();
             },
             getUsers() {
                 axios.get("/api/users").then(response => {

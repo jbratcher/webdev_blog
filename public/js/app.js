@@ -1926,6 +1926,54 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.getPosts();
@@ -1957,6 +2005,7 @@ __webpack_require__.r(__webpack_exports__);
       axios["delete"]("/api/posts/" + id).then(function (response) {
         return _this2.getPosts();
       });
+      $('.modal-backdrop').remove();
     },
     getPortfolioItems: function getPortfolioItems() {
       var _this3 = this;
@@ -1968,12 +2017,13 @@ __webpack_require__.r(__webpack_exports__);
         _this3.error = error.response.data.message || error.message;
       });
     },
-    deletePortfolioItems: function deletePortfolioItems(id) {
+    deletePortfolioItem: function deletePortfolioItem(id) {
       var _this4 = this;
 
       axios["delete"]("/api/portfolioitems/" + id).then(function (response) {
         return _this4.getPortfolioItems();
       });
+      $('.modal-backdrop').remove();
     },
     getUsers: function getUsers() {
       var _this5 = this;
@@ -74811,14 +74861,69 @@ var render = function() {
                           "button",
                           {
                             staticClass: "btn btn-primary",
-                            attrs: { type: "button" },
-                            on: {
-                              click: function($event) {
-                                return _vm.deletePost(post.id)
-                              }
+                            attrs: {
+                              type: "button",
+                              "data-toggle": "modal",
+                              "data-target": "#confirmDeletePostModal"
                             }
                           },
                           [_vm._v("Delete")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "modal",
+                            attrs: {
+                              id: "confirmDeletePostModal",
+                              tabindex: "-1",
+                              role: "dialog"
+                            }
+                          },
+                          [
+                            _c(
+                              "div",
+                              {
+                                staticClass: "modal-dialog",
+                                attrs: { role: "document" }
+                              },
+                              [
+                                _c("div", { staticClass: "modal-content" }, [
+                                  _vm._m(1, true),
+                                  _vm._v(" "),
+                                  _vm._m(2, true),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "modal-footer" }, [
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass: "btn btn-primary",
+                                        attrs: {
+                                          type: "button",
+                                          "data-dismiss": "modal"
+                                        }
+                                      },
+                                      [_vm._v("Close")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass: "btn btn-danger",
+                                        attrs: { type: "button" },
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.deletePost(post.id)
+                                          }
+                                        }
+                                      },
+                                      [_vm._v("Confirm Deletion")]
+                                    )
+                                  ])
+                                ])
+                              ]
+                            )
+                          ]
                         )
                       ],
                       1
@@ -74869,16 +74974,71 @@ var render = function() {
                           "button",
                           {
                             staticClass: "btn btn-primary",
-                            attrs: { type: "button" },
-                            on: {
-                              click: function($event) {
-                                return _vm.deletePortfolioItems(
-                                  portfolioItem.id
-                                )
-                              }
+                            attrs: {
+                              type: "button",
+                              "data-toggle": "modal",
+                              "data-target": "#confirmDeletePortfolioItemModal"
                             }
                           },
                           [_vm._v("Delete")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "modal",
+                            attrs: {
+                              id: "confirmDeletePortfolioItemModal",
+                              tabindex: "-1",
+                              role: "dialog"
+                            }
+                          },
+                          [
+                            _c(
+                              "div",
+                              {
+                                staticClass: "modal-dialog",
+                                attrs: { role: "document" }
+                              },
+                              [
+                                _c("div", { staticClass: "modal-content" }, [
+                                  _vm._m(3, true),
+                                  _vm._v(" "),
+                                  _vm._m(4, true),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "modal-footer" }, [
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass: "btn btn-primary",
+                                        attrs: {
+                                          type: "button",
+                                          "data-dismiss": "modal"
+                                        }
+                                      },
+                                      [_vm._v("Close")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass: "btn btn-danger",
+                                        attrs: { type: "button" },
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.deletePortfolioItem(
+                                              portfolioItem.id
+                                            )
+                                          }
+                                        }
+                                      },
+                                      [_vm._v("Confirm Deletion")]
+                                    )
+                                  ])
+                                ])
+                              ]
+                            )
+                          ]
                         )
                       ],
                       1
@@ -74905,7 +75065,7 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _vm._m(1, true)
+                    _vm._m(5, true)
                   ])
                 }),
                 0
@@ -74926,6 +75086,66 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "container-fluid global-banner" }, [
       _c("h1", [_vm._v("Dashboard")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c("h5", { staticClass: "modal-title" }, [_vm._v("Delete blog post")]),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-body" }, [
+      _c("p", [_vm._v("Are you sure you want to delete this post?")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c("h5", { staticClass: "modal-title" }, [
+        _vm._v("Delete portfolio item")
+      ]),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-body" }, [
+      _c("p", [_vm._v("Are you sure you want to delete this portfolio item?")])
     ])
   },
   function() {
