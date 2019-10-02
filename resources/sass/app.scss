@@ -170,6 +170,10 @@ a.nav-link.router-link-exact-active.router-link-active {
             font-size: 0.8rem;
         }
 
+        h1,h2,h3,h4,h5,h6,p {
+            margin-bottom: 1rem;
+        }
+
     }
 
 }
@@ -421,33 +425,14 @@ h2 {
 
     }
 
-    // Blog page
-
-    // #posts {
-    //     display: grid;
-    //     grid-template-columns: 1fr 1fr;
-    //     grid-gap: 2rem;
-    //     justify-items: start;
-    //     list-style-type: none;
-
-    //     li {
-    //         align-self: start;
-    //     }
-
-    //     img {
-    //         height: 250px;
-    //         width: auto;
-    //         object-fit: cover;
-    //     }
-
-    // }
-
     // blog post
 
     .blog-post, .portfolio-item {
 
         img {
+            height: 250px;
             width: 50vw;
+            object-fit: cover;
             margin: 0 auto;
         }
 

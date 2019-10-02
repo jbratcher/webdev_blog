@@ -10796,6 +10796,16 @@ a.nav-link.router-link-exact-active.router-link-active:focus {
   font-size: 0.8rem;
 }
 
+.card .card-body h1,
+.card .card-body h2,
+.card .card-body h3,
+.card .card-body h4,
+.card .card-body h5,
+.card .card-body h6,
+.card .card-body p {
+  margin-bottom: 1rem;
+}
+
 .posts-list {
   list-style: none;
   margin: 1rem 0 5rem 0;
@@ -10994,7 +11004,10 @@ h2 {
 
   .blog-post img,
   .portfolio-item img {
+    height: 250px;
     width: 50vw;
+    -o-object-fit: cover;
+       object-fit: cover;
     margin: 0 auto;
   }
 
