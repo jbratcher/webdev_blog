@@ -32,7 +32,7 @@
                         class="form-control"
                         id="title"
                         required
-                        v-model="post.title"
+                        v-model="post[0].title"
                     >
                 </div>
 
@@ -41,7 +41,7 @@
                         ref="body"
                         id="body"
                         toolbar="clipboard redo undo | bold italic strikethrough heading | image link | numlist bullist code quote | preview fullscreen"
-                        v-model="post.body"
+                        v-model="post[0].body"
                     ></markdown-editor>
                 </div>
 
@@ -68,8 +68,9 @@
 
     export default {
         created() {
-            console.log("Edit post vue mounted");
+            console.log("Edit post vue created");
             this.getPost();
+            console.log("Blog param id value: " + this.$route.params.post_id);
         },
         updated() {
             this.updateEditorValue();
@@ -79,7 +80,7 @@
                 editorValue: "",
                 error: false,
                 errors: [],
-                post: {},
+                post: [],
                 posts: [],
                 successful: false,
             };
@@ -118,9 +119,8 @@
             getPost() {
                 axios.get("/api/posts").then(response => {
                     this.posts = response.data;
-                    this.post = this.posts[this.$route.params.post_id-1];
+                    this.post = this.posts.filter(post => post.id = this.$route.params.post_id);
                 })
-                .then(() => console.log("Post: " + JSON.stringify(this.post)))
                 .catch(error => {
                     this.loading = false;
                     this.error = error.response.data.message || error.message;
