@@ -6,7 +6,7 @@
 
         <section class="blog-post">
             <section class="card">
-                <img class="card-img-top" :src="post[0].image_src" :alt="post[0].title">
+                <img class="blog-post-img" :src="post[0].image_src" :alt="post[0].title">
                 <div class="card-body">
                     <h5 class="card-title">{{post[0].title}}</h5>
                     <vue-markdown :source="post[0].body"></vue-markdown>

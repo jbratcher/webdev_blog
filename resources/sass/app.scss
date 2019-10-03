@@ -41,6 +41,17 @@ ul {
     background: linear-gradient(to right, #283E51 80%, #4B79A1)
 }
 
+// stuck here due to specificity issue
+
+.blog-post .card-body {
+    margin: 0 auto;
+}
+
+img.blog-post-img {
+    height: 250px;
+    object-fit: cover;
+}
+
 // helpers
 
 .underline {
@@ -283,10 +294,6 @@ footer .container {
 
 // resource single view
 
-.blog-post, .portfolio-item {
-    margin: 1rem 0.5rem;
-}
-
 // admin dashboard page
 
 h2 {
@@ -338,6 +345,10 @@ h2 {
 // Tablet and desktop styles
 
 @media only screen and (min-width: 768px) {
+
+    .blog-post .card-body {
+        width: 65vw;
+    }
 
     nav {
         margin: 0 2rem;
@@ -431,9 +442,7 @@ h2 {
 
         img {
             height: 250px;
-            width: 50vw;
-            object-fit: cover;
-            margin: 0 auto;
+            width: 100%;
         }
 
     }

@@ -10691,6 +10691,16 @@ ul {
   background: linear-gradient(to right, #283E51 80%, #4B79A1);
 }
 
+.blog-post .card-body {
+  margin: 0 auto;
+}
+
+img.blog-post-img {
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .underline {
   border-bottom: 4px solid #283E51;
   padding: 0 0.5rem 0.5rem 0;
@@ -10892,11 +10902,6 @@ footer .container {
   margin: 0 0.25rem;
 }
 
-.blog-post,
-.portfolio-item {
-  margin: 1rem 0.5rem;
-}
-
 h2 {
   font-weight: bold;
 }
@@ -10938,6 +10943,10 @@ h2 {
 }
 
 @media only screen and (min-width: 768px) {
+  .blog-post .card-body {
+    width: 65vw;
+  }
+
   nav {
     margin: 0 2rem;
   }
@@ -11005,10 +11014,7 @@ h2 {
   .blog-post img,
   .portfolio-item img {
     height: 250px;
-    width: 50vw;
-    -o-object-fit: cover;
-       object-fit: cover;
-    margin: 0 auto;
+    width: 100%;
   }
 
   #portfolio-items {

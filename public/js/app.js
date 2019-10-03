@@ -75354,7 +75354,7 @@ var render = function() {
       _c("section", { staticClass: "blog-post" }, [
         _c("section", { staticClass: "card" }, [
           _c("img", {
-            staticClass: "card-img-top",
+            staticClass: "blog-post-img",
             attrs: { src: _vm.post[0].image_src, alt: _vm.post[0].title }
           }),
           _vm._v(" "),
