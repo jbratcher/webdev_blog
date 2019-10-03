@@ -100,7 +100,7 @@
 
 
                 axios
-                    .post(`/api/posts/${this.post.id}`, formData)
+                    .post(`/api/posts/${this.post[0].id}`, formData)
                     .then(response => {
                         this.successful = true;
                         this.error = false;
@@ -121,6 +121,7 @@
                     this.posts = response.data;
                     this.post = this.posts.filter(post => post.id = this.$route.params.post_id);
                 })
+                .then(() => console.log(JSON.stringify(this.post[0].title)))
                 .catch(error => {
                     this.loading = false;
                     this.error = error.response.data.message || error.message;

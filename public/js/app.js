@@ -2752,7 +2752,7 @@ __webpack_require__.r(__webpack_exports__);
       console.log(this.$refs.title.value);
       console.log(this.$refs.body.value);
       console.log("Form data: " + formData);
-      axios.post("/api/posts/".concat(this.post.id), formData).then(function (response) {
+      axios.post("/api/posts/".concat(this.post[0].id), formData).then(function (response) {
         _this.successful = true;
         _this.error = false;
         _this.errors = [];
@@ -2774,6 +2774,8 @@ __webpack_require__.r(__webpack_exports__);
         _this2.post = _this2.posts.filter(function (post) {
           return post.id = _this2.$route.params.post_id;
         });
+      }).then(function () {
+        return console.log(JSON.stringify(_this2.post[0].title));
       })["catch"](function (error) {
         _this2.loading = false;
         _this2.error = error.response.data.message || error.message;
