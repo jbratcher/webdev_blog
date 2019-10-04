@@ -9,7 +9,9 @@
                 <img class="card-img-top" :src="portfolioItem.image_src" :alt="portfolioItem.title">
                 <div class="card-body">
                     <h5 class="card-title">{{portfolioItem.title}}</h5>
-                    <p class="card-text" v-html="portfolioItem.body"></p>
+                    <p class="card-text">
+                        <vue-markdown :source="portfolioItem.body"></vue-markdown>
+                    </p>
                 </div>
             </section>
         </section>

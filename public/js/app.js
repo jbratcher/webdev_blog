@@ -2151,8 +2151,6 @@ __webpack_require__.r(__webpack_exports__);
       axios.get("/api/posts").then(function (response) {
         _this.posts = response.data;
       }).then(function () {
-        return console.log("Posts array: " + JSON.stringify(_this.posts));
-      }).then(function () {
         return _this.truncatePosts();
       })["catch"](function (error) {
         _this.loading = false;
@@ -3086,6 +3084,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.getPortfolioItems();
@@ -3103,6 +3103,8 @@ __webpack_require__.r(__webpack_exports__);
       axios.get("/api/portfolioitems").then(function (response) {
         console.log("Response: ".concat(response.data));
         _this.portfolioItems = response.data;
+      }).then(function () {
+        return _this.truncatePortfolioItem();
       })["catch"](function (error) {
         _this.loading = false;
         _this.error = error.response.data.message || error.message;
@@ -3114,6 +3116,11 @@ __webpack_require__.r(__webpack_exports__);
 
       axios["delete"]("/api/portfolioitems/" + id).then(function (response) {
         return _this2.getPortfolioItems();
+      });
+    },
+    truncatePortfolioItem: function truncatePortfolioItem() {
+      this.portfolioItems.map(function (portfolioItem) {
+        portfolioItem.body = portfolioItem.body.substring(0, 144) + "...";
       });
     }
   }
@@ -3130,6 +3137,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
 //
 //
 //
@@ -76651,13 +76660,16 @@ var render = function() {
                             _vm._v(_vm._s(portfolioItem.title))
                           ]),
                           _vm._v(" "),
-                          _c("p", { staticClass: "card-text" }, [
-                            _vm._v(
-                              _vm._s(
-                                portfolioItem.body.substring(0, 144) + "..."
-                              )
-                            )
-                          ]),
+                          _c(
+                            "p",
+                            { staticClass: "card-text" },
+                            [
+                              _c("vue-markdown", {
+                                attrs: { source: portfolioItem.body }
+                              })
+                            ],
+                            1
+                          ),
                           _vm._v(" "),
                           _c(
                             "router-link",
@@ -76767,10 +76779,16 @@ var render = function() {
               _vm._v(_vm._s(_vm.portfolioItem.title))
             ]),
             _vm._v(" "),
-            _c("p", {
-              staticClass: "card-text",
-              domProps: { innerHTML: _vm._s(_vm.portfolioItem.body) }
-            })
+            _c(
+              "p",
+              { staticClass: "card-text" },
+              [
+                _c("vue-markdown", {
+                  attrs: { source: _vm.portfolioItem.body }
+                })
+              ],
+              1
+            )
           ])
         ])
       ]),

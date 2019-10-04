@@ -59,7 +59,6 @@
                 axios.get("/api/posts").then(response => {
                     this.posts = response.data;
                 })
-                .then(() => console.log("Posts array: " + JSON.stringify(this.posts)))
                 .then(() => this.truncatePosts())
                 .catch(error => {
                     this.loading = false;
