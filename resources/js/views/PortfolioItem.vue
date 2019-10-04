@@ -6,13 +6,11 @@
 
         <section class="portfolio-item">
             <section class="card">
-                <img class="card-img-top" :src="portfolioItem.image_src" :alt="portfolioItem.title">
+                <img class="portfolio-item-img" :src="portfolioItem.image_src" :alt="portfolioItem.title">
                 <div class="card-body">
                     <h5 class="card-title">{{portfolioItem.title}}</h5>
-                    <p class="card-text">
-                        <vue-markdown :source="portfolioItem.body"></vue-markdown>
-                    </p>
-                </div>
+                    <vue-markdown :source="portfolioItem.body"></vue-markdown>
+\                </div>
             </section>
         </section>
 

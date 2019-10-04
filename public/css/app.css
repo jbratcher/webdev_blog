@@ -10691,11 +10691,13 @@ ul {
   background: linear-gradient(to right, #283E51 80%, #4B79A1);
 }
 
-.blog-post .card-body {
+.blog-post .card-body,
+.portfolio-item .card-body {
   margin: 0 auto;
 }
 
-img.blog-post-img {
+img.blog-post-img,
+img.portfolio-item-img {
   height: 250px;
   -o-object-fit: cover;
      object-fit: cover;
@@ -10943,7 +10945,8 @@ h2 {
 }
 
 @media only screen and (min-width: 768px) {
-  .blog-post .card-body {
+  .blog-post .card-body,
+  .portfolio-item .card-body {
     width: 65vw;
   }
 

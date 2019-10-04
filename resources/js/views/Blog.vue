@@ -19,9 +19,7 @@
                             <img class="card-img-top" :src="post.image_src" :alt="post.title">
                             <div class="card-body">
                                 <h5 class="card-title">{{post.title}}</h5>
-                                <p class="card-text">
-                                    <vue-markdown :source="post.body"></vue-markdown>
-                                </p>
+                                <vue-markdown :source="post.body"></vue-markdown>
                                 <router-link
                                     class="btn btn-primary"
                                     :to="{ name: 'blog-post', params: { post_slug: post.slug, post_id: post.id} }"

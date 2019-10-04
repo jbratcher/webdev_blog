@@ -23,9 +23,7 @@
                                 <img class="card-img-top" :src="post.image_src" :alt="post.title">
                                 <div class="card-body">
                                     <h5 class="card-title">{{post.title}}</h5>
-                                    <p class="card-text">
-                                        <vue-markdown :source="post.body"></vue-markdown>
-                                    </p>
+                                    <vue-markdown :source="post.body"></vue-markdown>
                                     <router-link
                                         class="btn btn-primary"
                                         :to="{ name: 'blog-post', params: { post_slug: post.slug, post_id: post.id} }"
@@ -54,7 +52,7 @@
                                 <img class="card-img-top" :src="portfolioItem.image_src" :alt="portfolioItem.title">
                                 <div class="card-body">
                                     <h5 class="card-title">{{portfolioItem.title}}</h5>
-                                    <p class="card-text">{{portfolioItem.body.substring(0,144)+"..."}}</p>
+                                    <vue-markdown :source="portfolioItem.body"></vue-markdown>
                                     <router-link class="btn btn-primary" :to="{ name: 'portfolio-item', params: { portfolio_item_slug: portfolioItem.slug, portfolio_item_id: portfolioItem.id} }">Read More</router-link>
                                     <a :href="portfolioItem.demo_url" class="btn btn-primary">Demo</a>
                                     <a :href="portfolioItem.repo_url" class="btn btn-primary">Github Repo</a>

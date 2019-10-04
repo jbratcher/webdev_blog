@@ -2132,8 +2132,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.getPosts();
@@ -2969,8 +2967,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.getPosts();
@@ -3084,8 +3080,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.getPortfolioItems();
@@ -3137,8 +3131,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
 //
 //
 //
@@ -75273,16 +75265,7 @@ var render = function() {
                             _vm._v(_vm._s(post.title))
                           ]),
                           _vm._v(" "),
-                          _c(
-                            "p",
-                            { staticClass: "card-text" },
-                            [
-                              _c("vue-markdown", {
-                                attrs: { source: post.body }
-                              })
-                            ],
-                            1
-                          ),
+                          _c("vue-markdown", { attrs: { source: post.body } }),
                           _vm._v(" "),
                           _c(
                             "router-link",
@@ -76393,16 +76376,9 @@ var render = function() {
                               _vm._v(_vm._s(post.title))
                             ]),
                             _vm._v(" "),
-                            _c(
-                              "p",
-                              { staticClass: "card-text" },
-                              [
-                                _c("vue-markdown", {
-                                  attrs: { source: post.body }
-                                })
-                              ],
-                              1
-                            ),
+                            _c("vue-markdown", {
+                              attrs: { source: post.body }
+                            }),
                             _vm._v(" "),
                             _c(
                               "router-link",
@@ -76482,13 +76458,9 @@ var render = function() {
                               _vm._v(_vm._s(portfolioItem.title))
                             ]),
                             _vm._v(" "),
-                            _c("p", { staticClass: "card-text" }, [
-                              _vm._v(
-                                _vm._s(
-                                  portfolioItem.body.substring(0, 144) + "..."
-                                )
-                              )
-                            ]),
+                            _c("vue-markdown", {
+                              attrs: { source: portfolioItem.body }
+                            }),
                             _vm._v(" "),
                             _c(
                               "router-link",
@@ -76660,16 +76632,9 @@ var render = function() {
                             _vm._v(_vm._s(portfolioItem.title))
                           ]),
                           _vm._v(" "),
-                          _c(
-                            "p",
-                            { staticClass: "card-text" },
-                            [
-                              _c("vue-markdown", {
-                                attrs: { source: portfolioItem.body }
-                              })
-                            ],
-                            1
-                          ),
+                          _c("vue-markdown", {
+                            attrs: { source: portfolioItem.body }
+                          }),
                           _vm._v(" "),
                           _c(
                             "router-link",
@@ -76767,29 +76732,26 @@ var render = function() {
       _c("section", { staticClass: "portfolio-item" }, [
         _c("section", { staticClass: "card" }, [
           _c("img", {
-            staticClass: "card-img-top",
+            staticClass: "portfolio-item-img",
             attrs: {
               src: _vm.portfolioItem.image_src,
               alt: _vm.portfolioItem.title
             }
           }),
           _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [
-            _c("h5", { staticClass: "card-title" }, [
-              _vm._v(_vm._s(_vm.portfolioItem.title))
-            ]),
-            _vm._v(" "),
-            _c(
-              "p",
-              { staticClass: "card-text" },
-              [
-                _c("vue-markdown", {
-                  attrs: { source: _vm.portfolioItem.body }
-                })
-              ],
-              1
-            )
-          ])
+          _c(
+            "div",
+            { staticClass: "card-body" },
+            [
+              _c("h5", { staticClass: "card-title" }, [
+                _vm._v(_vm._s(_vm.portfolioItem.title))
+              ]),
+              _vm._v(" "),
+              _c("vue-markdown", { attrs: { source: _vm.portfolioItem.body } }),
+              _vm._v("\n\\                ")
+            ],
+            1
+          )
         ])
       ]),
       _vm._v(" "),
