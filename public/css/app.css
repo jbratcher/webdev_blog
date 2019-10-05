@@ -10688,7 +10688,15 @@ ul {
 }
 
 .btn-primary {
-  background: linear-gradient(to right, #283E51 80%, #4B79A1);
+  background-image: linear-gradient(225deg, #4B79A1, #283E51 50%, #4B79A1);
+  background-size: 200% auto;
+  transition: 2.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.btn-primary:hover {
+  background-position: 100% 0;
+  background-position-x: 100%;
+  background-position-y: 0px;
 }
 
 .blog-post .card-body,
@@ -10762,17 +10770,18 @@ li.nav-item a {
 }
 
 a.nav-link.router-link-exact-active.router-link-active {
-  background: #4B79A1;
-  /* fallback for old browsers */
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to top left, #283E51, #4B79A1);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-image: linear-gradient(225deg, #4B79A1, #283E51 50%, #4B79A1);
+  background-size: 200% auto;
+  transition: 2.5s cubic-bezier(0.2, 0.8, 0.2, 1);
   border-radius: 0.75rem;
   color: #fff;
 }
 
 a.nav-link.router-link-exact-active.router-link-active:hover,
 a.nav-link.router-link-exact-active.router-link-active:focus {
+  background-position: 100% 0;
+  background-position-x: 100%;
+  background-position-y: 0px;
   color: #fff;
 }
 
@@ -10948,6 +10957,29 @@ h2 {
   .blog-post .card-body,
   .portfolio-item .card-body {
     width: 65vw;
+    font-size: larger;
+  }
+
+  .blog-post .card-body h1,
+  .blog-post .card-body h2,
+  .blog-post .card-body h3,
+  .blog-post .card-body h4,
+  .blog-post .card-body h5,
+  .blog-post .card-body h6,
+  .portfolio-item .card-body h1,
+  .portfolio-item .card-body h2,
+  .portfolio-item .card-body h3,
+  .portfolio-item .card-body h4,
+  .portfolio-item .card-body h5,
+  .portfolio-item .card-body h6 {
+    margin: 4rem 0 2rem;
+  }
+
+  .blog-post .card-body pre,
+  .portfolio-item .card-body pre {
+    background: #eee;
+    border-radius: 4px;
+    padding: 1rem;
   }
 
   nav {

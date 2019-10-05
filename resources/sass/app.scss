@@ -38,7 +38,15 @@ ul {
 }
 
 .btn-primary {
-    background: linear-gradient(to right, #283E51 80%, #4B79A1)
+    background-image: linear-gradient(225deg,#4B79A1,#283E51 50%,#4B79A1);
+    background-size: 200% auto;
+    transition: 2.5s cubic-bezier(.2,.8,.2,1);
+
+    &:hover {
+        background-position: 100% 0;
+        background-position-x: 100%;
+        background-position-y: 0px;
+    }
 }
 
 // stuck here due to specificity issue
@@ -125,13 +133,16 @@ li.nav-item {
 // highlight active link
 
 a.nav-link.router-link-exact-active.router-link-active {
-    background: #4B79A1;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top left, #283E51, #4B79A1);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top left, #283E51, #4B79A1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-image: linear-gradient(225deg,#4B79A1,#283E51 50%,#4B79A1);
+    background-size: 200% auto;
+    transition: 2.5s cubic-bezier(.2,.8,.2,1);
     border-radius: 0.75rem;
     color: #fff;
 
     &:hover, &:focus {
+        background-position: 100% 0;
+        background-position-x: 100%;
+        background-position-y: 0px;
         color: #fff;
     }
 
@@ -348,6 +359,18 @@ h2 {
 
     .blog-post .card-body, .portfolio-item .card-body {
         width: 65vw;
+        font-size: larger;
+
+        h1, h2, h3, h4, h5, h6 {
+            margin: 4rem 0 2rem;
+        }
+
+        pre {
+            background: #eee;
+            border-radius: 4px;
+            padding: 1rem;
+        }
+
     }
 
     nav {
