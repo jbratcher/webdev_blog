@@ -10679,8 +10679,8 @@ ul {
 }
 
 .container {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .card-title {
@@ -10738,15 +10738,7 @@ img.portfolio-item-img {
 
 .navbar-brand img {
   border-radius: 4px;
-  width: 110%;
-}
-
-#navbarNav {
-  margin: 1rem 0;
-}
-
-#navbarNav li {
-  font-size: 1.33rem;
+  width: 75%;
 }
 
 .global-banner {
@@ -10756,10 +10748,11 @@ img.portfolio-item-img {
   background: linear-gradient(to bottom right, #283E51, #4B79A1);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: #fff;
-  padding: 1.125rem;
+  padding: 0.5rem;
 }
 
 .global-banner h1 {
+  font-size: 2rem;
   font-weight: bold;
   letter-spacing: 3px;
 }
@@ -10829,11 +10822,11 @@ a.nav-link.router-link-exact-active.router-link-active:focus {
 
 .posts-list {
   list-style: none;
-  margin: 1rem 0 5rem 0;
+  margin: 0.5rem 0 2.5rem 0;
 }
 
 .posts-list li {
-  margin: 1rem 0;
+  margin: 0.5rem 0;
 }
 
 .posts-list img {
@@ -10987,7 +10980,7 @@ h2 {
   }
 
   .navbar-nav li {
-    font-size: 1.33rem;
+    font-size: 1rem;
     margin: 0 1rem;
   }
 
@@ -11021,7 +11014,7 @@ h2 {
   }
 
   .content-section h2 {
-    font-size: 2.25rem;
+    font-size: 2rem;
     width: -webkit-max-content;
     width: -moz-max-content;
     width: max-content;
@@ -11029,7 +11022,7 @@ h2 {
 
   .content-section p.lead {
     font-size: 1.33rem;
-    margin: 1rem 0;
+    margin: 0.5rem 0;
   }
 
   .card {
