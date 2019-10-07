@@ -2132,6 +2132,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.getPosts();
@@ -75241,46 +75242,50 @@ var render = function() {
                     }
                   },
                   [
-                    _c("section", { staticClass: "card" }, [
-                      _c("img", {
-                        staticClass: "card-img-top",
-                        attrs: { src: post.image_src, alt: post.title }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "card-body" },
-                        [
-                          _c("h5", { staticClass: "card-title" }, [
-                            _vm._v(_vm._s(post.title))
-                          ]),
-                          _vm._v(" "),
-                          _c("vue-markdown", { attrs: { source: post.body } }),
-                          _vm._v(" "),
-                          _c(
-                            "router-link",
-                            {
-                              staticClass: "btn btn-primary",
-                              attrs: {
-                                to: {
-                                  name: "blog-post",
-                                  params: {
-                                    post_slug: post.slug,
-                                    post_id: post.id
+                    _c("img", {
+                      attrs: { src: post.image_src, alt: post.title }
+                    }),
+                    _vm._v(" "),
+                    _c("h5", { staticClass: "card-title" }, [
+                      _vm._v(_vm._s(post.title))
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "card-body" },
+                      [
+                        _c("vue-markdown", { attrs: { source: post.body } }),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "card-buttons" },
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "btn btn-primary read-more",
+                                attrs: {
+                                  to: {
+                                    name: "blog-post",
+                                    params: {
+                                      post_slug: post.slug,
+                                      post_id: post.id
+                                    }
                                   }
                                 }
-                              }
-                            },
-                            [
-                              _vm._v(
-                                "\n                                Read More\n                            "
-                              )
-                            ]
-                          )
-                        ],
-                        1
-                      )
-                    ])
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                Read More\n                            "
+                                )
+                              ]
+                            )
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    )
                   ]
                 )
               ],
@@ -76360,7 +76365,10 @@ var render = function() {
                         _vm._v(_vm._s(post.title))
                       ]),
                       _vm._v(" "),
-                      _c("vue-markdown", { attrs: { source: post.body } })
+                      _c("vue-markdown", {
+                        staticClass: "card-body",
+                        attrs: { source: post.body }
+                      })
                     ],
                     1
                   )
@@ -76383,7 +76391,7 @@ var render = function() {
             _vm._l(_vm.portfolioItems, function(portfolioItem) {
               return _c(
                 "li",
-                { key: portfolioItem.id, staticClass: "portfolio-items-card" },
+                { key: portfolioItem.id },
                 [
                   _c(
                     "router-link",
@@ -76399,65 +76407,69 @@ var render = function() {
                       }
                     },
                     [
-                      _c("section", { staticClass: "card" }, [
-                        _c("img", {
-                          staticClass: "card-img-top",
-                          attrs: {
-                            src: portfolioItem.image_src,
-                            alt: portfolioItem.title
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "card-body" },
-                          [
-                            _c("h5", { staticClass: "card-title" }, [
-                              _vm._v(_vm._s(portfolioItem.title))
-                            ]),
-                            _vm._v(" "),
-                            _c("vue-markdown", {
-                              attrs: { source: portfolioItem.body }
-                            }),
-                            _vm._v(" "),
-                            _c(
-                              "router-link",
-                              {
-                                staticClass: "btn btn-primary",
-                                attrs: {
-                                  to: {
-                                    name: "portfolio-item",
-                                    params: {
-                                      portfolio_item_slug: portfolioItem.slug,
-                                      portfolio_item_id: portfolioItem.id
+                      _c("img", {
+                        attrs: {
+                          src: portfolioItem.image_src,
+                          alt: portfolioItem.title
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("h5", { staticClass: "card-title" }, [
+                        _vm._v(_vm._s(portfolioItem.title))
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "card-body" },
+                        [
+                          _c("vue-markdown", {
+                            attrs: { source: portfolioItem.body }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "card-buttons" },
+                            [
+                              _c(
+                                "router-link",
+                                {
+                                  staticClass: "btn btn-primary",
+                                  attrs: {
+                                    to: {
+                                      name: "portfolio-item",
+                                      params: {
+                                        portfolio_item_slug: portfolioItem.slug,
+                                        portfolio_item_id: portfolioItem.id
+                                      }
                                     }
                                   }
-                                }
-                              },
-                              [_vm._v("Read More")]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "a",
-                              {
-                                staticClass: "btn btn-primary",
-                                attrs: { href: portfolioItem.demo_url }
-                              },
-                              [_vm._v("Demo")]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "a",
-                              {
-                                staticClass: "btn btn-primary",
-                                attrs: { href: portfolioItem.repo_url }
-                              },
-                              [_vm._v("Github Repo")]
-                            )
-                          ],
-                          1
-                        )
-                      ])
+                                },
+                                [_vm._v("Read More")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "btn btn-primary",
+                                  attrs: { href: portfolioItem.demo_url }
+                                },
+                                [_vm._v("Demo")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "btn btn-primary",
+                                  attrs: { href: portfolioItem.repo_url }
+                                },
+                                [_vm._v("Github Repo")]
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
                     ]
                   )
                 ],
@@ -76573,65 +76585,69 @@ var render = function() {
                     }
                   },
                   [
-                    _c("section", { staticClass: "card" }, [
-                      _c("img", {
-                        staticClass: "card-img-top",
-                        attrs: {
-                          src: portfolioItem.image_src,
-                          alt: portfolioItem.title
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "card-body" },
-                        [
-                          _c("h5", { staticClass: "card-title" }, [
-                            _vm._v(_vm._s(portfolioItem.title))
-                          ]),
-                          _vm._v(" "),
-                          _c("vue-markdown", {
-                            attrs: { source: portfolioItem.body }
-                          }),
-                          _vm._v(" "),
-                          _c(
-                            "router-link",
-                            {
-                              staticClass: "btn btn-primary",
-                              attrs: {
-                                to: {
-                                  name: "portfolio-item",
-                                  params: {
-                                    portfolio_item_slug: portfolioItem.slug,
-                                    portfolio_item_id: portfolioItem.id
+                    _c("img", {
+                      attrs: {
+                        src: portfolioItem.image_src,
+                        alt: portfolioItem.title
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("h5", { staticClass: "card-title" }, [
+                      _vm._v(_vm._s(portfolioItem.title))
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "card-body" },
+                      [
+                        _c("vue-markdown", {
+                          attrs: { source: portfolioItem.body }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "card-buttons" },
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "btn btn-primary",
+                                attrs: {
+                                  to: {
+                                    name: "portfolio-item",
+                                    params: {
+                                      portfolio_item_slug: portfolioItem.slug,
+                                      portfolio_item_id: portfolioItem.id
+                                    }
                                   }
                                 }
-                              }
-                            },
-                            [_vm._v("Read More")]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "a",
-                            {
-                              staticClass: "btn btn-primary",
-                              attrs: { href: portfolioItem.demo_url }
-                            },
-                            [_vm._v("Demo")]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "a",
-                            {
-                              staticClass: "btn btn-primary",
-                              attrs: { href: portfolioItem.repo_url }
-                            },
-                            [_vm._v("Github Repo")]
-                          )
-                        ],
-                        1
-                      )
-                    ])
+                              },
+                              [_vm._v("Read More")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-primary",
+                                attrs: { href: portfolioItem.demo_url }
+                              },
+                              [_vm._v("Demo")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-primary",
+                                attrs: { href: portfolioItem.repo_url }
+                              },
+                              [_vm._v("Github Repo")]
+                            )
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    )
                   ]
                 )
               ],

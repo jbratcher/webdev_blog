@@ -10690,6 +10690,7 @@ ul {
 .btn-primary {
   background-image: linear-gradient(225deg, #4B79A1, #283E51 50%, #4B79A1);
   background-size: 200% auto;
+  border: none;
   transition: 2.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
@@ -10790,7 +10791,7 @@ a.nav-link.router-link-exact-active.router-link-active:focus {
 }
 
 .content-section p {
-  color: #000;
+  color: #fff;
 }
 
 .content-section p.lead {
@@ -10832,30 +10833,62 @@ a.nav-link.router-link-exact-active.router-link-active:focus {
 }
 
 .posts-list li {
-  margin: 0.5rem 0;
+  margin: 2.5rem 0;
 }
 
-.posts-list img {
-  height: 250px;
+.posts-list a {
+  display: block;
+  position: relative;
+  cursor: pointer;
+}
+
+.posts-list a img {
+  max-height: 300px;
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  position: static;
 }
 
-.portfolio-items-card .card {
-  background: none;
-  border: none;
+.posts-list a .card-title,
+.posts-list a .card-body {
+  background: #000;
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  position: absolute;
+  right: 0;
+  z-index: 100;
 }
 
-.portfolio-items-card .card img {
-  margin: 1rem 0;
+.posts-list a .card-title {
+  padding: 0.25rem;
+  bottom: 0;
+  right: 0.5;
+  transition: all 0.5s ease 0.25s;
 }
 
-.portfolio-items-card .card .card-body {
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+.posts-list a .card-body {
+  bottom: 0;
+  right: 0;
+  transform: scale(0);
+  transition: all 0.5s ease 0.25s;
+}
+
+.posts-list a .card-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin: 1rem 0 0.25rem;
+}
+
+.posts-list a .read-more {
+  width: 30%;
+}
+
+.posts-list a:hover .card-title {
+  bottom: 200px;
+}
+
+.posts-list a:hover .card-body {
+  transform: scale(1);
 }
 
 .about-intro {
@@ -11035,6 +11068,7 @@ h2 {
   .posts-list li {
     align-self: stretch;
     min-width: 100%;
+    margin: 1rem 0;
   }
 
   .content-section h2 {

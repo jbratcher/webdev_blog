@@ -15,16 +15,16 @@
 
                 <li class="portfolio-items-card" v-for="portfolioItem in portfolioItems" :key="portfolioItem.id">
                     <router-link :to="{ name: 'portfolio-item', params: { portfolio_item_slug: portfolioItem.slug, portfolio_item_id: portfolioItem.id} }">
-                        <section class="card">
-                            <img class="card-img-top" :src="portfolioItem.image_src" :alt="portfolioItem.title">
-                            <div class="card-body">
-                                <h5 class="card-title">{{portfolioItem.title}}</h5>
-                                <vue-markdown :source="portfolioItem.body"></vue-markdown>
+                        <img :src="portfolioItem.image_src" :alt="portfolioItem.title">
+                        <h5 class="card-title">{{portfolioItem.title}}</h5>
+                        <div class="card-body">
+                            <vue-markdown :source="portfolioItem.body"></vue-markdown>
+                            <div class="card-buttons">
                                 <router-link class="btn btn-primary" :to="{ name: 'portfolio-item', params: { portfolio_item_slug: portfolioItem.slug, portfolio_item_id: portfolioItem.id} }">Read More</router-link>
                                 <a :href="portfolioItem.demo_url" class="btn btn-primary">Demo</a>
                                 <a :href="portfolioItem.repo_url" class="btn btn-primary">Github Repo</a>
                             </div>
-                        </section>
+                        </div>
                     </router-link>
                 </li>
 
