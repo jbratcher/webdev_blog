@@ -10926,6 +10926,10 @@ a.nav-link.router-link-exact-active.router-link-active:focus {
   padding: 1.25rem;
 }
 
+#contact section.contact-form p {
+  color: #000;
+}
+
 #contact section.contact-form .open {
   color: #4CAF50;
 }

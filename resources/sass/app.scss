@@ -306,6 +306,10 @@ a.nav-link.router-link-exact-active.router-link-active {
 #contact section.contact-form {
     padding: 1.25rem;
 
+    p {
+        color: #000;
+    }
+
     .open {
         color: #4CAF50;
     }
