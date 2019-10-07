@@ -69,29 +69,30 @@ img.blog-post-img, img.portfolio-item-img {
 
 // global nav
 
-.navbar-light {
-    color: #fff;
-    font-size: 1.5rem;
-    font-weight: 700;
-
-    &:hover, &:focus {
-        color: #fff;
-    }
-}
-
 .navbar-light .navbar-toggler {
     border: none;
     color: #fff;
-
-    .navbar-toggler-icon {
-        font-size: 1.5rem;
-    }
-
 }
 
 .navbar-brand img {
     border-radius: 4px;
     width: 75%;
+}
+
+.navbar-nav {
+    align-items: center;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+
+    &:hover, &:focus {
+        color: #fff;
+    }
+
+    li {
+        width: 30vw;
+    }
+
 }
 
 // global banner
@@ -104,9 +105,14 @@ img.blog-post-img, img.portfolio-item-img {
     padding: 0.5rem;
 
     h1 {
-        font-size: 2rem;
+        font-size: 1.25rem;
         font-weight: bold;
         letter-spacing: 3px;
+        margin-bottom: 0.25rem;
+    }
+
+    p.lead {
+        font-size: 0.8rem;
     }
 
 }
@@ -204,8 +210,9 @@ a.nav-link.router-link-exact-active.router-link-active {
 
     img {
         height: 250px;
-        width: auto;
+        width: 100%;
         object-fit: cover;
+        position: static
     }
 
 }
@@ -349,6 +356,15 @@ h2 {
 
 @media only screen and (min-width: 768px) {
 
+    .navbar-light {
+        font-size: 1.5rem;
+
+        li {
+            width: 100%;
+        }
+
+    }
+
     .blog-post .card-body, .portfolio-item .card-body {
         width: 65vw;
         font-size: larger;
@@ -374,6 +390,7 @@ h2 {
         li {
             font-size: 1rem;
             margin: 0 1rem;
+            width: 100%;
 
             a {
                 width: 100%;
@@ -398,6 +415,15 @@ h2 {
 
     .global-banner {
         padding: 1rem 3rem;
+
+        h1 {
+            font-size: 2rem;
+        }
+
+        p.lead {
+            font-size: 1.125rem;
+        }
+
     }
 
     .posts-list {

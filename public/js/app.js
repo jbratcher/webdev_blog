@@ -2957,16 +2957,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.getPosts();
@@ -76362,49 +76352,17 @@ var render = function() {
                       }
                     },
                     [
-                      _c("section", { staticClass: "card" }, [
-                        _c("img", {
-                          staticClass: "card-img-top",
-                          attrs: { src: post.image_src, alt: post.title }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "card-body" },
-                          [
-                            _c("h5", { staticClass: "card-title" }, [
-                              _vm._v(_vm._s(post.title))
-                            ]),
-                            _vm._v(" "),
-                            _c("vue-markdown", {
-                              attrs: { source: post.body }
-                            }),
-                            _vm._v(" "),
-                            _c(
-                              "router-link",
-                              {
-                                staticClass: "btn btn-primary",
-                                attrs: {
-                                  to: {
-                                    name: "blog-post",
-                                    params: {
-                                      post_slug: post.slug,
-                                      post_id: post.id
-                                    }
-                                  }
-                                }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                                    Read More\n                                "
-                                )
-                              ]
-                            )
-                          ],
-                          1
-                        )
-                      ])
-                    ]
+                      _c("img", {
+                        attrs: { src: post.image_src, alt: post.title }
+                      }),
+                      _vm._v(" "),
+                      _c("h5", { staticClass: "card-title" }, [
+                        _vm._v(_vm._s(post.title))
+                      ]),
+                      _vm._v(" "),
+                      _c("vue-markdown", { attrs: { source: post.body } })
+                    ],
+                    1
                   )
                 ],
                 1
@@ -76560,7 +76518,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "container-fluid global-banner" }, [
       _c("h1", [_vm._v("Jeremy Bratcher")]),
       _vm._v(" "),
-      _c("h2", { staticClass: "lead" }, [_vm._v("Full Stack Web Developer")])
+      _c("p", { staticClass: "lead" }, [_vm._v("Full Stack Web Developer")])
     ])
   }
 ]
