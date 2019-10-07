@@ -160,6 +160,10 @@ a.nav-link.router-link-exact-active.router-link-active {
         color: #fff;
     }
 
+    &>p {
+        color: #000;
+    }
+
     p.lead {
         font-size: 1rem;
         margin: 1rem 0;

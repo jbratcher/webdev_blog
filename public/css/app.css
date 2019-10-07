@@ -10794,6 +10794,10 @@ a.nav-link.router-link-exact-active.router-link-active:focus {
   color: #fff;
 }
 
+.content-section > p {
+  color: #000;
+}
+
 .content-section p.lead {
   font-size: 1rem;
   margin: 1rem 0;
