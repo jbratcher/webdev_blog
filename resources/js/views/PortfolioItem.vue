@@ -7,10 +7,10 @@
         <section class="portfolio-item">
             <section class="card">
                 <img class="portfolio-item-img" :src="portfolioItem.image_src" :alt="portfolioItem.title">
+                <h2 class="card-title">{{portfolioItem.title}}</h2>
                 <div class="card-body">
-                    <h5 class="card-title">{{portfolioItem.title}}</h5>
                     <vue-markdown :source="portfolioItem.body"></vue-markdown>
-\                </div>
+                </div>
             </section>
         </section>
 

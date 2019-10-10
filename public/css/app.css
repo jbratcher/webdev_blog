@@ -10688,16 +10688,29 @@ ul {
 }
 
 .btn-primary {
-  background-image: linear-gradient(225deg, #4B79A1, #283E51 50%, #4B79A1);
-  background-size: 200% auto;
+  background: #3C6080;
   border: none;
-  transition: 2.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  border-radius: 4px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7);
 }
 
-.btn-primary:hover {
-  background-position: 100% 0;
-  background-position-x: 100%;
-  background-position-y: 0px;
+.btn-primary:hover,
+.btn-primary:focus-within-within {
+  background: #1E3040;
+  box-shadow: none;
+  transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.25s;
+}
+
+.blog-post .card-title,
+.portfolio-item .card-title {
+  background: #3C6080;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.7);
+  color: #fff;
+  font-size: 2rem;
+  margin: 2rem auto 2rem;
+  padding: 3rem 0;
+  text-align: center;
+  width: 100%;
 }
 
 .blog-post .card-body,
@@ -10707,6 +10720,7 @@ ul {
 
 img.blog-post-img,
 img.portfolio-item-img {
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.7);
   height: 250px;
   -o-object-fit: cover;
      object-fit: cover;
@@ -10715,6 +10729,10 @@ img.portfolio-item-img {
 .underline {
   border-bottom: 4px solid #283E51;
   padding: 0 0.5rem 0.5rem 0;
+}
+
+header {
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.7);
 }
 
 .navbar-light .navbar-toggler {
@@ -10735,7 +10753,7 @@ img.portfolio-item-img {
 }
 
 .navbar-nav:hover,
-.navbar-nav:focus {
+.navbar-nav:focus-within {
   color: #fff;
 }
 
@@ -10744,11 +10762,8 @@ img.portfolio-item-img {
 }
 
 .global-banner {
-  background: #4B79A1;
-  /* fallback for old browsers */
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to bottom right, #283E51, #4B79A1);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #3C6080;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.7);
   color: #fff;
   padding: 0.5rem;
 }
@@ -10770,18 +10785,18 @@ li.nav-item a {
 }
 
 a.nav-link.router-link-exact-active.router-link-active {
-  background-image: linear-gradient(225deg, #4B79A1, #283E51 50%, #4B79A1);
+  background: #3C6080;
   background-size: 200% auto;
-  transition: 2.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-  border-radius: 0.75rem;
+  transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.25s;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7);
   color: #fff;
 }
 
 a.nav-link.router-link-exact-active.router-link-active:hover,
-a.nav-link.router-link-exact-active.router-link-active:focus {
-  background-position: 100% 0;
-  background-position-x: 100%;
-  background-position-y: 0px;
+a.nav-link.router-link-exact-active.router-link-active:focus-within {
+  background: #1E3040;
   color: #fff;
 }
 
@@ -10847,16 +10862,23 @@ a.nav-link.router-link-exact-active.router-link-active:focus {
 }
 
 .posts-list a img {
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7);
   max-height: 300px;
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
+.posts-list a img:hover,
+.posts-list a img:focus-within {
+  box-shadow: none;
+  transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.25s;
+}
+
 .posts-list a .card-title,
 .posts-list a .card-body {
   background: #000;
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(0, 0, 0, 0.7);
   color: #fff;
   position: absolute;
   right: 0;
@@ -10867,14 +10889,14 @@ a.nav-link.router-link-exact-active.router-link-active:focus {
   padding: 0.25rem;
   bottom: 0;
   right: 0.5;
-  transition: all 0.5s ease 0.25s;
+  transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.25s;
 }
 
 .posts-list a .card-body {
   bottom: 0;
   right: 0;
   transform: scale(0);
-  transition: all 0.5s ease 0.25s;
+  transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.25s;
 }
 
 .posts-list a .card-buttons {
@@ -10887,11 +10909,13 @@ a.nav-link.router-link-exact-active.router-link-active:focus {
   width: 30%;
 }
 
-.posts-list a:hover .card-title {
+.posts-list a:hover .card-title,
+.posts-list a:focus-within .card-title {
   bottom: 200px;
 }
 
-.posts-list a:hover .card-body {
+.posts-list a:hover .card-body,
+.posts-list a:focus-within .card-body {
   transform: scale(1);
 }
 

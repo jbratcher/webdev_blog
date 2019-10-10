@@ -75348,16 +75348,14 @@ var render = function() {
             attrs: { src: _vm.post[0].image_src, alt: _vm.post[0].title }
           }),
           _vm._v(" "),
+          _c("h2", { staticClass: "card-title" }, [
+            _vm._v(_vm._s(_vm.post[0].title))
+          ]),
+          _vm._v(" "),
           _c(
             "div",
             { staticClass: "card-body" },
-            [
-              _c("h5", { staticClass: "card-title" }, [
-                _vm._v(_vm._s(_vm.post[0].title))
-              ]),
-              _vm._v(" "),
-              _c("vue-markdown", { attrs: { source: _vm.post[0].body } })
-            ],
+            [_c("vue-markdown", { attrs: { source: _vm.post[0].body } })],
             1
           )
         ])
@@ -76713,17 +76711,14 @@ var render = function() {
             }
           }),
           _vm._v(" "),
+          _c("h2", { staticClass: "card-title" }, [
+            _vm._v(_vm._s(_vm.portfolioItem.title))
+          ]),
+          _vm._v(" "),
           _c(
             "div",
             { staticClass: "card-body" },
-            [
-              _c("h5", { staticClass: "card-title" }, [
-                _vm._v(_vm._s(_vm.portfolioItem.title))
-              ]),
-              _vm._v(" "),
-              _c("vue-markdown", { attrs: { source: _vm.portfolioItem.body } }),
-              _vm._v("\n\\                ")
-            ],
+            [_c("vue-markdown", { attrs: { source: _vm.portfolioItem.body } })],
             1
           )
         ])

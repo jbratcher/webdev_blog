@@ -7,8 +7,8 @@
         <section class="blog-post">
             <section class="card">
                 <img class="blog-post-img" :src="post[0].image_src" :alt="post[0].title">
+                <h2 class="card-title">{{post[0].title}}</h2>
                 <div class="card-body">
-                    <h5 class="card-title">{{post[0].title}}</h5>
                     <vue-markdown :source="post[0].body"></vue-markdown>
                 </div>
             </section>
