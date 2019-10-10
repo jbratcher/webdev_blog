@@ -10716,6 +10716,7 @@ ul {
 .blog-post .card-body,
 .portfolio-item .card-body {
   margin: 0 auto;
+  max-width: 95vw;
 }
 
 img.blog-post-img,
@@ -10960,6 +10961,10 @@ a.nav-link.router-link-exact-active.router-link-active:focus-within {
 
 #contact section.contact-form .open {
   color: #4CAF50;
+}
+
+#contact .about {
+  margin-top: 2rem;
 }
 
 footer .container {

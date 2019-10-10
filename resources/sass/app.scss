@@ -67,6 +67,7 @@ ul {
 
     .card-body {
         margin: 0 auto;
+        max-width: 95vw;
     }
 
 }
@@ -344,6 +345,10 @@ a.nav-link.router-link-exact-active.router-link-active {
         color: #4CAF50;
     }
 
+}
+
+#contact .about {
+    margin-top: 2rem;
 }
 
 // Global footer
