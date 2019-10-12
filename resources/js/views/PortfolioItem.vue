@@ -6,9 +6,9 @@
 
         <section class="portfolio-item">
             <section class="card">
-                <img class="portfolio-item-img" :src="portfolioItem.image_src" :alt="portfolioItem.title">
-                <h2 class="card-title">{{portfolioItem.title}}</h2>
                 <div class="card-body">
+                    <h2 class="card-title">{{portfolioItem.title}}</h2>
+                    <img class="portfolio-item-img" :src="portfolioItem.image_src" :alt="portfolioItem.title">
                     <vue-markdown :source="portfolioItem.body"></vue-markdown>
                 </div>
             </section>
@@ -39,7 +39,7 @@
                     this.portfolioItems = response.data;
                     this.portfolioItem = this.portfolioItems[this.$route.params.portfolio_item_id-1];
                 })
-                .then(() => console.log("Portfolio Item: " + JSON.stringify(this.portfolioItem)))
+                .then(() => console.log(JSON.stringify(this.portfolioItem[0].title)))
                 .catch(error => {
                     this.loading = false;
                     this.error = error.response.data.message || error.message;

@@ -93,14 +93,7 @@
                 formData.append("image", this.$refs.image.files[0]);
                 formData.append("_method", "patch");  // need for method spoofing in Vue for PUT/PATCH
 
-                console.log(this.$refs.title.value);
-                console.log(this.$refs.body.value);
-
-                console.log("Form data: " + formData);
-
-
-                axios
-                    .post(`/api/posts/${this.post[0].id}`, formData)
+                axios.post(`/api/posts/${this.post[0].id}`, formData)
                     .then(response => {
                         this.successful = true;
                         this.error = false;

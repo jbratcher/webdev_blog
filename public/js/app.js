@@ -2190,6 +2190,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _mixins_getPostMixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../mixins/getPostMixin */ "./resources/js/mixins/getPostMixin.js");
 //
 //
 //
@@ -2212,34 +2213,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    this.getPost();
-    console.log("Blog post vue mounted");
-    console.log("Blog param id value: " + this.$route.params.post_id);
-  },
-  data: function data() {
-    return {
-      post: [],
-      posts: []
-    };
-  },
-  methods: {
-    getPost: function getPost() {
-      var _this = this;
 
-      axios.get("/api/posts").then(function (response) {
-        _this.posts = response.data;
-        _this.post = _this.posts.filter(function (post) {
-          return post.id === _this.$route.params.post_id;
-        });
-      }).then(function () {
-        return console.log("Post: " + JSON.stringify(_this.post));
-      })["catch"](function (error) {
-        _this.loading = false;
-        _this.error = error.response.data.message || error.message;
-      });
-    }
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mixins: [_mixins_getPostMixin__WEBPACK_IMPORTED_MODULE_0__["getPostMixin"]],
+  mounted: function mounted() {
+    console.log("Blog post vue mounted");
   },
   props: {
     userId: {
@@ -2746,9 +2724,6 @@ __webpack_require__.r(__webpack_exports__);
       formData.append("image", this.$refs.image.files[0]);
       formData.append("_method", "patch"); // need for method spoofing in Vue for PUT/PATCH
 
-      console.log(this.$refs.title.value);
-      console.log(this.$refs.body.value);
-      console.log("Form data: " + formData);
       axios.post("/api/posts/".concat(this.post[0].id), formData).then(function (response) {
         _this.successful = true;
         _this.error = false;
@@ -3164,7 +3139,7 @@ __webpack_require__.r(__webpack_exports__);
         _this.portfolioItems = response.data;
         _this.portfolioItem = _this.portfolioItems[_this.$route.params.portfolio_item_id - 1];
       }).then(function () {
-        return console.log("Portfolio Item: " + JSON.stringify(_this.portfolioItem));
+        return console.log(JSON.stringify(_this.portfolioItem[0].title));
       })["catch"](function (error) {
         _this.loading = false;
         _this.error = error.response.data.message || error.message;
@@ -75343,19 +75318,21 @@ var render = function() {
       _vm._v(" "),
       _c("section", { staticClass: "blog-post" }, [
         _c("section", { staticClass: "card" }, [
-          _c("img", {
-            staticClass: "blog-post-img",
-            attrs: { src: _vm.post[0].image_src, alt: _vm.post[0].title }
-          }),
-          _vm._v(" "),
-          _c("h2", { staticClass: "card-title" }, [
-            _vm._v(_vm._s(_vm.post[0].title))
-          ]),
-          _vm._v(" "),
           _c(
             "div",
             { staticClass: "card-body" },
-            [_c("vue-markdown", { attrs: { source: _vm.post[0].body } })],
+            [
+              _c("h2", { staticClass: "card-title" }, [
+                _vm._v(_vm._s(_vm.post[0].title))
+              ]),
+              _vm._v(" "),
+              _c("img", {
+                staticClass: "blog-post-img",
+                attrs: { src: _vm.post[0].image_src, alt: _vm.post[0].title }
+              }),
+              _vm._v(" "),
+              _c("vue-markdown", { attrs: { source: _vm.post[0].body } })
+            ],
             1
           )
         ])
@@ -76703,22 +76680,24 @@ var render = function() {
       _vm._v(" "),
       _c("section", { staticClass: "portfolio-item" }, [
         _c("section", { staticClass: "card" }, [
-          _c("img", {
-            staticClass: "portfolio-item-img",
-            attrs: {
-              src: _vm.portfolioItem.image_src,
-              alt: _vm.portfolioItem.title
-            }
-          }),
-          _vm._v(" "),
-          _c("h2", { staticClass: "card-title" }, [
-            _vm._v(_vm._s(_vm.portfolioItem.title))
-          ]),
-          _vm._v(" "),
           _c(
             "div",
             { staticClass: "card-body" },
-            [_c("vue-markdown", { attrs: { source: _vm.portfolioItem.body } })],
+            [
+              _c("h2", { staticClass: "card-title" }, [
+                _vm._v(_vm._s(_vm.portfolioItem.title))
+              ]),
+              _vm._v(" "),
+              _c("img", {
+                staticClass: "portfolio-item-img",
+                attrs: {
+                  src: _vm.portfolioItem.image_src,
+                  alt: _vm.portfolioItem.title
+                }
+              }),
+              _vm._v(" "),
+              _c("vue-markdown", { attrs: { source: _vm.portfolioItem.body } })
+            ],
             1
           )
         ])
@@ -99468,18 +99447,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }]
 }); // Mixins
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.mixin({
-  methods: {
-    capitalizeFirstLetter: function capitalizeFirstLetter(str) {
-      return str.charAt(0).toUpperCase() + str.slice(1);
-    },
-    truncateResourceBody: function truncateResourceBody(resourceList) {
-      resourceList.map(function (resource) {
-        resource.body = resource.body.substring(0, 144) + "...", console.log(resource.body);
-      });
-    }
-  }
-});
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.mixin({});
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -99552,6 +99520,56 @@ if (token) {
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/mixins/getPostMixin.js":
+/*!*********************************************!*\
+  !*** ./resources/js/mixins/getPostMixin.js ***!
+  \*********************************************/
+/*! exports provided: getPostMixin */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getPostMixin", function() { return getPostMixin; });
+var getPostMixin = {
+  created: function created() {
+    this.getPost();
+    console.log("Route param id value: " + this.$route.params.post_id);
+  },
+  data: function data() {
+    return {
+      post: [{
+        title: null,
+        image_src: null,
+        body: ""
+      }],
+      posts: [{
+        title: null,
+        image_src: null,
+        body: ""
+      }]
+    };
+  },
+  methods: {
+    getPost: function getPost() {
+      var _this = this;
+
+      axios.get("/api/posts").then(function (response) {
+        _this.posts = response.data;
+        _this.post = _this.posts.filter(function (post) {
+          return post.id = _this.$route.params.post_id;
+        });
+      }).then(function () {
+        return console.log(JSON.stringify(_this.post[0].title));
+      })["catch"](function (error) {
+        _this.loading = false;
+        _this.error = error.response.data.message || error.message;
+      });
+    }
+  }
+};
 
 /***/ }),
 

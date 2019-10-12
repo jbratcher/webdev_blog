@@ -112,15 +112,7 @@ const router = new VueRouter({
 // Mixins
 
 Vue.mixin({
-    methods: {
-        capitalizeFirstLetter: str => str.charAt(0).toUpperCase() + str.slice(1),
-        truncateResourceBody: function(resourceList) {
-            resourceList.map(resource => {
-                resource.body = resource.body.substring(0,144)+"...",
-                console.log(resource.body)
-            })
-        }
-    }
+
 });
 
 /**
