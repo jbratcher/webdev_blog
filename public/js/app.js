@@ -2629,6 +2629,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _mixins_getPostMixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../mixins/getPostMixin */ "./resources/js/mixins/getPostMixin.js");
 //
 //
 //
@@ -2695,11 +2696,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  mixins: [_mixins_getPostMixin__WEBPACK_IMPORTED_MODULE_0__["getPostMixin"]],
   created: function created() {
     console.log("Edit post vue created");
-    this.getPost();
-    console.log("Blog param id value: " + this.$route.params.post_id);
   },
   updated: function updated() {
     this.updateEditorValue();
@@ -2709,8 +2710,6 @@ __webpack_require__.r(__webpack_exports__);
       editorValue: "",
       error: false,
       errors: [],
-      post: [],
-      posts: [],
       successful: false
     };
   },
@@ -2736,21 +2735,6 @@ __webpack_require__.r(__webpack_exports__);
             _this.error = true;
           }
         }
-      });
-    },
-    getPost: function getPost() {
-      var _this2 = this;
-
-      axios.get("/api/posts").then(function (response) {
-        _this2.posts = response.data;
-        _this2.post = _this2.posts.filter(function (post) {
-          return post.id = _this2.$route.params.post_id;
-        });
-      }).then(function () {
-        return console.log(JSON.stringify(_this2.post[0].title));
-      })["catch"](function (error) {
-        _this2.loading = false;
-        _this2.error = error.response.data.message || error.message;
       });
     },
     updateEditorValue: function updateEditorValue() {

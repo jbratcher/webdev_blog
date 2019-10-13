@@ -65,12 +65,11 @@
 </template>
 
 <script>
-
+    import { getPostMixin } from "../mixins/getPostMixin";
     export default {
+        mixins: [getPostMixin],
         created() {
             console.log("Edit post vue created");
-            this.getPost();
-            console.log("Blog param id value: " + this.$route.params.post_id);
         },
         updated() {
             this.updateEditorValue();
@@ -80,8 +79,6 @@
                 editorValue: "",
                 error: false,
                 errors: [],
-                post: [],
-                posts: [],
                 successful: false,
             };
         },
@@ -94,30 +91,19 @@
                 formData.append("_method", "patch");  // need for method spoofing in Vue for PUT/PATCH
 
                 axios.post(`/api/posts/${this.post[0].id}`, formData)
-                    .then(response => {
-                        this.successful = true;
-                        this.error = false;
-                        this.errors = [];
-                    })
-                    .catch(error => {
-                        if (!_.isEmpty(error.response)) {
-                            if ((error.response.status = 422)) {
-                                this.errors = error.response.data.errors;
-                                this.successful = false;
-                                this.error = true;
-                            }
-                        }
-                    });
-            },
-            getPost() {
-                axios.get("/api/posts").then(response => {
-                    this.posts = response.data;
-                    this.post = this.posts.filter(post => post.id = this.$route.params.post_id);
+                .then(response => {
+                    this.successful = true;
+                    this.error = false;
+                    this.errors = [];
                 })
-                .then(() => console.log(JSON.stringify(this.post[0].title)))
                 .catch(error => {
-                    this.loading = false;
-                    this.error = error.response.data.message || error.message;
+                    if (!_.isEmpty(error.response)) {
+                        if ((error.response.status = 422)) {
+                            this.errors = error.response.data.errors;
+                            this.successful = false;
+                            this.error = true;
+                        }
+                    }
                 });
             },
             updateEditorValue() {
