@@ -2213,6 +2213,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mixins: [_mixins_getPostMixin__WEBPACK_IMPORTED_MODULE_0__["getPostMixin"]],
@@ -75333,6 +75340,26 @@ var render = function() {
                 _vm._v(_vm._s(_vm.post[0].title))
               ]),
               _vm._v(" "),
+              _c("div", { staticClass: "card-information" }, [
+                _c("img", {
+                  staticClass: "card-profile-thumb",
+                  attrs: {
+                    src: _vm.user[0].profile_pic_src,
+                    alt: _vm.user[0].name
+                  }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-info-holder" }, [
+                  _c("p", { staticClass: "card-profile-name" }, [
+                    _vm._v(_vm._s(_vm.user[0].name))
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "card-publication-date" }, [
+                    _vm._v(_vm._s(_vm.publicationDate))
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
               _c("img", {
                 staticClass: "blog-post-img",
                 attrs: { src: _vm.post[0].image_src, alt: _vm.post[0].title }
@@ -99577,20 +99604,35 @@ __webpack_require__.r(__webpack_exports__);
 var getPostMixin = {
   created: function created() {
     this.getPost();
+    this.getUser();
     console.log("Route param id value: " + this.$route.params.post_id);
+  },
+  computed: {
+    publicationDate: function publicationDate() {
+      var date = new Date(this.post[0].created_at);
+      var month = date.toLocaleString('default', {
+        month: 'long'
+      });
+      var string = "".concat(month, ", ").concat(date.getDay(), " ").concat(date.getFullYear());
+      return string;
+    }
   },
   data: function data() {
     return {
       post: [{
+        user_id: null,
         title: null,
         image_src: null,
         body: ""
       }],
       posts: [{
+        user_id: null,
         title: null,
         image_src: null,
         body: ""
-      }]
+      }],
+      user: [{}],
+      users: [{}]
     };
   },
   methods: {
@@ -99603,10 +99645,23 @@ var getPostMixin = {
           return post.id = _this.$route.params.post_id;
         });
       }).then(function () {
-        return console.log(JSON.stringify(_this.post[0].title));
+        return console.log(JSON.stringify(_this.post[0].user_id));
       })["catch"](function (error) {
-        _this.loading = false;
         _this.error = error.response.data.message || error.message;
+      });
+    },
+    getUser: function getUser() {
+      var _this2 = this;
+
+      axios.get("/api/users").then(function (response) {
+        _this2.users = response.data;
+        _this2.user = _this2.users.filter(function (user) {
+          return user.user_id = _this2.post[0].user_id;
+        });
+      }).then(function () {
+        return console.log(JSON.stringify(_this2.user[0].name));
+      })["catch"](function (error) {
+        _this2.error = error.response.data.message || error.message;
       });
     }
   }
