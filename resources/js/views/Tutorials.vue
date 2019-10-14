@@ -2,7 +2,7 @@
 
     <section>
 
-        <global-header />
+        <global-header :userName="userName" :userId="userId" />
 
         <div class="container-fluid global-banner">
             <h1>Tutorials</h1>

@@ -1,7 +1,7 @@
 <template>
     <div class="main-container">
 
-        <global-header />
+        <global-header :userName="userName" :userId="userId" />
 
         <main>
 

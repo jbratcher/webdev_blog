@@ -2,7 +2,7 @@
 
     <section>
 
-        <global-header />
+        <global-header :userName="userName" :userId="userId" />
 
         <section class="container">
 

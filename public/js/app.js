@@ -2425,6 +2425,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  created: function created() {
+    console.log("Create props:\n Username: ".concat(this.userName, "\n User ID: ").concat(this.userId));
+  },
   data: function data() {
     return {
       editorValue: "",
@@ -2818,7 +2821,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    console.log("Header: \n Username: ".concat(this.userName, " \n User ID: ").concat(this.userId));
+  },
   props: {
     userId: {
       type: Number
@@ -2975,6 +2984,14 @@ __webpack_require__.r(__webpack_exports__);
         _this3.loading = false;
         _this3.error = error.response.data.message || error.message;
       });
+    }
+  },
+  props: {
+    userId: {
+      type: Number
+    },
+    userName: {
+      type: String
     }
   }
 });
@@ -74759,7 +74776,9 @@ var render = function() {
         "div",
         { staticClass: "main-container" },
         [
-          _c("global-header"),
+          _c("global-header", {
+            attrs: { userName: _vm.userName, userId: _vm.userId }
+          }),
           _vm._v(" "),
           _c("main", [
             _vm._m(0),
@@ -75177,7 +75196,9 @@ var render = function() {
   return _c(
     "section",
     [
-      _c("global-header"),
+      _c("global-header", {
+        attrs: { userName: _vm.userName, userId: _vm.userId }
+      }),
       _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
@@ -75298,7 +75319,9 @@ var render = function() {
   return _c(
     "section",
     [
-      _c("global-header"),
+      _c("global-header", {
+        attrs: { userName: _vm.userName, userId: _vm.userId }
+      }),
       _vm._v(" "),
       _c("section", { staticClass: "blog-post" }, [
         _c("section", { staticClass: "card" }, [
@@ -75353,7 +75376,9 @@ var render = function() {
     "div",
     { staticClass: "main-container" },
     [
-      _c("global-header"),
+      _c("global-header", {
+        attrs: { userName: _vm.userName, userId: _vm.userId }
+      }),
       _vm._v(" "),
       _c("main", [
         _c(
@@ -75605,7 +75630,9 @@ var render = function() {
   return _c(
     "section",
     [
-      _c("global-header"),
+      _c("global-header", {
+        attrs: { userName: _vm.userName, userId: _vm.userId }
+      }),
       _vm._v(" "),
       _c("section", { staticClass: "container" }, [
         _c("h1", { staticClass: "post-edit-header" }, [
@@ -75761,7 +75788,9 @@ var render = function() {
   return _c(
     "section",
     [
-      _c("global-header"),
+      _c("global-header", {
+        attrs: { userName: _vm.userName, userId: _vm.userId }
+      }),
       _vm._v(" "),
       _c("section", { staticClass: "container" }, [
         _c("h1", { staticClass: "post-edit-header" }, [_vm._v("Edit Post")]),
@@ -75927,7 +75956,9 @@ var render = function() {
   return _c(
     "section",
     [
-      _c("global-header"),
+      _c("global-header", {
+        attrs: { userName: _vm.userName, userId: _vm.userId }
+      }),
       _vm._v(" "),
       _c("section", { staticClass: "container" }, [
         _c("h1", { staticClass: "post-edit-header" }, [_vm._v("Edit Post")]),
@@ -76222,7 +76253,25 @@ var render = function() {
                   )
                 ],
                 1
-              )
+              ),
+              _vm._v(" "),
+              _vm.userName
+                ? _c(
+                    "li",
+                    { staticClass: "nav-item" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          staticClass: "nav-link",
+                          attrs: { to: { name: "admin" } }
+                        },
+                        [_vm._v("Dashboard")]
+                      )
+                    ],
+                    1
+                  )
+                : _vm._e()
             ])
           ]
         )
@@ -76287,7 +76336,9 @@ var render = function() {
     "div",
     { staticClass: "main-container" },
     [
-      _c("global-header"),
+      _c("global-header", {
+        attrs: { userName: _vm.userName, userId: _vm.userId }
+      }),
       _vm._v(" "),
       _c("main", [
         _vm._m(0),
@@ -76517,7 +76568,9 @@ var render = function() {
   return _c(
     "section",
     [
-      _c("global-header"),
+      _c("global-header", {
+        attrs: { userName: _vm.userName, userId: _vm.userId }
+      }),
       _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
@@ -76660,7 +76713,9 @@ var render = function() {
   return _c(
     "section",
     [
-      _c("global-header"),
+      _c("global-header", {
+        attrs: { userName: _vm.userName, userId: _vm.userId }
+      }),
       _vm._v(" "),
       _c("section", { staticClass: "portfolio-item" }, [
         _c("section", { staticClass: "card" }, [
@@ -76717,7 +76772,9 @@ var render = function() {
   return _c(
     "section",
     [
-      _c("global-header"),
+      _c("global-header", {
+        attrs: { userName: _vm.userName, userId: _vm.userId }
+      }),
       _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),

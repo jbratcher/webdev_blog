@@ -24,6 +24,9 @@
                     <li class="nav-item">
                         <router-link class="nav-link" :to="{ name: 'contact'}">Contact</router-link>
                     </li>
+                    <li class="nav-item" v-if="userName">
+                        <router-link class="nav-link" :to="{ name: 'admin'}">Dashboard</router-link>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -32,6 +35,9 @@
 
 <script>
     export default {
+        mounted() {
+            console.log(`Header: \n Username: ${this.userName} \n User ID: ${this.userId}`);
+        },
         props: {
             userId: {
                 type: Number

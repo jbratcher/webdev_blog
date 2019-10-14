@@ -1,7 +1,7 @@
 <template>
     <div class="main-container">
 
-        <global-header />
+        <global-header :userName="userName" :userId="userId" />
 
         <main>
 
@@ -130,6 +130,14 @@
                     this.error = error.response.data.message || error.message;
                 });
             },
+        },
+        props: {
+            userId: {
+                type: Number
+            },
+            userName: {
+                type: String
+            }
         }
     };
 </script>

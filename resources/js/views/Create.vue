@@ -2,7 +2,7 @@
 
     <section>
 
-        <global-header />
+        <global-header :userName="userName" :userId="userId" />
 
         <section class="container">
 
@@ -67,6 +67,9 @@
 <script>
 
     export default {
+        created() {
+            console.log(`Create props:\n Username: ${this.userName}\n User ID: ${this.userId}`);
+        },
         data() {
             return {
                 editorValue: "",
@@ -83,8 +86,7 @@
                 formData.append("user_id", this.userId);
                 formData.append("image", this.$refs.image.files[0]);
 
-                axios
-                    .post("/api/posts", formData)
+                axios.post("/api/posts", formData)
                     .then(response => {
                         this.successful = true;
                         this.error = false;
