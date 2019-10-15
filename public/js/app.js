@@ -2832,9 +2832,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    console.log("Header: \n Username: ".concat(this.userName, " \n User ID: ").concat(this.userId));
-  },
   props: {
     userId: {
       type: Number
@@ -3091,6 +3088,14 @@ __webpack_require__.r(__webpack_exports__);
         portfolioItem.body = portfolioItem.body.substring(0, 144) + "...";
       });
     }
+  },
+  props: {
+    userId: {
+      type: Number
+    },
+    userName: {
+      type: String
+    }
   }
 });
 
@@ -3105,6 +3110,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _mixins_getPortfolioItemMixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../mixins/getPortfolioItemMixin */ "./resources/js/mixins/getPortfolioItemMixin.js");
 //
 //
 //
@@ -3127,32 +3133,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    this.getPortfolioItems();
-    console.log("Portfolio item vue mounted");
-    console.log("Portfolio item param id value: " + this.$route.params.portfolio_item_id);
-  },
-  data: function data() {
-    return {
-      portfolioItem: {},
-      portfolioItems: []
-    };
-  },
-  methods: {
-    getPortfolioItems: function getPortfolioItems() {
-      var _this = this;
 
-      axios.get("/api/portfolioitems").then(function (response) {
-        _this.portfolioItems = response.data;
-        _this.portfolioItem = _this.portfolioItems[_this.$route.params.portfolio_item_id - 1];
-      }).then(function () {
-        return console.log(JSON.stringify(_this.portfolioItem[0].title));
-      })["catch"](function (error) {
-        _this.loading = false;
-        _this.error = error.response.data.message || error.message;
-      });
-    }
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mixins: [_mixins_getPortfolioItemMixin__WEBPACK_IMPORTED_MODULE_0__["getPortfolioItemMixin"]],
+  mounted: function mounted() {
+    console.log("Portfolio item vue mounted");
   },
   props: {
     userId: {
@@ -76751,18 +76736,20 @@ var render = function() {
             { staticClass: "card-body" },
             [
               _c("h2", { staticClass: "card-title" }, [
-                _vm._v(_vm._s(_vm.portfolioItem.title))
+                _vm._v(_vm._s(_vm.portfolioItem[0].title))
               ]),
               _vm._v(" "),
               _c("img", {
                 staticClass: "portfolio-item-img",
                 attrs: {
-                  src: _vm.portfolioItem.image_src,
-                  alt: _vm.portfolioItem.title
+                  src: _vm.portfolioItem[0].image_src,
+                  alt: _vm.portfolioItem[0].title
                 }
               }),
               _vm._v(" "),
-              _c("vue-markdown", { attrs: { source: _vm.portfolioItem.body } })
+              _c("vue-markdown", {
+                attrs: { source: _vm.portfolioItem[0].body }
+              })
             ],
             1
           )
@@ -99591,6 +99578,84 @@ if (token) {
 
 /***/ }),
 
+/***/ "./resources/js/mixins/getPortfolioItemMixin.js":
+/*!******************************************************!*\
+  !*** ./resources/js/mixins/getPortfolioItemMixin.js ***!
+  \******************************************************/
+/*! exports provided: getPortfolioItemMixin */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getPortfolioItemMixin", function() { return getPortfolioItemMixin; });
+var getPortfolioItemMixin = {
+  created: function created() {
+    this.getPortfolioItem();
+    this.getUser();
+  },
+  computed: {
+    publicationDate: function publicationDate() {
+      var date = new Date(this.portfolioItem[0].created_at);
+      var month = date.toLocaleString('default', {
+        month: 'long'
+      });
+      var string = "".concat(month, ", ").concat(date.getDay(), " ").concat(date.getFullYear());
+      return string;
+    }
+  },
+  data: function data() {
+    return {
+      portfolioItem: [{
+        user_id: null,
+        title: null,
+        image_src: null,
+        body: ""
+      }],
+      portfolioItems: [{
+        user_id: null,
+        title: null,
+        image_src: null,
+        body: ""
+      }],
+      user: [{}],
+      users: [{}]
+    };
+  },
+  methods: {
+    getPortfolioItem: function getPortfolioItem() {
+      var _this = this;
+
+      axios.get("/api/portfolioitems").then(function (response) {
+        _this.portfolioItems = response.data;
+        _this.portfolioItem = _this.portfolioItems.filter(function (item) {
+          return item.id === Number(_this.$route.params.portfolio_item_id);
+        });
+      }).then(function () {
+        return console.log("Item title: " + JSON.stringify(_this.portfolioItem[0].title));
+      })["catch"](function (error) {
+        _this.loading = false;
+        _this.error = error.response.data.message || error.message;
+      });
+    },
+    getUser: function getUser() {
+      var _this2 = this;
+
+      axios.get("/api/users").then(function (response) {
+        _this2.users = response.data;
+        _this2.user = _this2.users.filter(function (user) {
+          return user.user_id = _this2.portfolioItem[0].user_id;
+        });
+      }).then(function () {
+        return console.log("Username: " + JSON.stringify(_this2.user[0].name));
+      })["catch"](function (error) {
+        _this2.error = error.response.data.message || error.message;
+      });
+    }
+  }
+};
+
+/***/ }),
+
 /***/ "./resources/js/mixins/getPostMixin.js":
 /*!*********************************************!*\
   !*** ./resources/js/mixins/getPostMixin.js ***!
@@ -99605,7 +99670,6 @@ var getPostMixin = {
   created: function created() {
     this.getPost();
     this.getUser();
-    console.log("Route param id value: " + this.$route.params.post_id);
   },
   computed: {
     publicationDate: function publicationDate() {
@@ -99642,10 +99706,10 @@ var getPostMixin = {
       axios.get("/api/posts").then(function (response) {
         _this.posts = response.data;
         _this.post = _this.posts.filter(function (post) {
-          return post.id = _this.$route.params.post_id;
+          return post.id === Number(_this.$route.params.post_id);
         });
       }).then(function () {
-        return console.log(JSON.stringify(_this.post[0].user_id));
+        return console.log("Item id: " + JSON.stringify(_this.post[0].user_id));
       })["catch"](function (error) {
         _this.error = error.response.data.message || error.message;
       });
@@ -99659,7 +99723,7 @@ var getPostMixin = {
           return user.user_id = _this2.post[0].user_id;
         });
       }).then(function () {
-        return console.log(JSON.stringify(_this2.user[0].name));
+        return console.log("Username: " + JSON.stringify(_this2.user[0].name));
       })["catch"](function (error) {
         _this2.error = error.response.data.message || error.message;
       });

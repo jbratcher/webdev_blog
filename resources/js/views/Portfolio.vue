@@ -71,5 +71,13 @@
                 });
             }
         },
+        props: {
+            userId: {
+                type: Number
+            },
+            userName: {
+                type: String
+            },
+        }
     };
 </script>

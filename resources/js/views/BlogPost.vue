@@ -30,7 +30,7 @@
 <script>
     import { getPostMixin } from "../mixins/getPostMixin";
     export default {
-        mixins: [getPostMixin],
+        mixins: [ getPostMixin ],
         mounted() {
             console.log("Blog post vue mounted");
         },

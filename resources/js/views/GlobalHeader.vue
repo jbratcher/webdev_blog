@@ -35,9 +35,6 @@
 
 <script>
     export default {
-        mounted() {
-            console.log(`Header: \n Username: ${this.userName} \n User ID: ${this.userId}`);
-        },
         props: {
             userId: {
                 type: Number
