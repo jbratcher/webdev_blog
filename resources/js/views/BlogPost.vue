@@ -34,7 +34,7 @@
         mounted() {
             console.log("Blog post vue mounted");
         },
-         props: {
+        props: {
             userId: {
                 type: Number
             },

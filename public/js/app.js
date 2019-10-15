@@ -2156,13 +2156,6 @@ __webpack_require__.r(__webpack_exports__);
         _this.error = error.response.data.message || error.message;
       });
     },
-    deletePost: function deletePost(id) {
-      var _this2 = this;
-
-      axios["delete"]("/api/posts/" + id).then(function (response) {
-        return _this2.getPosts();
-      });
-    },
     truncatePosts: function truncatePosts() {
       this.posts.map(function (post) {
         post.body = post.body.substring(0, 144) + "...";
@@ -2350,6 +2343,14 @@ __webpack_require__.r(__webpack_exports__);
           }
         });
       }
+    }
+  },
+  props: {
+    userId: {
+      type: Number
+    },
+    userName: {
+      type: String
     }
   }
 });
@@ -2720,6 +2721,15 @@ __webpack_require__.r(__webpack_exports__);
       editorValue: "",
       error: false,
       errors: [],
+      options: {
+        lineNumbers: true,
+        styleActiveLine: true,
+        styleSelectedText: true,
+        lineWrapping: true,
+        indentWithTabs: true,
+        tabSize: 2,
+        indentUnit: 2
+      },
       successful: false
     };
   },
@@ -3066,21 +3076,12 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get("/api/portfolioitems").then(function (response) {
-        console.log("Response: ".concat(response.data));
         _this.portfolioItems = response.data;
       }).then(function () {
         return _this.truncatePortfolioItem();
       })["catch"](function (error) {
         _this.loading = false;
         _this.error = error.response.data.message || error.message;
-      });
-      console.log("Portfolio object: " + this.portfolioitems);
-    },
-    deletePost: function deletePost(id) {
-      var _this2 = this;
-
-      axios["delete"]("/api/portfolioitems/" + id).then(function (response) {
-        return _this2.getPortfolioItems();
       });
     },
     truncatePortfolioItem: function truncatePortfolioItem() {
@@ -3192,13 +3193,19 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get("/api/tutorials").then(function (response) {
-        console.log("Response: ".concat(response.data));
         _this.tutorials = response.data;
       })["catch"](function (error) {
         _this.loading = false;
         _this.error = error.response.data.message || error.message;
       });
-      console.log("Tutorials object: " + this.tutorials);
+    }
+  },
+  props: {
+    userId: {
+      type: Number
+    },
+    userName: {
+      type: String
     }
   }
 });
@@ -99419,7 +99426,7 @@ __webpack_require__.r(__webpack_exports__);
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // Import and use statements for modules
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // Modules
 
 
 
@@ -99428,7 +99435,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // Import
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(v_markdown_editor__WEBPACK_IMPORTED_MODULE_2___default.a);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_markdown__WEBPACK_IMPORTED_MODULE_3___default.a); // style imports
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_markdown__WEBPACK_IMPORTED_MODULE_3___default.a); // Styles
 
  // Views
 
@@ -99460,7 +99467,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: "blog",
     component: _views_Blog__WEBPACK_IMPORTED_MODULE_7__["default"]
   }, {
-    path: '/blog/view/:post_slug/:post_id',
+    path: "/blog/view/:post_slug/:post_id",
     name: "blog-post",
     component: _views_BlogPost__WEBPACK_IMPORTED_MODULE_8__["default"],
     props: true
@@ -99500,9 +99507,14 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     component: _views_EditPortfolioItem__WEBPACK_IMPORTED_MODULE_16__["default"],
     props: true
   }]
-}); // Mixins
+}); // Global Mixins
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.mixin({});
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.mixin({
+  /**
+   * Caution: Global mixins affect ever Vue instance and can have unexpected consequences.
+   * Only use in for certain use cases like custom option handling.
+  */
+});
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

@@ -27,7 +27,7 @@
         mounted() {
             console.log("Portfolio item vue mounted");
         },
-         props: {
+        props: {
             userId: {
                 type: Number
             },

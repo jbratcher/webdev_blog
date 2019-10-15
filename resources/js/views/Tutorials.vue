@@ -29,15 +29,21 @@
         methods: {
             getTutorials() {
                 axios.get("/api/tutorials").then(response => {
-                    console.log(`Response: ${response.data}`);
                     this.tutorials = response.data;
                 })
                 .catch(error => {
                     this.loading = false;
                     this.error = error.response.data.message || error.message;
                 });
-                console.log("Tutorials object: " + this.tutorials);
             },
         },
+        props: {
+            userId: {
+                type: Number
+            },
+            userName: {
+                type: String
+            },
+        }
     };
 </script>

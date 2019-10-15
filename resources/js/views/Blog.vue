@@ -64,16 +64,13 @@
                     this.error = error.response.data.message || error.message;
                 });
             },
-            deletePost(id) {
-                axios.delete("/api/posts/" + id).then(response => this.getPosts())
-            },
             truncatePosts() {
                 this.posts.map(post => {
                     post.body = post.body.substring(0,144)+"...";
                 });
             }
         },
-         props: {
+        props: {
             userId: {
                 type: Number
             },

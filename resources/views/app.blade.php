@@ -13,7 +13,7 @@
         <link href="https://fonts.googleapis.com/css?family=Merriweather|Roboto&display=swap" rel="stylesheet">
 
         <!-- Icons -->
-        <script src="https://kit.fontawesome.com/42714493db.js"></script>
+        <link rel="stylesheet" href="//l.allcdn.org/fa/v5.3.1/css/all.min.css">
 
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">

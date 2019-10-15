@@ -6,7 +6,7 @@
 
 require('./bootstrap');
 
-// Import and use statements for modules
+// Modules
 
 import Vue from 'vue';
 import VueRouter from 'vue-router';
@@ -17,7 +17,7 @@ Vue.use( VueRouter );
 Vue.use( Editor );
 Vue.use( VueMarkdown );
 
-// style imports
+// Styles
 
 import 'v-markdown-editor/dist/index.css';
 
@@ -58,7 +58,7 @@ const router = new VueRouter({
             component: Blog
         },
         {
-            path: '/blog/view/:post_slug/:post_id',
+            path: "/blog/view/:post_slug/:post_id",
             name: "blog-post",
             component: BlogPost,
             props: true,
@@ -109,10 +109,13 @@ const router = new VueRouter({
     ]
 })
 
-// Mixins
+// Global Mixins
 
 Vue.mixin({
-
+    /**
+     * Caution: Global mixins affect ever Vue instance and can have unexpected consequences.
+     * Only use in for certain use cases like custom option handling.
+    */
 });
 
 /**

@@ -52,7 +52,6 @@
         methods: {
             getPortfolioItems() {
                 axios.get("/api/portfolioitems").then(response => {
-                    console.log(`Response: ${response.data}`);
                     this.portfolioItems = response.data;
                 })
                 .then(() => this.truncatePortfolioItem())
@@ -60,10 +59,6 @@
                     this.loading = false;
                     this.error = error.response.data.message || error.message;
                 });
-                console.log("Portfolio object: " + this.portfolioitems);
-            },
-            deletePost(id) {
-                axios.delete("/api/portfolioitems/" + id).then(response => this.getPortfolioItems())
             },
             truncatePortfolioItem() {
                 this.portfolioItems.map(portfolioItem => {

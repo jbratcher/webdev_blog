@@ -79,7 +79,17 @@
                 editorValue: "",
                 error: false,
                 errors: [],
+                options: {
+                    lineNumbers: true,
+                    styleActiveLine: true,
+                    styleSelectedText: true,
+                    lineWrapping: true,
+                    indentWithTabs: true,
+                    tabSize: 2,
+                    indentUnit: 2
+                },
                 successful: false,
+
             };
         },
         methods: {
