@@ -1,11 +1,10 @@
-export const getPortfolioItemMixin = {
+export const getResourceMixin = {
     created() {
-        this.getPortfolioItem();
-        this.getUser();
+        console.log("get resource mixin created");
     },
     computed: {
         publicationDate: function() {
-            let date = new Date(this.portfolioItem[0].created_at);
+            let date = new Date(this.resource[0].created_at);
             let month = date.toLocaleString('default', { month: 'long' });
             let string = `${month}, ${date.getDay()} ${date.getFullYear()}`;
             return string;
@@ -13,7 +12,7 @@ export const getPortfolioItemMixin = {
     },
     data() {
         return {
-            portfolioItem: [
+            resource: [
                 {
                     user_id: null,
                     title: null,
@@ -21,7 +20,7 @@ export const getPortfolioItemMixin = {
                     body: ""
                 }
             ],
-            portfolioItems: [
+            resources: [
                 {
                     user_id: null,
                     title: null,
@@ -42,12 +41,22 @@ export const getPortfolioItemMixin = {
         };
     },
     methods: {
-        getPortfolioItem() {
-            axios.get("/api/portfolioitems").then(response => {
-                this.portfolioItems = response.data;
-                this.portfolioItem = this.portfolioItems.filter(item => item.id === Number(this.$route.params.portfolio_item_id));
+        getResource(type) {
+            axios.get(`/api/${type}`).then(response => {
+                this.resources = response.data;
+                this.resource = this.resources.filter(item => {
+                    if(type === 'posts') {
+                        return item.id === Number(this.$route.params.post_id)
+                    }
+                    else if(type === 'portfolioitems') {
+                        return item.id === Number(this.$route.params.portfolio_item_id)
+                    }
+                    else {
+                        return item.id === Number(this.$route.params.id);
+                    }
+                })
             })
-            .then(() => console.log("Item title: " + JSON.stringify(this.portfolioItem[0].title)))
+            .then(() => console.log("Item title: " + JSON.stringify(this.resource[0].title)))
             .catch(error => {
                 this.loading = false;
                 this.error = error.response.data.message || error.message;
@@ -56,7 +65,7 @@ export const getPortfolioItemMixin = {
         getUser() {
             axios.get("/api/users").then(response => {
                 this.users = response.data;
-                this.user = this.users.filter(user => user.user_id = this.portfolioItem[0].user_id)
+                this.user = this.users.filter(user => user.user_id = this.resource[0].user_id)
             })
             .then(() => console.log("Username: " + JSON.stringify(this.user[0].name)))
             .catch(error => {

@@ -2183,7 +2183,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _mixins_getPostMixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../mixins/getPostMixin */ "./resources/js/mixins/getPostMixin.js");
+/* harmony import */ var _mixins_getResourceMixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../mixins/getResourceMixin */ "./resources/js/mixins/getResourceMixin.js");
 //
 //
 //
@@ -2215,8 +2215,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mixins: [_mixins_getPostMixin__WEBPACK_IMPORTED_MODULE_0__["getPostMixin"]],
-  mounted: function mounted() {
+  mixins: [_mixins_getResourceMixin__WEBPACK_IMPORTED_MODULE_0__["getResourceMixin"]],
+  created: function created() {
+    this.getResource('posts');
+    this.getUser();
     console.log("Blog post vue mounted");
   },
   props: {
@@ -2491,7 +2493,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _mixins_getPortfolioItemMixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../mixins/getPortfolioItemMixin */ "./resources/js/mixins/getPortfolioItemMixin.js");
+/* harmony import */ var _mixins_getResourceMixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../mixins/getResourceMixin */ "./resources/js/mixins/getResourceMixin.js");
 //
 //
 //
@@ -2560,8 +2562,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mixins: [_mixins_getPortfolioItemMixin__WEBPACK_IMPORTED_MODULE_0__["getPortfolioItemMixin"]],
+  mixins: [_mixins_getResourceMixin__WEBPACK_IMPORTED_MODULE_0__["getResourceMixin"]],
   created: function created() {
+    this.getResource('portfolioitems');
+    this.getUser();
     console.log("Edit portfolio item vue mounted");
   },
   updated: function updated() {
@@ -2594,10 +2598,7 @@ __webpack_require__.r(__webpack_exports__);
       formData.append("image", this.$refs.image.files[0]);
       formData.append("_method", "patch"); // need for method spoofing in Vue for PUT/PATCH
 
-      console.log(this.$refs.title.value);
-      console.log(this.$refs.body.value);
-      console.log("Form data: " + formData);
-      axios.post("/api/portfolioitems/".concat(this.portfolioItem.id), formData).then(function (response) {
+      axios.post("/api/portfolioitems/".concat(this.resource.id), formData).then(function (response) {
         _this.successful = true;
         _this.error = false;
         _this.errors = [];
@@ -2612,7 +2613,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     updateEditorValue: function updateEditorValue() {
-      this.editorValue = this.portfolioItem[0].body;
+      this.editorValue = this.resource[0].body;
     }
   },
   props: {
@@ -2636,7 +2637,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _mixins_getPostMixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../mixins/getPostMixin */ "./resources/js/mixins/getPostMixin.js");
+/* harmony import */ var _mixins_getResourceMixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../mixins/getResourceMixin */ "./resources/js/mixins/getResourceMixin.js");
 //
 //
 //
@@ -2705,8 +2706,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mixins: [_mixins_getPostMixin__WEBPACK_IMPORTED_MODULE_0__["getPostMixin"]],
+  mixins: [_mixins_getResourceMixin__WEBPACK_IMPORTED_MODULE_0__["getResourceMixin"]],
   created: function created() {
+    this.getResource('posts');
+    this.getUser();
     console.log("Edit post vue created");
   },
   updated: function updated() {
@@ -2739,7 +2742,7 @@ __webpack_require__.r(__webpack_exports__);
       formData.append("image", this.$refs.image.files[0]);
       formData.append("_method", "patch"); // need for method spoofing in Vue for PUT/PATCH
 
-      axios.post("/api/posts/".concat(this.post[0].id), formData).then(function (response) {
+      axios.post("/api/posts/".concat(this.resource[0].id), formData).then(function (response) {
         _this.successful = true;
         _this.error = false;
         _this.errors = [];
@@ -2754,7 +2757,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     updateEditorValue: function updateEditorValue() {
-      this.editorValue = this.post[0].body;
+      this.editorValue = this.resource[0].body;
     }
   },
   props: {
@@ -3107,7 +3110,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _mixins_getPortfolioItemMixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../mixins/getPortfolioItemMixin */ "./resources/js/mixins/getPortfolioItemMixin.js");
+/* harmony import */ var _mixins_getResourceMixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../mixins/getResourceMixin */ "./resources/js/mixins/getResourceMixin.js");
 //
 //
 //
@@ -3132,8 +3135,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mixins: [_mixins_getPortfolioItemMixin__WEBPACK_IMPORTED_MODULE_0__["getPortfolioItemMixin"]],
-  mounted: function mounted() {
+  mixins: [_mixins_getResourceMixin__WEBPACK_IMPORTED_MODULE_0__["getResourceMixin"]],
+  created: function created() {
+    this.getResource('portfolioitems');
+    this.getUser();
     console.log("Portfolio item vue mounted");
   },
   props: {
@@ -75325,7 +75330,7 @@ var render = function() {
             { staticClass: "card-body" },
             [
               _c("h2", { staticClass: "card-title" }, [
-                _vm._v(_vm._s(_vm.post[0].title))
+                _vm._v(_vm._s(_vm.resource[0].title))
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "card-information" }, [
@@ -75350,10 +75355,13 @@ var render = function() {
               _vm._v(" "),
               _c("img", {
                 staticClass: "blog-post-img",
-                attrs: { src: _vm.post[0].image_src, alt: _vm.post[0].title }
+                attrs: {
+                  src: _vm.resource[0].image_src,
+                  alt: _vm.resource[0].title
+                }
               }),
               _vm._v(" "),
-              _c("vue-markdown", { attrs: { source: _vm.post[0].body } })
+              _c("vue-markdown", { attrs: { source: _vm.resource[0].body } })
             ],
             1
           )
@@ -75872,20 +75880,20 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.portfolioItem[0].title,
-                  expression: "portfolioItem[0].title"
+                  value: _vm.resource[0].title,
+                  expression: "resource[0].title"
                 }
               ],
               ref: "title",
               staticClass: "form-control",
               attrs: { type: "title", id: "title", required: "" },
-              domProps: { value: _vm.portfolioItem[0].title },
+              domProps: { value: _vm.resource[0].title },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.$set(_vm.portfolioItem[0], "title", $event.target.value)
+                  _vm.$set(_vm.resource[0], "title", $event.target.value)
                 }
               }
             })
@@ -75903,11 +75911,11 @@ var render = function() {
                     "clipboard redo undo | bold italic strikethrough heading | image link | numlist bullist code quote | preview fullscreen"
                 },
                 model: {
-                  value: _vm.portfolioItem[0].body,
+                  value: _vm.resource[0].body,
                   callback: function($$v) {
-                    _vm.$set(_vm.portfolioItem[0], "body", $$v)
+                    _vm.$set(_vm.resource[0], "body", $$v)
                   },
-                  expression: "portfolioItem[0].body"
+                  expression: "resource[0].body"
                 }
               })
             ],
@@ -76040,20 +76048,20 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.post[0].title,
-                  expression: "post[0].title"
+                  value: _vm.resource[0].title,
+                  expression: "resource[0].title"
                 }
               ],
               ref: "title",
               staticClass: "form-control",
               attrs: { type: "title", id: "title", required: "" },
-              domProps: { value: _vm.post[0].title },
+              domProps: { value: _vm.resource[0].title },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.$set(_vm.post[0], "title", $event.target.value)
+                  _vm.$set(_vm.resource[0], "title", $event.target.value)
                 }
               }
             })
@@ -76071,11 +76079,11 @@ var render = function() {
                     "clipboard redo undo | bold italic strikethrough heading | image link | numlist bullist code quote | preview fullscreen"
                 },
                 model: {
-                  value: _vm.post[0].body,
+                  value: _vm.resource[0].body,
                   callback: function($$v) {
-                    _vm.$set(_vm.post[0], "body", $$v)
+                    _vm.$set(_vm.resource[0], "body", $$v)
                   },
-                  expression: "post[0].body"
+                  expression: "resource[0].body"
                 }
               })
             ],
@@ -76741,20 +76749,18 @@ var render = function() {
             { staticClass: "card-body" },
             [
               _c("h2", { staticClass: "card-title" }, [
-                _vm._v(_vm._s(_vm.portfolioItem[0].title))
+                _vm._v(_vm._s(_vm.resource[0].title))
               ]),
               _vm._v(" "),
               _c("img", {
                 staticClass: "portfolio-item-img",
                 attrs: {
-                  src: _vm.portfolioItem[0].image_src,
-                  alt: _vm.portfolioItem[0].title
+                  src: _vm.resource[0].image_src,
+                  alt: _vm.resource[0].title
                 }
               }),
               _vm._v(" "),
-              _c("vue-markdown", {
-                attrs: { source: _vm.portfolioItem[0].body }
-              })
+              _c("vue-markdown", { attrs: { source: _vm.resource[0].body } })
             ],
             1
           )
@@ -99632,24 +99638,23 @@ if (token) {
 
 /***/ }),
 
-/***/ "./resources/js/mixins/getPortfolioItemMixin.js":
-/*!******************************************************!*\
-  !*** ./resources/js/mixins/getPortfolioItemMixin.js ***!
-  \******************************************************/
-/*! exports provided: getPortfolioItemMixin */
+/***/ "./resources/js/mixins/getResourceMixin.js":
+/*!*************************************************!*\
+  !*** ./resources/js/mixins/getResourceMixin.js ***!
+  \*************************************************/
+/*! exports provided: getResourceMixin */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getPortfolioItemMixin", function() { return getPortfolioItemMixin; });
-var getPortfolioItemMixin = {
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getResourceMixin", function() { return getResourceMixin; });
+var getResourceMixin = {
   created: function created() {
-    this.getPortfolioItem();
-    this.getUser();
+    console.log("get resource mixin created");
   },
   computed: {
     publicationDate: function publicationDate() {
-      var date = new Date(this.portfolioItem[0].created_at);
+      var date = new Date(this.resource[0].created_at);
       var month = date.toLocaleString('default', {
         month: 'long'
       });
@@ -99659,13 +99664,13 @@ var getPortfolioItemMixin = {
   },
   data: function data() {
     return {
-      portfolioItem: [{
+      resource: [{
         user_id: null,
         title: null,
         image_src: null,
         body: ""
       }],
-      portfolioItems: [{
+      resources: [{
         user_id: null,
         title: null,
         image_src: null,
@@ -99676,16 +99681,22 @@ var getPortfolioItemMixin = {
     };
   },
   methods: {
-    getPortfolioItem: function getPortfolioItem() {
+    getResource: function getResource(type) {
       var _this = this;
 
-      axios.get("/api/portfolioitems").then(function (response) {
-        _this.portfolioItems = response.data;
-        _this.portfolioItem = _this.portfolioItems.filter(function (item) {
-          return item.id === Number(_this.$route.params.portfolio_item_id);
+      axios.get("/api/".concat(type)).then(function (response) {
+        _this.resources = response.data;
+        _this.resource = _this.resources.filter(function (item) {
+          if (type === 'posts') {
+            return item.id === Number(_this.$route.params.post_id);
+          } else if (type === 'portfolioitems') {
+            return item.id === Number(_this.$route.params.portfolio_item_id);
+          } else {
+            return item.id === Number(_this.$route.params.id);
+          }
         });
       }).then(function () {
-        return console.log("Item title: " + JSON.stringify(_this.portfolioItem[0].title));
+        return console.log("Item title: " + JSON.stringify(_this.resource[0].title));
       })["catch"](function (error) {
         _this.loading = false;
         _this.error = error.response.data.message || error.message;
@@ -99697,84 +99708,7 @@ var getPortfolioItemMixin = {
       axios.get("/api/users").then(function (response) {
         _this2.users = response.data;
         _this2.user = _this2.users.filter(function (user) {
-          return user.user_id = _this2.portfolioItem[0].user_id;
-        });
-      }).then(function () {
-        return console.log("Username: " + JSON.stringify(_this2.user[0].name));
-      })["catch"](function (error) {
-        _this2.error = error.response.data.message || error.message;
-      });
-    }
-  }
-};
-
-/***/ }),
-
-/***/ "./resources/js/mixins/getPostMixin.js":
-/*!*********************************************!*\
-  !*** ./resources/js/mixins/getPostMixin.js ***!
-  \*********************************************/
-/*! exports provided: getPostMixin */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getPostMixin", function() { return getPostMixin; });
-var getPostMixin = {
-  created: function created() {
-    this.getPost();
-    this.getUser();
-  },
-  computed: {
-    publicationDate: function publicationDate() {
-      var date = new Date(this.post[0].created_at);
-      var month = date.toLocaleString('default', {
-        month: 'long'
-      });
-      var string = "".concat(month, ", ").concat(date.getDay(), " ").concat(date.getFullYear());
-      return string;
-    }
-  },
-  data: function data() {
-    return {
-      post: [{
-        user_id: null,
-        title: null,
-        image_src: null,
-        body: ""
-      }],
-      posts: [{
-        user_id: null,
-        title: null,
-        image_src: null,
-        body: ""
-      }],
-      user: [{}],
-      users: [{}]
-    };
-  },
-  methods: {
-    getPost: function getPost() {
-      var _this = this;
-
-      axios.get("/api/posts").then(function (response) {
-        _this.posts = response.data;
-        _this.post = _this.posts.filter(function (post) {
-          return post.id === Number(_this.$route.params.post_id);
-        });
-      }).then(function () {
-        return console.log("Post id: " + JSON.stringify(_this.post[0].user_id));
-      })["catch"](function (error) {
-        _this.error = error.response.data.message || error.message;
-      });
-    },
-    getUser: function getUser() {
-      var _this2 = this;
-
-      axios.get("/api/users").then(function (response) {
-        _this2.users = response.data;
-        _this2.user = _this2.users.filter(function (user) {
-          return user.user_id = _this2.post[0].user_id;
+          return user.user_id = _this2.resource[0].user_id;
         });
       }).then(function () {
         return console.log("Username: " + JSON.stringify(_this2.user[0].name));

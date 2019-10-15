@@ -32,7 +32,7 @@
                         class="form-control"
                         id="title"
                         required
-                        v-model="post[0].title"
+                        v-model="resource[0].title"
                     >
                 </div>
 
@@ -41,7 +41,7 @@
                         ref="body"
                         id="body"
                         toolbar="clipboard redo undo | bold italic strikethrough heading | image link | numlist bullist code quote | preview fullscreen"
-                        v-model="post[0].body"
+                        v-model="resource[0].body"
                     ></markdown-editor>
                 </div>
 
@@ -65,10 +65,12 @@
 </template>
 
 <script>
-    import { getPostMixin } from "../mixins/getPostMixin";
+    import { getResourceMixin } from "../mixins/getResourceMixin";
     export default {
-        mixins: [getPostMixin],
+        mixins: [getResourceMixin],
         created() {
+            this.getResource('posts');
+            this.getUser();
             console.log("Edit post vue created");
         },
         updated() {
@@ -94,12 +96,13 @@
         methods: {
             editPost() {
                 const formData = new FormData();
+
                 formData.append("title", this.$refs.title.value);
                 formData.append("body", this.$refs.body.value);
                 formData.append("image", this.$refs.image.files[0]);
                 formData.append("_method", "patch");  // need for method spoofing in Vue for PUT/PATCH
 
-                axios.post(`/api/posts/${this.post[0].id}`, formData)
+                axios.post(`/api/posts/${this.resource[0].id}`, formData)
                 .then(response => {
                     this.successful = true;
                     this.error = false;
@@ -116,7 +119,7 @@
                 });
             },
             updateEditorValue() {
-                this.editorValue = this.post[0].body;
+                this.editorValue = this.resource[0].body;
             }
         },
         props: {

@@ -7,7 +7,7 @@
         <section class="blog-post">
             <section class="card">
                 <div class="card-body">
-                    <h2 class="card-title">{{post[0].title}}</h2>
+                    <h2 class="card-title">{{resource[0].title}}</h2>
                     <div class="card-information">
                         <img class="card-profile-thumb" :src="user[0].profile_pic_src" :alt="user[0].name" />
                         <div class="card-info-holder">
@@ -15,8 +15,8 @@
                             <p class="card-publication-date">{{publicationDate}}</p>
                         </div>
                     </div>
-                    <img class="blog-post-img" :src="post[0].image_src" :alt="post[0].title">
-                    <vue-markdown :source="post[0].body"></vue-markdown>
+                    <img class="blog-post-img" :src="resource[0].image_src" :alt="resource[0].title">
+                    <vue-markdown :source="resource[0].body"></vue-markdown>
                 </div>
             </section>
         </section>
@@ -28,10 +28,12 @@
 </template>
 
 <script>
-    import { getPostMixin } from "../mixins/getPostMixin";
+    import { getResourceMixin } from "../mixins/getResourceMixin";
     export default {
-        mixins: [ getPostMixin ],
-        mounted() {
+        mixins: [ getResourceMixin ],
+        created() {
+            this.getResource('posts');
+            this.getUser();
             console.log("Blog post vue mounted");
         },
         props: {

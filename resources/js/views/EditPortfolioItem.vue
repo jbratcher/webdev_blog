@@ -32,7 +32,7 @@
                         class="form-control"
                         id="title"
                         required
-                        v-model="portfolioItem[0].title"
+                        v-model="resource[0].title"
                     >
                 </div>
 
@@ -41,7 +41,7 @@
                         ref="body"
                         id="body"
                         toolbar="clipboard redo undo | bold italic strikethrough heading | image link | numlist bullist code quote | preview fullscreen"
-                        v-model="portfolioItem[0].body"
+                        v-model="resource[0].body"
                     ></markdown-editor>
                 </div>
 
@@ -65,10 +65,12 @@
 </template>
 
 <script>
-    import { getPortfolioItemMixin } from "../mixins/getPortfolioItemMixin";
+    import { getResourceMixin } from "../mixins/getResourceMixin";
     export default {
-        mixins: [ getPortfolioItemMixin ],
+        mixins: [ getResourceMixin ],
         created() {
+            this.getResource('portfolioitems');
+            this.getUser();
             console.log("Edit portfolio item vue mounted");
         },
         updated() {
@@ -94,18 +96,13 @@
         methods: {
             editPortfolioItem() {
                 const formData = new FormData();
+
                 formData.append("title", this.$refs.title.value);
                 formData.append("body", this.$refs.body.value);
                 formData.append("image", this.$refs.image.files[0]);
                 formData.append("_method", "patch");  // need for method spoofing in Vue for PUT/PATCH
 
-                console.log(this.$refs.title.value);
-                console.log(this.$refs.body.value);
-
-                console.log("Form data: " + formData);
-
-
-                axios.post(`/api/portfolioitems/${this.portfolioItem.id}`, formData)
+                axios.post(`/api/portfolioitems/${this.resource.id}`, formData)
                     .then(response => {
                         this.successful = true;
                         this.error = false;
@@ -122,7 +119,7 @@
                     });
             },
             updateEditorValue() {
-                this.editorValue = this.portfolioItem[0].body;
+                this.editorValue = this.resource[0].body;
             }
         },
         props: {

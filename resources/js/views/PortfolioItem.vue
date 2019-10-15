@@ -7,9 +7,9 @@
         <section class="portfolio-item">
             <section class="card">
                 <div class="card-body">
-                    <h2 class="card-title">{{portfolioItem[0].title}}</h2>
-                    <img class="portfolio-item-img" :src="portfolioItem[0].image_src" :alt="portfolioItem[0].title">
-                    <vue-markdown :source="portfolioItem[0].body"></vue-markdown>
+                    <h2 class="card-title">{{resource[0].title}}</h2>
+                    <img class="portfolio-item-img" :src="resource[0].image_src" :alt="resource[0].title">
+                    <vue-markdown :source="resource[0].body"></vue-markdown>
                 </div>
             </section>
         </section>
@@ -21,10 +21,12 @@
 </template>
 
 <script>
-    import { getPortfolioItemMixin } from "../mixins/getPortfolioItemMixin";
+    import { getResourceMixin } from "../mixins/getResourceMixin";
     export default {
-        mixins: [ getPortfolioItemMixin ],
-        mounted() {
+        mixins: [ getResourceMixin ],
+        created() {
+            this.getResource('portfolioitems');
+            this.getUser();
             console.log("Portfolio item vue mounted");
         },
         props: {
