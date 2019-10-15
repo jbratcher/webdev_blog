@@ -51,6 +51,9 @@ export const getResourceMixin = {
                     else if(type === 'portfolioitems') {
                         return item.id === Number(this.$route.params.portfolio_item_id)
                     }
+                    else if(type === 'tutorials') {
+                        return item.id === Number(this.$route.params.tutorial_id)
+                    }
                     else {
                         return item.id === Number(this.$route.params.id);
                     }

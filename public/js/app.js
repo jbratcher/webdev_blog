@@ -99691,6 +99691,8 @@ var getResourceMixin = {
             return item.id === Number(_this.$route.params.post_id);
           } else if (type === 'portfolioitems') {
             return item.id === Number(_this.$route.params.portfolio_item_id);
+          } else if (type === 'tutorials') {
+            return item.id === Number(_this.$route.params.tutorial_id);
           } else {
             return item.id === Number(_this.$route.params.id);
           }
