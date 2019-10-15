@@ -356,7 +356,7 @@ footer .container {
 
 // resource single view
 
-.blog-post, .portfolio-item {
+.blog-post, .portfolio-item, .tutorial {
 
     .card-title {
         font-size: 2rem;
@@ -370,7 +370,7 @@ footer .container {
 
 }
 
-img.blog-post-img, img.portfolio-item-img {
+img.blog-post-img, img.portfolio-item-img, img.tutorial-img {
     box-shadow: 0 2px 2px rgba(0,0,0,0.7);
     height: 250px;
     width: 100%;
@@ -450,7 +450,7 @@ h2 {
 
     }
 
-    .blog-post .card-body, .portfolio-item .card-body {
+    .blog-post .card-body, .portfolio-item .card-body, .tutorial .card-body {
         width: 65vw;
         font-size: larger;
 

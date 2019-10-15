@@ -3195,9 +3195,16 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/api/tutorials").then(function (response) {
         _this.tutorials = response.data;
+      }).then(function () {
+        return _this.truncateTutorials();
       })["catch"](function (error) {
         _this.loading = false;
         _this.error = error.response.data.message || error.message;
+      });
+    },
+    truncateTutorials: function truncateTutorials() {
+      this.tutorials.map(function (tutorial) {
+        tutorial.body = tutorial.body.substring(0, 144) + "...";
       });
     }
   },

@@ -31,11 +31,17 @@
                 axios.get("/api/tutorials").then(response => {
                     this.tutorials = response.data;
                 })
+                .then(() => this.truncateTutorials())
                 .catch(error => {
                     this.loading = false;
                     this.error = error.response.data.message || error.message;
                 });
             },
+            truncateTutorials() {
+                this.tutorials.map(tutorial => {
+                    tutorial.body = tutorial.body.substring(0,144)+"...";
+                });
+            }
         },
         props: {
             userId: {
