@@ -89,7 +89,6 @@
                     indentUnit: 2
                 },
                 successful: false,
-
             };
         },
         methods: {
@@ -117,7 +116,7 @@
                 });
             },
             updateEditorValue() {
-                this.editorValue = this.post.body;
+                this.editorValue = this.post[0].body;
             }
         },
         props: {

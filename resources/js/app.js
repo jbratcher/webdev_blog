@@ -95,13 +95,13 @@ const router = new VueRouter({
             component: Admin
         },
         {
-            path: '/edit/view/:post_slug/:post_id',
+            path: '/blog/edit/view/:post_slug/:post_id',
             name: "edit-post",
             component: EditPost,
             props: true,
         },
         {
-            path: '/edit/view/:portfolio_item_slug/:portfolio_item_id',
+            path: '/portfolio/edit/view/:portfolio_item_slug/:portfolio_item_id',
             name: "edit-portfolio-item",
             component: EditPortfolioItem,
             props: true,

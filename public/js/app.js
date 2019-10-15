@@ -2491,6 +2491,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _mixins_getPortfolioItemMixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../mixins/getPortfolioItemMixin */ "./resources/js/mixins/getPortfolioItemMixin.js");
 //
 //
 //
@@ -2557,10 +2558,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  mixins: [_mixins_getPortfolioItemMixin__WEBPACK_IMPORTED_MODULE_0__["getPortfolioItemMixin"]],
   created: function created() {
     console.log("Edit portfolio item vue mounted");
-    this.getPost();
   },
   updated: function updated() {
     this.updateEditorValue();
@@ -2570,8 +2572,15 @@ __webpack_require__.r(__webpack_exports__);
       editorValue: "",
       error: false,
       errors: [],
-      portfolioItem: {},
-      portfolioItems: [],
+      options: {
+        lineNumbers: true,
+        styleActiveLine: true,
+        styleSelectedText: true,
+        lineWrapping: true,
+        indentWithTabs: true,
+        tabSize: 2,
+        indentUnit: 2
+      },
       successful: false
     };
   },
@@ -2602,21 +2611,8 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     },
-    getPost: function getPost() {
-      var _this2 = this;
-
-      axios.get("/api/portfolioitems").then(function (response) {
-        _this2.portfolioItems = response.data;
-        _this2.portfolioItem = _this2.portfolioItems[_this2.$route.params.portfolio_item_id - 1];
-      }).then(function () {
-        return console.log("Post: " + JSON.stringify(_this2.post));
-      })["catch"](function (error) {
-        _this2.loading = false;
-        _this2.error = error.response.data.message || error.message;
-      });
-    },
     updateEditorValue: function updateEditorValue() {
-      this.editorValue = this.post.body;
+      this.editorValue = this.portfolioItem[0].body;
     }
   },
   props: {
@@ -2758,7 +2754,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     updateEditorValue: function updateEditorValue() {
-      this.editorValue = this.post.body;
+      this.editorValue = this.post[0].body;
     }
   },
   props: {
@@ -75812,7 +75808,9 @@ var render = function() {
       }),
       _vm._v(" "),
       _c("section", { staticClass: "container" }, [
-        _c("h1", { staticClass: "post-edit-header" }, [_vm._v("Edit Post")]),
+        _c("h1", { staticClass: "post-edit-header" }, [
+          _vm._v("Edit Portfolio Item")
+        ]),
         _vm._v(" "),
         _c("form", [
           _c(
@@ -75874,20 +75872,20 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.portfolioItem.title,
-                  expression: "portfolioItem.title"
+                  value: _vm.portfolioItem[0].title,
+                  expression: "portfolioItem[0].title"
                 }
               ],
               ref: "title",
               staticClass: "form-control",
               attrs: { type: "title", id: "title", required: "" },
-              domProps: { value: _vm.portfolioItem.title },
+              domProps: { value: _vm.portfolioItem[0].title },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.$set(_vm.portfolioItem, "title", $event.target.value)
+                  _vm.$set(_vm.portfolioItem[0], "title", $event.target.value)
                 }
               }
             })
@@ -75905,11 +75903,11 @@ var render = function() {
                     "clipboard redo undo | bold italic strikethrough heading | image link | numlist bullist code quote | preview fullscreen"
                 },
                 model: {
-                  value: _vm.portfolioItem.body,
+                  value: _vm.portfolioItem[0].body,
                   callback: function($$v) {
-                    _vm.$set(_vm.portfolioItem, "body", $$v)
+                    _vm.$set(_vm.portfolioItem[0], "body", $$v)
                   },
-                  expression: "portfolioItem.body"
+                  expression: "portfolioItem[0].body"
                 }
               })
             ],
@@ -75936,7 +75934,7 @@ var render = function() {
               on: {
                 click: function($event) {
                   $event.preventDefault()
-                  return _vm.editPortfolioItem($event)
+                  return _vm.editPortfolioItem[0]($event)
                 }
               }
             },
@@ -99541,12 +99539,12 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: "admin",
     component: _views_Admin__WEBPACK_IMPORTED_MODULE_14__["default"]
   }, {
-    path: '/edit/view/:post_slug/:post_id',
+    path: '/blog/edit/view/:post_slug/:post_id',
     name: "edit-post",
     component: _views_EditPost__WEBPACK_IMPORTED_MODULE_15__["default"],
     props: true
   }, {
-    path: '/edit/view/:portfolio_item_slug/:portfolio_item_id',
+    path: '/portfolio/edit/view/:portfolio_item_slug/:portfolio_item_id',
     name: "edit-portfolio-item",
     component: _views_EditPortfolioItem__WEBPACK_IMPORTED_MODULE_16__["default"],
     props: true
@@ -99765,7 +99763,7 @@ var getPostMixin = {
           return post.id === Number(_this.$route.params.post_id);
         });
       }).then(function () {
-        return console.log("Item id: " + JSON.stringify(_this.post[0].user_id));
+        return console.log("Post id: " + JSON.stringify(_this.post[0].user_id));
       })["catch"](function (error) {
         _this.error = error.response.data.message || error.message;
       });

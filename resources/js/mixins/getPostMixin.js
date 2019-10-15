@@ -47,7 +47,7 @@ export const getPostMixin = {
                 this.posts = response.data;
                 this.post = this.posts.filter(post => post.id === Number(this.$route.params.post_id));
             })
-            .then(() => console.log("Item id: " +JSON.stringify(this.post[0].user_id)))
+            .then(() => console.log("Post id: " +JSON.stringify(this.post[0].user_id)))
             .catch(error => {
                 this.error = error.response.data.message || error.message;
             });

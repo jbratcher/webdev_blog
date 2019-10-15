@@ -6,7 +6,7 @@
 
         <section class="container">
 
-            <h1 class="post-edit-header">Edit Post</h1>
+            <h1 class="post-edit-header">Edit Portfolio Item</h1>
 
             <form>
 
@@ -32,7 +32,7 @@
                         class="form-control"
                         id="title"
                         required
-                        v-model="portfolioItem.title"
+                        v-model="portfolioItem[0].title"
                     >
                 </div>
 
@@ -41,7 +41,7 @@
                         ref="body"
                         id="body"
                         toolbar="clipboard redo undo | bold italic strikethrough heading | image link | numlist bullist code quote | preview fullscreen"
-                        v-model="portfolioItem.body"
+                        v-model="portfolioItem[0].body"
                     ></markdown-editor>
                 </div>
 
@@ -50,7 +50,7 @@
                     <label class="custom-file-label" >Select image</label>
                 </div>
 
-                <button type="submit" @click.prevent="editPortfolioItem" class="btn btn-primary block">
+                <button type="submit" @click.prevent="editPortfolioItem[0]" class="btn btn-primary block">
                     Submit
                 </button>
 
@@ -65,11 +65,11 @@
 </template>
 
 <script>
-
+    import { getPortfolioItemMixin } from "../mixins/getPortfolioItemMixin";
     export default {
+        mixins: [ getPortfolioItemMixin ],
         created() {
             console.log("Edit portfolio item vue mounted");
-            this.getPost();
         },
         updated() {
             this.updateEditorValue();
@@ -79,8 +79,15 @@
                 editorValue: "",
                 error: false,
                 errors: [],
-                portfolioItem: {},
-                portfolioItems: [],
+                options: {
+                    lineNumbers: true,
+                    styleActiveLine: true,
+                    styleSelectedText: true,
+                    lineWrapping: true,
+                    indentWithTabs: true,
+                    tabSize: 2,
+                    indentUnit: 2
+                },
                 successful: false,
             };
         },
@@ -98,8 +105,7 @@
                 console.log("Form data: " + formData);
 
 
-                axios
-                    .post(`/api/portfolioitems/${this.portfolioItem.id}`, formData)
+                axios.post(`/api/portfolioitems/${this.portfolioItem.id}`, formData)
                     .then(response => {
                         this.successful = true;
                         this.error = false;
@@ -115,19 +121,8 @@
                         }
                     });
             },
-            getPost() {
-                axios.get("/api/portfolioitems").then(response => {
-                    this.portfolioItems = response.data;
-                    this.portfolioItem = this.portfolioItems[this.$route.params.portfolio_item_id-1];
-                })
-                .then(() => console.log("Post: " + JSON.stringify(this.post)))
-                .catch(error => {
-                    this.loading = false;
-                    this.error = error.response.data.message || error.message;
-                });
-            },
             updateEditorValue() {
-                this.editorValue = this.post.body;
+                this.editorValue = this.portfolioItem[0].body;
             }
         },
         props: {
