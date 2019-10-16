@@ -13,16 +13,16 @@
 
             <ul class="posts-list" id="portfolio-items">
 
-                <li class="portfolio-items-card" v-for="portfolioItem in portfolioItems" :key="portfolioItem.id">
-                    <router-link :to="{ name: 'portfolio-item', params: { portfolio_item_slug: portfolioItem.slug, portfolio_item_id: portfolioItem.id} }">
-                        <img :src="portfolioItem.image_src" :alt="portfolioItem.title">
-                        <h5 class="card-title">{{portfolioItem.title}}</h5>
+                <li class="portfolio-items-card" v-for="portfolioitem in portfolioitems" :key="portfolioitem.id">
+                    <router-link :to="{ name: 'portfolio-item', params: { portfolio_item_slug: portfolioitem.slug, portfolio_item_id: portfolioitem.id} }">
+                        <img :src="portfolioitem.image_src" :alt="portfolioitem.title">
+                        <h5 class="card-title">{{portfolioitem.title}}</h5>
                         <div class="card-body">
-                            <vue-markdown :source="portfolioItem.body"></vue-markdown>
+                            <vue-markdown :source="portfolioitem.body"></vue-markdown>
                             <div class="card-buttons">
-                                <router-link class="btn btn-primary" :to="{ name: 'portfolio-item', params: { portfolio_item_slug: portfolioItem.slug, portfolio_item_id: portfolioItem.id} }">Read More</router-link>
-                                <a :href="portfolioItem.demo_url" class="btn btn-primary">Demo</a>
-                                <a :href="portfolioItem.repo_url" class="btn btn-primary">Github Repo</a>
+                                <router-link class="btn btn-primary" :to="{ name: 'portfolio-item', params: { portfolio_item_slug: portfolioitem.slug, portfolio_item_id: portfolioitem.id} }">Read More</router-link>
+                                <a :href="portfolioitem.demo_url" class="btn btn-primary">Demo</a>
+                                <a :href="portfolioitem.repo_url" class="btn btn-primary">Github Repo</a>
                             </div>
                         </div>
                     </router-link>
@@ -39,32 +39,12 @@
 </template>
 
 <script>
+    import { getResourcesMixin } from "../mixins/getResourcesMixin.js";
     export default {
-        mounted() {
-            this.getPortfolioItems();
+        mixins: [ getResourcesMixin ],
+        created() {
+            this.getResources('portfolioitems');
             console.log("Portfolio mounted");
-        },
-        data() {
-            return {
-                portfolioItems: {},
-            };
-        },
-        methods: {
-            getPortfolioItems() {
-                axios.get("/api/portfolioitems").then(response => {
-                    this.portfolioItems = response.data;
-                })
-                .then(() => this.truncatePortfolioItem())
-                .catch(error => {
-                    this.loading = false;
-                    this.error = error.response.data.message || error.message;
-                });
-            },
-            truncatePortfolioItem() {
-                this.portfolioItems.map(portfolioItem => {
-                    portfolioItem.body = portfolioItem.body.substring(0,144)+"...";
-                });
-            }
         },
         props: {
             userId: {

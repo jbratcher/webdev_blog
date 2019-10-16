@@ -10,13 +10,15 @@
                 <p class="lead">Full Stack Web Developer</p>
             </div>
 
+            <!-- Blog  -->
+
             <section class="container content-section">
 
                 <h2 class="underline">Blog</h2>
+
                 <p class="lead">Latest posts</p>
 
                 <ul class="posts-list">
-
                     <li v-for="post in posts" :key="post.id">
                         <router-link :to="{ name: 'blog-post', params: { post_slug: post.slug, post_id: post.id} }">
                             <img :src="post.image_src" :alt="post.title">
@@ -24,34 +26,57 @@
                             <vue-markdown class="card-body" :source="post.body"></vue-markdown>
                         </router-link>
                     </li>
-
                 </ul>
 
             </section>
 
+            <!-- Portfolio  -->
+
             <section class="container content-section">
 
-                <h2 class="underline">Projects</h2>
+                <h2 class="underline">Portfolio</h2>
+
                 <p class="lead">Some of my best work</p>
 
                 <ul class="posts-list">
-
-                    <li v-for="portfolioItem in portfolioItems" :key="portfolioItem.id">
-                        <router-link :to="{ name: 'portfolio-item', params: { portfolio_item_slug: portfolioItem.slug, portfolio_item_id: portfolioItem.id} }">
-                            <img :src="portfolioItem.image_src" :alt="portfolioItem.title">
-                            <h5 class="card-title">{{portfolioItem.title}}</h5>
+                    <li v-for="portfolioitem in portfolioitems" :key="portfolioitem.id">
+                        <router-link :to="{ name: 'portfolio-item', params: { portfolio_item_slug: portfolioitem.slug, portfolio_item_id: portfolioitem.id} }">
+                            <img :src="portfolioitem.image_src" :alt="portfolioitem.title">
+                            <h5 class="card-title">{{portfolioitem.title}}</h5>
                             <div class="card-body">
-                                <vue-markdown :source="portfolioItem.body"></vue-markdown>
+                                <vue-markdown :source="portfolioitem.body"></vue-markdown>
                                 <div class="card-buttons">
-                                    <router-link class="btn btn-primary" :to="{ name: 'portfolio-item', params: { portfolio_item_slug: portfolioItem.slug, portfolio_item_id: portfolioItem.id} }">Read More</router-link>
-                                    <a :href="portfolioItem.demo_url" class="btn btn-primary">Demo</a>
-                                    <a :href="portfolioItem.repo_url" class="btn btn-primary">Github Repo</a>
+                                    <router-link class="btn btn-primary" :to="{ name: 'portfolio-item', params: { portfolio_item_slug: portfolioitem.slug, portfolio_item_id: portfolioitem.id} }">Read More</router-link>
+                                    <a :href="portfolioitem.demo_url" class="btn btn-primary">Demo</a>
+                                    <a :href="portfolioitem.repo_url" class="btn btn-primary">Github Repo</a>
                                 </div>
                             </div>
                         </router-link>
                     </li>
-
                 </ul>
+
+            </section>
+
+            <!-- Tutorials  -->
+
+            <section class="container content-section">
+
+                <h2 class="underline">Tutorials</h2>
+
+                <p class="lead">Learn something new</p>
+
+                <ul class="posts-list">
+                    <li v-for="tutorial in tutorials" :key="tutorial.id">
+                        <router-link :to="{ name: 'tutorial', params: { tutorial_slug: tutorial.slug, tutorial_id: tutorial.id} }">
+                            <img :src="tutorial.image_src" :alt="tutorial.title">
+                            <h5 class="card-title">{{tutorial.title}}</h5>
+                            <div class="card-body">
+                                <vue-markdown :source="tutorial.body"></vue-markdown>
+                            </div>
+                        </router-link>
+                    </li>
+                </ul>
+
             </section>
 
             <section class="container-fluid content-section about-intro">
@@ -76,58 +101,29 @@
 </template>
 
 <script>
+    import { getResourcesMixin } from "../mixins/getResourcesMixin.js";
     export default {
-        mounted() {
-            this.getPosts();
-            this.getPortfolioItems();
+        mixins: [ getResourcesMixin ],
+        created() {
+            this.getResources('posts');
+            this.getResources('portfolioitems');
+            this.getResources('tutorials');
             this.getUsers();
             console.log("Home vue mounted");
         },
         data() {
             return {
-                posts: [],
-                portfolioItems: [],
                 users: [],
             };
         },
         methods: {
-            getPosts() {
-                axios.get("/api/posts").then(response => {
-                    this.posts = response.data;
-                })
-                .then(() => this.truncatePosts())
-                .catch(error => {
-                    this.loading = false;
-                    this.error = error.response.data.message || error.message;
-                });
-            },
-            truncatePosts() {
-                this.posts.map(post => {
-                    post.body = post.body.substring(0,144)+"...";
-                });
-            },
-            getPortfolioItems() {
-                axios.get("/api/portfolioitems").then(response => {
-                    this.portfolioItems = response.data;
-                })
-                .then(() => this.truncatePortfolioItems())
-                .catch(error => {
-                    this.loading = false;
-                    this.error = error.response.data.message || error.message;
-                });
-            },
-            truncatePortfolioItems() {
-                this.portfolioItems.map(portfolioItem => {
-                    portfolioItem.body = portfolioItem.body.substring(0,144)+"...";
-                });
-            },
             getUsers() {
                 axios.get("/api/users").then(response => {
                     this.users = response.data;
                 })
                 .catch(error => {
-                    this.loading = false;
                     this.error = error.response.data.message || error.message;
+                    console.log(`Error in getUsers: ${this.error}`);
                 });
             },
         },

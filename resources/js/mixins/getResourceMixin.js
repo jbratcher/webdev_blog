@@ -61,8 +61,8 @@ export const getResourceMixin = {
             })
             .then(() => console.log("Item title: " + JSON.stringify(this.resource[0].title)))
             .catch(error => {
-                this.loading = false;
                 this.error = error.response.data.message || error.message;
+                console.log(`Error in getResource: ${this.error}`);
             });
         },
         getUser() {
@@ -73,6 +73,7 @@ export const getResourceMixin = {
             .then(() => console.log("Username: " + JSON.stringify(this.user[0].name)))
             .catch(error => {
                 this.error = error.response.data.message || error.message;
+                console.log(`Error in getUser: ${this.error}`);
             });
         },
     },

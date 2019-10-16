@@ -2156,6 +2156,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _mixins_getResourcesMixin_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../mixins/getResourcesMixin.js */ "./resources/js/mixins/getResourcesMixin.js");
 //
 //
 //
@@ -2200,34 +2201,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    this.getPosts();
-    console.log("Blog vue mounted");
-  },
-  data: function data() {
-    return {
-      posts: []
-    };
-  },
-  methods: {
-    getPosts: function getPosts() {
-      var _this = this;
 
-      axios.get("/api/posts").then(function (response) {
-        _this.posts = response.data;
-      }).then(function () {
-        return _this.truncatePosts();
-      })["catch"](function (error) {
-        _this.loading = false;
-        _this.error = error.response.data.message || error.message;
-      });
-    },
-    truncatePosts: function truncatePosts() {
-      this.posts.map(function (post) {
-        post.body = post.body.substring(0, 144) + "...";
-      });
-    }
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mixins: [_mixins_getResourcesMixin_js__WEBPACK_IMPORTED_MODULE_0__["getResourcesMixin"]],
+  created: function created() {
+    this.getResources('posts');
+    console.log("Blog vue mounted");
   },
   props: {
     userId: {
@@ -3073,6 +3052,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _mixins_getResourcesMixin_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../mixins/getResourcesMixin.js */ "./resources/js/mixins/getResourcesMixin.js");
 //
 //
 //
@@ -3150,63 +3130,55 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    this.getPosts();
-    this.getPortfolioItems();
+  mixins: [_mixins_getResourcesMixin_js__WEBPACK_IMPORTED_MODULE_0__["getResourcesMixin"]],
+  created: function created() {
+    this.getResources('posts');
+    this.getResources('portfolioitems');
+    this.getResources('tutorials');
     this.getUsers();
     console.log("Home vue mounted");
   },
   data: function data() {
     return {
-      posts: [],
-      portfolioItems: [],
       users: []
     };
   },
   methods: {
-    getPosts: function getPosts() {
+    getUsers: function getUsers() {
       var _this = this;
 
-      axios.get("/api/posts").then(function (response) {
-        _this.posts = response.data;
-      }).then(function () {
-        return _this.truncatePosts();
-      })["catch"](function (error) {
-        _this.loading = false;
-        _this.error = error.response.data.message || error.message;
-      });
-    },
-    truncatePosts: function truncatePosts() {
-      this.posts.map(function (post) {
-        post.body = post.body.substring(0, 144) + "...";
-      });
-    },
-    getPortfolioItems: function getPortfolioItems() {
-      var _this2 = this;
-
-      axios.get("/api/portfolioitems").then(function (response) {
-        _this2.portfolioItems = response.data;
-      }).then(function () {
-        return _this2.truncatePortfolioItems();
-      })["catch"](function (error) {
-        _this2.loading = false;
-        _this2.error = error.response.data.message || error.message;
-      });
-    },
-    truncatePortfolioItems: function truncatePortfolioItems() {
-      this.portfolioItems.map(function (portfolioItem) {
-        portfolioItem.body = portfolioItem.body.substring(0, 144) + "...";
-      });
-    },
-    getUsers: function getUsers() {
-      var _this3 = this;
-
       axios.get("/api/users").then(function (response) {
-        _this3.users = response.data;
+        _this.users = response.data;
       })["catch"](function (error) {
-        _this3.loading = false;
-        _this3.error = error.response.data.message || error.message;
+        _this.error = error.response.data.message || error.message;
+        console.log("Error in getUsers: ".concat(_this.error));
       });
     }
   },
@@ -3231,6 +3203,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _mixins_getResourcesMixin_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../mixins/getResourcesMixin.js */ "./resources/js/mixins/getResourcesMixin.js");
 //
 //
 //
@@ -3271,34 +3244,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    this.getPortfolioItems();
-    console.log("Portfolio mounted");
-  },
-  data: function data() {
-    return {
-      portfolioItems: {}
-    };
-  },
-  methods: {
-    getPortfolioItems: function getPortfolioItems() {
-      var _this = this;
 
-      axios.get("/api/portfolioitems").then(function (response) {
-        _this.portfolioItems = response.data;
-      }).then(function () {
-        return _this.truncatePortfolioItem();
-      })["catch"](function (error) {
-        _this.loading = false;
-        _this.error = error.response.data.message || error.message;
-      });
-    },
-    truncatePortfolioItem: function truncatePortfolioItem() {
-      this.portfolioItems.map(function (portfolioItem) {
-        portfolioItem.body = portfolioItem.body.substring(0, 144) + "...";
-      });
-    }
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mixins: [_mixins_getResourcesMixin_js__WEBPACK_IMPORTED_MODULE_0__["getResourcesMixin"]],
+  created: function created() {
+    this.getResources('portfolioitems');
+    console.log("Portfolio mounted");
   },
   props: {
     userId: {
@@ -3425,6 +3376,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _mixins_getResourcesMixin_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../mixins/getResourcesMixin.js */ "./resources/js/mixins/getResourcesMixin.js");
 //
 //
 //
@@ -3460,34 +3412,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    this.getTutorials();
-    console.log("Tutorials mounted");
-  },
-  data: function data() {
-    return {
-      tutorials: {}
-    };
-  },
-  methods: {
-    getTutorials: function getTutorials() {
-      var _this = this;
 
-      axios.get("/api/tutorials").then(function (response) {
-        _this.tutorials = response.data;
-      }).then(function () {
-        return _this.truncateTutorials();
-      })["catch"](function (error) {
-        _this.loading = false;
-        _this.error = error.response.data.message || error.message;
-      });
-    },
-    truncateTutorials: function truncateTutorials() {
-      this.tutorials.map(function (tutorial) {
-        tutorial.body = tutorial.body.substring(0, 144) + "...";
-      });
-    }
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mixins: [_mixins_getResourcesMixin_js__WEBPACK_IMPORTED_MODULE_0__["getResourcesMixin"]],
+  created: function created() {
+    this.getResources('tutorials');
+    console.log("Tutorials mounted");
   },
   props: {
     userId: {
@@ -77016,17 +76946,17 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("section", { staticClass: "container content-section" }, [
-          _c("h2", { staticClass: "underline" }, [_vm._v("Projects")]),
+          _c("h2", { staticClass: "underline" }, [_vm._v("Portfolio")]),
           _vm._v(" "),
           _c("p", { staticClass: "lead" }, [_vm._v("Some of my best work")]),
           _vm._v(" "),
           _c(
             "ul",
             { staticClass: "posts-list" },
-            _vm._l(_vm.portfolioItems, function(portfolioItem) {
+            _vm._l(_vm.portfolioitems, function(portfolioitem) {
               return _c(
                 "li",
-                { key: portfolioItem.id },
+                { key: portfolioitem.id },
                 [
                   _c(
                     "router-link",
@@ -77035,8 +76965,8 @@ var render = function() {
                         to: {
                           name: "portfolio-item",
                           params: {
-                            portfolio_item_slug: portfolioItem.slug,
-                            portfolio_item_id: portfolioItem.id
+                            portfolio_item_slug: portfolioitem.slug,
+                            portfolio_item_id: portfolioitem.id
                           }
                         }
                       }
@@ -77044,13 +76974,13 @@ var render = function() {
                     [
                       _c("img", {
                         attrs: {
-                          src: portfolioItem.image_src,
-                          alt: portfolioItem.title
+                          src: portfolioitem.image_src,
+                          alt: portfolioitem.title
                         }
                       }),
                       _vm._v(" "),
                       _c("h5", { staticClass: "card-title" }, [
-                        _vm._v(_vm._s(portfolioItem.title))
+                        _vm._v(_vm._s(portfolioitem.title))
                       ]),
                       _vm._v(" "),
                       _c(
@@ -77058,7 +76988,7 @@ var render = function() {
                         { staticClass: "card-body" },
                         [
                           _c("vue-markdown", {
-                            attrs: { source: portfolioItem.body }
+                            attrs: { source: portfolioitem.body }
                           }),
                           _vm._v(" "),
                           _c(
@@ -77073,8 +77003,8 @@ var render = function() {
                                     to: {
                                       name: "portfolio-item",
                                       params: {
-                                        portfolio_item_slug: portfolioItem.slug,
-                                        portfolio_item_id: portfolioItem.id
+                                        portfolio_item_slug: portfolioitem.slug,
+                                        portfolio_item_id: portfolioitem.id
                                       }
                                     }
                                   }
@@ -77086,7 +77016,7 @@ var render = function() {
                                 "a",
                                 {
                                   staticClass: "btn btn-primary",
-                                  attrs: { href: portfolioItem.demo_url }
+                                  attrs: { href: portfolioitem.demo_url }
                                 },
                                 [_vm._v("Demo")]
                               ),
@@ -77095,13 +77025,68 @@ var render = function() {
                                 "a",
                                 {
                                   staticClass: "btn btn-primary",
-                                  attrs: { href: portfolioItem.repo_url }
+                                  attrs: { href: portfolioitem.repo_url }
                                 },
                                 [_vm._v("Github Repo")]
                               )
                             ],
                             1
                           )
+                        ],
+                        1
+                      )
+                    ]
+                  )
+                ],
+                1
+              )
+            }),
+            0
+          )
+        ]),
+        _vm._v(" "),
+        _c("section", { staticClass: "container content-section" }, [
+          _c("h2", { staticClass: "underline" }, [_vm._v("Tutorials")]),
+          _vm._v(" "),
+          _c("p", { staticClass: "lead" }, [_vm._v("Learn something new")]),
+          _vm._v(" "),
+          _c(
+            "ul",
+            { staticClass: "posts-list" },
+            _vm._l(_vm.tutorials, function(tutorial) {
+              return _c(
+                "li",
+                { key: tutorial.id },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      attrs: {
+                        to: {
+                          name: "tutorial",
+                          params: {
+                            tutorial_slug: tutorial.slug,
+                            tutorial_id: tutorial.id
+                          }
+                        }
+                      }
+                    },
+                    [
+                      _c("img", {
+                        attrs: { src: tutorial.image_src, alt: tutorial.title }
+                      }),
+                      _vm._v(" "),
+                      _c("h5", { staticClass: "card-title" }, [
+                        _vm._v(_vm._s(tutorial.title))
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "card-body" },
+                        [
+                          _c("vue-markdown", {
+                            attrs: { source: tutorial.body }
+                          })
                         ],
                         1
                       )
@@ -77203,10 +77188,10 @@ var render = function() {
         _c(
           "ul",
           { staticClass: "posts-list", attrs: { id: "portfolio-items" } },
-          _vm._l(_vm.portfolioItems, function(portfolioItem) {
+          _vm._l(_vm.portfolioitems, function(portfolioitem) {
             return _c(
               "li",
-              { key: portfolioItem.id, staticClass: "portfolio-items-card" },
+              { key: portfolioitem.id, staticClass: "portfolio-items-card" },
               [
                 _c(
                   "router-link",
@@ -77215,8 +77200,8 @@ var render = function() {
                       to: {
                         name: "portfolio-item",
                         params: {
-                          portfolio_item_slug: portfolioItem.slug,
-                          portfolio_item_id: portfolioItem.id
+                          portfolio_item_slug: portfolioitem.slug,
+                          portfolio_item_id: portfolioitem.id
                         }
                       }
                     }
@@ -77224,13 +77209,13 @@ var render = function() {
                   [
                     _c("img", {
                       attrs: {
-                        src: portfolioItem.image_src,
-                        alt: portfolioItem.title
+                        src: portfolioitem.image_src,
+                        alt: portfolioitem.title
                       }
                     }),
                     _vm._v(" "),
                     _c("h5", { staticClass: "card-title" }, [
-                      _vm._v(_vm._s(portfolioItem.title))
+                      _vm._v(_vm._s(portfolioitem.title))
                     ]),
                     _vm._v(" "),
                     _c(
@@ -77238,7 +77223,7 @@ var render = function() {
                       { staticClass: "card-body" },
                       [
                         _c("vue-markdown", {
-                          attrs: { source: portfolioItem.body }
+                          attrs: { source: portfolioitem.body }
                         }),
                         _vm._v(" "),
                         _c(
@@ -77253,8 +77238,8 @@ var render = function() {
                                   to: {
                                     name: "portfolio-item",
                                     params: {
-                                      portfolio_item_slug: portfolioItem.slug,
-                                      portfolio_item_id: portfolioItem.id
+                                      portfolio_item_slug: portfolioitem.slug,
+                                      portfolio_item_id: portfolioitem.id
                                     }
                                   }
                                 }
@@ -77266,7 +77251,7 @@ var render = function() {
                               "a",
                               {
                                 staticClass: "btn btn-primary",
-                                attrs: { href: portfolioItem.demo_url }
+                                attrs: { href: portfolioitem.demo_url }
                               },
                               [_vm._v("Demo")]
                             ),
@@ -77275,7 +77260,7 @@ var render = function() {
                               "a",
                               {
                                 staticClass: "btn btn-primary",
-                                attrs: { href: portfolioItem.repo_url }
+                                attrs: { href: portfolioitem.repo_url }
                               },
                               [_vm._v("Github Repo")]
                             )
@@ -77524,7 +77509,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "container-fluid global-banner" }, [
       _c("h1", [_vm._v("Tutorials")]),
       _vm._v(" "),
-      _c("p", { staticClass: "lead" }, [_vm._v("Coming soon...")])
+      _c("p", { staticClass: "lead" }, [_vm._v("Learn something new")])
     ])
   }
 ]
@@ -100227,7 +100212,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: "blog",
     component: _views_Blog__WEBPACK_IMPORTED_MODULE_7__["default"]
   }, {
-    path: "/blog/view/:post_slug/:post_id",
+    path: "/blog/view/:post_slug?/:post_id?",
     name: "blog-post",
     component: _views_BlogPost__WEBPACK_IMPORTED_MODULE_8__["default"],
     props: true
@@ -100240,7 +100225,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: "portfolio",
     component: _views_Portfolio__WEBPACK_IMPORTED_MODULE_10__["default"]
   }, {
-    path: '/portfolio/view/:portfolio_item_slug/:portfolio_item_id',
+    path: '/portfolio/view/:portfolio_item_slug?/:portfolio_item_id?',
     name: "portfolio-item",
     component: _views_PortfolioItem__WEBPACK_IMPORTED_MODULE_11__["default"],
     props: true
@@ -100249,7 +100234,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: "tutorials",
     component: _views_Tutorials__WEBPACK_IMPORTED_MODULE_12__["default"]
   }, {
-    path: '/tutorials/view/:tutorial_slug/:tutorial_id',
+    path: '/tutorials/view/:tutorial_slug?/:tutorial_id?',
     name: "tutorial",
     component: _views_Tutorial__WEBPACK_IMPORTED_MODULE_13__["default"],
     props: true
@@ -100422,8 +100407,8 @@ var getResourceMixin = {
       }).then(function () {
         return console.log("Item title: " + JSON.stringify(_this.resource[0].title));
       })["catch"](function (error) {
-        _this.loading = false;
         _this.error = error.response.data.message || error.message;
+        console.log("Error in getResource: ".concat(_this.error));
       });
     },
     getUser: function getUser() {
@@ -100438,6 +100423,66 @@ var getResourceMixin = {
         return console.log("Username: " + JSON.stringify(_this2.user[0].name));
       })["catch"](function (error) {
         _this2.error = error.response.data.message || error.message;
+        console.log("Error in getUser: ".concat(_this2.error));
+      });
+    }
+  }
+};
+
+/***/ }),
+
+/***/ "./resources/js/mixins/getResourcesMixin.js":
+/*!**************************************************!*\
+  !*** ./resources/js/mixins/getResourcesMixin.js ***!
+  \**************************************************/
+/*! exports provided: getResourcesMixin */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getResourcesMixin", function() { return getResourcesMixin; });
+var getResourcesMixin = {
+  created: function created() {
+    console.log("get resources mixin created");
+  },
+  data: function data() {
+    return {
+      posts: [{
+        user_id: null,
+        title: null,
+        image_src: null,
+        body: ""
+      }],
+      portfolioitems: [{
+        user_id: null,
+        title: null,
+        image_src: null,
+        body: ""
+      }],
+      tutorials: [{
+        user_id: null,
+        title: null,
+        image_src: null,
+        body: ""
+      }]
+    };
+  },
+  methods: {
+    getResources: function getResources(resourceType) {
+      var _this = this;
+
+      axios.get("/api/".concat(resourceType)).then(function (response) {
+        _this[resourceType] = response.data;
+      }).then(function () {
+        return _this.truncateResources(resourceType);
+      })["catch"](function (error) {
+        _this.error = error.response.data.message || error.message;
+        console.log("Error in getResources: ".concat(_this.error));
+      });
+    },
+    truncateResources: function truncateResources(resourceType) {
+      this[resourceType].map(function (resource) {
+        resource.body = resource.body.substring(0, 144) + "...";
       });
     }
   }

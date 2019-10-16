@@ -43,32 +43,12 @@
 </template>
 
 <script>
+    import { getResourcesMixin } from "../mixins/getResourcesMixin.js";
     export default {
-        mounted() {
-            this.getPosts();
+        mixins: [ getResourcesMixin ],
+        created() {
+            this.getResources('posts');
             console.log("Blog vue mounted");
-        },
-        data() {
-            return {
-                posts: [],
-            };
-        },
-        methods: {
-            getPosts() {
-                axios.get("/api/posts").then(response => {
-                    this.posts = response.data;
-                })
-                .then(() => this.truncatePosts())
-                .catch(error => {
-                    this.loading = false;
-                    this.error = error.response.data.message || error.message;
-                });
-            },
-            truncatePosts() {
-                this.posts.map(post => {
-                    post.body = post.body.substring(0,144)+"...";
-                });
-            }
         },
         props: {
             userId: {

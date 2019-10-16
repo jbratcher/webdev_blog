@@ -6,7 +6,7 @@
 
         <div class="container-fluid global-banner">
             <h1>Tutorials</h1>
-            <p class="lead">Coming soon...</p>
+            <p class="lead">Learn something new</p>
         </div>
 
         <section class="container content-section">
@@ -34,32 +34,12 @@
 </template>
 
 <script>
+    import { getResourcesMixin } from "../mixins/getResourcesMixin.js";
     export default {
-        mounted() {
-            this.getTutorials();
+        mixins: [ getResourcesMixin ],
+        created() {
+            this.getResources('tutorials');
             console.log("Tutorials mounted");
-        },
-        data() {
-            return {
-                tutorials: {},
-            };
-        },
-        methods: {
-            getTutorials() {
-                axios.get("/api/tutorials").then(response => {
-                    this.tutorials = response.data;
-                })
-                .then(() => this.truncateTutorials())
-                .catch(error => {
-                    this.loading = false;
-                    this.error = error.response.data.message || error.message;
-                });
-            },
-            truncateTutorials() {
-                this.tutorials.map(tutorial => {
-                    tutorial.body = tutorial.body.substring(0,144)+"...";
-                });
-            }
         },
         props: {
             userId: {

@@ -60,7 +60,7 @@ const router = new VueRouter({
             component: Blog
         },
         {
-            path: "/blog/view/:post_slug/:post_id",
+            path: "/blog/view/:post_slug?/:post_id?",
             name: "blog-post",
             component: BlogPost,
             props: true,
@@ -76,7 +76,7 @@ const router = new VueRouter({
             component: Portfolio
         },
         {
-            path: '/portfolio/view/:portfolio_item_slug/:portfolio_item_id',
+            path: '/portfolio/view/:portfolio_item_slug?/:portfolio_item_id?',
             name: "portfolio-item",
             component: PortfolioItem,
             props: true,
@@ -87,7 +87,7 @@ const router = new VueRouter({
             component: Tutorials
         },
         {
-            path: '/tutorials/view/:tutorial_slug/:tutorial_id',
+            path: '/tutorials/view/:tutorial_slug?/:tutorial_id?',
             name: "tutorial",
             component: Tutorial,
             props: true,
