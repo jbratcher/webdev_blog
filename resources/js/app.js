@@ -31,10 +31,12 @@ import Create from "./views/Create";
 import Portfolio from "./views/Portfolio";
 import PortfolioItem from "./views/PortfolioItem";
 import Tutorials from "./views/Tutorials";
+import Tutorial from "./views/Tutorial";
 import Contact from "./views/Contact";
 import Admin from "./views/Admin";
 import EditPost from "./views/EditPost";
 import EditPortfolioItem from "./views/EditPortfolioItem";
+import EditTutorial from "./views/EditTutorial";
 
 // Global components
 
@@ -85,6 +87,12 @@ const router = new VueRouter({
             component: Tutorials
         },
         {
+            path: '/tutorials/view/:tutorial_slug/:tutorial_id',
+            name: "tutorial",
+            component: Tutorial,
+            props: true,
+        },
+        {
             path: "/contact",
             name: "contact",
             component: Contact
@@ -104,6 +112,12 @@ const router = new VueRouter({
             path: '/portfolio/edit/view/:portfolio_item_slug/:portfolio_item_id',
             name: "edit-portfolio-item",
             component: EditPortfolioItem,
+            props: true,
+        },
+        {
+            path: '/tutorials/edit/view/:tutorial_slug/:tutorial_id',
+            name: "edit-tutorial",
+            component: EditTutorial,
             props: true,
         },
     ]

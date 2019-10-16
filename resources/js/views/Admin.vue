@@ -106,6 +106,53 @@
 
             </section>
 
+            <!-- Tutorials -->
+
+            <section class="container resource-list">
+
+                <h2>Tutorials</h2>
+
+                <ul>
+
+                    <li v-for="tutorial in tutorials" :key="tutorial.id">
+                        <h5>{{tutorial.title.substring(0,80)}}</h5>
+                        <section class="admin-actions">
+                            <router-link
+                                class="btn btn-primary"
+                                :to="{ name: 'edit-tutorial', params: { tutorial_slug: tutorial.slug, tutorial_id: tutorial.id} }"
+                            >
+                                Edit
+                            </router-link>
+                            <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#confirmDeleteTutorialModal">Delete</button>
+
+                            <!-- Confirm Delete Tutorial Modal -->
+                            <div class="modal" id="confirmDeleteTutorialModal" tabindex="-1" role="dialog">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Delete tutorial</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Are you sure you want to delete this tutorial?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-danger" @click="deleteTutorial(tutorial.id)">Confirm Deletion</button>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </section>
+                    </li>
+
+                </ul>
+
+            </section>
+
             <section class="container resource-list">
 
                 <h2>Users</h2>
@@ -139,6 +186,7 @@
         mounted() {
             this.getPosts();
             this.getPortfolioItems();
+            this.getTutorials();
             this.getUsers();
             console.log("Admin vue mounted");
         },
@@ -146,6 +194,7 @@
             return {
                 posts: {},
                 portfolioItems: {},
+                tutorials: {},
                 users: {},
             };
         },
@@ -176,6 +225,20 @@
             deletePortfolioItem(id) {
                 axios.delete("/api/portfolioitems/" + id)
                     .then(response => this.getPortfolioItems());
+                $('.modal-backdrop').remove();
+            },
+            getTutorials() {
+                axios.get("/api/tutorials").then(response => {
+                    this.tutorials = response.data;
+                })
+                .catch(error => {
+                    this.loading = false;
+                    this.error = error.response.data.message || error.message;
+                });
+            },
+            deleteTutorial(id) {
+                axios.delete("/api/tutorials/" + id)
+                    .then(response => this.getTutorials());
                 $('.modal-backdrop').remove();
             },
             getUsers() {

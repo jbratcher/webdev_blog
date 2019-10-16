@@ -10969,21 +10969,21 @@ footer .container {
 
 .blog-post .card-title,
 .portfolio-item .card-title,
-.tutorial .card-title {
+.tutorial-item .card-title {
   font-size: 2rem;
   line-height: 2rem;
 }
 
 .blog-post .card-body,
 .portfolio-item .card-body,
-.tutorial .card-body {
+.tutorial-item .card-body {
   margin: 4rem auto;
   max-width: 95vw;
 }
 
 img.blog-post-img,
 img.portfolio-item-img,
-img.tutorial-img {
+img.tutorial-item-img {
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.7);
   height: 250px;
   width: 100%;
@@ -11054,7 +11054,7 @@ h2 {
 
   .blog-post .card-body,
   .portfolio-item .card-body,
-  .tutorial .card-body {
+  .tutorial-item .card-body {
     width: 65vw;
     font-size: larger;
   }
@@ -11071,18 +11071,18 @@ h2 {
   .portfolio-item .card-body h4,
   .portfolio-item .card-body h5,
   .portfolio-item .card-body h6,
-  .tutorial .card-body h1:not(:first-of-type),
-  .tutorial .card-body h2:not(:first-of-type),
-  .tutorial .card-body h3,
-  .tutorial .card-body h4,
-  .tutorial .card-body h5,
-  .tutorial .card-body h6 {
+  .tutorial-item .card-body h1:not(:first-of-type),
+  .tutorial-item .card-body h2:not(:first-of-type),
+  .tutorial-item .card-body h3,
+  .tutorial-item .card-body h4,
+  .tutorial-item .card-body h5,
+  .tutorial-item .card-body h6 {
     margin: 4rem 0 2rem;
   }
 
   .blog-post .card-body pre,
   .portfolio-item .card-body pre,
-  .tutorial .card-body pre {
+  .tutorial-item .card-body pre {
     background: #eee;
     border-radius: 4px;
     padding: 1rem;
