@@ -4,11 +4,11 @@
 
         <global-header :userName="userName" :userId="userId" />
 
-        <section class="tutorial-item">
+        <section class="portfolio-item">
             <section class="card">
                 <div class="card-body">
                     <h2 class="card-title">{{resource[0].title}}</h2>
-                    <img class="tutorial-item-img" :src="resource[0].image_src" :alt="resource[0].title">
+                    <img class="portfolio-item-img" :src="resource[0].image_src" :alt="resource[0].title">
                     <vue-markdown :source="resource[0].body"></vue-markdown>
                 </div>
             </section>
@@ -21,13 +21,13 @@
 </template>
 
 <script>
-    import { getResourceMixin } from "../mixins/getResourceMixin";
+    import { getResourceMixin } from "../../mixins/getResourceMixin";
     export default {
         mixins: [ getResourceMixin ],
         created() {
-            this.getResource('tutorials');
+            this.getResource('portfolioitems');
             this.getUser();
-            console.log("Tutorial vue mounted");
+            console.log("Portfolio item vue mounted");
         },
         props: {
             userId: {

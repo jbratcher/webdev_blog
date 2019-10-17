@@ -65,7 +65,7 @@
 </template>
 
 <script>
-    import { getResourceMixin } from "../mixins/getResourceMixin";
+    import { getResourceMixin } from "../../mixins/getResourceMixin";
     export default {
         mixins: [ getResourceMixin ],
         created() {

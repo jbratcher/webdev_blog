@@ -32,13 +32,13 @@
 
                 <ul class="posts-list">
                     <li v-for="portfolioitem in portfolioitems" :key="portfolioitem.id">
-                        <router-link :to="{ name: 'portfolio-item', params: { portfolio_item_slug: portfolioitem.slug, portfolio_item_id: portfolioitem.id} }">
+                        <router-link :to="{ name: 'portfolio-single', params: { portfolio_item_slug: portfolioitem.slug, portfolio_item_id: portfolioitem.id} }">
                             <img :src="portfolioitem.image_src" :alt="portfolioitem.title">
                             <h5 class="card-title">{{portfolioitem.title}}</h5>
                             <div class="card-body">
                                 <vue-markdown :source="portfolioitem.body"></vue-markdown>
                                 <div class="card-buttons">
-                                    <router-link class="btn btn-primary" :to="{ name: 'portfolio-item', params: { portfolio_item_slug: portfolioitem.slug, portfolio_item_id: portfolioitem.id} }">Read More</router-link>
+                                    <router-link class="btn btn-primary" :to="{ name: 'portfolio-single', params: { portfolio_item_slug: portfolioitem.slug, portfolio_item_id: portfolioitem.id} }">Read More</router-link>
                                     <a :href="portfolioitem.demo_url" class="btn btn-primary">Demo</a>
                                     <a :href="portfolioitem.repo_url" class="btn btn-primary">Github Repo</a>
                                 </div>
@@ -59,7 +59,7 @@
 
                 <ul class="posts-list">
                     <li v-for="tutorial in tutorials" :key="tutorial.id">
-                        <router-link :to="{ name: 'tutorial', params: { tutorial_slug: tutorial.slug, tutorial_id: tutorial.id} }">
+                        <router-link :to="{ name: 'tutorial-single', params: { tutorial_slug: tutorial.slug, tutorial_id: tutorial.id} }">
                             <img :src="tutorial.image_src" :alt="tutorial.title">
                             <h5 class="card-title">{{tutorial.title}}</h5>
                             <div class="card-body">
@@ -93,7 +93,7 @@
 </template>
 
 <script>
-    import BlogList from './blog/BlogList.vue';
+    import BlogList from '../components/blog/BlogList.vue';
     import { getResourcesMixin } from '../mixins/getResourcesMixin.js';
 
     export default {

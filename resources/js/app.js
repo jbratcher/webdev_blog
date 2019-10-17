@@ -25,18 +25,24 @@ import 'v-markdown-editor/dist/index.css';
 
 import App from './views/App';
 import Home from './views/Home';
-import Blog from "./views/blog/index.vue";
-import BlogPost from "./views/blog/BlogPost";
-import Create from "./views/Create";
-import Portfolio from "./views/Portfolio";
-import PortfolioItem from "./views/PortfolioItem";
-import Tutorials from "./views/Tutorials";
-import Tutorial from "./views/Tutorial";
 import Contact from "./views/Contact";
 import Admin from "./views/Admin";
-import EditPost from "./views/EditPost";
-import EditPortfolioItem from "./views/EditPortfolioItem";
-import EditTutorial from "./views/EditTutorial";
+
+// blog
+import Blog from "./views/blog/Blog.vue";
+import BlogSingle from "./views/blog/BlogSingle.vue";
+import CreateBlogPost from "./views//blog/CreateBlogPost.vue";
+import EditBlogItem from "./views/blog/EditBlogItem";
+
+// portfolio
+import Portfolio from "./views/portfolio/Portfolio.vue";
+import PortfolioSingle from "./views/portfolio/PortfolioSingle.vue";
+import EditPortfolioItem from "./views/portfolio/EditPortfolioItem";
+
+// tutorial
+import Tutorials from "./views/tutorial/Tutorials.vue";
+import TutorialSingle from "./views/tutorial/TutorialSingle.vue";
+import EditTutorialItem from "./views/tutorial/EditTutorialItem";
 
 // Global components
 
@@ -61,14 +67,20 @@ const router = new VueRouter({
         },
         {
             path: "/blog/view/:post_slug?/:post_id?",
-            name: "blog-post",
-            component: BlogPost,
+            name: "blog-single",
+            component: BlogSingle,
             props: true,
         },
         {
             path: "/blog/create",
-            name: "create",
-            component: Create
+            name: "create-blog-post",
+            component: CreateBlogPost
+        },
+        {
+            path: '/blog/edit/view/:post_slug/:post_id',
+            name: "edit-blog-item",
+            component: EditBlogItem,
+            props: true,
         },
         {
             path: "/portfolio",
@@ -77,8 +89,14 @@ const router = new VueRouter({
         },
         {
             path: '/portfolio/view/:portfolio_item_slug?/:portfolio_item_id?',
-            name: "portfolio-item",
-            component: PortfolioItem,
+            name: "portfolio-single",
+            component: PortfolioSingle,
+            props: true,
+        },
+        {
+            path: '/portfolio/edit/view/:portfolio_item_slug/:portfolio_item_id',
+            name: "edit-portfolio-item",
+            component: EditPortfolioItem,
             props: true,
         },
         {
@@ -88,8 +106,14 @@ const router = new VueRouter({
         },
         {
             path: '/tutorials/view/:tutorial_slug?/:tutorial_id?',
-            name: "tutorial",
-            component: Tutorial,
+            name: "tutorial-single",
+            component: TutorialSingle,
+            props: true,
+        },
+        {
+            path: '/tutorials/edit/view/:tutorial_slug/:tutorial_id',
+            name: "edit-tutorial-item",
+            component: EditTutorialItem,
             props: true,
         },
         {
@@ -101,24 +125,6 @@ const router = new VueRouter({
             path: "/admin",
             name: "admin",
             component: Admin
-        },
-        {
-            path: '/blog/edit/view/:post_slug/:post_id',
-            name: "edit-post",
-            component: EditPost,
-            props: true,
-        },
-        {
-            path: '/portfolio/edit/view/:portfolio_item_slug/:portfolio_item_id',
-            name: "edit-portfolio-item",
-            component: EditPortfolioItem,
-            props: true,
-        },
-        {
-            path: '/tutorials/edit/view/:tutorial_slug/:tutorial_id',
-            name: "edit-tutorial",
-            component: EditTutorial,
-            props: true,
         },
     ]
 })

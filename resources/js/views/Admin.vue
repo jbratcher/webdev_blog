@@ -17,7 +17,7 @@
 
                 <div class="container admin-menu">
                     <i class="fas fa-plus-circle fa-2x"></i>
-                    <router-link :to="{ name: 'create' }">New Post</router-link>
+                    <router-link :to="{ name: 'create-blog-post' }">New Post</router-link>
                 </div>
 
                 <ul>
@@ -26,7 +26,7 @@
                         <section class="admin-actions">
                             <router-link
                                 class="btn btn-primary"
-                                :to="{ name: 'edit-post', params: { post_slug: post.slug, post_id: post.id} }"
+                                :to="{ name: 'edit-blog-item', params: { post_slug: post.slug, post_id: post.id} }"
                             >
                                 Edit
                             </router-link>
@@ -119,7 +119,7 @@
                         <section class="admin-actions">
                             <router-link
                                 class="btn btn-primary"
-                                :to="{ name: 'edit-tutorial', params: { tutorial_slug: tutorial.slug, tutorial_id: tutorial.id} }"
+                                :to="{ name: 'edit-tutorial-item', params: { tutorial_slug: tutorial.slug, tutorial_id: tutorial.id} }"
                             >
                                 Edit
                             </router-link>

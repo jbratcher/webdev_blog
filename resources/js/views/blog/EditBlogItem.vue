@@ -6,7 +6,7 @@
 
         <section class="container">
 
-            <h1 class="post-edit-header">Edit Portfolio Item</h1>
+            <h1 class="post-edit-header">Edit Post</h1>
 
             <form>
 
@@ -50,7 +50,7 @@
                     <label class="custom-file-label" >Select image</label>
                 </div>
 
-                <button type="submit" @click.prevent="editPortfolioItem[0]" class="btn btn-primary block">
+                <button type="submit" @click.prevent="editPost" class="btn btn-primary block">
                     Submit
                 </button>
 
@@ -65,13 +65,13 @@
 </template>
 
 <script>
-    import { getResourceMixin } from "../mixins/getResourceMixin";
+    import { getResourceMixin } from "../../mixins/getResourceMixin";
     export default {
-        mixins: [ getResourceMixin ],
+        mixins: [getResourceMixin],
         created() {
-            this.getResource('portfolioitems');
+            this.getResource('posts');
             this.getUser();
-            console.log("Edit portfolio item vue mounted");
+            console.log("Edit post vue created");
         },
         updated() {
             this.updateEditorValue();
@@ -94,7 +94,7 @@
             };
         },
         methods: {
-            editPortfolioItem() {
+            editPost() {
                 const formData = new FormData();
 
                 formData.append("title", this.$refs.title.value);
@@ -102,21 +102,21 @@
                 formData.append("image", this.$refs.image.files[0]);
                 formData.append("_method", "patch");  // need for method spoofing in Vue for PUT/PATCH
 
-                axios.post(`/api/portfolioitems/${this.resource.id}`, formData)
-                    .then(response => {
-                        this.successful = true;
-                        this.error = false;
-                        this.errors = [];
-                    })
-                    .catch(error => {
-                        if (!_.isEmpty(error.response)) {
-                            if ((error.response.status = 422)) {
-                                this.errors = error.response.data.errors;
-                                this.successful = false;
-                                this.error = true;
-                            }
+                axios.post(`/api/posts/${this.resource[0].id}`, formData)
+                .then(response => {
+                    this.successful = true;
+                    this.error = false;
+                    this.errors = [];
+                })
+                .catch(error => {
+                    if (!_.isEmpty(error.response)) {
+                        if ((error.response.status = 422)) {
+                            this.errors = error.response.data.errors;
+                            this.successful = false;
+                            this.error = true;
                         }
-                    });
+                    }
+                });
             },
             updateEditorValue() {
                 this.editorValue = this.resource[0].body;

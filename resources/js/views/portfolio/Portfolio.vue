@@ -5,13 +5,13 @@
         <global-header :userName="userName" :userId="userId" />
 
         <div class="container-fluid global-banner">
-            <h1>Web Development Blog</h1>
-            <p class="lead">Read about my latest development experiences.</p>
+            <h1>Portfolio</h1>
+            <p class="lead">Here are my best and latest open-source projects.</p>
         </div>
 
         <section class="container content-section">
 
-            <BlogList :posts="this.posts" />
+            <PortfolioList :portfolioitems="this.portfolioitems" />
 
         </section>
 
@@ -22,17 +22,17 @@
 </template>
 
 <script>
-    import BlogList from './BlogList.vue';
+    import PortfolioList from '../../components/portfolio/PortfolioList.vue';
     import { getResourcesMixin } from '../../mixins/getResourcesMixin.js';
 
     export default {
         components: {
-            BlogList,
+            PortfolioList,
         },
         mixins: [ getResourcesMixin ],
         created() {
-            this.getResources('posts');
-            console.log("Blog vue mounted");
+            this.getResources('portfolioitems');
+            console.log("Portfolio mounted");
         },
         props: {
             userId: {
@@ -40,7 +40,7 @@
             },
             userName: {
                 type: String
-            }
+            },
         }
     };
 </script>

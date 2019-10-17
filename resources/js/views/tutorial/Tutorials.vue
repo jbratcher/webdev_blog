@@ -14,7 +14,7 @@
             <ul class="posts-list" id="tutorial-items">
 
                 <li class="tutorial-items-card" v-for="tutorial in tutorials" :key="tutorial.id">
-                    <router-link :to="{ name: 'tutorial', params: { tutorial_slug: tutorial.slug, tutorial_id: tutorial.id} }">
+                    <router-link :to="{ name: 'tutorial-single', params: { tutorial_slug: tutorial.slug, tutorial_id: tutorial.id} }">
                         <img :src="tutorial.image_src" :alt="tutorial.title">
                         <h5 class="card-title">{{tutorial.title}}</h5>
                         <div class="card-body">
@@ -34,7 +34,7 @@
 </template>
 
 <script>
-    import { getResourcesMixin } from "../mixins/getResourcesMixin.js";
+    import { getResourcesMixin } from "../../mixins/getResourcesMixin.js";
     export default {
         mixins: [ getResourcesMixin ],
         created() {
