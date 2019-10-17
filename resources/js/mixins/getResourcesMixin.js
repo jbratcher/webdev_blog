@@ -2,7 +2,6 @@ export const getResourcesMixin = {
     created() {
         console.log("get resources mixin created");
     },
-
     data() {
         return {
             posts: [

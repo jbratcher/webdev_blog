@@ -18,15 +18,7 @@
 
                 <p class="lead">Latest posts</p>
 
-                <ul class="posts-list">
-                    <li v-for="post in posts" :key="post.id">
-                        <router-link :to="{ name: 'blog-post', params: { post_slug: post.slug, post_id: post.id} }">
-                            <img :src="post.image_src" :alt="post.title">
-                            <h5 class="card-title">{{post.title}}</h5>
-                            <vue-markdown class="card-body" :source="post.body"></vue-markdown>
-                        </router-link>
-                    </li>
-                </ul>
+                <BlogList :posts="this.posts" />
 
             </section>
 
@@ -101,8 +93,13 @@
 </template>
 
 <script>
-    import { getResourcesMixin } from "../mixins/getResourcesMixin.js";
+    import BlogList from './blog/BlogList.vue';
+    import { getResourcesMixin } from '../mixins/getResourcesMixin.js';
+
     export default {
+        components: {
+            BlogList,
+        },
         mixins: [ getResourcesMixin ],
         created() {
             this.getResources('posts');

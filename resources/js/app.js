@@ -25,8 +25,8 @@ import 'v-markdown-editor/dist/index.css';
 
 import App from './views/App';
 import Home from './views/Home';
-import Blog from "./views/Blog";
-import BlogPost from "./views/BlogPost";
+import Blog from "./views/blog/index.vue";
+import BlogPost from "./views/blog/BlogPost";
 import Create from "./views/Create";
 import Portfolio from "./views/Portfolio";
 import PortfolioItem from "./views/PortfolioItem";
