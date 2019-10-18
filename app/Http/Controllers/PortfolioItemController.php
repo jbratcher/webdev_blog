@@ -56,6 +56,9 @@ class PortfolioItemController extends Controller
             $image->move($destinationPath, $name);
             $portfolioitem->image_src = $imagePath;
         }
+        else {
+            $portfolioitem->image_src = "\images\blog1.jpg";
+        }
 
         $portfolioitem->user_id = $request->user_id;
         $portfolioitem->title = $request->title;

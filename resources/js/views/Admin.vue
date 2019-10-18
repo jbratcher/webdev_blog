@@ -65,6 +65,11 @@
 
                 <h2>Portfolio Items</h2>
 
+                <div class="container admin-menu">
+                    <i class="fas fa-plus-circle fa-2x"></i>
+                    <router-link :to="{ name: 'create-portfolio-item' }">New Portfolio Item</router-link>
+                </div>
+
                 <ul>
 
                     <li v-for="portfolioItem in portfolioItems" :key="portfolioItem.id">
@@ -111,6 +116,11 @@
             <section class="container resource-list">
 
                 <h2>Tutorials</h2>
+
+                <div class="container admin-menu">
+                    <i class="fas fa-plus-circle fa-2x"></i>
+                    <router-link :to="{ name: 'create-tutorial-item' }">New Tutorial</router-link>
+                </div>
 
                 <ul>
 
