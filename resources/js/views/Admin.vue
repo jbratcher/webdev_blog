@@ -32,26 +32,9 @@
                             </router-link>
                             <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#confirmDeletePostModal">Delete</button>
 
-                            <!-- Confirm Delete Post Modal -->
-                            <div class="modal" id="confirmDeletePostModal" tabindex="-1" role="dialog">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">Delete blog post</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p>Are you sure you want to delete this post?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-danger" @click="deletePost(post.id)">Confirm Deletion</button>
-                                    </div>
-                                    </div>
+                                <div class="modal" id="confirmDeletePostModal" tabindex="-1" role="dialog">
+                                    <DeleteModal :resource="post" @delete-resource="deletePost" />
                                 </div>
-                            </div>
 
                         </section>
                     </li>
@@ -72,36 +55,19 @@
 
                 <ul>
 
-                    <li v-for="portfolioItem in portfolioItems" :key="portfolioItem.id">
-                        <h5>{{portfolioItem.title.substring(0,80)}}</h5>
+                    <li v-for="portfolioitem in portfolioitems" :key="portfolioitem.id">
+                        <h5>{{portfolioitem.title.substring(0,80)}}</h5>
                         <section class="admin-actions">
                             <router-link
                                 class="btn btn-primary"
-                                :to="{ name: 'edit-portfolio-item', params: { portfolio_item_slug: portfolioItem.slug, portfolio_item_id: portfolioItem.id} }"
+                                :to="{ name: 'edit-portfolio-item', params: { portfolio_item_slug: portfolioitem.slug, portfolio_item_id: portfolioitem.id} }"
                             >
                                 Edit
                             </router-link>
                             <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#confirmDeletePortfolioItemModal">Delete</button>
 
-                            <!-- Confirm Delete Portfolio Item Modal -->
                             <div class="modal" id="confirmDeletePortfolioItemModal" tabindex="-1" role="dialog">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">Delete portfolio item</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p>Are you sure you want to delete this portfolio item?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-danger" @click="deletePortfolioItem(portfolioItem.id)">Confirm Deletion</button>
-                                    </div>
-                                    </div>
-                                </div>
+                                <DeleteModal :resource="portfolioitem" @delete-resource="deletePortfolioItem" />
                             </div>
 
                         </section>
@@ -135,25 +101,8 @@
                             </router-link>
                             <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#confirmDeleteTutorialModal">Delete</button>
 
-                            <!-- Confirm Delete Tutorial Modal -->
                             <div class="modal" id="confirmDeleteTutorialModal" tabindex="-1" role="dialog">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">Delete tutorial</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p>Are you sure you want to delete this tutorial?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-danger" @click="deleteTutorial(tutorial.id)">Confirm Deletion</button>
-                                    </div>
-                                    </div>
-                                </div>
+                                <DeleteModal :resource="tutorial" @delete-resource="deleteTutorial" />
                             </div>
 
                         </section>
@@ -192,7 +141,12 @@
 </template>
 
 <script>
+    import DeleteModal from '../components/admin/DeleteModal.vue';
+
     export default {
+        components: {
+            DeleteModal,
+        },
         mounted() {
             this.getPosts();
             this.getPortfolioItems();
@@ -203,7 +157,7 @@
         data() {
             return {
                 posts: {},
-                portfolioItems: {},
+                portfolioitems: {},
                 tutorials: {},
                 users: {},
             };
@@ -225,7 +179,7 @@
             },
             getPortfolioItems() {
                 axios.get("/api/portfolioitems").then(response => {
-                    this.portfolioItems = response.data;
+                    this.portfolioitems = response.data;
                 })
                 .catch(error => {
                     this.loading = false;
