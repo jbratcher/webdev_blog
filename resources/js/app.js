@@ -28,18 +28,21 @@ import Home from './views/Home';
 import Contact from "./views/Contact";
 import Admin from "./views/Admin";
 
-// blog
+// Blog
+
 import Blog from "./views/blog/Blog.vue";
 import BlogSingle from "./views/blog/BlogSingle.vue";
 import CreateBlogPost from "./views//blog/CreateBlogPost.vue";
 import EditBlogItem from "./views/blog/EditBlogItem";
 
-// portfolio
+// Portfolio
+
 import Portfolio from "./views/portfolio/Portfolio.vue";
 import PortfolioSingle from "./views/portfolio/PortfolioSingle.vue";
 import EditPortfolioItem from "./views/portfolio/EditPortfolioItem";
 
-// tutorial
+// Tutorial
+
 import Tutorials from "./views/tutorial/Tutorials.vue";
 import TutorialSingle from "./views/tutorial/TutorialSingle.vue";
 import EditTutorialItem from "./views/tutorial/EditTutorialItem";
