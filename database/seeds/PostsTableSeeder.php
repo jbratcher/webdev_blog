@@ -409,5 +409,22 @@ EOT;
         $post->slug = "rendering-html-from-a-mysql-database";
         $post->save();
 
+        $post = new Post;
+        $post->user_id = 1;
+        $post->title = "A new blog post for the blog";
+        $post->body = "This is some text to represent a blog post.  I don't really know what to write here.";
+        $post->image_src = "/images/blog1.jpg";
+        $post->slug = "rendering-html-from-a-mysql-database";
+        $post->save();
+
+        $post = new Post;
+        $post->user_id = 1;
+        $post->title = "Another blog post";
+        $post->body = "I needed a 3rd blog post to make a 2nd row of content.  I don't really know what to write here.";
+        $post->image_src = "/images/profile.jpg";
+        $post->slug = "rendering-html-from-a-mysql-database";
+        $post->save();
+
     }
+
 }

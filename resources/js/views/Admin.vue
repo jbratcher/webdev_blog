@@ -22,6 +22,7 @@
 
                 <ul>
                     <li v-for="post in posts" :key="post.id">
+
                         <h5>{{post.title.substring(0,80)}}</h5>
                         <section class="admin-actions">
                             <router-link
@@ -30,11 +31,8 @@
                             >
                                 Edit
                             </router-link>
-                            <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#confirmDeletePostModal">Delete</button>
-
-                                <div class="modal" id="confirmDeletePostModal" tabindex="-1" role="dialog">
-                                    <DeleteModal :resource="post" @delete-resource="deletePost" />
-                                </div>
+                            <button class="btn btn-primary" type="button" data-toggle="modal" :data-target="deleteModalDataTarget(post.title.substring(0,5).replace(/\s/, '-'), post.id)">Delete</button>
+                            <DeleteModal :resource="post" @delete-resource="deletePost" />
 
                         </section>
                     </li>
@@ -163,6 +161,10 @@
             };
         },
         methods: {
+            deleteModalDataTarget(title, id) {
+                const dataTargetValue = `#confirmDelete${title}${id}Modal`;
+                return dataTargetValue;
+            },
             getPosts() {
                 axios.get("/api/posts").then(response => {
                     this.posts = response.data;
@@ -173,6 +175,7 @@
                 });
             },
             deletePost(id) {
+                console.log(`Delete ID: ${id}`);
                 axios.delete("/api/posts/" + id)
                     .then(response => this.getPosts())
                     $('.modal-backdrop').remove();
@@ -187,6 +190,7 @@
                 });
             },
             deletePortfolioItem(id) {
+                console.log(`Delete ID: ${id}`);
                 axios.delete("/api/portfolioitems/" + id)
                     .then(response => this.getPortfolioItems());
                 $('.modal-backdrop').remove();
@@ -201,6 +205,7 @@
                 });
             },
             deleteTutorial(id) {
+                console.log(`Delete ID: ${id}`);
                 axios.delete("/api/tutorials/" + id)
                     .then(response => this.getTutorials());
                 $('.modal-backdrop').remove();

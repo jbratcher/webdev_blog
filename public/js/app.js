@@ -1860,9 +1860,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'DeleteModal',
-  props: ['resource']
+  props: ['resource'],
+  methods: {
+    deleteModalDataTarget: function deleteModalDataTarget(title, id) {
+      var dataTargetValue = "confirmDelete".concat(title.replace(/\s/, '-')).concat(id, "Modal");
+      return dataTargetValue;
+    }
+  }
 });
 
 /***/ }),
@@ -2207,8 +2215,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2230,6 +2236,10 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    deleteModalDataTarget: function deleteModalDataTarget(title, id) {
+      var dataTargetValue = "#confirmDelete".concat(title).concat(id, "Modal");
+      return dataTargetValue;
+    },
     getPosts: function getPosts() {
       var _this = this;
 
@@ -2243,6 +2253,7 @@ __webpack_require__.r(__webpack_exports__);
     deletePost: function deletePost(id) {
       var _this2 = this;
 
+      console.log("Delete ID: ".concat(id));
       axios["delete"]("/api/posts/" + id).then(function (response) {
         return _this2.getPosts();
       });
@@ -2261,6 +2272,7 @@ __webpack_require__.r(__webpack_exports__);
     deletePortfolioItem: function deletePortfolioItem(id) {
       var _this4 = this;
 
+      console.log("Delete ID: ".concat(id));
       axios["delete"]("/api/portfolioitems/" + id).then(function (response) {
         return _this4.getPortfolioItems();
       });
@@ -2279,6 +2291,7 @@ __webpack_require__.r(__webpack_exports__);
     deleteTutorial: function deleteTutorial(id) {
       var _this6 = this;
 
+      console.log("Delete ID: ".concat(id));
       axios["delete"]("/api/tutorials/" + id).then(function (response) {
         return _this6.getTutorials();
       });
@@ -75433,36 +75446,60 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "modal-dialog", attrs: { role: "document" } },
+    {
+      staticClass: "modal",
+      attrs: {
+        id: _vm.deleteModalDataTarget(
+          _vm.resource.title.substring(0, 5),
+          _vm.resource.id
+        ),
+        tabindex: "-1",
+        role: "dialog"
+      }
+    },
     [
-      _c("div", { staticClass: "modal-content" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _vm._m(1),
-        _vm._v(" "),
-        _c("div", { staticClass: "modal-footer" }, [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-primary",
-              attrs: { type: "button", "data-dismiss": "modal" }
-            },
-            [_vm._v("Close")]
-          ),
+      _c("div", { staticClass: "modal-dialog", attrs: { role: "document" } }, [
+        _c("div", { staticClass: "modal-content" }, [
+          _vm._m(0),
           _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-danger",
-              attrs: { type: "button" },
-              on: {
-                click: function($event) {
-                  return _vm.$emit("delete-resource", _vm.resource.id)
+          _c("div", { staticClass: "modal-body" }, [
+            _c("p", [
+              _vm._v(
+                _vm._s(
+                  "Are you sure you want to delete " +
+                    _vm.resource.title +
+                    " - " +
+                    _vm.resource.id +
+                    "?"
+                )
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "modal-footer" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-primary",
+                attrs: { type: "button", "data-dismiss": "modal" }
+              },
+              [_vm._v("Close")]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-danger",
+                attrs: { type: "button" },
+                on: {
+                  click: function($event) {
+                    return _vm.$emit("delete-resource", _vm.resource.id)
+                  }
                 }
-              }
-            },
-            [_vm._v("Confirm Deletion")]
-          )
+              },
+              [_vm._v("Confirm Deletion")]
+            )
+          ])
         ])
       ])
     ]
@@ -75474,7 +75511,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "modal-header" }, [
-      _c("h5", { staticClass: "modal-title" }, [_vm._v("Delete blog post")]),
+      _c("h5", { staticClass: "modal-title" }, [_vm._v("Delete resource")]),
       _vm._v(" "),
       _c(
         "button",
@@ -75488,14 +75525,6 @@ var staticRenderFns = [
         },
         [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
       )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-body" }, [
-      _c("p", [_vm._v("Are you sure you want to delete this?")])
     ])
   }
 ]
@@ -75918,30 +75947,19 @@ var render = function() {
                             attrs: {
                               type: "button",
                               "data-toggle": "modal",
-                              "data-target": "#confirmDeletePostModal"
+                              "data-target": _vm.deleteModalDataTarget(
+                                post.title.substring(0, 5).replace(/\s/, "-"),
+                                post.id
+                              )
                             }
                           },
                           [_vm._v("Delete")]
                         ),
                         _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass: "modal",
-                            attrs: {
-                              id: "confirmDeletePostModal",
-                              tabindex: "-1",
-                              role: "dialog"
-                            }
-                          },
-                          [
-                            _c("DeleteModal", {
-                              attrs: { resource: post },
-                              on: { "delete-resource": _vm.deletePost }
-                            })
-                          ],
-                          1
-                        )
+                        _c("DeleteModal", {
+                          attrs: { resource: post },
+                          on: { "delete-resource": _vm.deletePost }
+                        })
                       ],
                       1
                     )

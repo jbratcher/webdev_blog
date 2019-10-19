@@ -1,15 +1,16 @@
 <template>
 
+    <div class="modal" :id="deleteModalDataTarget(resource.title.substring(0,5), resource.id)" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Delete blog post</h5>
+                <h5 class="modal-title">Delete resource</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <p>Are you sure you want to delete this?</p>
+                <p>{{`Are you sure you want to delete ${resource.title} - ${resource.id}?`}}</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
@@ -17,6 +18,7 @@
             </div>
             </div>
         </div>
+    </div>
 
 </template>
 
@@ -24,5 +26,11 @@
 export default {
     name: 'DeleteModal',
     props: ['resource'],
+    methods: {
+        deleteModalDataTarget(title, id) {
+            const dataTargetValue = `confirmDelete${title.replace(/\s/, '-')}${id}Modal`;
+            return dataTargetValue;
+        },
+    },
 };
 </script>
