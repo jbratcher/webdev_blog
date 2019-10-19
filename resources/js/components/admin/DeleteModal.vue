@@ -1,6 +1,6 @@
 <template>
 
-    <div class="modal" :id="deleteModalDataTarget(resource)" tabindex="-1" role="dialog">
+    <div class="modal" :id="deleteModalId(resource)" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-header">
@@ -27,7 +27,7 @@ export default {
     name: 'DeleteModal',
     props: ['resource'],
     methods: {
-        deleteModalDataTarget(data) {
+        deleteModalId(data) {
             const dataTargetValue = `confirmDelete${data.type}${data.id}Modal`;
             return dataTargetValue;
         },

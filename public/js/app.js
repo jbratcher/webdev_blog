@@ -1866,7 +1866,7 @@ __webpack_require__.r(__webpack_exports__);
   name: 'DeleteModal',
   props: ['resource'],
   methods: {
-    deleteModalDataTarget: function deleteModalDataTarget(data) {
+    deleteModalId: function deleteModalId(data) {
       var dataTargetValue = "confirmDelete".concat(data.type).concat(data.id, "Modal");
       return dataTargetValue;
     }
@@ -75455,7 +75455,7 @@ var render = function() {
     {
       staticClass: "modal",
       attrs: {
-        id: _vm.deleteModalDataTarget(_vm.resource),
+        id: _vm.deleteModalId(_vm.resource),
         tabindex: "-1",
         role: "dialog"
       }
