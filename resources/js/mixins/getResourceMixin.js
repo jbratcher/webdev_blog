@@ -45,18 +45,7 @@ export const getResourceMixin = {
             axios.get(`/api/${type}`).then(response => {
                 this.resources = response.data;
                 this.resource = this.resources.filter(item => {
-                    if(type === 'posts') {
-                        return item.id === Number(this.$route.params.post_id)
-                    }
-                    else if(type === 'portfolioitems') {
-                        return item.id === Number(this.$route.params.portfolio_item_id)
-                    }
-                    else if(type === 'tutorials') {
-                        return item.id === Number(this.$route.params.tutorial_id)
-                    }
-                    else {
-                        return item.id === Number(this.$route.params.id);
-                    }
+                    return item.id === Number(this.$route.params.id)
                 })
             })
             .then(() => console.log("Item title: " + JSON.stringify(this.resource[0].title)))

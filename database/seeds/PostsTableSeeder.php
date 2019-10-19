@@ -406,7 +406,7 @@ If you have a domain, you can further secure your site with HTTPS via Let's Encr
 EOT;
 
         $post->image_src = "/images/blog2.jpg";
-        $post->slug = "rendering-html-from-a-mysql-database";
+        $post->slug = "deploying-laravel-6-to-a-digital-ocean-droplet";
         $post->save();
 
         $post = new Post;
@@ -414,7 +414,7 @@ EOT;
         $post->title = "A new blog post for the blog";
         $post->body = "This is some text to represent a blog post.  I don't really know what to write here.";
         $post->image_src = "/images/blog1.jpg";
-        $post->slug = "rendering-html-from-a-mysql-database";
+        $post->slug = "a-new-blog-post-for-the-blog";
         $post->save();
 
         $post = new Post;
@@ -422,7 +422,7 @@ EOT;
         $post->title = "Another blog post";
         $post->body = "I needed a 3rd blog post to make a 2nd row of content.  I don't really know what to write here.";
         $post->image_src = "/images/profile.jpg";
-        $post->slug = "rendering-html-from-a-mysql-database";
+        $post->slug = "another-blog-post";
         $post->save();
 
     }

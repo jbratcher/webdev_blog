@@ -11,7 +11,7 @@
 
         <section class="container content-section">
 
-            <PortfolioList :portfolioitems="this.portfolioitems" />
+            <ResourceList :resources="this.portfolioitems" />
 
         </section>
 
@@ -22,12 +22,12 @@
 </template>
 
 <script>
-    import PortfolioList from '../../components/portfolio/PortfolioList.vue';
+    import ResourceList from '../../components/resource/ResourceList.vue';
     import { getResourcesMixin } from '../../mixins/getResourcesMixin.js';
 
     export default {
         components: {
-            PortfolioList,
+            ResourceList,
         },
         mixins: [ getResourcesMixin ],
         created() {

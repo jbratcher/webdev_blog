@@ -11,7 +11,7 @@
 
         <section class="container content-section">
 
-            <BlogList :posts="this.posts" />
+            <ResourceList :resources="this.posts" />
 
         </section>
 
@@ -22,12 +22,12 @@
 </template>
 
 <script>
-    import BlogList from '../../components/blog/BlogList.vue';
+    import ResourceList from '../../components/resource/ResourceList.vue';
     import { getResourcesMixin } from '../../mixins/getResourcesMixin.js';
 
     export default {
         components: {
-            BlogList,
+            ResourceList,
         },
         mixins: [ getResourcesMixin ],
         created() {

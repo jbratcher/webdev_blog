@@ -11,7 +11,7 @@
 
         <section class="container content-section">
 
-            <TutorialList :tutorials="this.tutorials" />
+            <ResourceList :resources="this.tutorials" />
 
         </section>
 
@@ -22,11 +22,11 @@
 </template>
 
 <script>
-    import TutorialList from '../../components/tutorial/TutorialList.vue';
+    import ResourceList from '../../components/resource/ResourceList.vue';
     import { getResourcesMixin } from '../../mixins/getResourcesMixin.js';
     export default {
         components: {
-            TutorialList,
+            ResourceList,
         },
         mixins: [ getResourcesMixin ],
         created() {

@@ -18,7 +18,7 @@
 
                 <p class="lead">Latest posts</p>
 
-                <BlogList :posts="this.posts" />
+                <ResourceList :resources="this.posts" />
 
             </section>
 
@@ -30,22 +30,7 @@
 
                 <p class="lead">Some of my best work</p>
 
-                <ul class="posts-list">
-                    <li v-for="portfolioitem in portfolioitems" :key="portfolioitem.id">
-                        <router-link :to="{ name: 'portfolio-single', params: { portfolio_item_slug: portfolioitem.slug, portfolio_item_id: portfolioitem.id} }">
-                            <img :src="portfolioitem.image_src" :alt="portfolioitem.title">
-                            <h5 class="card-title">{{portfolioitem.title}}</h5>
-                            <div class="card-body">
-                                <vue-markdown :source="portfolioitem.body"></vue-markdown>
-                                <div class="card-buttons">
-                                    <router-link class="btn btn-primary" :to="{ name: 'portfolio-single', params: { portfolio_item_slug: portfolioitem.slug, portfolio_item_id: portfolioitem.id} }">Read More</router-link>
-                                    <a :href="portfolioitem.demo_url" class="btn btn-primary">Demo</a>
-                                    <a :href="portfolioitem.repo_url" class="btn btn-primary">Github Repo</a>
-                                </div>
-                            </div>
-                        </router-link>
-                    </li>
-                </ul>
+                <ResourceList :resources="this.portfolioitems" />
 
             </section>
 
@@ -57,17 +42,7 @@
 
                 <p class="lead">Learn something new</p>
 
-                <ul class="posts-list">
-                    <li v-for="tutorial in tutorials" :key="tutorial.id">
-                        <router-link :to="{ name: 'tutorial-single', params: { tutorial_slug: tutorial.slug, tutorial_id: tutorial.id} }">
-                            <img :src="tutorial.image_src" :alt="tutorial.title">
-                            <h5 class="card-title">{{tutorial.title}}</h5>
-                            <div class="card-body">
-                                <vue-markdown :source="tutorial.body"></vue-markdown>
-                            </div>
-                        </router-link>
-                    </li>
-                </ul>
+                <ResourceList :resources="this.tutorials" />
 
             </section>
 
@@ -93,12 +68,12 @@
 </template>
 
 <script>
-    import BlogList from '../components/blog/BlogList.vue';
+    import ResourceList from '../components/resource/ResourceList.vue';
     import { getResourcesMixin } from '../mixins/getResourcesMixin.js';
 
     export default {
         components: {
-            BlogList,
+            ResourceList,
         },
         mixins: [ getResourcesMixin ],
         created() {

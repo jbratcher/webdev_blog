@@ -19,7 +19,7 @@ import EditBlogItem from "./views/blog/EditBlogItem";
 // Portfolio
 
 import Portfolio from "./views/portfolio/Portfolio.vue";
-import PortfolioSingle from "./views/portfolio/PortfolioSingle.vue";
+import PortfolioItemSingle from "./views/portfolio/PortfolioItemSingle.vue";
 import CreatePortfolioItem from "./views/portfolio/CreatePortfolioItem.vue";
 import EditPortfolioItem from "./views/portfolio/EditPortfolioItem";
 
@@ -46,7 +46,7 @@ const router = new VueRouter({
             component: Blog
         },
         {
-            path: "/blog/view/:post_slug?/:post_id?",
+            path: "/blog/view/:slug?/:id?",
             name: "blog-single",
             component: BlogSingle,
             props: true,
@@ -57,7 +57,7 @@ const router = new VueRouter({
             component: CreateBlogPost
         },
         {
-            path: '/blog/edit/view/:post_slug/:post_id',
+            path: '/blog/edit/view/:slug/:id',
             name: "edit-blog-item",
             component: EditBlogItem,
             props: true,
@@ -68,9 +68,9 @@ const router = new VueRouter({
             component: Portfolio
         },
         {
-            path: '/portfolio/view/:portfolio_item_slug?/:portfolio_item_id?',
-            name: "portfolio-single",
-            component: PortfolioSingle,
+            path: '/portfolio/view/:slug?/:id?',
+            name: "portfolioitem-single",
+            component: PortfolioItemSingle,
             props: true,
         },
         {
@@ -79,7 +79,7 @@ const router = new VueRouter({
             component: CreatePortfolioItem
         },
         {
-            path: '/portfolio/edit/view/:portfolio_item_slug/:portfolio_item_id',
+            path: '/portfolio/edit/view/:slug/:id',
             name: "edit-portfolio-item",
             component: EditPortfolioItem,
             props: true,
@@ -90,7 +90,7 @@ const router = new VueRouter({
             component: Tutorials
         },
         {
-            path: '/tutorials/view/:tutorial_slug?/:tutorial_id?',
+            path: '/tutorials/view/:slug?/:id?',
             name: "tutorial-single",
             component: TutorialSingle,
             props: true,
@@ -101,7 +101,7 @@ const router = new VueRouter({
             component: CreateTutorialItem
         },
         {
-            path: '/tutorials/edit/view/:tutorial_slug/:tutorial_id',
+            path: '/tutorials/edit/view/:slug/:id',
             name: "edit-tutorial-item",
             component: EditTutorialItem,
             props: true,
