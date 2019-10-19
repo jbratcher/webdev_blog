@@ -27,7 +27,7 @@
                         <section class="admin-actions">
                             <router-link
                                 class="btn btn-primary"
-                                :to="{ name: 'edit-blog-item', params: { post_slug: post.slug, post_id: post.id} }"
+                                :to="{ name: 'edit-blog-item', params: { slug: post.slug, id: post.id} }"
                             >
                                 Edit
                             </router-link>
@@ -62,7 +62,7 @@
                         <section class="admin-actions">
                             <router-link
                                 class="btn btn-primary"
-                                :to="{ name: 'edit-portfolio-item', params: { portfolio_item_slug: portfolioitem.slug, portfolio_item_id: portfolioitem.id} }"
+                                :to="{ name: 'edit-portfolio-item', params: { slug: portfolioitem.slug, id: portfolioitem.id} }"
                             >
                                 Edit
                             </router-link>
@@ -98,7 +98,7 @@
                         <section class="admin-actions">
                             <router-link
                                 class="btn btn-primary"
-                                :to="{ name: 'edit-tutorial-item', params: { tutorial_slug: tutorial.slug, tutorial_id: tutorial.id} }"
+                                :to="{ name: 'edit-tutorial-item', params: { slug: tutorial.slug, id: tutorial.id} }"
                             >
                                 Edit
                             </router-link>
@@ -181,7 +181,6 @@
                 });
             },
             deletePost(id) {
-                console.log(`Delete ID: ${id}`);
                 axios.delete("/api/posts/" + id)
                     .then(response => this.getPosts())
                     $('.modal-backdrop').remove();
@@ -196,7 +195,6 @@
                 });
             },
             deletePortfolioItem(id) {
-                console.log(`Delete ID: ${id}`);
                 axios.delete("/api/portfolioitems/" + id)
                     .then(response => this.getPortfolioItems());
                 $('.modal-backdrop').remove();
@@ -211,7 +209,6 @@
                 });
             },
             deleteTutorial(id) {
-                console.log(`Delete ID: ${id}`);
                 axios.delete("/api/tutorials/" + id)
                     .then(response => this.getTutorials());
                 $('.modal-backdrop').remove();

@@ -2136,7 +2136,6 @@ __webpack_require__.r(__webpack_exports__);
     deletePost: function deletePost(id) {
       var _this2 = this;
 
-      console.log("Delete ID: ".concat(id));
       axios["delete"]("/api/posts/" + id).then(function (response) {
         return _this2.getPosts();
       });
@@ -2155,7 +2154,6 @@ __webpack_require__.r(__webpack_exports__);
     deletePortfolioItem: function deletePortfolioItem(id) {
       var _this4 = this;
 
-      console.log("Delete ID: ".concat(id));
       axios["delete"]("/api/portfolioitems/" + id).then(function (response) {
         return _this4.getPortfolioItems();
       });
@@ -2174,7 +2172,6 @@ __webpack_require__.r(__webpack_exports__);
     deleteTutorial: function deleteTutorial(id) {
       var _this6 = this;
 
-      console.log("Delete ID: ".concat(id));
       axios["delete"]("/api/tutorials/" + id).then(function (response) {
         return _this6.getTutorials();
       });
@@ -75560,10 +75557,7 @@ var render = function() {
                             attrs: {
                               to: {
                                 name: "edit-blog-item",
-                                params: {
-                                  post_slug: post.slug,
-                                  post_id: post.id
-                                }
+                                params: { slug: post.slug, id: post.id }
                               }
                             }
                           },
@@ -75642,8 +75636,8 @@ var render = function() {
                               to: {
                                 name: "edit-portfolio-item",
                                 params: {
-                                  portfolio_item_slug: portfolioitem.slug,
-                                  portfolio_item_id: portfolioitem.id
+                                  slug: portfolioitem.slug,
+                                  id: portfolioitem.id
                                 }
                               }
                             }
@@ -75722,10 +75716,7 @@ var render = function() {
                             attrs: {
                               to: {
                                 name: "edit-tutorial-item",
-                                params: {
-                                  tutorial_slug: tutorial.slug,
-                                  tutorial_id: tutorial.id
-                                }
+                                params: { slug: tutorial.slug, id: tutorial.id }
                               }
                             }
                           },
