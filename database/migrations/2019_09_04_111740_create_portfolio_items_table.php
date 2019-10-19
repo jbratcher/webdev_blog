@@ -14,6 +14,7 @@ class CreatePortfolioItemsTable extends Migration
     public function up()
     {
         Schema::create('portfolio_items', function (Blueprint $table) {
+            $table->string('type')->default('PortfolioItem');
             $table->increments('id');
             $table->integer('user_id')->unsigned()->nullable();
             $table->string('title')->nullable();

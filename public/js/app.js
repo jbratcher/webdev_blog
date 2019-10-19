@@ -1866,8 +1866,8 @@ __webpack_require__.r(__webpack_exports__);
   name: 'DeleteModal',
   props: ['resource'],
   methods: {
-    deleteModalDataTarget: function deleteModalDataTarget(title, id) {
-      var dataTargetValue = "confirmDelete".concat(title.replace(/\s/, '-')).concat(id, "Modal");
+    deleteModalDataTarget: function deleteModalDataTarget(data) {
+      var dataTargetValue = "confirmDelete".concat(data.type).concat(data.id, "Modal");
       return dataTargetValue;
     }
   }
@@ -2215,6 +2215,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2236,8 +2242,8 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    deleteModalDataTarget: function deleteModalDataTarget(title, id) {
-      var dataTargetValue = "#confirmDelete".concat(title).concat(id, "Modal");
+    deleteModalDataTarget: function deleteModalDataTarget(data) {
+      var dataTargetValue = "#confirmDelete".concat(data.type).concat(data.id, "Modal");
       return dataTargetValue;
     },
     getPosts: function getPosts() {
@@ -75449,10 +75455,7 @@ var render = function() {
     {
       staticClass: "modal",
       attrs: {
-        id: _vm.deleteModalDataTarget(
-          _vm.resource.title.substring(0, 5),
-          _vm.resource.id
-        ),
+        id: _vm.deleteModalDataTarget(_vm.resource),
         tabindex: "-1",
         role: "dialog"
       }
@@ -75947,13 +75950,14 @@ var render = function() {
                             attrs: {
                               type: "button",
                               "data-toggle": "modal",
-                              "data-target": _vm.deleteModalDataTarget(
-                                post.title.substring(0, 5).replace(/\s/, "-"),
-                                post.id
-                              )
+                              "data-target": _vm.deleteModalDataTarget(post)
                             }
                           },
-                          [_vm._v("Delete")]
+                          [
+                            _vm._v(
+                              "\n                            Delete\n                        "
+                            )
+                          ]
                         ),
                         _vm._v(" "),
                         _c("DeleteModal", {
@@ -76027,30 +76031,22 @@ var render = function() {
                             attrs: {
                               type: "button",
                               "data-toggle": "modal",
-                              "data-target": "#confirmDeletePortfolioItemModal"
-                            }
-                          },
-                          [_vm._v("Delete")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass: "modal",
-                            attrs: {
-                              id: "confirmDeletePortfolioItemModal",
-                              tabindex: "-1",
-                              role: "dialog"
+                              "data-target": _vm.deleteModalDataTarget(
+                                portfolioitem
+                              )
                             }
                           },
                           [
-                            _c("DeleteModal", {
-                              attrs: { resource: portfolioitem },
-                              on: { "delete-resource": _vm.deletePortfolioItem }
-                            })
-                          ],
-                          1
-                        )
+                            _vm._v(
+                              "\n                            Delete\n                        "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("DeleteModal", {
+                          attrs: { resource: portfolioitem },
+                          on: { "delete-resource": _vm.deletePortfolioItem }
+                        })
                       ],
                       1
                     )
@@ -76116,30 +76112,20 @@ var render = function() {
                             attrs: {
                               type: "button",
                               "data-toggle": "modal",
-                              "data-target": "#confirmDeleteTutorialModal"
-                            }
-                          },
-                          [_vm._v("Delete")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass: "modal",
-                            attrs: {
-                              id: "confirmDeleteTutorialModal",
-                              tabindex: "-1",
-                              role: "dialog"
+                              "data-target": _vm.deleteModalDataTarget(tutorial)
                             }
                           },
                           [
-                            _c("DeleteModal", {
-                              attrs: { resource: tutorial },
-                              on: { "delete-resource": _vm.deleteTutorial }
-                            })
-                          ],
-                          1
-                        )
+                            _vm._v(
+                              "\n                            Delete\n                        "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("DeleteModal", {
+                          attrs: { resource: tutorial },
+                          on: { "delete-resource": _vm.deleteTutorial }
+                        })
                       ],
                       1
                     )

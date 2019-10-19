@@ -31,7 +31,11 @@
                             >
                                 Edit
                             </router-link>
-                            <button class="btn btn-primary" type="button" data-toggle="modal" :data-target="deleteModalDataTarget(post.title.substring(0,5).replace(/\s/, '-'), post.id)">Delete</button>
+                            <button class="btn btn-primary" type="button" data-toggle="modal"
+                            :data-target="deleteModalDataTarget(post)"
+                            >
+                                Delete
+                            </button>
                             <DeleteModal :resource="post" @delete-resource="deletePost" />
 
                         </section>
@@ -62,11 +66,12 @@
                             >
                                 Edit
                             </router-link>
-                            <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#confirmDeletePortfolioItemModal">Delete</button>
-
-                            <div class="modal" id="confirmDeletePortfolioItemModal" tabindex="-1" role="dialog">
-                                <DeleteModal :resource="portfolioitem" @delete-resource="deletePortfolioItem" />
-                            </div>
+                            <button class="btn btn-primary" type="button" data-toggle="modal"
+                            :data-target="deleteModalDataTarget(portfolioitem)"
+                            >
+                                Delete
+                            </button>
+                            <DeleteModal :resource="portfolioitem" @delete-resource="deletePortfolioItem" />
 
                         </section>
                     </li>
@@ -97,11 +102,12 @@
                             >
                                 Edit
                             </router-link>
-                            <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#confirmDeleteTutorialModal">Delete</button>
-
-                            <div class="modal" id="confirmDeleteTutorialModal" tabindex="-1" role="dialog">
-                                <DeleteModal :resource="tutorial" @delete-resource="deleteTutorial" />
-                            </div>
+                            <button class="btn btn-primary" type="button" data-toggle="modal"
+                            :data-target="deleteModalDataTarget(tutorial)"
+                            >
+                                Delete
+                            </button>
+                            <DeleteModal :resource="tutorial" @delete-resource="deleteTutorial" />
 
                         </section>
                     </li>
@@ -161,8 +167,8 @@
             };
         },
         methods: {
-            deleteModalDataTarget(title, id) {
-                const dataTargetValue = `#confirmDelete${title}${id}Modal`;
+            deleteModalDataTarget(data) {
+                const dataTargetValue = `#confirmDelete${data.type}${data.id}Modal`;
                 return dataTargetValue;
             },
             getPosts() {
