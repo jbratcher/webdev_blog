@@ -20,27 +20,7 @@
                     <router-link :to="{ name: 'create-blog-post' }">New Post</router-link>
                 </div>
 
-                <ul>
-                    <li v-for="post in posts" :key="post.id">
-
-                        <h5>{{post.title.substring(0,80)}}</h5>
-                        <section class="admin-actions">
-                            <router-link
-                                class="btn btn-primary"
-                                :to="{ name: 'edit-blog-item', params: { slug: post.slug, id: post.id} }"
-                            >
-                                Edit
-                            </router-link>
-                            <button class="btn btn-primary" type="button" data-toggle="modal"
-                            :data-target="deleteModalDataTarget(post)"
-                            >
-                                Delete
-                            </button>
-                            <DeleteModal :resource="post" @delete-resource="deletePost" />
-
-                        </section>
-                    </li>
-                </ul>
+                <AdminResourceList :resources="this.posts" @delete-resource="deletePost" />
 
             </section>
 
@@ -55,28 +35,7 @@
                     <router-link :to="{ name: 'create-portfolio-item' }">New Portfolio Item</router-link>
                 </div>
 
-                <ul>
-
-                    <li v-for="portfolioitem in portfolioitems" :key="portfolioitem.id">
-                        <h5>{{portfolioitem.title.substring(0,80)}}</h5>
-                        <section class="admin-actions">
-                            <router-link
-                                class="btn btn-primary"
-                                :to="{ name: 'edit-portfolio-item', params: { slug: portfolioitem.slug, id: portfolioitem.id} }"
-                            >
-                                Edit
-                            </router-link>
-                            <button class="btn btn-primary" type="button" data-toggle="modal"
-                            :data-target="deleteModalDataTarget(portfolioitem)"
-                            >
-                                Delete
-                            </button>
-                            <DeleteModal :resource="portfolioitem" @delete-resource="deletePortfolioItem" />
-
-                        </section>
-                    </li>
-
-                </ul>
+                <AdminResourceList :resources="this.portfolioitems" @delete-resource="deletePortfolioItem" />
 
             </section>
 
@@ -91,28 +50,7 @@
                     <router-link :to="{ name: 'create-tutorial-item' }">New Tutorial</router-link>
                 </div>
 
-                <ul>
-
-                    <li v-for="tutorial in tutorials" :key="tutorial.id">
-                        <h5>{{tutorial.title.substring(0,80)}}</h5>
-                        <section class="admin-actions">
-                            <router-link
-                                class="btn btn-primary"
-                                :to="{ name: 'edit-tutorial-item', params: { slug: tutorial.slug, id: tutorial.id} }"
-                            >
-                                Edit
-                            </router-link>
-                            <button class="btn btn-primary" type="button" data-toggle="modal"
-                            :data-target="deleteModalDataTarget(tutorial)"
-                            >
-                                Delete
-                            </button>
-                            <DeleteModal :resource="tutorial" @delete-resource="deleteTutorial" />
-
-                        </section>
-                    </li>
-
-                </ul>
+                <AdminResourceList :resources="this.tutorials" @delete-resource="deleteTutorial" />
 
             </section>
 
@@ -145,82 +83,42 @@
 </template>
 
 <script>
+    import AdminResourceList from '../components/admin/AdminResourceList';
     import DeleteModal from '../components/admin/DeleteModal.vue';
+    import { getResourcesMixin } from '../mixins/getResourcesMixin.js';
 
     export default {
         components: {
+            AdminResourceList,
             DeleteModal,
         },
-        mounted() {
-            this.getPosts();
-            this.getPortfolioItems();
-            this.getTutorials();
-            this.getUsers();
+        mixins: [ getResourcesMixin ],
+        created() {
+            this.getResources('posts');
+            this.getResources('portfolioitems');
+            this.getResources('tutorials');
+            this.getResources('users');
             console.log("Admin vue mounted");
-        },
-        data() {
-            return {
-                posts: {},
-                portfolioitems: {},
-                tutorials: {},
-                users: {},
-            };
         },
         methods: {
             deleteModalDataTarget(data) {
                 const dataTargetValue = `#confirmDelete${data.type}${data.id}Modal`;
                 return dataTargetValue;
             },
-            getPosts() {
-                axios.get("/api/posts").then(response => {
-                    this.posts = response.data;
-                })
-                .catch(error => {
-                    this.loading = false;
-                    this.error = error.response.data.message || error.message;
-                });
-            },
             deletePost(id) {
                 axios.delete("/api/posts/" + id)
-                    .then(response => this.getPosts())
+                    .then(response => this.getResources('posts'))
                     $('.modal-backdrop').remove();
-            },
-            getPortfolioItems() {
-                axios.get("/api/portfolioitems").then(response => {
-                    this.portfolioitems = response.data;
-                })
-                .catch(error => {
-                    this.loading = false;
-                    this.error = error.response.data.message || error.message;
-                });
             },
             deletePortfolioItem(id) {
                 axios.delete("/api/portfolioitems/" + id)
-                    .then(response => this.getPortfolioItems());
+                    .then(response => this.getResources('portfolioitems'));
                 $('.modal-backdrop').remove();
-            },
-            getTutorials() {
-                axios.get("/api/tutorials").then(response => {
-                    this.tutorials = response.data;
-                })
-                .catch(error => {
-                    this.loading = false;
-                    this.error = error.response.data.message || error.message;
-                });
             },
             deleteTutorial(id) {
                 axios.delete("/api/tutorials/" + id)
-                    .then(response => this.getTutorials());
+                    .then(response => this.getResources('tutorials'));
                 $('.modal-backdrop').remove();
-            },
-            getUsers() {
-                axios.get("/api/users").then(response => {
-                    this.users = response.data;
-                })
-                .catch(error => {
-                    this.loading = false;
-                    this.error = error.response.data.message || error.message;
-                });
             },
         },
         props: {

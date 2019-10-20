@@ -7,31 +7,47 @@ export const getResourcesMixin = {
             posts: [
                 {
                     user_id: null,
-                    title: null,
+                    title: "",
                     image_src: null,
-                    body: ""
+                    body: "",
+                    intro: "",
                 }
             ],
             portfolioitems: [
                 {
                     user_id: null,
-                    title: null,
+                    title: "",
                     image_src: null,
-                    body: ""
+                    body: "",
+                    intro: "",
+                    demo_url: "",
+                    repo_url: "",
                 }
             ],
             tutorials: [
                 {
                     user_id: null,
-                    title: null,
+                    title: "",
                     image_src: null,
-                    body: ""
+                    body: "",
+                    intro: "",
+                }
+            ],
+            users: [
+                {
+                    id: null,
+                    name: "",
+                    email: "",
+                    profile_pic_src: "",
+                    intro: "",
+                    bio: "",
                 }
             ],
         };
     },
     methods: {
         getResources(resourceType) {
+            console.log(`Getting ${resourceType}`);
             axios.get(`/api/${resourceType}`).then(response => {
                 this[resourceType] = response.data;
             })
@@ -43,7 +59,9 @@ export const getResourcesMixin = {
         },
         truncateResources(resourceType) {
             this[resourceType].map(resource => {
-                resource.body = resource.body.substring(0,144)+"...";
+                if(resourceType !== "users") {
+                    resource.intro = resource.body.substring(0,144)+"...";
+                }
             });
         },
     },

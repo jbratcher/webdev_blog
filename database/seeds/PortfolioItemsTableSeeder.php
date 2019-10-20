@@ -20,6 +20,7 @@ class PortfolioItemsTableSeeder extends Seeder
         $portfolioitem->demo_url = "https://github.com/jbratcher/VoteInfo";
         $portfolioitem->repo_url = "https://jbratcher.github.io/VoteInfo/";
         $portfolioitem->slug = "vote-info";
+        $portfolioitem->intro = "";
         $portfolioitem->save();
 
         $portfolioitem = new PortfolioItem;
@@ -30,6 +31,7 @@ class PortfolioItemsTableSeeder extends Seeder
         $portfolioitem->demo_url = "https://jbratcher.github.io/ShouldIRun/";
         $portfolioitem->repo_url = "https://github.com/jbratcher/ShouldIRun";
         $portfolioitem->slug = "should-i-run";
+        $portfolioitem->intro = "";
         $portfolioitem->save();
 
         $portfolioitem = new PortfolioItem;
@@ -40,6 +42,7 @@ class PortfolioItemsTableSeeder extends Seeder
         $portfolioitem->demo_url = "https://jbratcher.github.io/ShouldIRun/";
         $portfolioitem->repo_url = "https://github.com/jbratcher/openSRD_character_creator";
         $portfolioitem->slug = "open-srd-character-creator";
+        $portfolioitem->intro = "";
         $portfolioitem->save();
     }
 }

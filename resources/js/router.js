@@ -19,7 +19,7 @@ import EditBlogItem from "./views/blog/EditBlogItem";
 // Portfolio
 
 import Portfolio from "./views/portfolio/Portfolio.vue";
-import PortfolioItemSingle from "./views/portfolio/PortfolioItemSingle.vue";
+import PortfolioSingle from "./views/portfolio/PortfolioSingle.vue";
 import CreatePortfolioItem from "./views/portfolio/CreatePortfolioItem.vue";
 import EditPortfolioItem from "./views/portfolio/EditPortfolioItem";
 
@@ -69,8 +69,8 @@ const router = new VueRouter({
         },
         {
             path: '/portfolio/view/:slug?/:id?',
-            name: "portfolioitem-single",
-            component: PortfolioItemSingle,
+            name: "portfolio-single",
+            component: PortfolioSingle,
             props: true,
         },
         {

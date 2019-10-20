@@ -19,6 +19,7 @@ class CreateTutorialsTable extends Migration
             $table->integer('user_id')->unsigned()->nullable();
             $table->string('title')->nullable();
             $table->text('body')->nullable();
+            $table->text('intro')->nullable();
             $table->string('image_src')->nullable();
             $table->string('slug');
             $table->timestamps();

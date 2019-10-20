@@ -11013,7 +11013,7 @@ h2 {
   margin: 2rem 0;
 }
 
-.resource-list ul li {
+.resource-list ul li > div {
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 0.5rem 1rem;

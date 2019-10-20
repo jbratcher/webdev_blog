@@ -4,7 +4,7 @@
         <img :src="resource.image_src" :alt="resource.title">
         <h5 class="card-title">{{resource.title}}</h5>
         <div class="card-body">
-            <vue-markdown :source="resource.body"></vue-markdown>
+            <vue-markdown :source="resource.intro"></vue-markdown>
             <div class="card-buttons">
                 <router-link
                     class="btn btn-primary read-more"

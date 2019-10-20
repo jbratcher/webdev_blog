@@ -403,10 +403,13 @@ h2 {
         margin: 2rem 0;
 
         li {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            padding: 0.5rem 1rem;
-            align-items: center;
+
+            > div {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                padding: 0.5rem 1rem;
+                align-items: center;
+            }
 
             h5 {
                 font-weight: bold;
