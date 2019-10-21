@@ -11,48 +11,17 @@
 
             <!-- Blog Post Items -->
 
-            <section class="container resource-list">
-
-                <h2>Blog Posts</h2>
-
-                <div class="container admin-menu">
-                    <i class="fas fa-plus-circle fa-2x"></i>
-                    <router-link :to="{ name: 'create-blog-post' }">New Post</router-link>
-                </div>
-
-                <AdminResourceList :resources="this.posts" @delete-resource="deleteResource" />
-
-            </section>
+            <AdminResourceGroup :resources="this.posts" @delete-resource="deleteResource" />
 
             <!-- Portfolio Items -->
 
-            <section class="container resource-list">
-
-                <h2>Portfolio Items</h2>
-
-                <div class="container admin-menu">
-                    <i class="fas fa-plus-circle fa-2x"></i>
-                    <router-link :to="{ name: 'create-portfolio-item' }">New Portfolio Item</router-link>
-                </div>
-
-                <AdminResourceList :resources="this.portfolioitems" @delete-resource="deleteResource" />
-
-            </section>
+            <AdminResourceGroup :resources="this.portfolioitems" @delete-resource="deleteResource" />
 
             <!-- Tutorials -->
 
-            <section class="container resource-list">
+            <AdminResourceGroup :resources="this.tutorials" @delete-resource="deleteResource" />
 
-                <h2>Tutorials</h2>
-
-                <div class="container admin-menu">
-                    <i class="fas fa-plus-circle fa-2x"></i>
-                    <router-link :to="{ name: 'create-tutorial-item' }">New Tutorial</router-link>
-                </div>
-
-                <AdminResourceList :resources="this.tutorials" @delete-resource="deleteResource" />
-
-            </section>
+            <!-- Users -->
 
             <section class="container resource-list">
 
@@ -81,15 +50,13 @@
 </template>
 
 <script>
-    import AdminResourceList from '../components/admin/AdminResourceList';
-    import DeleteModal from '../components/admin/DeleteModal.vue';
+    import AdminResourceGroup from '../components/admin/AdminResourceGroup.vue';
     import { getResourcesMixin } from '../mixins/getResourcesMixin.js';
     import { deleteResourceMixin } from '../mixins/deleteResourceMixin.js';
 
     export default {
         components: {
-            AdminResourceList,
-            DeleteModal,
+            AdminResourceGroup,
         },
         mixins: [
             getResourcesMixin,

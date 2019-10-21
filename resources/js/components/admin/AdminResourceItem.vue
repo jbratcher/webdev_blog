@@ -1,20 +1,27 @@
 <template>
 
-    <div>
+    <div v-if="resource">
+
         <h5>{{resource.title.substring(0,80)}}</h5>
+
         <section class="admin-actions">
             <router-link
                 class="btn btn-primary"
-                :to="{ name: `edit-${resource.type}-item`, params: { slug: resource.slug, id: resource.id} }"
+                :to="{ name: `edit-${resource ? resource.type : ''}-item`, params: { slug: resource.slug, id: resource.id} }"
             >
                 Edit
             </router-link>
-            <button class="btn btn-primary" type="button" data-toggle="modal"
-            :data-target="deleteModalDataTarget(resource)"
+
+            <button
+                class="btn btn-primary" type="button" data-toggle="modal"
+                :data-target="deleteModalDataTarget(resource)"
             >
                 Delete
             </button>
-            <DeleteModal :resource="resource" @delete-resource="$emit('delete-resource', resource.api_route, resource.id)" />
+
+            <DeleteModal
+                :resource="resource"
+                @delete-resource="$emit('delete-resource', resource.api_route, resource.id)" />
 
         </section>
     </div>

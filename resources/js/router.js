@@ -13,7 +13,7 @@ import Contact from "./views/Contact";
 
 import Blog from "./views/blog/Blog.vue";
 import BlogSingle from "./views/blog/BlogSingle.vue";
-import CreateBlogPost from "./views//blog/CreateBlogPost.vue";
+import CreateBlogItem from "./views//blog/CreateBlogItem.vue";
 import EditBlogItem from "./views/blog/EditBlogItem";
 
 // Portfolio
@@ -53,8 +53,8 @@ const router = new VueRouter({
         },
         {
             path: "/blog/create",
-            name: "create-blog-post",
-            component: CreateBlogPost
+            name: "create-blog-item",
+            component: CreateBlogItem
         },
         {
             path: '/blog/edit/view/:slug/:id',

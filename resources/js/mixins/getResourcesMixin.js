@@ -1,5 +1,5 @@
 export const getResourcesMixin = {
-    created() {
+    beforeCreate() {
         console.log("get resources mixin created");
     },
     data() {
