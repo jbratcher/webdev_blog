@@ -2035,6 +2035,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_admin_AdminResourceList__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/admin/AdminResourceList */ "./resources/js/components/admin/AdminResourceList.vue");
 /* harmony import */ var _components_admin_DeleteModal_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/admin/DeleteModal.vue */ "./resources/js/components/admin/DeleteModal.vue");
 /* harmony import */ var _mixins_getResourcesMixin_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../mixins/getResourcesMixin.js */ "./resources/js/mixins/getResourcesMixin.js");
+/* harmony import */ var _mixins_deleteResourceMixin_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../mixins/deleteResourceMixin.js */ "./resources/js/mixins/deleteResourceMixin.js");
 //
 //
 //
@@ -2117,8 +2118,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
+
 
 
 
@@ -2127,7 +2127,7 @@ __webpack_require__.r(__webpack_exports__);
     AdminResourceList: _components_admin_AdminResourceList__WEBPACK_IMPORTED_MODULE_0__["default"],
     DeleteModal: _components_admin_DeleteModal_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
-  mixins: [_mixins_getResourcesMixin_js__WEBPACK_IMPORTED_MODULE_2__["getResourcesMixin"]],
+  mixins: [_mixins_getResourcesMixin_js__WEBPACK_IMPORTED_MODULE_2__["getResourcesMixin"], _mixins_deleteResourceMixin_js__WEBPACK_IMPORTED_MODULE_3__["deleteResourceMixin"]],
   created: function created() {
     this.getResources('posts');
     this.getResources('portfolioitems');
@@ -2139,30 +2139,6 @@ __webpack_require__.r(__webpack_exports__);
     deleteModalDataTarget: function deleteModalDataTarget(data) {
       var dataTargetValue = "#confirmDelete".concat(data.type).concat(data.id, "Modal");
       return dataTargetValue;
-    },
-    deletePost: function deletePost(id) {
-      var _this = this;
-
-      axios["delete"]("/api/posts/" + id).then(function (response) {
-        return _this.getResources('posts');
-      });
-      $('.modal-backdrop').remove();
-    },
-    deletePortfolioItem: function deletePortfolioItem(id) {
-      var _this2 = this;
-
-      axios["delete"]("/api/portfolioitems/" + id).then(function (response) {
-        return _this2.getResources('portfolioitems');
-      });
-      $('.modal-backdrop').remove();
-    },
-    deleteTutorial: function deleteTutorial(id) {
-      var _this3 = this;
-
-      axios["delete"]("/api/tutorials/" + id).then(function (response) {
-        return _this3.getResources('tutorials');
-      });
-      $('.modal-backdrop').remove();
     }
   },
   props: {
@@ -75287,7 +75263,11 @@ var render = function() {
           attrs: { resource: _vm.resource },
           on: {
             "delete-resource": function($event) {
-              return _vm.$emit("delete-resource", _vm.resource.id)
+              return _vm.$emit(
+                "delete-resource",
+                _vm.resource.api_route,
+                _vm.resource.id
+              )
             }
           }
         })
@@ -75329,7 +75309,11 @@ var render = function() {
             attrs: { resource: resource },
             on: {
               "delete-resource": function($event) {
-                return _vm.$emit("delete-resource", resource.id)
+                return _vm.$emit(
+                  "delete-resource",
+                  resource.api_route,
+                  resource.id
+                )
               }
             }
           })
@@ -75608,7 +75592,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("AdminResourceList", {
                   attrs: { resources: this.posts },
-                  on: { "delete-resource": _vm.deletePost }
+                  on: { "delete-resource": _vm.deleteResource }
                 })
               ],
               1
@@ -75637,7 +75621,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("AdminResourceList", {
                   attrs: { resources: this.portfolioitems },
-                  on: { "delete-resource": _vm.deletePortfolioItem }
+                  on: { "delete-resource": _vm.deleteResource }
                 })
               ],
               1
@@ -75666,7 +75650,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("AdminResourceList", {
                   attrs: { resources: this.tutorials },
-                  on: { "delete-resource": _vm.deleteTutorial }
+                  on: { "delete-resource": _vm.deleteResource }
                 })
               ],
               1
@@ -100792,6 +100776,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ResourceList_vue_vue_type_template_id_d0262adc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/mixins/deleteResourceMixin.js":
+/*!****************************************************!*\
+  !*** ./resources/js/mixins/deleteResourceMixin.js ***!
+  \****************************************************/
+/*! exports provided: deleteResourceMixin */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteResourceMixin", function() { return deleteResourceMixin; });
+var deleteResourceMixin = {
+  created: function created() {
+    console.log("delete resource mixin created");
+  },
+  methods: {
+    deleteResource: function deleteResource(type, id) {
+      var _this = this;
+
+      axios["delete"]("/api/".concat(type, "/").concat(id)).then(function (response) {
+        return _this.getResources(type);
+      });
+      $('.modal-backdrop').remove();
+    }
+  }
+};
 
 /***/ }),
 

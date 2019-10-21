@@ -20,7 +20,7 @@
                     <router-link :to="{ name: 'create-blog-post' }">New Post</router-link>
                 </div>
 
-                <AdminResourceList :resources="this.posts" @delete-resource="deletePost" />
+                <AdminResourceList :resources="this.posts" @delete-resource="deleteResource" />
 
             </section>
 
@@ -35,7 +35,7 @@
                     <router-link :to="{ name: 'create-portfolio-item' }">New Portfolio Item</router-link>
                 </div>
 
-                <AdminResourceList :resources="this.portfolioitems" @delete-resource="deletePortfolioItem" />
+                <AdminResourceList :resources="this.portfolioitems" @delete-resource="deleteResource" />
 
             </section>
 
@@ -50,7 +50,7 @@
                     <router-link :to="{ name: 'create-tutorial-item' }">New Tutorial</router-link>
                 </div>
 
-                <AdminResourceList :resources="this.tutorials" @delete-resource="deleteTutorial" />
+                <AdminResourceList :resources="this.tutorials" @delete-resource="deleteResource" />
 
             </section>
 
@@ -59,7 +59,6 @@
                 <h2>Users</h2>
 
                 <ul>
-
                     <li v-for="user in users" :key="user.id">
                         <section class="admin-user-group">
                             <h5>{{user.name}}</h5>
@@ -70,7 +69,6 @@
                             <button class="btn btn-primary" type="button">Delete</button>
                         </section>
                     </li>
-
                 </ul>
 
             </section>
@@ -86,13 +84,17 @@
     import AdminResourceList from '../components/admin/AdminResourceList';
     import DeleteModal from '../components/admin/DeleteModal.vue';
     import { getResourcesMixin } from '../mixins/getResourcesMixin.js';
+    import { deleteResourceMixin } from '../mixins/deleteResourceMixin.js';
 
     export default {
         components: {
             AdminResourceList,
             DeleteModal,
         },
-        mixins: [ getResourcesMixin ],
+        mixins: [
+            getResourcesMixin,
+            deleteResourceMixin,
+        ],
         created() {
             this.getResources('posts');
             this.getResources('portfolioitems');
@@ -104,21 +106,6 @@
             deleteModalDataTarget(data) {
                 const dataTargetValue = `#confirmDelete${data.type}${data.id}Modal`;
                 return dataTargetValue;
-            },
-            deletePost(id) {
-                axios.delete("/api/posts/" + id)
-                    .then(response => this.getResources('posts'))
-                    $('.modal-backdrop').remove();
-            },
-            deletePortfolioItem(id) {
-                axios.delete("/api/portfolioitems/" + id)
-                    .then(response => this.getResources('portfolioitems'));
-                $('.modal-backdrop').remove();
-            },
-            deleteTutorial(id) {
-                axios.delete("/api/tutorials/" + id)
-                    .then(response => this.getResources('tutorials'));
-                $('.modal-backdrop').remove();
             },
         },
         props: {

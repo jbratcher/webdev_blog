@@ -15,6 +15,7 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->string('type')->default('blog');
+            $table->string('api_route')->default('posts');
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->string('title');

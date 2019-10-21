@@ -2,7 +2,7 @@
 
     <ul>
         <li v-for="resource in resources" :key="resource.id">
-            <AdminResourceItem :resource="resource" @delete-resource="$emit('delete-resource', resource.id)" />
+            <AdminResourceItem :resource="resource" @delete-resource="$emit('delete-resource', resource.api_route, resource.id)" />
         </li>
     </ul>
 

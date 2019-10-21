@@ -14,7 +14,7 @@
             >
                 Delete
             </button>
-            <DeleteModal :resource="resource" @delete-resource="$emit('delete-resource', resource.id)" />
+            <DeleteModal :resource="resource" @delete-resource="$emit('delete-resource', resource.api_route, resource.id)" />
 
         </section>
     </div>
