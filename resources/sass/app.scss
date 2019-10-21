@@ -98,7 +98,7 @@ header {
     padding: 0.5rem;
 
     h1 {
-        font-size: 1.25rem;
+        font-size: 1rem;
         font-weight: bold;
         letter-spacing: 3px;
         margin-bottom: 0.25rem;
@@ -145,20 +145,20 @@ a.nav-link.router-link-exact-active.router-link-active {
 
     h2 {
         font-weight: 700;
-        margin: 1rem 0;
+        margin: 1rem 0 0.5rem;
     }
 
     p {
         color: #fff;
     }
 
-    &>p {
+    & > p {
         color: #000;
     }
 
     p.lead {
         font-size: 1rem;
-        margin: 1rem 0;
+        margin: 0.5rem 0 1rem;
     }
 
     a {
@@ -224,7 +224,7 @@ a.nav-link.router-link-exact-active.router-link-active {
     margin: 0.5rem 0 2.5rem 0;
 
     li {
-        margin: 2.5rem 0;
+        margin: 0 0 2.5rem 0;
     }
 
     a {
@@ -266,6 +266,7 @@ a.nav-link.router-link-exact-active.router-link-active {
             right: 0;
             transform: scale(0);
             transition: 0.5s cubic-bezier(.2,.8,.2,1) 0.25s;
+            width: 100%;
         }
 
         .card-buttons {
@@ -330,6 +331,10 @@ a.nav-link.router-link-exact-active.router-link-active {
 
 #contact section.contact-form {
     padding: 1.25rem;
+
+    h2 {
+        font-size: 1.5rem;
+    }
 
     p {
         color: #000;
@@ -502,14 +507,14 @@ h2 {
     }
 
     .global-banner {
-        padding: 1rem 3rem;
+        padding: 0.5rem 3rem;
 
         h1 {
-            font-size: 2rem;
+            font-size: 1.5rem;
         }
 
         p.lead {
-            font-size: 1.125rem;
+            font-size: 1rem;
         }
 
     }
@@ -539,7 +544,6 @@ h2 {
 
         p.lead {
             font-size: 1.33rem;
-            margin: 0.5rem 0;
         }
 
     }
@@ -601,7 +605,7 @@ h2 {
             }
 
             p, label, button {
-                font-size: 1.33rem;
+                font-size: 1rem;
             }
 
             .open {

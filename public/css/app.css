@@ -10744,7 +10744,7 @@ header {
 }
 
 .global-banner h1 {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: bold;
   letter-spacing: 3px;
   margin-bottom: 0.25rem;
@@ -10777,7 +10777,7 @@ a.nav-link.router-link-exact-active.router-link-active:focus-within {
 
 .content-section h2 {
   font-weight: 700;
-  margin: 1rem 0;
+  margin: 1rem 0 0.5rem;
 }
 
 .content-section p {
@@ -10790,7 +10790,7 @@ a.nav-link.router-link-exact-active.router-link-active:focus-within {
 
 .content-section p.lead {
   font-size: 1rem;
-  margin: 1rem 0;
+  margin: 0.5rem 0 1rem;
 }
 
 .content-section a {
@@ -10848,7 +10848,7 @@ a.nav-link.router-link-exact-active.router-link-active:focus-within {
 }
 
 .posts-list li {
-  margin: 2.5rem 0;
+  margin: 0 0 2.5rem 0;
 }
 
 .posts-list a {
@@ -10893,6 +10893,7 @@ a.nav-link.router-link-exact-active.router-link-active:focus-within {
   right: 0;
   transform: scale(0);
   transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.25s;
+  width: 100%;
 }
 
 .posts-list a .card-buttons {
@@ -10948,6 +10949,10 @@ a.nav-link.router-link-exact-active.router-link-active:focus-within {
 
 #contact section.contact-form {
   padding: 1.25rem;
+}
+
+#contact section.contact-form h2 {
+  font-size: 1.5rem;
 }
 
 #contact section.contact-form p {
@@ -11112,15 +11117,15 @@ h2 {
   }
 
   .global-banner {
-    padding: 1rem 3rem;
+    padding: 0.5rem 3rem;
   }
 
   .global-banner h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   .global-banner p.lead {
-    font-size: 1.125rem;
+    font-size: 1rem;
   }
 
   .posts-list {
@@ -11145,7 +11150,6 @@ h2 {
 
   .content-section p.lead {
     font-size: 1.33rem;
-    margin: 0.5rem 0;
   }
 
   .card {
@@ -11197,7 +11201,7 @@ h2 {
   #contact section.contact-form p,
   #contact section.contact-form label,
   #contact section.contact-form button {
-    font-size: 1.33rem;
+    font-size: 1rem;
   }
 
   #contact section.contact-form .open {
