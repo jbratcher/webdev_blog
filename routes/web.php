@@ -13,10 +13,6 @@
 
 Auth::routes();
 
-// Login Route (Laravel router)
-
-Route::get('/home', 'HomeController@index')->name('home');
-
 // Vue router catch all
 
 Route::get('/{any}', 'SpaController@index')->where('any', '.*');
