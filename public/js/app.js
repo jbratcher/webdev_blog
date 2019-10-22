@@ -2219,6 +2219,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     userId: {
@@ -2848,6 +2849,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -76690,7 +76696,20 @@ var staticRenderFns = [
       _c("section", { staticClass: "container" }, [
         _c("p", [_vm._v("Louisville, KY")]),
         _vm._v(" "),
-        _c("p", [_vm._v("2017 - 2019")])
+        _c("p", [_vm._v("2017 - 2019")]),
+        _vm._v(" "),
+        _c("p", [
+          _c(
+            "a",
+            {
+              attrs: {
+                href: "https://www.github.com/jbratcher",
+                target: "_blank"
+              }
+            },
+            [_c("i", { staticClass: "fab fa-github fa-2x" })]
+          )
+        ])
       ])
     ])
   }
@@ -100418,7 +100437,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var v_markdown_editor_dist_index_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(v_markdown_editor_dist_index_css__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _views_App__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./views/App */ "./resources/js/views/App.vue");
 /* harmony import */ var _views_Admin__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./views/Admin */ "./resources/js/views/Admin.vue");
-// Load project dependencies
+// Load project dependencies (Laravel bootstrap)
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // Modules
 
 
@@ -101198,10 +101217,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_tutorial_TutorialSingle_vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./views/tutorial/TutorialSingle.vue */ "./resources/js/views/tutorial/TutorialSingle.vue");
 /* harmony import */ var _views_tutorial_CreateTutorialItem_vue__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./views/tutorial/CreateTutorialItem.vue */ "./resources/js/views/tutorial/CreateTutorialItem.vue");
 /* harmony import */ var _views_tutorial_EditTutorialItem_vue__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./views/tutorial/EditTutorialItem.vue */ "./resources/js/views/tutorial/EditTutorialItem.vue");
-// set up
+// Setup
 
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]); // views
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]); // Views
 
 
 

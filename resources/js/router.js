@@ -1,9 +1,10 @@
-// set up
+// Setup
+
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 Vue.use( VueRouter );
 
-// views
+// Views
 
 import Admin from "./views/Admin";
 import Home from './views/Home';

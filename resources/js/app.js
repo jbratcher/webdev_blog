@@ -1,4 +1,4 @@
-// Load project dependencies
+// Load project dependencies (Laravel bootstrap)
 
 require('./bootstrap');
 
