@@ -20,6 +20,7 @@ class TutorialsTableSeeder extends Seeder
         How to render form data using HTML.
         You can use any string type to render HTML to the page.
         EOT;
+
         $tutorial->image_src = "/images/blog2.jpg";
         $tutorial->slug = "rendering-html-from-a-mysql-database";
         $tutorial->intro = "";

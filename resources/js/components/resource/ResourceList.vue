@@ -1,6 +1,6 @@
 <template>
 
-    <ul class="posts-list" :id="resources[0].type">
+    <ul class="posts-list" :id="resources[0].category">
         <li class="post-card" v-for="resource in resources" :key="resource.id">
             <ResourceItem :resource="resource" />
         </li>

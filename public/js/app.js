@@ -75788,7 +75788,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "ul",
-    { staticClass: "posts-list", attrs: { id: _vm.resources[0].type } },
+    { staticClass: "posts-list", attrs: { id: _vm.resources[0].category } },
     _vm._l(_vm.resources, function(resource) {
       return _c(
         "li",
