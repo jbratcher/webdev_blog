@@ -23257,7 +23257,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 exports.push([module.i, "@import url(https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css);", ""]);
 
 // module
-exports.push([module.i, "\n.page {\n    position: fixed;\n    width: 100%;\n}\n\n", ""]);
+exports.push([module.i, "\n.page {\n    position: absolute;\n    width: 100%;\n}\n\n", ""]);
 
 // exports
 
