@@ -1,6 +1,6 @@
 <template>
 
-    <section>
+    <section class="parent">
 
         <global-header :userName="userName" :userId="userId" />
 
@@ -34,10 +34,5 @@
 
 <style>
     @import "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css";
-
-    .page {
-        position: absolute;
-        width: 100%;
-    }
 
 </style>
