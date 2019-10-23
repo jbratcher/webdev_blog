@@ -14,7 +14,7 @@ class CreateTutorialsTable extends Migration
     public function up()
     {
         Schema::create('tutorials', function (Blueprint $table) {
-            $table->string('type')->default('tutorial');
+            $table->string('category')->default('tutorial');
             $table->string('api_route')->default('tutorials');
             $table->increments('id');
             $table->integer('user_id')->unsigned()->nullable();

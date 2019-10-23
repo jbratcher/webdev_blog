@@ -39,12 +39,14 @@ const router = new VueRouter({
         {
             path: "/",
             name: "home",
-            component: Home
+            component: Home,
+            props: true,
         },
         {
             path: "/blog",
             name: "blog",
-            component: Blog
+            component: Blog,
+            props: true,
         },
         {
             path: "/blog/view/:slug?/:id?",
@@ -55,10 +57,11 @@ const router = new VueRouter({
         {
             path: "/blog/create",
             name: "create-blog-item",
-            component: CreateBlogItem
+            component: CreateBlogItem,
+            props: true,
         },
         {
-            path: '/blog/edit/view/:slug/:id',
+            path: '/blog/edit/view/:slug?/:id?',
             name: "edit-blog-item",
             component: EditBlogItem,
             props: true,
@@ -66,7 +69,8 @@ const router = new VueRouter({
         {
             path: "/portfolio",
             name: "portfolio",
-            component: Portfolio
+            component: Portfolio,
+            props: true,
         },
         {
             path: '/portfolio/view/:slug?/:id?',
@@ -77,10 +81,11 @@ const router = new VueRouter({
         {
             path: "/portfolio/create",
             name: "create-portfolio-item",
-            component: CreatePortfolioItem
+            component: CreatePortfolioItem,
+            props: true,
         },
         {
-            path: '/portfolio/edit/view/:slug/:id',
+            path: '/portfolio/edit/view/:slug?/:id?',
             name: "edit-portfolio-item",
             component: EditPortfolioItem,
             props: true,
@@ -88,7 +93,8 @@ const router = new VueRouter({
         {
             path: "/tutorials",
             name: "tutorials",
-            component: Tutorials
+            component: Tutorials,
+            props: true,
         },
         {
             path: '/tutorials/view/:slug?/:id?',
@@ -99,10 +105,11 @@ const router = new VueRouter({
         {
             path: "/tutorial/create",
             name: "create-tutorial-item",
-            component: CreateTutorialItem
+            component: CreateTutorialItem,
+            props: true,
         },
         {
-            path: '/tutorials/edit/view/:slug/:id',
+            path: '/tutorials/edit/view/:slug?/:id?',
             name: "edit-tutorial-item",
             component: EditTutorialItem,
             props: true,
@@ -110,12 +117,14 @@ const router = new VueRouter({
         {
             path: "/contact",
             name: "contact",
-            component: Contact
+            component: Contact,
+            props: true,
         },
         {
             path: "/admin",
             name: "admin",
-            component: Admin
+            component: Admin,
+            props: true,
         },
     ]
 });

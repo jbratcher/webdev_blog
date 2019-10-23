@@ -3,7 +3,7 @@
 
         <global-header :userName="userName" :userId="userId" />
 
-        <main>
+        <main v-if="loaded">
 
             <section class="container content-section contact-intro" id="contact">
 
@@ -47,8 +47,9 @@
                 axios.get("/api/users").then(response => {
                     this.users = response.data;
                 })
+                .then(this.loaded = true)
                 .catch(error => {
-                    this.loading = false;
+                    this.loaded = false;
                     this.error = error.response.data.message || error.message;
                 });
             },

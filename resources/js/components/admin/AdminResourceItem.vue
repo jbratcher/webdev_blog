@@ -7,7 +7,7 @@
         <section class="admin-actions">
             <router-link
                 class="btn btn-primary"
-                :to="{ name: `edit-${resource ? resource.type : ''}-item`, params: { slug: resource.slug, id: resource.id} }"
+                :to="{ name: `edit-${resource.category}-item`, params: { slug: resource.slug, id: resource.id} }"
             >
                 Edit
             </router-link>

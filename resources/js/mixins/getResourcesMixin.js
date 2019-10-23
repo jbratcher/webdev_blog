@@ -6,6 +6,7 @@ export const getResourcesMixin = {
         return {
             posts: [
                 {
+                    category: 'blog',
                     user_id: null,
                     title: "",
                     image_src: null,
@@ -15,6 +16,7 @@ export const getResourcesMixin = {
             ],
             portfolioitems: [
                 {
+                    category: 'portfolio',
                     user_id: null,
                     title: "",
                     image_src: null,
@@ -26,6 +28,7 @@ export const getResourcesMixin = {
             ],
             tutorials: [
                 {
+                    category: 'tutorial',
                     user_id: null,
                     title: "",
                     image_src: null,
@@ -43,6 +46,7 @@ export const getResourcesMixin = {
                     bio: "",
                 }
             ],
+            loaded: false,
         };
     },
     methods: {
@@ -52,7 +56,9 @@ export const getResourcesMixin = {
                 this[resourceType] = response.data;
             })
             .then(() => this.truncateResources(resourceType))
+            .then(this.loaded = true)
             .catch(error => {
+                this.loaded = false;
                 this.error = error.response.data.message || error.message;
                 console.log(`Error in getResources: ${this.error}`);
             });

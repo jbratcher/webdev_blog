@@ -2385,8 +2385,8 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/api/users").then(function (response) {
         _this.users = response.data;
-      })["catch"](function (error) {
-        _this.loading = false;
+      }).then(this.loaded = true)["catch"](function (error) {
+        _this.loaded = false;
         _this.error = error.response.data.message || error.message;
       });
     }
@@ -75574,10 +75574,7 @@ var render = function() {
                 staticClass: "btn btn-primary",
                 attrs: {
                   to: {
-                    name:
-                      "edit-" +
-                      (_vm.resource ? _vm.resource.type : "") +
-                      "-item",
+                    name: "edit-" + _vm.resource.category + "-item",
                     params: { slug: _vm.resource.slug, id: _vm.resource.id }
                   }
                 }
@@ -75799,10 +75796,10 @@ var render = function() {
             "router-link",
             {
               attrs: {
-                to: { name: "create-" + _vm.resources[0].type + "-item" }
+                to: { name: "create-" + _vm.resources[0].category + "-item" }
               }
             },
-            [_vm._v("New " + _vm._s(_vm.resources[0].type))]
+            [_vm._v("New " + _vm._s(_vm.resources[0].category))]
           )
         ],
         1
@@ -75836,7 +75833,7 @@ var render = function() {
     {
       attrs: {
         to: {
-          name: _vm.resource.type + "-single",
+          name: _vm.resource.category + "-single",
           params: { slug: _vm.resource.slug, id: _vm.resource.id }
         }
       }
@@ -75866,7 +75863,7 @@ var render = function() {
                   staticClass: "btn btn-primary read-more",
                   attrs: {
                     to: {
-                      name: _vm.resource.type + "-single",
+                      name: _vm.resource.category + "-single",
                       params: { slug: _vm.resource.slug, id: _vm.resource.id }
                     }
                   }
@@ -76090,34 +76087,36 @@ var render = function() {
         attrs: { userName: _vm.userName, userId: _vm.userId }
       }),
       _vm._v(" "),
-      _c("main", [
-        _c(
-          "section",
-          {
-            staticClass: "container content-section contact-intro",
-            attrs: { id: "contact" }
-          },
-          [
-            _vm._l(_vm.users, function(user) {
-              return _c(
-                "section",
-                { key: user.id, staticClass: "card about" },
-                [
-                  _c("img", {
-                    staticClass: "card-img-top",
-                    attrs: { src: user.profile_pic_src, alt: user.name }
-                  }),
-                  _vm._v(" "),
-                  _vm._m(0, true)
-                ]
-              )
-            }),
-            _vm._v(" "),
-            _c("ContactForm")
-          ],
-          2
-        )
-      ]),
+      _vm.loaded
+        ? _c("main", [
+            _c(
+              "section",
+              {
+                staticClass: "container content-section contact-intro",
+                attrs: { id: "contact" }
+              },
+              [
+                _vm._l(_vm.users, function(user) {
+                  return _c(
+                    "section",
+                    { key: user.id, staticClass: "card about" },
+                    [
+                      _c("img", {
+                        staticClass: "card-img-top",
+                        attrs: { src: user.profile_pic_src, alt: user.name }
+                      }),
+                      _vm._v(" "),
+                      _vm._m(0, true)
+                    ]
+                  )
+                }),
+                _vm._v(" "),
+                _c("ContactForm")
+              ],
+              2
+            )
+          ])
+        : _vm._e(),
       _vm._v(" "),
       _c("global-footer")
     ],
@@ -101261,6 +101260,7 @@ var getResourcesMixin = {
   data: function data() {
     return {
       posts: [{
+        category: 'blog',
         user_id: null,
         title: "",
         image_src: null,
@@ -101268,6 +101268,7 @@ var getResourcesMixin = {
         intro: ""
       }],
       portfolioitems: [{
+        category: 'portfolio',
         user_id: null,
         title: "",
         image_src: null,
@@ -101277,6 +101278,7 @@ var getResourcesMixin = {
         repo_url: ""
       }],
       tutorials: [{
+        category: 'tutorial',
         user_id: null,
         title: "",
         image_src: null,
@@ -101290,7 +101292,8 @@ var getResourcesMixin = {
         profile_pic_src: "",
         intro: "",
         bio: ""
-      }]
+      }],
+      loaded: false
     };
   },
   methods: {
@@ -101302,7 +101305,8 @@ var getResourcesMixin = {
         _this[resourceType] = response.data;
       }).then(function () {
         return _this.truncateResources(resourceType);
-      })["catch"](function (error) {
+      }).then(this.loaded = true)["catch"](function (error) {
+        _this.loaded = false;
         _this.error = error.response.data.message || error.message;
         console.log("Error in getResources: ".concat(_this.error));
       });
@@ -101375,11 +101379,13 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   routes: [{
     path: "/",
     name: "home",
-    component: _views_Home__WEBPACK_IMPORTED_MODULE_3__["default"]
+    component: _views_Home__WEBPACK_IMPORTED_MODULE_3__["default"],
+    props: true
   }, {
     path: "/blog",
     name: "blog",
-    component: _views_blog_Blog_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
+    component: _views_blog_Blog_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+    props: true
   }, {
     path: "/blog/view/:slug?/:id?",
     name: "blog-single",
@@ -101388,16 +101394,18 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }, {
     path: "/blog/create",
     name: "create-blog-item",
-    component: _views_blog_CreateBlogItem_vue__WEBPACK_IMPORTED_MODULE_7__["default"]
+    component: _views_blog_CreateBlogItem_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
+    props: true
   }, {
-    path: '/blog/edit/view/:slug/:id',
+    path: '/blog/edit/view/:slug?/:id?',
     name: "edit-blog-item",
     component: _views_blog_EditBlogItem__WEBPACK_IMPORTED_MODULE_8__["default"],
     props: true
   }, {
     path: "/portfolio",
     name: "portfolio",
-    component: _views_portfolio_Portfolio_vue__WEBPACK_IMPORTED_MODULE_9__["default"]
+    component: _views_portfolio_Portfolio_vue__WEBPACK_IMPORTED_MODULE_9__["default"],
+    props: true
   }, {
     path: '/portfolio/view/:slug?/:id?',
     name: "portfolio-single",
@@ -101406,16 +101414,18 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }, {
     path: "/portfolio/create",
     name: "create-portfolio-item",
-    component: _views_portfolio_CreatePortfolioItem_vue__WEBPACK_IMPORTED_MODULE_11__["default"]
+    component: _views_portfolio_CreatePortfolioItem_vue__WEBPACK_IMPORTED_MODULE_11__["default"],
+    props: true
   }, {
-    path: '/portfolio/edit/view/:slug/:id',
+    path: '/portfolio/edit/view/:slug?/:id?',
     name: "edit-portfolio-item",
     component: _views_portfolio_EditPortfolioItem__WEBPACK_IMPORTED_MODULE_12__["default"],
     props: true
   }, {
     path: "/tutorials",
     name: "tutorials",
-    component: _views_tutorial_Tutorials_vue__WEBPACK_IMPORTED_MODULE_13__["default"]
+    component: _views_tutorial_Tutorials_vue__WEBPACK_IMPORTED_MODULE_13__["default"],
+    props: true
   }, {
     path: '/tutorials/view/:slug?/:id?',
     name: "tutorial-single",
@@ -101424,20 +101434,23 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }, {
     path: "/tutorial/create",
     name: "create-tutorial-item",
-    component: _views_tutorial_CreateTutorialItem_vue__WEBPACK_IMPORTED_MODULE_15__["default"]
+    component: _views_tutorial_CreateTutorialItem_vue__WEBPACK_IMPORTED_MODULE_15__["default"],
+    props: true
   }, {
-    path: '/tutorials/edit/view/:slug/:id',
+    path: '/tutorials/edit/view/:slug?/:id?',
     name: "edit-tutorial-item",
     component: _views_tutorial_EditTutorialItem_vue__WEBPACK_IMPORTED_MODULE_16__["default"],
     props: true
   }, {
     path: "/contact",
     name: "contact",
-    component: _views_Contact__WEBPACK_IMPORTED_MODULE_4__["default"]
+    component: _views_Contact__WEBPACK_IMPORTED_MODULE_4__["default"],
+    props: true
   }, {
     path: "/admin",
     name: "admin",
-    component: _views_Admin__WEBPACK_IMPORTED_MODULE_2__["default"]
+    component: _views_Admin__WEBPACK_IMPORTED_MODULE_2__["default"],
+    props: true
   }]
 });
 /* harmony default export */ __webpack_exports__["default"] = (router);

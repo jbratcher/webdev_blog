@@ -1,6 +1,6 @@
 <template>
 
-    <router-link :to="{ name: `${resource.type}-single`, params: { slug: resource.slug, id: resource.id} }">
+    <router-link :to="{ name: `${resource.category}-single`, params: { slug: resource.slug, id: resource.id} }">
         <img :src="resource.image_src" :alt="resource.title">
         <h5 class="card-title">{{resource.title}}</h5>
         <div class="card-body">
@@ -8,7 +8,7 @@
             <div class="card-buttons">
                 <router-link
                     class="btn btn-primary read-more"
-                    :to="{ name: `${resource.type}-single`, params: { slug: resource.slug, id: resource.id} }"
+                    :to="{ name: `${resource.category}-single`, params: { slug: resource.slug, id: resource.id} }"
                 >
                     Read More
                 </router-link>
