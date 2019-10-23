@@ -2163,6 +2163,84 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/resource/ResourceForm.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/resource/ResourceForm.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _mixins_editResourceMixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../mixins/editResourceMixin */ "./resources/js/mixins/editResourceMixin.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  created: function created() {
+    console.log("Edit post vue created");
+  },
+  updated: function updated() {
+    this.updateEditorValue();
+  },
+  name: 'ResourceForm',
+  mixins: [_mixins_editResourceMixin__WEBPACK_IMPORTED_MODULE_0__["editResourceMixin"]],
+  props: ['resource', 'user']
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/resource/ResourceItem.vue?vue&type=script&lang=js&":
 /*!********************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/resource/ResourceItem.vue?vue&type=script&lang=js& ***!
@@ -2712,54 +2790,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _mixins_editResourceMixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../mixins/editResourceMixin */ "./resources/js/mixins/editResourceMixin.js");
+/* harmony import */ var _components_resource_ResourceForm_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/resource/ResourceForm.vue */ "./resources/js/components/resource/ResourceForm.vue");
 /* harmony import */ var _mixins_getResourceMixin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../mixins/getResourceMixin */ "./resources/js/mixins/getResourceMixin.js");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -2779,14 +2811,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mixins: [_mixins_editResourceMixin__WEBPACK_IMPORTED_MODULE_0__["editResourceMixin"], _mixins_getResourceMixin__WEBPACK_IMPORTED_MODULE_1__["getResourceMixin"]],
+  components: {
+    ResourceForm: _components_resource_ResourceForm_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  mixins: [_mixins_getResourceMixin__WEBPACK_IMPORTED_MODULE_1__["getResourceMixin"]],
   created: function created() {
     this.getResource('posts');
     this.getUser();
     console.log("Edit post vue created");
-  },
-  updated: function updated() {
-    this.updateEditorValue();
   }
 });
 
@@ -3028,76 +3060,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _mixins_editResourceMixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../mixins/editResourceMixin */ "./resources/js/mixins/editResourceMixin.js");
+/* harmony import */ var _components_resource_ResourceForm_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/resource/ResourceForm.vue */ "./resources/js/components/resource/ResourceForm.vue");
 /* harmony import */ var _mixins_getResourceMixin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../mixins/getResourceMixin */ "./resources/js/mixins/getResourceMixin.js");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -3117,14 +3081,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mixins: [_mixins_editResourceMixin__WEBPACK_IMPORTED_MODULE_0__["editResourceMixin"], _mixins_getResourceMixin__WEBPACK_IMPORTED_MODULE_1__["getResourceMixin"]],
+  components: {
+    ResourceForm: _components_resource_ResourceForm_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  mixins: [_mixins_getResourceMixin__WEBPACK_IMPORTED_MODULE_1__["getResourceMixin"]],
   created: function created() {
     this.getResource('portfolioitems');
     this.getUser();
     console.log("Edit portfolio item vue mounted");
-  },
-  updated: function updated() {
-    this.updateEditorValue();
   }
 });
 
@@ -3337,54 +3301,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _mixins_editResourceMixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../mixins/editResourceMixin */ "./resources/js/mixins/editResourceMixin.js");
+/* harmony import */ var _components_resource_ResourceForm_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/resource/ResourceForm.vue */ "./resources/js/components/resource/ResourceForm.vue");
 /* harmony import */ var _mixins_getResourceMixin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../mixins/getResourceMixin */ "./resources/js/mixins/getResourceMixin.js");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -3404,14 +3322,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mixins: [_mixins_editResourceMixin__WEBPACK_IMPORTED_MODULE_0__["editResourceMixin"], _mixins_getResourceMixin__WEBPACK_IMPORTED_MODULE_1__["getResourceMixin"]],
+  components: {
+    ResourceForm: _components_resource_ResourceForm_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  mixins: [_mixins_getResourceMixin__WEBPACK_IMPORTED_MODULE_1__["getResourceMixin"]],
   created: function created() {
     this.getResource('tutorials');
     this.getUser();
     console.log("Edit tutorial vue mounted");
-  },
-  updated: function updated() {
-    this.updateEditorValue();
   }
 });
 
@@ -75668,6 +75586,141 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/resource/ResourceForm.vue?vue&type=template&id=63f3c3b8&":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/resource/ResourceForm.vue?vue&type=template&id=63f3c3b8& ***!
+  \************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("form", [
+    _c(
+      "div",
+      { class: ["form-group m-1 p-3", _vm.successful ? "alert-success" : ""] },
+      [
+        _vm.successful
+          ? _c("span", { staticClass: "label label-sucess" }, [
+              _vm._v("Published!")
+            ])
+          : _vm._e()
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { class: ["form-group m-1 p-3", _vm.error ? "alert-danger" : ""] },
+      [
+        _vm.errors.title
+          ? _c("span", { staticClass: "label label-danger" }, [
+              _vm._v("\n        " + _vm._s(_vm.errors.title[0]) + "\n        ")
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.errors.body
+          ? _c("span", { staticClass: "label label-danger" }, [
+              _vm._v("\n        " + _vm._s(_vm.errors.body[0]) + "\n        ")
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.errors.image
+          ? _c("span", { staticClass: "label label-danger" }, [
+              _vm._v("\n        " + _vm._s(_vm.errors.image[0]) + "\n        ")
+            ])
+          : _vm._e()
+      ]
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.resource[0].title,
+            expression: "resource[0].title"
+          }
+        ],
+        ref: "title",
+        staticClass: "form-control",
+        attrs: { type: "title", id: "title", required: "" },
+        domProps: { value: _vm.resource[0].title },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.resource[0], "title", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("markdown-editor", {
+          ref: "body",
+          attrs: {
+            id: "body",
+            toolbar:
+              "clipboard redo undo | bold italic strikethrough heading | image link | numlist bullist code quote | preview fullscreen"
+          },
+          model: {
+            value: _vm.resource[0].body,
+            callback: function($$v) {
+              _vm.$set(_vm.resource[0], "body", $$v)
+            },
+            expression: "resource[0].body"
+          }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "custom-file mb-3" }, [
+      _c("input", {
+        ref: "image",
+        staticClass: "custom-file-input",
+        attrs: { type: "file", name: "image", id: "image" }
+      }),
+      _vm._v(" "),
+      _c("label", { staticClass: "custom-file-label" }, [
+        _vm._v("Select image")
+      ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass: "btn btn-primary block",
+        attrs: { type: "submit" },
+        on: {
+          click: function($event) {
+            $event.preventDefault()
+            return _vm.editResource(_vm.resource.category, _vm.resource.id)
+          }
+        }
+      },
+      [_vm._v("\n        Submit\n    ")]
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/resource/ResourceItem.vue?vue&type=template&id=e4311af2&":
 /*!************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/resource/ResourceItem.vue?vue&type=template&id=e4311af2& ***!
@@ -76321,136 +76374,18 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("section", [
-    _c("section", { staticClass: "container" }, [
-      _c("h1", { staticClass: "post-edit-header" }, [_vm._v("Edit Post")]),
-      _vm._v(" "),
-      _c("form", [
-        _c(
-          "div",
-          {
-            class: ["form-group m-1 p-3", _vm.successful ? "alert-success" : ""]
-          },
-          [
-            _vm.successful
-              ? _c("span", { staticClass: "label label-sucess" }, [
-                  _vm._v("Published!")
-                ])
-              : _vm._e()
-          ]
-        ),
+    _c(
+      "section",
+      { staticClass: "container" },
+      [
+        _c("h1", { staticClass: "post-edit-header" }, [_vm._v("Edit Post")]),
         _vm._v(" "),
-        _c(
-          "div",
-          { class: ["form-group m-1 p-3", _vm.error ? "alert-danger" : ""] },
-          [
-            _vm.errors.title
-              ? _c("span", { staticClass: "label label-danger" }, [
-                  _vm._v(
-                    "\n                " +
-                      _vm._s(_vm.errors.title[0]) +
-                      "\n                "
-                  )
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.errors.body
-              ? _c("span", { staticClass: "label label-danger" }, [
-                  _vm._v(
-                    "\n                " +
-                      _vm._s(_vm.errors.body[0]) +
-                      "\n                "
-                  )
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.errors.image
-              ? _c("span", { staticClass: "label label-danger" }, [
-                  _vm._v(
-                    "\n                " +
-                      _vm._s(_vm.errors.image[0]) +
-                      "\n                "
-                  )
-                ])
-              : _vm._e()
-          ]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group" }, [
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.resource[0].title,
-                expression: "resource[0].title"
-              }
-            ],
-            ref: "title",
-            staticClass: "form-control",
-            attrs: { type: "title", id: "title", required: "" },
-            domProps: { value: _vm.resource[0].title },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.resource[0], "title", $event.target.value)
-              }
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "form-group" },
-          [
-            _c("markdown-editor", {
-              ref: "body",
-              attrs: {
-                id: "body",
-                toolbar:
-                  "clipboard redo undo | bold italic strikethrough heading | image link | numlist bullist code quote | preview fullscreen"
-              },
-              model: {
-                value: _vm.resource[0].body,
-                callback: function($$v) {
-                  _vm.$set(_vm.resource[0], "body", $$v)
-                },
-                expression: "resource[0].body"
-              }
-            })
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "custom-file mb-3" }, [
-          _c("input", {
-            ref: "image",
-            staticClass: "custom-file-input",
-            attrs: { type: "file", name: "image", id: "image" }
-          }),
-          _vm._v(" "),
-          _c("label", { staticClass: "custom-file-label" }, [
-            _vm._v("Select image")
-          ])
-        ]),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-primary block",
-            attrs: { type: "submit" },
-            on: {
-              click: function($event) {
-                $event.preventDefault()
-                return _vm.editResource(_vm.resource.category, _vm.resource.id)
-              }
-            }
-          },
-          [_vm._v("\n                Submit\n            ")]
-        )
-      ])
-    ])
+        _c("ResourceForm", {
+          attrs: { resource: this.resource, user: this.user }
+        })
+      ],
+      1
+    )
   ])
 }
 var staticRenderFns = []
@@ -76871,188 +76806,20 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("section", [
-    _c("section", { staticClass: "container" }, [
-      _c("h1", { staticClass: "post-edit-header" }, [
-        _vm._v("Edit Portfolio Item")
-      ]),
-      _vm._v(" "),
-      _c("form", [
-        _c(
-          "div",
-          {
-            class: ["form-group m-1 p-3", _vm.successful ? "alert-success" : ""]
-          },
-          [
-            _vm.successful
-              ? _c("span", { staticClass: "label label-sucess" }, [
-                  _vm._v("Published!")
-                ])
-              : _vm._e()
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { class: ["form-group m-1 p-3", _vm.error ? "alert-danger" : ""] },
-          [
-            _vm.errors.title
-              ? _c("span", { staticClass: "label label-danger" }, [
-                  _vm._v(
-                    "\n                " +
-                      _vm._s(_vm.errors.title[0]) +
-                      "\n                "
-                  )
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.errors.body
-              ? _c("span", { staticClass: "label label-danger" }, [
-                  _vm._v(
-                    "\n                " +
-                      _vm._s(_vm.errors.body[0]) +
-                      "\n                "
-                  )
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.errors.image
-              ? _c("span", { staticClass: "label label-danger" }, [
-                  _vm._v(
-                    "\n                " +
-                      _vm._s(_vm.errors.image[0]) +
-                      "\n                "
-                  )
-                ])
-              : _vm._e()
-          ]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group" }, [
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.resource[0].title,
-                expression: "resource[0].title"
-              }
-            ],
-            ref: "title",
-            staticClass: "form-control",
-            attrs: { type: "title", id: "title", required: "" },
-            domProps: { value: _vm.resource[0].title },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.resource[0], "title", $event.target.value)
-              }
-            }
-          })
+    _c(
+      "section",
+      { staticClass: "container" },
+      [
+        _c("h1", { staticClass: "post-edit-header" }, [
+          _vm._v("Edit Portfolio Item")
         ]),
         _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "form-group" },
-          [
-            _c("markdown-editor", {
-              ref: "body",
-              attrs: {
-                id: "body",
-                toolbar:
-                  "clipboard redo undo | bold italic strikethrough heading | image link | numlist bullist code quote | preview fullscreen"
-              },
-              model: {
-                value: _vm.resource[0].body,
-                callback: function($$v) {
-                  _vm.$set(_vm.resource[0], "body", $$v)
-                },
-                expression: "resource[0].body"
-              }
-            })
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "custom-file mb-3" }, [
-          _c("input", {
-            ref: "image",
-            staticClass: "custom-file-input",
-            attrs: { type: "file", name: "image", id: "image" }
-          }),
-          _vm._v(" "),
-          _c("label", { staticClass: "custom-file-label" }, [
-            _vm._v("Select image")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group" }, [
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.resource[0].demo_url,
-                expression: "resource[0].demo_url"
-              }
-            ],
-            ref: "demo_url",
-            staticClass: "form-control",
-            attrs: { type: "demo_url", id: "demo_url", required: "" },
-            domProps: { value: _vm.resource[0].demo_url },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.resource[0], "demo_url", $event.target.value)
-              }
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group" }, [
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.resource[0].repo_url,
-                expression: "resource[0].repo_url"
-              }
-            ],
-            ref: "repo_url",
-            staticClass: "form-control",
-            attrs: { type: "repo_url", id: "repo_url", required: "" },
-            domProps: { value: _vm.resource[0].repo_url },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.resource[0], "repo_url", $event.target.value)
-              }
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-primary block",
-            attrs: { type: "submit" },
-            on: {
-              click: function($event) {
-                $event.preventDefault()
-                return _vm.editResource(_vm.resource.category, _vm.resource.id)
-              }
-            }
-          },
-          [_vm._v("\n                Submit\n            ")]
-        )
-      ])
-    ])
+        _c("ResourceForm", {
+          attrs: { resource: this.resource, user: this.user }
+        })
+      ],
+      1
+    )
   ])
 }
 var staticRenderFns = []
@@ -77318,136 +77085,20 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("section", [
-    _c("section", { staticClass: "container" }, [
-      _c("h1", { staticClass: "post-edit-header" }, [_vm._v("Edit Tutorial")]),
-      _vm._v(" "),
-      _c("form", [
-        _c(
-          "div",
-          {
-            class: ["form-group m-1 p-3", _vm.successful ? "alert-success" : ""]
-          },
-          [
-            _vm.successful
-              ? _c("span", { staticClass: "label label-sucess" }, [
-                  _vm._v("Published!")
-                ])
-              : _vm._e()
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { class: ["form-group m-1 p-3", _vm.error ? "alert-danger" : ""] },
-          [
-            _vm.errors.title
-              ? _c("span", { staticClass: "label label-danger" }, [
-                  _vm._v(
-                    "\n                " +
-                      _vm._s(_vm.errors.title[0]) +
-                      "\n                "
-                  )
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.errors.body
-              ? _c("span", { staticClass: "label label-danger" }, [
-                  _vm._v(
-                    "\n                " +
-                      _vm._s(_vm.errors.body[0]) +
-                      "\n                "
-                  )
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.errors.image
-              ? _c("span", { staticClass: "label label-danger" }, [
-                  _vm._v(
-                    "\n                " +
-                      _vm._s(_vm.errors.image[0]) +
-                      "\n                "
-                  )
-                ])
-              : _vm._e()
-          ]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group" }, [
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.resource[0].title,
-                expression: "resource[0].title"
-              }
-            ],
-            ref: "title",
-            staticClass: "form-control",
-            attrs: { type: "title", id: "title", required: "" },
-            domProps: { value: _vm.resource[0].title },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.resource[0], "title", $event.target.value)
-              }
-            }
-          })
+    _c(
+      "section",
+      { staticClass: "container" },
+      [
+        _c("h1", { staticClass: "post-edit-header" }, [
+          _vm._v("Edit Tutorial")
         ]),
         _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "form-group" },
-          [
-            _c("markdown-editor", {
-              ref: "body",
-              attrs: {
-                id: "body",
-                toolbar:
-                  "clipboard redo undo | bold italic strikethrough heading | image link | numlist bullist code quote | preview fullscreen"
-              },
-              model: {
-                value: _vm.resource[0].body,
-                callback: function($$v) {
-                  _vm.$set(_vm.resource[0], "body", $$v)
-                },
-                expression: "resource[0].body"
-              }
-            })
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "custom-file mb-3" }, [
-          _c("input", {
-            ref: "image",
-            staticClass: "custom-file-input",
-            attrs: { type: "file", name: "image", id: "image" }
-          }),
-          _vm._v(" "),
-          _c("label", { staticClass: "custom-file-label" }, [
-            _vm._v("Select image")
-          ])
-        ]),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-primary block",
-            attrs: { type: "submit" },
-            on: {
-              click: function($event) {
-                $event.preventDefault()
-                return _vm.editResource(_vm.resource.category, _vm.resource.id)
-              }
-            }
-          },
-          [_vm._v("\n                Submit\n            ")]
-        )
-      ])
-    ])
+        _c("ResourceForm", {
+          attrs: { resource: this.resource, user: this.user }
+        })
+      ],
+      1
+    )
   ])
 }
 var staticRenderFns = []
@@ -100750,6 +100401,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NewResourceButton_vue_vue_type_template_id_3d8835ca___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NewResourceButton_vue_vue_type_template_id_3d8835ca___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/resource/ResourceForm.vue":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/resource/ResourceForm.vue ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ResourceForm_vue_vue_type_template_id_63f3c3b8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ResourceForm.vue?vue&type=template&id=63f3c3b8& */ "./resources/js/components/resource/ResourceForm.vue?vue&type=template&id=63f3c3b8&");
+/* harmony import */ var _ResourceForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ResourceForm.vue?vue&type=script&lang=js& */ "./resources/js/components/resource/ResourceForm.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ResourceForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ResourceForm_vue_vue_type_template_id_63f3c3b8___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ResourceForm_vue_vue_type_template_id_63f3c3b8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/resource/ResourceForm.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/resource/ResourceForm.vue?vue&type=script&lang=js&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/resource/ResourceForm.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ResourceForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ResourceForm.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/resource/ResourceForm.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ResourceForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/resource/ResourceForm.vue?vue&type=template&id=63f3c3b8&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/resource/ResourceForm.vue?vue&type=template&id=63f3c3b8& ***!
+  \******************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ResourceForm_vue_vue_type_template_id_63f3c3b8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./ResourceForm.vue?vue&type=template&id=63f3c3b8& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/resource/ResourceForm.vue?vue&type=template&id=63f3c3b8&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ResourceForm_vue_vue_type_template_id_63f3c3b8___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ResourceForm_vue_vue_type_template_id_63f3c3b8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
