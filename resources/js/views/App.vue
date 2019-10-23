@@ -36,7 +36,7 @@
     @import "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css";
 
     .page {
-        position: fixed;
+        position: absolute;
         width: 100%;
     }
 
