@@ -22,24 +22,7 @@
 
             <!-- Users -->
 
-            <section class="container resource-list">
-
-                <h2>Users</h2>
-
-                <ul>
-                    <li v-for="user in users" :key="user.id">
-                        <section class="admin-user-group">
-                            <h5>{{user.name}}</h5>
-                            <img class="img-fluid" :src="user.profile_pic_src" :alt="user.name">
-                        </section>
-                        <section class="admin-actions">
-                            <button class="btn btn-primary" type="button">Edit</button>
-                            <button class="btn btn-primary" type="button">Delete</button>
-                        </section>
-                    </li>
-                </ul>
-
-            </section>
+            <AdminResourceGroup :resources="this.users" @delete-resource="deleteResource" />
 
         </main>
 

@@ -6,7 +6,7 @@
 
             <h1 class="post-edit-header">Edit Portfolio Item</h1>
 
-            <ResourceForm :resource="this.resource" :user="this.user" />
+            <EditResourceForm :resource="this.resource" :user="this.user" />
 
         </section>
 
@@ -15,12 +15,12 @@
 </template>
 
 <script>
-    import ResourceForm from "../../components/resource/ResourceForm.vue";
+    import EditResourceForm from "../../components/resource/EditResourceForm.vue";
     import { getResourceMixin } from "../../mixins/getResourceMixin";
 
     export default {
         components: {
-            ResourceForm,
+            EditResourceForm,
         },
         mixins: [
             getResourceMixin,

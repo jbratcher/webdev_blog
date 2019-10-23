@@ -18,7 +18,7 @@
             </span>
         </div>
 
-        <div class="form-group">
+        <div v-if="resource.title" class="form-group">
             <input
                 type="title"
                 ref="title"
@@ -29,13 +29,57 @@
             >
         </div>
 
-        <div class="form-group">
+        <div v-if="resource.title" class="form-group">
             <markdown-editor
                 ref="body"
                 id="body"
                 toolbar="clipboard redo undo | bold italic strikethrough heading | image link | numlist bullist code quote | preview fullscreen"
                 v-model="resource[0].body"
             ></markdown-editor>
+        </div>
+
+        <div v-if="resource.name" class="form-group">
+            <input
+                type="name"
+                ref="name"
+                class="form-control"
+                id="name"
+                placeholder="Enter name"
+                required
+            >
+        </div>
+
+        <div v-if="resource.name" class="form-group">
+            <input
+                type="email"
+                ref="email"
+                class="form-control"
+                id="email"
+                placeholder="Enter email"
+                required
+            >
+        </div>
+
+        <div v-if="resource.name" class="form-group">
+            <input
+                type="intro"
+                ref="intro"
+                class="form-control"
+                id="intro"
+                placeholder="Enter intro"
+                required
+            >
+        </div>
+
+        <div v-if="resource.name" class="form-group">
+            <input
+                type="bio"
+                ref="bio"
+                class="form-control"
+                id="bio"
+                placeholder="Enter bio"
+                required
+            >
         </div>
 
         <div class="custom-file mb-3">
@@ -65,6 +109,6 @@
         mixins: [
             editResourceMixin,
         ],
-        props: ['resource', 'user'],
+        props: ['resource'],
     }
 </script>

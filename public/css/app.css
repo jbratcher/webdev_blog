@@ -11023,6 +11023,13 @@ h2 {
   margin: 2rem 0;
 }
 
+.resource-list ul .user-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0.5rem 1rem;
+  align-items: center;
+}
+
 .resource-list ul li > div {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -11030,20 +11037,16 @@ h2 {
   align-items: center;
 }
 
-.resource-list ul li h5 {
-  font-weight: bold;
-}
-
-.resource-list ul li .admin-user-group {
+.resource-list ul li section {
   display: flex;
 }
 
-.resource-list ul li .admin-user-group h5 {
+.resource-list ul li h5 {
   align-self: center;
   font-weight: bold;
 }
 
-.resource-list ul li .admin-user-group img {
+.resource-list ul li img {
   border-radius: 50%;
   height: 3rem;
   margin: 0 1rem;

@@ -38,6 +38,7 @@ export const getResourcesMixin = {
             ],
             users: [
                 {
+                    category: 'user',
                     id: null,
                     name: "",
                     email: "",
@@ -46,7 +47,6 @@ export const getResourcesMixin = {
                     bio: "",
                 }
             ],
-            loaded: false,
         };
     },
     methods: {
@@ -56,9 +56,7 @@ export const getResourcesMixin = {
                 this[resourceType] = response.data;
             })
             .then(() => this.truncateResources(resourceType))
-            .then(this.loaded = true)
             .catch(error => {
-                this.loaded = false;
                 this.error = error.response.data.message || error.message;
                 console.log(`Error in getResources: ${this.error}`);
             });

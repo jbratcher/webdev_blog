@@ -2,7 +2,12 @@
 
     <div v-if="resource">
 
-        <h5>{{resource.title.substring(0,80)}}</h5>
+        <h5 v-if="resource.title">{{resource.title.substring(0,80)}}</h5>
+
+        <section v-if="resource.name">
+            <h5>{{resource.name}}</h5>
+            <img class="img-fluid" :src="resource.profile_pic_src" :alt="resource.name">
+        </section>
 
         <section class="admin-actions">
             <router-link

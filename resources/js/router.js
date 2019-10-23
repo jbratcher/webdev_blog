@@ -31,6 +31,11 @@ import TutorialSingle from "./views/tutorial/TutorialSingle.vue";
 import CreateTutorialItem from "./views/tutorial/CreateTutorialItem.vue";
 import EditTutorialItem from "./views/tutorial/EditTutorialItem.vue";
 
+import Users from "./views/user/Users.vue"
+import UserSingle from "./views/user/UserSingle.vue";
+import CreateUserItem from "./views/user/CreateUserItem.vue";
+import EditUserItem from "./views/user/EditUserItem.vue";
+
 // Router
 
 const router = new VueRouter({
@@ -112,6 +117,30 @@ const router = new VueRouter({
             path: '/tutorials/edit/view/:slug?/:id?',
             name: "edit-tutorial-item",
             component: EditTutorialItem,
+            props: true,
+        },
+        {
+            path: "/users",
+            name: "users",
+            component: Users,
+            props: true,
+        },
+        {
+            path: '/users/view/:name?/:id?',
+            name: "user-single",
+            component: UserSingle,
+            props: true,
+        },
+        {
+            path: "/user/create",
+            name: "create-user-item",
+            component: CreateUserItem,
+            props: true,
+        },
+        {
+            path: '/users/edit/view/:slug?/:id?',
+            name: "edit-user-item",
+            component: EditUserItem,
             props: true,
         },
         {

@@ -4,9 +4,9 @@
 
         <section class="container">
 
-            <h1 class="post-edit-header">Edit Tutorial</h1>
+            <h1 class="post-edit-header">Edit User</h1>
 
-            <EditResourceForm :resource="this.resource" :user="this.user" />
+            <EditResourceForm :resource="this.resource" />
 
         </section>
 
@@ -26,8 +26,7 @@
             getResourceMixin,
         ],
         created() {
-            this.getResource('tutorials');
-            this.getUser();
+            this.getResource('user');
             console.log("Edit tutorial vue mounted");
         },
     };
