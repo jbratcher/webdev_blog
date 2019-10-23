@@ -2,8 +2,6 @@
 
     <section>
 
-        <global-header :userName="userName" :userId="userId" />
-
         <section class="container">
 
             <h1 class="post-edit-header">Create a tutorial</h1>
@@ -58,8 +56,6 @@
 
         </section>
 
-        <global-footer />
-
     </section>
 
 </template>
@@ -105,14 +101,6 @@
                 this.$refs.title.value = "";
                 this.$refs.body.value = "";
             }
-        },
-        props: {
-            userId: {
-                type: Number
-            },
-            userName: {
-                type: String
-            },
         },
     };
 </script>

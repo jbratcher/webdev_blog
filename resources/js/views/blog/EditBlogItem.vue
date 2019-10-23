@@ -2,8 +2,6 @@
 
     <section>
 
-        <global-header :userName="userName" :userId="userId" />
-
         <section class="container">
 
             <h1 class="post-edit-header">Edit Post</h1>
@@ -57,8 +55,6 @@
             </form>
 
         </section>
-
-        <global-footer />
 
     </section>
 
@@ -122,14 +118,6 @@
             updateEditorValue() {
                 this.editorValue = this.resource[0].body;
             }
-        },
-        props: {
-            userId: {
-                type: Number
-            },
-            userName: {
-                type: String
-            },
         },
     };
 </script>

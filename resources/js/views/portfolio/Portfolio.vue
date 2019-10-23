@@ -2,8 +2,6 @@
 
     <section>
 
-        <global-header :userName="userName" :userId="userId" />
-
         <div class="container-fluid global-banner">
             <h1>Portfolio</h1>
             <p class="lead">Here are my best and latest open-source projects.</p>
@@ -14,8 +12,6 @@
             <ResourceList :resources="this.portfolioitems" />
 
         </section>
-
-        <global-footer />
 
     </section>
 
@@ -34,13 +30,5 @@
             this.getResources('portfolioitems');
             console.log("Portfolio mounted");
         },
-        props: {
-            userId: {
-                type: Number
-            },
-            userName: {
-                type: String
-            },
-        }
     };
 </script>

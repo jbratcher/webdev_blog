@@ -2259,8 +2259,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 
@@ -2281,14 +2279,6 @@ __webpack_require__.r(__webpack_exports__);
       var dataTargetValue = "#confirmDelete".concat(data.type).concat(data.id, "Modal");
       return dataTargetValue;
     }
-  },
-  props: {
-    userId: {
-      type: Number
-    },
-    userName: {
-      type: String
-    }
   }
 });
 
@@ -2303,6 +2293,17 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2363,8 +2364,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2385,18 +2384,9 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/api/users").then(function (response) {
         _this.users = response.data;
-      }).then(this.loaded = true)["catch"](function (error) {
-        _this.loaded = false;
+      })["catch"](function (error) {
         _this.error = error.response.data.message || error.message;
       });
-    }
-  },
-  props: {
-    userId: {
-      type: Number
-    },
-    userName: {
-      type: String
     }
   }
 });
@@ -2469,10 +2459,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2486,14 +2472,6 @@ __webpack_require__.r(__webpack_exports__);
     this.getResources('tutorials');
     this.getResources('users');
     console.log("Home vue mounted");
-  },
-  props: {
-    userId: {
-      type: Number
-    },
-    userName: {
-      type: String
-    }
   }
 });
 
@@ -2529,10 +2507,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2543,14 +2517,6 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     this.getResources('posts');
     console.log("Blog vue mounted");
-  },
-  props: {
-    userId: {
-      type: Number
-    },
-    userName: {
-      type: String
-    }
   }
 });
 
@@ -2591,10 +2557,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mixins: [_mixins_getResourceMixin__WEBPACK_IMPORTED_MODULE_0__["getResourceMixin"]],
@@ -2602,14 +2564,6 @@ __webpack_require__.r(__webpack_exports__);
     this.getResource('posts');
     this.getUser();
     console.log("Blog post vue mounted");
-  },
-  props: {
-    userId: {
-      type: Number
-    },
-    userName: {
-      type: String
-    }
   }
 });
 
@@ -2624,10 +2578,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
 //
 //
 //
@@ -2727,14 +2677,6 @@ __webpack_require__.r(__webpack_exports__);
       this.$refs.title.value = "";
       this.$refs.body.value = "";
     }
-  },
-  props: {
-    userId: {
-      type: Number
-    },
-    userName: {
-      type: String
-    }
   }
 });
 
@@ -2750,10 +2692,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mixins_getResourceMixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../mixins/getResourceMixin */ "./resources/js/mixins/getResourceMixin.js");
-//
-//
-//
-//
 //
 //
 //
@@ -2871,14 +2809,6 @@ __webpack_require__.r(__webpack_exports__);
     updateEditorValue: function updateEditorValue() {
       this.editorValue = this.resource[0].body;
     }
-  },
-  props: {
-    userId: {
-      type: Number
-    },
-    userName: {
-      type: String
-    }
   }
 });
 
@@ -2922,6 +2852,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
 //
 //
 //
@@ -3063,10 +2995,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     console.log("Create props:\n Username: ".concat(this.userName, "\n User ID: ").concat(this.userId));
@@ -3108,14 +3036,6 @@ __webpack_require__.r(__webpack_exports__);
       this.$refs.demo_url.value = "";
       this.$refs.repo_url.value = "";
     }
-  },
-  props: {
-    userId: {
-      type: Number
-    },
-    userName: {
-      type: String
-    }
   }
 });
 
@@ -3131,10 +3051,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mixins_getResourceMixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../mixins/getResourceMixin */ "./resources/js/mixins/getResourceMixin.js");
-//
-//
-//
-//
 //
 //
 //
@@ -3252,14 +3168,6 @@ __webpack_require__.r(__webpack_exports__);
     updateEditorValue: function updateEditorValue() {
       this.editorValue = this.resource[0].body;
     }
-  },
-  props: {
-    userId: {
-      type: Number
-    },
-    userName: {
-      type: String
-    }
   }
 });
 
@@ -3295,10 +3203,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3309,14 +3213,6 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     this.getResources('portfolioitems');
     console.log("Portfolio mounted");
-  },
-  props: {
-    userId: {
-      type: Number
-    },
-    userName: {
-      type: String
-    }
   }
 });
 
@@ -3350,10 +3246,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mixins: [_mixins_getResourceMixin__WEBPACK_IMPORTED_MODULE_0__["getResourceMixin"]],
@@ -3361,14 +3253,6 @@ __webpack_require__.r(__webpack_exports__);
     this.getResource('portfolioitems');
     this.getUser();
     console.log("Portfolio item vue mounted");
-  },
-  props: {
-    userId: {
-      type: Number
-    },
-    userName: {
-      type: String
-    }
   }
 });
 
@@ -3383,10 +3267,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
 //
 //
 //
@@ -3486,14 +3366,6 @@ __webpack_require__.r(__webpack_exports__);
       this.$refs.title.value = "";
       this.$refs.body.value = "";
     }
-  },
-  props: {
-    userId: {
-      type: Number
-    },
-    userName: {
-      type: String
-    }
   }
 });
 
@@ -3509,10 +3381,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mixins_getResourceMixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../mixins/getResourceMixin */ "./resources/js/mixins/getResourceMixin.js");
-//
-//
-//
-//
 //
 //
 //
@@ -3630,14 +3498,6 @@ __webpack_require__.r(__webpack_exports__);
     updateEditorValue: function updateEditorValue() {
       this.editorValue = this.resource[0].body;
     }
-  },
-  props: {
-    userId: {
-      type: Number
-    },
-    userName: {
-      type: String
-    }
   }
 });
 
@@ -3671,10 +3531,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mixins: [_mixins_getResourceMixin__WEBPACK_IMPORTED_MODULE_0__["getResourceMixin"]],
@@ -3682,14 +3538,6 @@ __webpack_require__.r(__webpack_exports__);
     this.getResource('tutorials');
     this.getUser();
     console.log("Tutorial vue mounted");
-  },
-  props: {
-    userId: {
-      type: Number
-    },
-    userName: {
-      type: String
-    }
   }
 });
 
@@ -3725,10 +3573,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3739,14 +3583,6 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     this.getResources('tutorials');
     console.log("Tutorials mounted");
-  },
-  props: {
-    userId: {
-      type: Number
-    },
-    userName: {
-      type: String
-    }
   }
 });
 
@@ -23489,6 +23325,25 @@ exports = module.exports = __webpack_require__(/*! ../../css-loader/lib/css-base
 
 // module
 exports.push([module.i, ".v-md-container{background:#f5f5f5;border:solid 1px #ddd}.v-md-container>.v-md-toolbar{padding:8px 5px;border-bottom:solid 1px #ddd;height:52px}.v-md-wrapper{position:relative}.v-md-preview{position:absolute;top:0;left:0;bottom:0;right:0;z-index:999;background:#fff;padding:5px;overflow:auto;color:#333;height:auto !important}.v-md-container .clipboard-text{height:250px}.v-md-fullscreen{width:100%;height:100% !important;top:0;left:0;right:0;bottom:0;position:fixed;overflow:hidden;z-index:99999}.v-md-container .CodeMirror{font-family:Arial, Helvetica, sans-serif}.v-md-fullscreen .v-md-preview{position:fixed !important;top:52px}.CodeMirror-fullscreen{position:fixed !important;top:52px;left:0;right:0;bottom:0;height:auto !important;z-index:9}.v-md-container .modal{z-index:1080 !important}.v-md-container .modal .btn{min-width:90px}.float-left{float:left !important}\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/App.vue?vue&type=style&index=0&lang=css&":
+/*!****************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/App.vue?vue&type=style&index=0&lang=css& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+exports.push([module.i, "@import url(https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css);", ""]);
+
+// module
+exports.push([module.i, "\n\n\n", ""]);
 
 // exports
 
@@ -73976,6 +73831,36 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/App.vue?vue&type=style&index=0&lang=css&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/App.vue?vue&type=style&index=0&lang=css& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./App.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/App.vue?vue&type=style&index=0&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/lib/addStyles.js":
 /*!****************************************************!*\
   !*** ./node_modules/style-loader/lib/addStyles.js ***!
@@ -75937,66 +75822,53 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.userId
-    ? _c(
-        "div",
-        { staticClass: "main-container" },
-        [
-          _c("global-header", {
-            attrs: { userName: _vm.userName, userId: _vm.userId }
-          }),
+  return _c("div", { staticClass: "main-container" }, [
+    _c(
+      "main",
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("AdminResourceGroup", {
+          attrs: { resources: this.posts },
+          on: { "delete-resource": _vm.deleteResource }
+        }),
+        _vm._v(" "),
+        _c("AdminResourceGroup", {
+          attrs: { resources: this.portfolioitems },
+          on: { "delete-resource": _vm.deleteResource }
+        }),
+        _vm._v(" "),
+        _c("AdminResourceGroup", {
+          attrs: { resources: this.tutorials },
+          on: { "delete-resource": _vm.deleteResource }
+        }),
+        _vm._v(" "),
+        _c("section", { staticClass: "container resource-list" }, [
+          _c("h2", [_vm._v("Users")]),
           _vm._v(" "),
           _c(
-            "main",
-            [
-              _vm._m(0),
-              _vm._v(" "),
-              _c("AdminResourceGroup", {
-                attrs: { resources: this.posts },
-                on: { "delete-resource": _vm.deleteResource }
-              }),
-              _vm._v(" "),
-              _c("AdminResourceGroup", {
-                attrs: { resources: this.portfolioitems },
-                on: { "delete-resource": _vm.deleteResource }
-              }),
-              _vm._v(" "),
-              _c("AdminResourceGroup", {
-                attrs: { resources: this.tutorials },
-                on: { "delete-resource": _vm.deleteResource }
-              }),
-              _vm._v(" "),
-              _c("section", { staticClass: "container resource-list" }, [
-                _c("h2", [_vm._v("Users")]),
+            "ul",
+            _vm._l(_vm.users, function(user) {
+              return _c("li", { key: user.id }, [
+                _c("section", { staticClass: "admin-user-group" }, [
+                  _c("h5", [_vm._v(_vm._s(user.name))]),
+                  _vm._v(" "),
+                  _c("img", {
+                    staticClass: "img-fluid",
+                    attrs: { src: user.profile_pic_src, alt: user.name }
+                  })
+                ]),
                 _vm._v(" "),
-                _c(
-                  "ul",
-                  _vm._l(_vm.users, function(user) {
-                    return _c("li", { key: user.id }, [
-                      _c("section", { staticClass: "admin-user-group" }, [
-                        _c("h5", [_vm._v(_vm._s(user.name))]),
-                        _vm._v(" "),
-                        _c("img", {
-                          staticClass: "img-fluid",
-                          attrs: { src: user.profile_pic_src, alt: user.name }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _vm._m(1, true)
-                    ])
-                  }),
-                  0
-                )
+                _vm._m(1, true)
               ])
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("global-footer")
-        ],
-        1
-      )
-    : _vm._e()
+            }),
+            0
+          )
+        ])
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -76050,9 +75922,25 @@ var render = function() {
   return _c(
     "section",
     [
-      _c("router-view", {
-        attrs: { userId: _vm.userId, userName: _vm.userName }
-      })
+      _c("global-header", {
+        attrs: { userName: _vm.userName, userId: _vm.userId }
+      }),
+      _vm._v(" "),
+      _c(
+        "transition",
+        {
+          attrs: {
+            appear: "",
+            name: "animate-route",
+            "enter-active-class": "animated fadeIn",
+            "leave-active-class": "animated fadeOut"
+          }
+        },
+        [_c("router-view")],
+        1
+      ),
+      _vm._v(" "),
+      _c("global-footer")
     ],
     1
   )
@@ -76079,49 +75967,32 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "main-container" },
-    [
-      _c("global-header", {
-        attrs: { userName: _vm.userName, userId: _vm.userId }
-      }),
-      _vm._v(" "),
-      _vm.loaded
-        ? _c("main", [
-            _c(
-              "section",
-              {
-                staticClass: "container content-section contact-intro",
-                attrs: { id: "contact" }
-              },
-              [
-                _vm._l(_vm.users, function(user) {
-                  return _c(
-                    "section",
-                    { key: user.id, staticClass: "card about" },
-                    [
-                      _c("img", {
-                        staticClass: "card-img-top",
-                        attrs: { src: user.profile_pic_src, alt: user.name }
-                      }),
-                      _vm._v(" "),
-                      _vm._m(0, true)
-                    ]
-                  )
-                }),
-                _vm._v(" "),
-                _c("ContactForm")
-              ],
-              2
-            )
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _c("global-footer")
-    ],
-    1
-  )
+  return _c("div", { staticClass: "main-container" }, [
+    _c("main", [
+      _c(
+        "section",
+        {
+          staticClass: "container content-section contact-intro",
+          attrs: { id: "contact" }
+        },
+        [
+          _vm._l(_vm.users, function(user) {
+            return _c("section", { key: user.id, staticClass: "card about" }, [
+              _c("img", {
+                staticClass: "card-img-top",
+                attrs: { src: user.profile_pic_src, alt: user.name }
+              }),
+              _vm._v(" "),
+              _vm._m(0, true)
+            ])
+          }),
+          _vm._v(" "),
+          _c("ContactForm")
+        ],
+        2
+      )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -76160,95 +76031,84 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "main-container" },
-    [
-      _c("global-header", {
-        attrs: { userName: _vm.userName, userId: _vm.userId }
-      }),
+  return _c("div", { staticClass: "main-container" }, [
+    _c("main", [
+      _vm._m(0),
       _vm._v(" "),
-      _c("main", [
-        _vm._m(0),
-        _vm._v(" "),
-        _c(
-          "section",
-          { staticClass: "container content-section" },
-          [
-            _c("h2", { staticClass: "underline" }, [_vm._v("Blog")]),
-            _vm._v(" "),
-            _c("p", { staticClass: "lead" }, [_vm._v("Latest posts")]),
-            _vm._v(" "),
-            _c("ResourceList", { attrs: { resources: this.posts } })
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "section",
-          { staticClass: "container content-section" },
-          [
-            _c("h2", { staticClass: "underline" }, [_vm._v("Portfolio")]),
-            _vm._v(" "),
-            _c("p", { staticClass: "lead" }, [_vm._v("Some of my best work")]),
-            _vm._v(" "),
-            _c("ResourceList", { attrs: { resources: this.portfolioitems } })
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "section",
-          { staticClass: "container content-section" },
-          [
-            _c("h2", { staticClass: "underline" }, [_vm._v("Tutorials")]),
-            _vm._v(" "),
-            _c("p", { staticClass: "lead" }, [_vm._v("Learn something new")]),
-            _vm._v(" "),
-            _c("ResourceList", { attrs: { resources: this.tutorials } })
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "section",
-          { staticClass: "container-fluid content-section about-intro" },
-          _vm._l(_vm.users, function(user) {
-            return _c(
-              "router-link",
-              {
-                key: user.id,
-                staticClass: "nav-link",
-                attrs: { to: { name: "contact" } }
-              },
-              [
-                _c("section", { staticClass: "card" }, [
-                  _c("img", {
-                    staticClass: "card-img-top",
-                    attrs: { src: user.profile_pic_src, alt: user.name }
-                  }),
+      _c(
+        "section",
+        { staticClass: "container content-section" },
+        [
+          _c("h2", { staticClass: "underline" }, [_vm._v("Blog")]),
+          _vm._v(" "),
+          _c("p", { staticClass: "lead" }, [_vm._v("Latest posts")]),
+          _vm._v(" "),
+          _c("ResourceList", { attrs: { resources: this.posts } })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "section",
+        { staticClass: "container content-section" },
+        [
+          _c("h2", { staticClass: "underline" }, [_vm._v("Portfolio")]),
+          _vm._v(" "),
+          _c("p", { staticClass: "lead" }, [_vm._v("Some of my best work")]),
+          _vm._v(" "),
+          _c("ResourceList", { attrs: { resources: this.portfolioitems } })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "section",
+        { staticClass: "container content-section" },
+        [
+          _c("h2", { staticClass: "underline" }, [_vm._v("Tutorials")]),
+          _vm._v(" "),
+          _c("p", { staticClass: "lead" }, [_vm._v("Learn something new")]),
+          _vm._v(" "),
+          _c("ResourceList", { attrs: { resources: this.tutorials } })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "section",
+        { staticClass: "container-fluid content-section about-intro" },
+        _vm._l(_vm.users, function(user) {
+          return _c(
+            "router-link",
+            {
+              key: user.id,
+              staticClass: "nav-link",
+              attrs: { to: { name: "contact" } }
+            },
+            [
+              _c("section", { staticClass: "card" }, [
+                _c("img", {
+                  staticClass: "card-img-top",
+                  attrs: { src: user.profile_pic_src, alt: user.name }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-body" }, [
+                  _c("h2", { staticClass: "card-title" }, [
+                    _vm._v(" " + _vm._s(user.intro) + " ")
+                  ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("h2", { staticClass: "card-title" }, [
-                      _vm._v(" " + _vm._s(user.intro) + " ")
-                    ]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "card-text" }, [
-                      _vm._v(" " + _vm._s(user.bio) + " ")
-                    ])
+                  _c("p", { staticClass: "card-text" }, [
+                    _vm._v(" " + _vm._s(user.bio) + " ")
                   ])
                 ])
-              ]
-            )
-          }),
-          1
-        )
-      ]),
-      _vm._v(" "),
-      _c("global-footer")
-    ],
-    1
-  )
+              ])
+            ]
+          )
+        }),
+        1
+      )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -76283,26 +76143,16 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "section",
-    [
-      _c("global-header", {
-        attrs: { userName: _vm.userName, userId: _vm.userId }
-      }),
-      _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "section",
-        { staticClass: "container content-section" },
-        [_c("ResourceList", { attrs: { resources: this.posts } })],
-        1
-      ),
-      _vm._v(" "),
-      _c("global-footer")
-    ],
-    1
-  )
+  return _c("section", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "section",
+      { staticClass: "container content-section" },
+      [_c("ResourceList", { attrs: { resources: this.posts } })],
+      1
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -76339,62 +76189,52 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "section",
-    [
-      _c("global-header", {
-        attrs: { userName: _vm.userName, userId: _vm.userId }
-      }),
-      _vm._v(" "),
-      _c("section", { staticClass: "blog-post" }, [
-        _c("section", { staticClass: "card" }, [
-          _c(
-            "div",
-            { staticClass: "card-body" },
-            [
-              _c("h2", { staticClass: "card-title" }, [
-                _vm._v(_vm._s(_vm.resource[0].title))
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-information" }, [
-                _c("img", {
-                  staticClass: "card-profile-thumb",
-                  attrs: {
-                    src: _vm.user[0].profile_pic_src,
-                    alt: _vm.user[0].name
-                  }
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-info-holder" }, [
-                  _c("p", { staticClass: "card-profile-name" }, [
-                    _vm._v(_vm._s(_vm.user[0].name))
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "card-publication-date" }, [
-                    _vm._v(_vm._s(_vm.publicationDate))
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
+  return _c("section", [
+    _c("section", { staticClass: "blog-post" }, [
+      _c("section", { staticClass: "card" }, [
+        _c(
+          "div",
+          { staticClass: "card-body" },
+          [
+            _c("h2", { staticClass: "card-title" }, [
+              _vm._v(_vm._s(_vm.resource[0].title))
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-information" }, [
               _c("img", {
-                staticClass: "blog-post-img",
+                staticClass: "card-profile-thumb",
                 attrs: {
-                  src: _vm.resource[0].image_src,
-                  alt: _vm.resource[0].title
+                  src: _vm.user[0].profile_pic_src,
+                  alt: _vm.user[0].name
                 }
               }),
               _vm._v(" "),
-              _c("vue-markdown", { attrs: { source: _vm.resource[0].body } })
-            ],
-            1
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("global-footer")
-    ],
-    1
-  )
+              _c("div", { staticClass: "card-info-holder" }, [
+                _c("p", { staticClass: "card-profile-name" }, [
+                  _vm._v(_vm._s(_vm.user[0].name))
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "card-publication-date" }, [
+                  _vm._v(_vm._s(_vm.publicationDate))
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("img", {
+              staticClass: "blog-post-img",
+              attrs: {
+                src: _vm.resource[0].image_src,
+                alt: _vm.resource[0].title
+              }
+            }),
+            _vm._v(" "),
+            _c("vue-markdown", { attrs: { source: _vm.resource[0].body } })
+          ],
+          1
+        )
+      ])
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -76418,141 +76258,126 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "section",
-    [
-      _c("global-header", {
-        attrs: { userName: _vm.userName, userId: _vm.userId }
-      }),
+  return _c("section", [
+    _c("section", { staticClass: "container" }, [
+      _c("h1", { staticClass: "post-edit-header" }, [_vm._v("Create a post")]),
       _vm._v(" "),
-      _c("section", { staticClass: "container" }, [
-        _c("h1", { staticClass: "post-edit-header" }, [
-          _vm._v("Create a post")
+      _c("form", [
+        _c(
+          "div",
+          {
+            class: ["form-group m-1 p-3", _vm.successful ? "alert-success" : ""]
+          },
+          [
+            _vm.successful
+              ? _c("span", { staticClass: "label label-sucess" }, [
+                  _vm._v("Published!")
+                ])
+              : _vm._e()
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { class: ["form-group m-1 p-3", _vm.error ? "alert-danger" : ""] },
+          [
+            _vm.errors.title
+              ? _c("span", { staticClass: "label label-danger" }, [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(_vm.errors.title[0]) +
+                      "\n                "
+                  )
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.errors.body
+              ? _c("span", { staticClass: "label label-danger" }, [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(_vm.errors.body[0]) +
+                      "\n                "
+                  )
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.errors.image
+              ? _c("span", { staticClass: "label label-danger" }, [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(_vm.errors.image[0]) +
+                      "\n                "
+                  )
+                ])
+              : _vm._e()
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("input", {
+            ref: "title",
+            staticClass: "form-control",
+            attrs: {
+              type: "title",
+              id: "title",
+              placeholder: "Enter title",
+              required: ""
+            }
+          })
         ]),
         _vm._v(" "),
-        _c("form", [
-          _c(
-            "div",
-            {
-              class: [
-                "form-group m-1 p-3",
-                _vm.successful ? "alert-success" : ""
-              ]
-            },
-            [
-              _vm.successful
-                ? _c("span", { staticClass: "label label-sucess" }, [
-                    _vm._v("Published!")
-                  ])
-                : _vm._e()
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { class: ["form-group m-1 p-3", _vm.error ? "alert-danger" : ""] },
-            [
-              _vm.errors.title
-                ? _c("span", { staticClass: "label label-danger" }, [
-                    _vm._v(
-                      "\n                " +
-                        _vm._s(_vm.errors.title[0]) +
-                        "\n                "
-                    )
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.errors.body
-                ? _c("span", { staticClass: "label label-danger" }, [
-                    _vm._v(
-                      "\n                " +
-                        _vm._s(_vm.errors.body[0]) +
-                        "\n                "
-                    )
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.errors.image
-                ? _c("span", { staticClass: "label label-danger" }, [
-                    _vm._v(
-                      "\n                " +
-                        _vm._s(_vm.errors.image[0]) +
-                        "\n                "
-                    )
-                  ])
-                : _vm._e()
-            ]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("input", {
-              ref: "title",
-              staticClass: "form-control",
+        _c(
+          "div",
+          { staticClass: "form-group" },
+          [
+            _c("markdown-editor", {
+              ref: "body",
               attrs: {
-                type: "title",
-                id: "title",
-                placeholder: "Enter title",
-                required: ""
+                id: "body",
+                toolbar:
+                  "clipboard redo undo | bold italic strikethrough heading | image link | numlist bullist code quote | preview fullscreen"
+              },
+              model: {
+                value: _vm.editorValue,
+                callback: function($$v) {
+                  _vm.editorValue = $$v
+                },
+                expression: "editorValue"
               }
             })
-          ]),
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "custom-file mb-3" }, [
+          _c("input", {
+            ref: "image",
+            staticClass: "custom-file-input",
+            attrs: { type: "file", name: "image", id: "image" }
+          }),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "form-group" },
-            [
-              _c("markdown-editor", {
-                ref: "body",
-                attrs: {
-                  id: "body",
-                  toolbar:
-                    "clipboard redo undo | bold italic strikethrough heading | image link | numlist bullist code quote | preview fullscreen"
-                },
-                model: {
-                  value: _vm.editorValue,
-                  callback: function($$v) {
-                    _vm.editorValue = $$v
-                  },
-                  expression: "editorValue"
-                }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "custom-file mb-3" }, [
-            _c("input", {
-              ref: "image",
-              staticClass: "custom-file-input",
-              attrs: { type: "file", name: "image", id: "image" }
-            }),
-            _vm._v(" "),
-            _c("label", { staticClass: "custom-file-label" }, [
-              _vm._v("Choose file...")
-            ])
-          ]),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-primary block",
-              attrs: { type: "submit" },
-              on: {
-                click: function($event) {
-                  $event.preventDefault()
-                  return _vm.create($event)
-                }
+          _c("label", { staticClass: "custom-file-label" }, [
+            _vm._v("Choose file...")
+          ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary block",
+            attrs: { type: "submit" },
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                return _vm.create($event)
               }
-            },
-            [_vm._v("\n                Submit\n            ")]
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("global-footer")
-    ],
-    1
-  )
+            }
+          },
+          [_vm._v("\n                Submit\n            ")]
+        )
+      ])
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -76576,151 +76401,138 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "section",
-    [
-      _c("global-header", {
-        attrs: { userName: _vm.userName, userId: _vm.userId }
-      }),
+  return _c("section", [
+    _c("section", { staticClass: "container" }, [
+      _c("h1", { staticClass: "post-edit-header" }, [_vm._v("Edit Post")]),
       _vm._v(" "),
-      _c("section", { staticClass: "container" }, [
-        _c("h1", { staticClass: "post-edit-header" }, [_vm._v("Edit Post")]),
+      _c("form", [
+        _c(
+          "div",
+          {
+            class: ["form-group m-1 p-3", _vm.successful ? "alert-success" : ""]
+          },
+          [
+            _vm.successful
+              ? _c("span", { staticClass: "label label-sucess" }, [
+                  _vm._v("Published!")
+                ])
+              : _vm._e()
+          ]
+        ),
         _vm._v(" "),
-        _c("form", [
-          _c(
-            "div",
-            {
-              class: [
-                "form-group m-1 p-3",
-                _vm.successful ? "alert-success" : ""
-              ]
-            },
-            [
-              _vm.successful
-                ? _c("span", { staticClass: "label label-sucess" }, [
-                    _vm._v("Published!")
-                  ])
-                : _vm._e()
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { class: ["form-group m-1 p-3", _vm.error ? "alert-danger" : ""] },
-            [
-              _vm.errors.title
-                ? _c("span", { staticClass: "label label-danger" }, [
-                    _vm._v(
-                      "\n                " +
-                        _vm._s(_vm.errors.title[0]) +
-                        "\n                "
-                    )
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.errors.body
-                ? _c("span", { staticClass: "label label-danger" }, [
-                    _vm._v(
-                      "\n                " +
-                        _vm._s(_vm.errors.body[0]) +
-                        "\n                "
-                    )
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.errors.image
-                ? _c("span", { staticClass: "label label-danger" }, [
-                    _vm._v(
-                      "\n                " +
-                        _vm._s(_vm.errors.image[0]) +
-                        "\n                "
-                    )
-                  ])
-                : _vm._e()
-            ]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.resource[0].title,
-                  expression: "resource[0].title"
+        _c(
+          "div",
+          { class: ["form-group m-1 p-3", _vm.error ? "alert-danger" : ""] },
+          [
+            _vm.errors.title
+              ? _c("span", { staticClass: "label label-danger" }, [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(_vm.errors.title[0]) +
+                      "\n                "
+                  )
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.errors.body
+              ? _c("span", { staticClass: "label label-danger" }, [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(_vm.errors.body[0]) +
+                      "\n                "
+                  )
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.errors.image
+              ? _c("span", { staticClass: "label label-danger" }, [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(_vm.errors.image[0]) +
+                      "\n                "
+                  )
+                ])
+              : _vm._e()
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.resource[0].title,
+                expression: "resource[0].title"
+              }
+            ],
+            ref: "title",
+            staticClass: "form-control",
+            attrs: { type: "title", id: "title", required: "" },
+            domProps: { value: _vm.resource[0].title },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
                 }
-              ],
-              ref: "title",
-              staticClass: "form-control",
-              attrs: { type: "title", id: "title", required: "" },
-              domProps: { value: _vm.resource[0].title },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.resource[0], "title", $event.target.value)
-                }
+                _vm.$set(_vm.resource[0], "title", $event.target.value)
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "form-group" },
+          [
+            _c("markdown-editor", {
+              ref: "body",
+              attrs: {
+                id: "body",
+                toolbar:
+                  "clipboard redo undo | bold italic strikethrough heading | image link | numlist bullist code quote | preview fullscreen"
+              },
+              model: {
+                value: _vm.resource[0].body,
+                callback: function($$v) {
+                  _vm.$set(_vm.resource[0], "body", $$v)
+                },
+                expression: "resource[0].body"
               }
             })
-          ]),
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "custom-file mb-3" }, [
+          _c("input", {
+            ref: "image",
+            staticClass: "custom-file-input",
+            attrs: { type: "file", name: "image", id: "image" }
+          }),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "form-group" },
-            [
-              _c("markdown-editor", {
-                ref: "body",
-                attrs: {
-                  id: "body",
-                  toolbar:
-                    "clipboard redo undo | bold italic strikethrough heading | image link | numlist bullist code quote | preview fullscreen"
-                },
-                model: {
-                  value: _vm.resource[0].body,
-                  callback: function($$v) {
-                    _vm.$set(_vm.resource[0], "body", $$v)
-                  },
-                  expression: "resource[0].body"
-                }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "custom-file mb-3" }, [
-            _c("input", {
-              ref: "image",
-              staticClass: "custom-file-input",
-              attrs: { type: "file", name: "image", id: "image" }
-            }),
-            _vm._v(" "),
-            _c("label", { staticClass: "custom-file-label" }, [
-              _vm._v("Select image")
-            ])
-          ]),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-primary block",
-              attrs: { type: "submit" },
-              on: {
-                click: function($event) {
-                  $event.preventDefault()
-                  return _vm.editPost($event)
-                }
+          _c("label", { staticClass: "custom-file-label" }, [
+            _vm._v("Select image")
+          ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary block",
+            attrs: { type: "submit" },
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                return _vm.editPost($event)
               }
-            },
-            [_vm._v("\n                Submit\n            ")]
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("global-footer")
-    ],
-    1
-  )
+            }
+          },
+          [_vm._v("\n                Submit\n            ")]
+        )
+      ])
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -76968,167 +76780,154 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "section",
-    [
-      _c("global-header", {
-        attrs: { userName: _vm.userName, userId: _vm.userId }
-      }),
-      _vm._v(" "),
-      _c("section", { staticClass: "container" }, [
-        _c("h1", { staticClass: "post-edit-header" }, [
-          _vm._v("Create a portfolio item")
-        ]),
-        _vm._v(" "),
-        _c("form", [
-          _c(
-            "div",
-            {
-              class: [
-                "form-group m-1 p-3",
-                _vm.successful ? "alert-success" : ""
-              ]
-            },
-            [
-              _vm.successful
-                ? _c("span", { staticClass: "label label-sucess" }, [
-                    _vm._v("Published!")
-                  ])
-                : _vm._e()
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { class: ["form-group m-1 p-3", _vm.error ? "alert-danger" : ""] },
-            [
-              _vm.errors.title
-                ? _c("span", { staticClass: "label label-danger" }, [
-                    _vm._v(
-                      "\n                " +
-                        _vm._s(_vm.errors.title[0]) +
-                        "\n                "
-                    )
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.errors.body
-                ? _c("span", { staticClass: "label label-danger" }, [
-                    _vm._v(
-                      "\n                " +
-                        _vm._s(_vm.errors.body[0]) +
-                        "\n                "
-                    )
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.errors.image
-                ? _c("span", { staticClass: "label label-danger" }, [
-                    _vm._v(
-                      "\n                " +
-                        _vm._s(_vm.errors.image[0]) +
-                        "\n                "
-                    )
-                  ])
-                : _vm._e()
-            ]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("input", {
-              ref: "title",
-              staticClass: "form-control",
-              attrs: {
-                type: "title",
-                id: "title",
-                placeholder: "Enter title",
-                required: ""
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "form-group" },
-            [
-              _c("markdown-editor", {
-                ref: "body",
-                attrs: {
-                  id: "body",
-                  toolbar:
-                    "clipboard redo undo | bold italic strikethrough heading | image link | numlist bullist code quote | preview fullscreen"
-                },
-                model: {
-                  value: _vm.editorValue,
-                  callback: function($$v) {
-                    _vm.editorValue = $$v
-                  },
-                  expression: "editorValue"
-                }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "custom-file mb-3" }, [
-            _c("input", {
-              ref: "image",
-              staticClass: "custom-file-input",
-              attrs: { type: "file", name: "image", id: "image" }
-            }),
-            _vm._v(" "),
-            _c("label", { staticClass: "custom-file-label" }, [
-              _vm._v("Choose file...")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("input", {
-              ref: "demo_url",
-              staticClass: "form-control",
-              attrs: {
-                type: "demo_url",
-                id: "demo_url",
-                placeholder: "Enter Demo URL",
-                required: ""
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("input", {
-              ref: "repo_url",
-              staticClass: "form-control",
-              attrs: {
-                type: "repo_url",
-                id: "repo_url",
-                placeholder: "Enter Repo URL",
-                required: ""
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-primary block",
-              attrs: { type: "submit" },
-              on: {
-                click: function($event) {
-                  $event.preventDefault()
-                  return _vm.create($event)
-                }
-              }
-            },
-            [_vm._v("\n                Submit\n            ")]
-          )
-        ])
+  return _c("section", [
+    _c("section", { staticClass: "container" }, [
+      _c("h1", { staticClass: "post-edit-header" }, [
+        _vm._v("Create a portfolio item")
       ]),
       _vm._v(" "),
-      _c("global-footer")
-    ],
-    1
-  )
+      _c("form", [
+        _c(
+          "div",
+          {
+            class: ["form-group m-1 p-3", _vm.successful ? "alert-success" : ""]
+          },
+          [
+            _vm.successful
+              ? _c("span", { staticClass: "label label-sucess" }, [
+                  _vm._v("Published!")
+                ])
+              : _vm._e()
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { class: ["form-group m-1 p-3", _vm.error ? "alert-danger" : ""] },
+          [
+            _vm.errors.title
+              ? _c("span", { staticClass: "label label-danger" }, [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(_vm.errors.title[0]) +
+                      "\n                "
+                  )
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.errors.body
+              ? _c("span", { staticClass: "label label-danger" }, [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(_vm.errors.body[0]) +
+                      "\n                "
+                  )
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.errors.image
+              ? _c("span", { staticClass: "label label-danger" }, [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(_vm.errors.image[0]) +
+                      "\n                "
+                  )
+                ])
+              : _vm._e()
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("input", {
+            ref: "title",
+            staticClass: "form-control",
+            attrs: {
+              type: "title",
+              id: "title",
+              placeholder: "Enter title",
+              required: ""
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "form-group" },
+          [
+            _c("markdown-editor", {
+              ref: "body",
+              attrs: {
+                id: "body",
+                toolbar:
+                  "clipboard redo undo | bold italic strikethrough heading | image link | numlist bullist code quote | preview fullscreen"
+              },
+              model: {
+                value: _vm.editorValue,
+                callback: function($$v) {
+                  _vm.editorValue = $$v
+                },
+                expression: "editorValue"
+              }
+            })
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "custom-file mb-3" }, [
+          _c("input", {
+            ref: "image",
+            staticClass: "custom-file-input",
+            attrs: { type: "file", name: "image", id: "image" }
+          }),
+          _vm._v(" "),
+          _c("label", { staticClass: "custom-file-label" }, [
+            _vm._v("Choose file...")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("input", {
+            ref: "demo_url",
+            staticClass: "form-control",
+            attrs: {
+              type: "demo_url",
+              id: "demo_url",
+              placeholder: "Enter Demo URL",
+              required: ""
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("input", {
+            ref: "repo_url",
+            staticClass: "form-control",
+            attrs: {
+              type: "repo_url",
+              id: "repo_url",
+              placeholder: "Enter Repo URL",
+              required: ""
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary block",
+            attrs: { type: "submit" },
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                return _vm.create($event)
+              }
+            }
+          },
+          [_vm._v("\n                Submit\n            ")]
+        )
+      ])
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -77152,153 +76951,140 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "section",
-    [
-      _c("global-header", {
-        attrs: { userName: _vm.userName, userId: _vm.userId }
-      }),
-      _vm._v(" "),
-      _c("section", { staticClass: "container" }, [
-        _c("h1", { staticClass: "post-edit-header" }, [
-          _vm._v("Edit Portfolio Item")
-        ]),
-        _vm._v(" "),
-        _c("form", [
-          _c(
-            "div",
-            {
-              class: [
-                "form-group m-1 p-3",
-                _vm.successful ? "alert-success" : ""
-              ]
-            },
-            [
-              _vm.successful
-                ? _c("span", { staticClass: "label label-sucess" }, [
-                    _vm._v("Published!")
-                  ])
-                : _vm._e()
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { class: ["form-group m-1 p-3", _vm.error ? "alert-danger" : ""] },
-            [
-              _vm.errors.title
-                ? _c("span", { staticClass: "label label-danger" }, [
-                    _vm._v(
-                      "\n                " +
-                        _vm._s(_vm.errors.title[0]) +
-                        "\n                "
-                    )
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.errors.body
-                ? _c("span", { staticClass: "label label-danger" }, [
-                    _vm._v(
-                      "\n                " +
-                        _vm._s(_vm.errors.body[0]) +
-                        "\n                "
-                    )
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.errors.image
-                ? _c("span", { staticClass: "label label-danger" }, [
-                    _vm._v(
-                      "\n                " +
-                        _vm._s(_vm.errors.image[0]) +
-                        "\n                "
-                    )
-                  ])
-                : _vm._e()
-            ]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.resource[0].title,
-                  expression: "resource[0].title"
-                }
-              ],
-              ref: "title",
-              staticClass: "form-control",
-              attrs: { type: "title", id: "title", required: "" },
-              domProps: { value: _vm.resource[0].title },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.resource[0], "title", $event.target.value)
-                }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "form-group" },
-            [
-              _c("markdown-editor", {
-                ref: "body",
-                attrs: {
-                  id: "body",
-                  toolbar:
-                    "clipboard redo undo | bold italic strikethrough heading | image link | numlist bullist code quote | preview fullscreen"
-                },
-                model: {
-                  value: _vm.resource[0].body,
-                  callback: function($$v) {
-                    _vm.$set(_vm.resource[0], "body", $$v)
-                  },
-                  expression: "resource[0].body"
-                }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "custom-file mb-3" }, [
-            _c("input", {
-              ref: "image",
-              staticClass: "custom-file-input",
-              attrs: { type: "file", name: "image", id: "image" }
-            }),
-            _vm._v(" "),
-            _c("label", { staticClass: "custom-file-label" }, [
-              _vm._v("Select image")
-            ])
-          ]),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-primary block",
-              attrs: { type: "submit" },
-              on: {
-                click: function($event) {
-                  $event.preventDefault()
-                  return _vm.editPortfolioItem[0]($event)
-                }
-              }
-            },
-            [_vm._v("\n                Submit\n            ")]
-          )
-        ])
+  return _c("section", [
+    _c("section", { staticClass: "container" }, [
+      _c("h1", { staticClass: "post-edit-header" }, [
+        _vm._v("Edit Portfolio Item")
       ]),
       _vm._v(" "),
-      _c("global-footer")
-    ],
-    1
-  )
+      _c("form", [
+        _c(
+          "div",
+          {
+            class: ["form-group m-1 p-3", _vm.successful ? "alert-success" : ""]
+          },
+          [
+            _vm.successful
+              ? _c("span", { staticClass: "label label-sucess" }, [
+                  _vm._v("Published!")
+                ])
+              : _vm._e()
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { class: ["form-group m-1 p-3", _vm.error ? "alert-danger" : ""] },
+          [
+            _vm.errors.title
+              ? _c("span", { staticClass: "label label-danger" }, [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(_vm.errors.title[0]) +
+                      "\n                "
+                  )
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.errors.body
+              ? _c("span", { staticClass: "label label-danger" }, [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(_vm.errors.body[0]) +
+                      "\n                "
+                  )
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.errors.image
+              ? _c("span", { staticClass: "label label-danger" }, [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(_vm.errors.image[0]) +
+                      "\n                "
+                  )
+                ])
+              : _vm._e()
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.resource[0].title,
+                expression: "resource[0].title"
+              }
+            ],
+            ref: "title",
+            staticClass: "form-control",
+            attrs: { type: "title", id: "title", required: "" },
+            domProps: { value: _vm.resource[0].title },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.resource[0], "title", $event.target.value)
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "form-group" },
+          [
+            _c("markdown-editor", {
+              ref: "body",
+              attrs: {
+                id: "body",
+                toolbar:
+                  "clipboard redo undo | bold italic strikethrough heading | image link | numlist bullist code quote | preview fullscreen"
+              },
+              model: {
+                value: _vm.resource[0].body,
+                callback: function($$v) {
+                  _vm.$set(_vm.resource[0], "body", $$v)
+                },
+                expression: "resource[0].body"
+              }
+            })
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "custom-file mb-3" }, [
+          _c("input", {
+            ref: "image",
+            staticClass: "custom-file-input",
+            attrs: { type: "file", name: "image", id: "image" }
+          }),
+          _vm._v(" "),
+          _c("label", { staticClass: "custom-file-label" }, [
+            _vm._v("Select image")
+          ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary block",
+            attrs: { type: "submit" },
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                return _vm.editPortfolioItem[0]($event)
+              }
+            }
+          },
+          [_vm._v("\n                Submit\n            ")]
+        )
+      ])
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -77322,26 +77108,16 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "section",
-    [
-      _c("global-header", {
-        attrs: { userName: _vm.userName, userId: _vm.userId }
-      }),
-      _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "section",
-        { staticClass: "container content-section" },
-        [_c("ResourceList", { attrs: { resources: this.portfolioitems } })],
-        1
-      ),
-      _vm._v(" "),
-      _c("global-footer")
-    ],
-    1
-  )
+  return _c("section", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "section",
+      { staticClass: "container content-section" },
+      [_c("ResourceList", { attrs: { resources: this.portfolioitems } })],
+      1
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -77378,42 +77154,32 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "section",
-    [
-      _c("global-header", {
-        attrs: { userName: _vm.userName, userId: _vm.userId }
-      }),
-      _vm._v(" "),
-      _c("section", { staticClass: "portfolio-item" }, [
-        _c("section", { staticClass: "card" }, [
-          _c(
-            "div",
-            { staticClass: "card-body" },
-            [
-              _c("h2", { staticClass: "card-title" }, [
-                _vm._v(_vm._s(_vm.resource[0].title))
-              ]),
-              _vm._v(" "),
-              _c("img", {
-                staticClass: "portfolio-item-img",
-                attrs: {
-                  src: _vm.resource[0].image_src,
-                  alt: _vm.resource[0].title
-                }
-              }),
-              _vm._v(" "),
-              _c("vue-markdown", { attrs: { source: _vm.resource[0].body } })
-            ],
-            1
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("global-footer")
-    ],
-    1
-  )
+  return _c("section", [
+    _c("section", { staticClass: "portfolio-item" }, [
+      _c("section", { staticClass: "card" }, [
+        _c(
+          "div",
+          { staticClass: "card-body" },
+          [
+            _c("h2", { staticClass: "card-title" }, [
+              _vm._v(_vm._s(_vm.resource[0].title))
+            ]),
+            _vm._v(" "),
+            _c("img", {
+              staticClass: "portfolio-item-img",
+              attrs: {
+                src: _vm.resource[0].image_src,
+                alt: _vm.resource[0].title
+              }
+            }),
+            _vm._v(" "),
+            _c("vue-markdown", { attrs: { source: _vm.resource[0].body } })
+          ],
+          1
+        )
+      ])
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -77437,141 +77203,128 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "section",
-    [
-      _c("global-header", {
-        attrs: { userName: _vm.userName, userId: _vm.userId }
-      }),
-      _vm._v(" "),
-      _c("section", { staticClass: "container" }, [
-        _c("h1", { staticClass: "post-edit-header" }, [
-          _vm._v("Create a tutorial")
-        ]),
-        _vm._v(" "),
-        _c("form", [
-          _c(
-            "div",
-            {
-              class: [
-                "form-group m-1 p-3",
-                _vm.successful ? "alert-success" : ""
-              ]
-            },
-            [
-              _vm.successful
-                ? _c("span", { staticClass: "label label-sucess" }, [
-                    _vm._v("Published!")
-                  ])
-                : _vm._e()
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { class: ["form-group m-1 p-3", _vm.error ? "alert-danger" : ""] },
-            [
-              _vm.errors.title
-                ? _c("span", { staticClass: "label label-danger" }, [
-                    _vm._v(
-                      "\n                " +
-                        _vm._s(_vm.errors.title[0]) +
-                        "\n                "
-                    )
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.errors.body
-                ? _c("span", { staticClass: "label label-danger" }, [
-                    _vm._v(
-                      "\n                " +
-                        _vm._s(_vm.errors.body[0]) +
-                        "\n                "
-                    )
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.errors.image
-                ? _c("span", { staticClass: "label label-danger" }, [
-                    _vm._v(
-                      "\n                " +
-                        _vm._s(_vm.errors.image[0]) +
-                        "\n                "
-                    )
-                  ])
-                : _vm._e()
-            ]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("input", {
-              ref: "title",
-              staticClass: "form-control",
-              attrs: {
-                type: "title",
-                id: "title",
-                placeholder: "Enter title",
-                required: ""
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "form-group" },
-            [
-              _c("markdown-editor", {
-                ref: "body",
-                attrs: {
-                  id: "body",
-                  toolbar:
-                    "clipboard redo undo | bold italic strikethrough heading | image link | numlist bullist code quote | preview fullscreen"
-                },
-                model: {
-                  value: _vm.editorValue,
-                  callback: function($$v) {
-                    _vm.editorValue = $$v
-                  },
-                  expression: "editorValue"
-                }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "custom-file mb-3" }, [
-            _c("input", {
-              ref: "image",
-              staticClass: "custom-file-input",
-              attrs: { type: "file", name: "image", id: "image" }
-            }),
-            _vm._v(" "),
-            _c("label", { staticClass: "custom-file-label" }, [
-              _vm._v("Choose file...")
-            ])
-          ]),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-primary block",
-              attrs: { type: "submit" },
-              on: {
-                click: function($event) {
-                  $event.preventDefault()
-                  return _vm.create($event)
-                }
-              }
-            },
-            [_vm._v("\n                Submit\n            ")]
-          )
-        ])
+  return _c("section", [
+    _c("section", { staticClass: "container" }, [
+      _c("h1", { staticClass: "post-edit-header" }, [
+        _vm._v("Create a tutorial")
       ]),
       _vm._v(" "),
-      _c("global-footer")
-    ],
-    1
-  )
+      _c("form", [
+        _c(
+          "div",
+          {
+            class: ["form-group m-1 p-3", _vm.successful ? "alert-success" : ""]
+          },
+          [
+            _vm.successful
+              ? _c("span", { staticClass: "label label-sucess" }, [
+                  _vm._v("Published!")
+                ])
+              : _vm._e()
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { class: ["form-group m-1 p-3", _vm.error ? "alert-danger" : ""] },
+          [
+            _vm.errors.title
+              ? _c("span", { staticClass: "label label-danger" }, [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(_vm.errors.title[0]) +
+                      "\n                "
+                  )
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.errors.body
+              ? _c("span", { staticClass: "label label-danger" }, [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(_vm.errors.body[0]) +
+                      "\n                "
+                  )
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.errors.image
+              ? _c("span", { staticClass: "label label-danger" }, [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(_vm.errors.image[0]) +
+                      "\n                "
+                  )
+                ])
+              : _vm._e()
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("input", {
+            ref: "title",
+            staticClass: "form-control",
+            attrs: {
+              type: "title",
+              id: "title",
+              placeholder: "Enter title",
+              required: ""
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "form-group" },
+          [
+            _c("markdown-editor", {
+              ref: "body",
+              attrs: {
+                id: "body",
+                toolbar:
+                  "clipboard redo undo | bold italic strikethrough heading | image link | numlist bullist code quote | preview fullscreen"
+              },
+              model: {
+                value: _vm.editorValue,
+                callback: function($$v) {
+                  _vm.editorValue = $$v
+                },
+                expression: "editorValue"
+              }
+            })
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "custom-file mb-3" }, [
+          _c("input", {
+            ref: "image",
+            staticClass: "custom-file-input",
+            attrs: { type: "file", name: "image", id: "image" }
+          }),
+          _vm._v(" "),
+          _c("label", { staticClass: "custom-file-label" }, [
+            _vm._v("Choose file...")
+          ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary block",
+            attrs: { type: "submit" },
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                return _vm.create($event)
+              }
+            }
+          },
+          [_vm._v("\n                Submit\n            ")]
+        )
+      ])
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -77595,153 +77348,138 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "section",
-    [
-      _c("global-header", {
-        attrs: { userName: _vm.userName, userId: _vm.userId }
-      }),
+  return _c("section", [
+    _c("section", { staticClass: "container" }, [
+      _c("h1", { staticClass: "post-edit-header" }, [_vm._v("Edit Tutorial")]),
       _vm._v(" "),
-      _c("section", { staticClass: "container" }, [
-        _c("h1", { staticClass: "post-edit-header" }, [
-          _vm._v("Edit Tutorial")
+      _c("form", [
+        _c(
+          "div",
+          {
+            class: ["form-group m-1 p-3", _vm.successful ? "alert-success" : ""]
+          },
+          [
+            _vm.successful
+              ? _c("span", { staticClass: "label label-sucess" }, [
+                  _vm._v("Published!")
+                ])
+              : _vm._e()
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { class: ["form-group m-1 p-3", _vm.error ? "alert-danger" : ""] },
+          [
+            _vm.errors.title
+              ? _c("span", { staticClass: "label label-danger" }, [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(_vm.errors.title[0]) +
+                      "\n                "
+                  )
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.errors.body
+              ? _c("span", { staticClass: "label label-danger" }, [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(_vm.errors.body[0]) +
+                      "\n                "
+                  )
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.errors.image
+              ? _c("span", { staticClass: "label label-danger" }, [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(_vm.errors.image[0]) +
+                      "\n                "
+                  )
+                ])
+              : _vm._e()
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.resource[0].title,
+                expression: "resource[0].title"
+              }
+            ],
+            ref: "title",
+            staticClass: "form-control",
+            attrs: { type: "title", id: "title", required: "" },
+            domProps: { value: _vm.resource[0].title },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.resource[0], "title", $event.target.value)
+              }
+            }
+          })
         ]),
         _vm._v(" "),
-        _c("form", [
-          _c(
-            "div",
-            {
-              class: [
-                "form-group m-1 p-3",
-                _vm.successful ? "alert-success" : ""
-              ]
-            },
-            [
-              _vm.successful
-                ? _c("span", { staticClass: "label label-sucess" }, [
-                    _vm._v("Published!")
-                  ])
-                : _vm._e()
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { class: ["form-group m-1 p-3", _vm.error ? "alert-danger" : ""] },
-            [
-              _vm.errors.title
-                ? _c("span", { staticClass: "label label-danger" }, [
-                    _vm._v(
-                      "\n                " +
-                        _vm._s(_vm.errors.title[0]) +
-                        "\n                "
-                    )
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.errors.body
-                ? _c("span", { staticClass: "label label-danger" }, [
-                    _vm._v(
-                      "\n                " +
-                        _vm._s(_vm.errors.body[0]) +
-                        "\n                "
-                    )
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.errors.image
-                ? _c("span", { staticClass: "label label-danger" }, [
-                    _vm._v(
-                      "\n                " +
-                        _vm._s(_vm.errors.image[0]) +
-                        "\n                "
-                    )
-                  ])
-                : _vm._e()
-            ]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.resource[0].title,
-                  expression: "resource[0].title"
-                }
-              ],
-              ref: "title",
-              staticClass: "form-control",
-              attrs: { type: "title", id: "title", required: "" },
-              domProps: { value: _vm.resource[0].title },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.resource[0], "title", $event.target.value)
-                }
+        _c(
+          "div",
+          { staticClass: "form-group" },
+          [
+            _c("markdown-editor", {
+              ref: "body",
+              attrs: {
+                id: "body",
+                toolbar:
+                  "clipboard redo undo | bold italic strikethrough heading | image link | numlist bullist code quote | preview fullscreen"
+              },
+              model: {
+                value: _vm.resource[0].body,
+                callback: function($$v) {
+                  _vm.$set(_vm.resource[0], "body", $$v)
+                },
+                expression: "resource[0].body"
               }
             })
-          ]),
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "custom-file mb-3" }, [
+          _c("input", {
+            ref: "image",
+            staticClass: "custom-file-input",
+            attrs: { type: "file", name: "image", id: "image" }
+          }),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "form-group" },
-            [
-              _c("markdown-editor", {
-                ref: "body",
-                attrs: {
-                  id: "body",
-                  toolbar:
-                    "clipboard redo undo | bold italic strikethrough heading | image link | numlist bullist code quote | preview fullscreen"
-                },
-                model: {
-                  value: _vm.resource[0].body,
-                  callback: function($$v) {
-                    _vm.$set(_vm.resource[0], "body", $$v)
-                  },
-                  expression: "resource[0].body"
-                }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "custom-file mb-3" }, [
-            _c("input", {
-              ref: "image",
-              staticClass: "custom-file-input",
-              attrs: { type: "file", name: "image", id: "image" }
-            }),
-            _vm._v(" "),
-            _c("label", { staticClass: "custom-file-label" }, [
-              _vm._v("Select image")
-            ])
-          ]),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-primary block",
-              attrs: { type: "submit" },
-              on: {
-                click: function($event) {
-                  $event.preventDefault()
-                  return _vm.editTutorial[0]($event)
-                }
+          _c("label", { staticClass: "custom-file-label" }, [
+            _vm._v("Select image")
+          ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary block",
+            attrs: { type: "submit" },
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                return _vm.editTutorial[0]($event)
               }
-            },
-            [_vm._v("\n                Submit\n            ")]
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("global-footer")
-    ],
-    1
-  )
+            }
+          },
+          [_vm._v("\n                Submit\n            ")]
+        )
+      ])
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -77765,42 +77503,32 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "section",
-    [
-      _c("global-header", {
-        attrs: { userName: _vm.userName, userId: _vm.userId }
-      }),
-      _vm._v(" "),
-      _c("section", { staticClass: "tutorial-item" }, [
-        _c("section", { staticClass: "card" }, [
-          _c(
-            "div",
-            { staticClass: "card-body" },
-            [
-              _c("h2", { staticClass: "card-title" }, [
-                _vm._v(_vm._s(_vm.resource[0].title))
-              ]),
-              _vm._v(" "),
-              _c("img", {
-                staticClass: "tutorial-item-img",
-                attrs: {
-                  src: _vm.resource[0].image_src,
-                  alt: _vm.resource[0].title
-                }
-              }),
-              _vm._v(" "),
-              _c("vue-markdown", { attrs: { source: _vm.resource[0].body } })
-            ],
-            1
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("global-footer")
-    ],
-    1
-  )
+  return _c("section", [
+    _c("section", { staticClass: "tutorial-item" }, [
+      _c("section", { staticClass: "card" }, [
+        _c(
+          "div",
+          { staticClass: "card-body" },
+          [
+            _c("h2", { staticClass: "card-title" }, [
+              _vm._v(_vm._s(_vm.resource[0].title))
+            ]),
+            _vm._v(" "),
+            _c("img", {
+              staticClass: "tutorial-item-img",
+              attrs: {
+                src: _vm.resource[0].image_src,
+                alt: _vm.resource[0].title
+              }
+            }),
+            _vm._v(" "),
+            _c("vue-markdown", { attrs: { source: _vm.resource[0].body } })
+          ],
+          1
+        )
+      ])
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -77824,26 +77552,16 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "section",
-    [
-      _c("global-header", {
-        attrs: { userName: _vm.userName, userId: _vm.userId }
-      }),
-      _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "section",
-        { staticClass: "container content-section" },
-        [_c("ResourceList", { attrs: { resources: this.tutorials } })],
-        1
-      ),
-      _vm._v(" "),
-      _c("global-footer")
-    ],
-    1
-  )
+  return _c("section", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "section",
+      { staticClass: "container content-section" },
+      [_c("ResourceList", { attrs: { resources: this.tutorials } })],
+      1
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -101537,7 +101255,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _App_vue_vue_type_template_id_91ac6b5c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./App.vue?vue&type=template&id=91ac6b5c& */ "./resources/js/views/App.vue?vue&type=template&id=91ac6b5c&");
 /* harmony import */ var _App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App.vue?vue&type=script&lang=js& */ "./resources/js/views/App.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _App_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App.vue?vue&type=style&index=0&lang=css& */ "./resources/js/views/App.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -101545,7 +101265,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _App_vue_vue_type_template_id_91ac6b5c___WEBPACK_IMPORTED_MODULE_0__["render"],
   _App_vue_vue_type_template_id_91ac6b5c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -101574,6 +101294,22 @@ component.options.__file = "resources/js/views/App.vue"
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./App.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/App.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/views/App.vue?vue&type=style&index=0&lang=css&":
+/*!*********************************************************************!*\
+  !*** ./resources/js/views/App.vue?vue&type=style&index=0&lang=css& ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./App.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/App.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 

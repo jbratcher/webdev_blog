@@ -1,7 +1,6 @@
 <template>
-    <div class="main-container" v-if="userId">
 
-        <global-header :userName="userName" :userId="userId" />
+    <div class="main-container">
 
         <main>
 
@@ -44,9 +43,8 @@
 
         </main>
 
-        <global-footer />
-
     </div>
+
 </template>
 
 <script>
@@ -75,13 +73,5 @@
                 return dataTargetValue;
             },
         },
-        props: {
-            userId: {
-                type: Number
-            },
-            userName: {
-                type: String
-            }
-        }
     };
 </script>

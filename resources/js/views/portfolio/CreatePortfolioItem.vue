@@ -2,8 +2,6 @@
 
     <section>
 
-        <global-header :userName="userName" :userId="userId" />
-
         <section class="container">
 
             <h1 class="post-edit-header">Create a portfolio item</h1>
@@ -80,8 +78,6 @@
 
         </section>
 
-        <global-footer />
-
     </section>
 
 </template>
@@ -131,14 +127,6 @@
                 this.$refs.demo_url.value = "";
                 this.$refs.repo_url.value = "";
             }
-        },
-        props: {
-            userId: {
-                type: Number
-            },
-            userName: {
-                type: String
-            },
         },
     };
 </script>

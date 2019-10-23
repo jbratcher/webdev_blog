@@ -1,8 +1,6 @@
 <template>
     <div class="main-container">
 
-        <global-header :userName="userName" :userId="userId" />
-
         <main>
 
             <div class="container-fluid global-banner">
@@ -52,8 +50,6 @@
 
         </main>
 
-        <global-footer />
-
     </div>
 </template>
 
@@ -73,13 +69,5 @@
             this.getResources('users');
             console.log("Home vue mounted");
         },
-        props: {
-            userId: {
-                type: Number
-            },
-            userName: {
-                type: String
-            }
-        }
     };
 </script>

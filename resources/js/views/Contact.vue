@@ -1,9 +1,8 @@
 <template>
+
     <div class="main-container">
 
-        <global-header :userName="userName" :userId="userId" />
-
-        <main v-if="loaded">
+        <main>
 
             <section class="container content-section contact-intro" id="contact">
 
@@ -21,9 +20,8 @@
 
         </main>
 
-        <global-footer />
-
     </div>
+
 </template>
 
 <script>
@@ -47,20 +45,10 @@
                 axios.get("/api/users").then(response => {
                     this.users = response.data;
                 })
-                .then(this.loaded = true)
                 .catch(error => {
-                    this.loaded = false;
                     this.error = error.response.data.message || error.message;
                 });
             },
         },
-        props: {
-            userId: {
-                type: Number
-            },
-            userName: {
-                type: String
-            },
-        }
     };
 </script>

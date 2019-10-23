@@ -2,8 +2,6 @@
 
     <section>
 
-        <global-header :userName="userName" :userId="userId" />
-
         <section class="blog-post">
             <section class="card">
                 <div class="card-body">
@@ -21,8 +19,6 @@
             </section>
         </section>
 
-        <global-footer />
-
     </section>
 
 </template>
@@ -36,13 +32,5 @@
             this.getUser();
             console.log("Blog post vue mounted");
         },
-        props: {
-            userId: {
-                type: Number
-            },
-            userName: {
-                type: String
-            },
-        }
     };
 </script>

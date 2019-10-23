@@ -2,8 +2,6 @@
 
     <section>
 
-        <global-header :userName="userName" :userId="userId" />
-
         <section class="tutorial-item">
             <section class="card">
                 <div class="card-body">
@@ -13,8 +11,6 @@
                 </div>
             </section>
         </section>
-
-        <global-footer />
 
     </section>
 
@@ -29,13 +25,5 @@
             this.getUser();
             console.log("Tutorial vue mounted");
         },
-        props: {
-            userId: {
-                type: Number
-            },
-            userName: {
-                type: String
-            },
-        }
     };
 </script>

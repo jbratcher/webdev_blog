@@ -2,8 +2,6 @@
 
     <section>
 
-        <global-header :userName="userName" :userId="userId" />
-
         <div class="container-fluid global-banner">
             <h1>Web Development Blog</h1>
             <p class="lead">Read about my latest development experiences.</p>
@@ -14,8 +12,6 @@
             <ResourceList :resources="this.posts" />
 
         </section>
-
-        <global-footer />
 
     </section>
 
@@ -34,13 +30,5 @@
             this.getResources('posts');
             console.log("Blog vue mounted");
         },
-        props: {
-            userId: {
-                type: Number
-            },
-            userName: {
-                type: String
-            }
-        }
     };
 </script>

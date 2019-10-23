@@ -2,8 +2,6 @@
 
     <section>
 
-        <global-header :userName="userName" :userId="userId" />
-
         <div class="container-fluid global-banner">
             <h1>Tutorials</h1>
             <p class="lead">Learn something new</p>
@@ -14,8 +12,6 @@
             <ResourceList :resources="this.tutorials" />
 
         </section>
-
-        <global-footer />
 
     </section>
 
@@ -33,13 +29,5 @@
             this.getResources('tutorials');
             console.log("Tutorials mounted");
         },
-        props: {
-            userId: {
-                type: Number
-            },
-            userName: {
-                type: String
-            },
-        }
     };
 </script>
