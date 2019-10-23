@@ -48,7 +48,29 @@
                     <label class="custom-file-label" >Select image</label>
                 </div>
 
-                <button type="submit" @click.prevent="editPortfolioItem[0]" class="btn btn-primary block">
+                <div class="form-group">
+                    <input
+                        type="demo_url"
+                        ref="demo_url"
+                        class="form-control"
+                        id="demo_url"
+                        v-model="resource[0].demo_url"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <input
+                        type="repo_url"
+                        ref="repo_url"
+                        class="form-control"
+                        id="repo_url"
+                        v-model="resource[0].repo_url"
+                        required
+                    >
+                </div>
+
+                <button type="submit" @click.prevent="editResource(resource.category, resource.id)" class="btn btn-primary block">
                     Submit
                 </button>
 
@@ -61,9 +83,14 @@
 </template>
 
 <script>
+    import { editResourceMixin } from "../../mixins/editResourceMixin";
     import { getResourceMixin } from "../../mixins/getResourceMixin";
+
     export default {
-        mixins: [ getResourceMixin ],
+        mixins: [
+            editResourceMixin,
+            getResourceMixin,
+        ],
         created() {
             this.getResource('portfolioitems');
             this.getUser();
@@ -71,52 +98,6 @@
         },
         updated() {
             this.updateEditorValue();
-        },
-        data() {
-            return {
-                editorValue: "",
-                error: false,
-                errors: [],
-                options: {
-                    lineNumbers: true,
-                    styleActiveLine: true,
-                    styleSelectedText: true,
-                    lineWrapping: true,
-                    indentWithTabs: true,
-                    tabSize: 2,
-                    indentUnit: 2
-                },
-                successful: false,
-            };
-        },
-        methods: {
-            editPortfolioItem() {
-                const formData = new FormData();
-
-                formData.append("title", this.$refs.title.value);
-                formData.append("body", this.$refs.body.value);
-                formData.append("image", this.$refs.image.files[0]);
-                formData.append("_method", "patch");  // need for method spoofing in Vue for PUT/PATCH
-
-                axios.post(`/api/portfolioitems/${this.resource.id}`, formData)
-                    .then(response => {
-                        this.successful = true;
-                        this.error = false;
-                        this.errors = [];
-                    })
-                    .catch(error => {
-                        if (!_.isEmpty(error.response)) {
-                            if ((error.response.status = 422)) {
-                                this.errors = error.response.data.errors;
-                                this.successful = false;
-                                this.error = true;
-                            }
-                        }
-                    });
-            },
-            updateEditorValue() {
-                this.editorValue = this.resource[0].body;
-            }
         },
     };
 </script>

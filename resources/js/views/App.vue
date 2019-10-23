@@ -5,12 +5,11 @@
         <global-header :userName="userName" :userId="userId" />
 
         <transition
-            appear
             name="animate-route"
             enter-active-class="animated fadeIn"
             leave-active-class="animated fadeOut"
         >
-            <router-view></router-view>
+            <router-view class="page"></router-view>
         </transition>
 
         <global-footer />
@@ -36,5 +35,9 @@
 <style>
     @import "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css";
 
+    .page {
+        position: fixed;
+        width: 100%;
+    }
 
 </style>

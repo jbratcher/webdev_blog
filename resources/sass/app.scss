@@ -139,6 +139,11 @@ a.nav-link.router-link-exact-active.router-link-active {
 
 }
 
+.contact-user-about a.nav-link.router-link-exact-active.router-link-active {
+    background: unset;
+    box-shadow: none;
+}
+
 // sections
 
 .content-section {
