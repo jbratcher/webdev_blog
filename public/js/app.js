@@ -76132,22 +76132,27 @@ var render = function() {
               _vm._v(_vm._s(_vm.resource[0].title))
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "card-information" }, [
-              _c("img", {
-                staticClass: "card-profile-thumb",
-                attrs: { src: _vm.user[0].image_src, alt: _vm.user[0].name }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-info-holder" }, [
-                _c("p", { staticClass: "card-profile-name" }, [
-                  _vm._v(_vm._s(_vm.user[0].name))
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "card-publication-date" }, [
-                  _vm._v(_vm._s(_vm.publicationDate))
+            _vm.user
+              ? _c("div", { staticClass: "card-information" }, [
+                  _c("img", {
+                    staticClass: "card-profile-thumb",
+                    attrs: {
+                      src: _vm.users[0].image_src,
+                      alt: _vm.users[0].name
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-info-holder" }, [
+                    _c("p", { staticClass: "card-profile-name" }, [
+                      _vm._v(_vm._s(_vm.users[0].name))
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "card-publication-date" }, [
+                      _vm._v(_vm._s(_vm.publicationDate))
+                    ])
+                  ])
                 ])
-              ])
-            ]),
+              : _vm._e(),
             _vm._v(" "),
             _c("img", {
               staticClass: "blog-post-img",
@@ -102245,8 +102250,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\jerem\workspaces\webdev-blog\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\jerem\workspaces\webdev-blog\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\jerem\workspaces\self-blog\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\jerem\workspaces\self-blog\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
