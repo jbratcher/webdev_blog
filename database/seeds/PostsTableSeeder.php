@@ -3,6 +3,8 @@
 use Illuminate\Database\Seeder;
 use App\Post;
 
+require("Database/seeds/postsSeed.php");
+
 class PostsTableSeeder extends Seeder
 {
 
@@ -10,7 +12,6 @@ class PostsTableSeeder extends Seeder
 
     public function __construct()
     {
-        require("Database/seeds/postsSeed.php");
         $this->body = $content;
     }
 
