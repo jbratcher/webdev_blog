@@ -76135,12 +76135,12 @@ var render = function() {
             _c("div", { staticClass: "card-information" }, [
               _c("img", {
                 staticClass: "card-profile-thumb",
-                attrs: { src: _vm.user[0].image_src, alt: _vm.user[0].name }
+                attrs: { src: _vm.users[0].image_src, alt: _vm.users[0].name }
               }),
               _vm._v(" "),
               _c("div", { staticClass: "card-info-holder" }, [
                 _c("p", { staticClass: "card-profile-name" }, [
-                  _vm._v(_vm._s(_vm.user[0].name))
+                  _vm._v(_vm._s(_vm.users[0].name))
                 ]),
                 _vm._v(" "),
                 _c("p", { staticClass: "card-publication-date" }, [
