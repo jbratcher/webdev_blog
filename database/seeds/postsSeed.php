@@ -1,21 +1,23 @@
 <?php
 
 $content = <<<EOT
-Ready to get my updated website live, I turned to Digital Ocean for hosting.  I created a new project and droplet to deploy the site as a Vue.js SPA with a Laravel backend.  Since, Laravel recently released version 6, I wanted to go ahead and upgrade.
-
-Digital Ocean's documentation is straight-forward but I had trouble finding an up-to-date guide for my stack.  I ended up using one for Ubuntu 16 and Nginx even though the droplet was Ubuntu 18 and the local dev server was Apache.  I found a couple of bugs and issues along the way so I thought it would be helpful to document the process to make it easier for others.
+Ready to get my updated website live, I turned to Digital Ocean for hosting.  I created a new project and droplet to deploy the site as a Laravel app.  Digital Ocean's documentation is average but very straight-forward.  However, I found a couple of bugs and issues along the way that I had to do some Googling for answers.  This post is an attempt to make the process easier for others.
 
 This guide is highly inspired by the [Digital Ocean Laravel](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-laravel-application-with-nginx-on-ubuntu-16-04) setup guide.
 
-Tech stack:  Laravel 6, Vue 2, MySQL, Nginx
+Disclaimer:  It has been quite some time since I deployed a website to a hosting provider.  I had used Apache over Nginx in the past and my Linux skills are beginner level.
 
-One big downside I found was that a fresh droplet needs to be setup like a brand new system.  I was looking for a more containerized solution but didn't want to pay more for that.  [Laravel Forge](https://forge.laravel.com/) or [Vapor](https://vapor.laravel.com/) are popular options for deployment that handle the usual issues that come up.  However, I knew I would learn plenty along the way deploying the site myself.
+Tech stack:  Laravel 6, Vue 2, MySQL, Nginx*
+
+*local dev is on windows using Xammp but the tutorial I followed used Nginx, there do not seem to be any noticiable differences between local and production in my case
+
+One big downside I found was that a fresh droplet needs to be setup like a brand new system.  I was looking for a more containerized solution but didn't want to pay more for hosting, needed to get the site live even on a basic hosting platform, and knew I'd learn plenty along the way.
 
 ## Creating the droplet
 
 Digital Ocean droplets are their branding of a Linux virtual machine.  They give you plenty of customization options for flexibility.
 
-### Create a new droplet.
+1. Create a new droplet.
 
 * Choose a project (use the default or create a new one)
 * Select "New Droplet"
@@ -29,9 +31,9 @@ After the droplet, is created, from your console, we will login in via SSH
 
 `ssh root@your_server_ip`
 
-your_server_ip is will be the IP address listed under your droplet information on DO.  From the DO dashboard, select the project, the IP will be listed under `Droplets`.
+your_server_ip is will be the IP address listed under your droplet information on DO.  Select droplets and it will be listed there.
 
-Since this is your first time logging in to this server, you will receive a warning message about not being able to establish its authenticity.  Answer `yes` to continue and ignore this warning.
+Since this is your first time logging in to this server, you will receive a warning message about not being able to establish its authenticity.  Answer "yes" to continue and ignore this warning.
 
 ## Setting up the server
 
@@ -93,7 +95,7 @@ Optional:  You can add another layer of security by disabling password authentic
 
 ### Set up a basic firewall
 
-We don't need anything too fancy but the `ufw` firewall is easy and quick to set up for additional security.
+We don't need anything too fancy but the 'ufw' firewall is easy and quick to set up for additional security.
 
 First, allow ssh connections then enable the firewall
 
@@ -153,7 +155,7 @@ You will be prompted to create a password with the `VALIDATE PASSWORD PLUGIN`
 
 ## Install PHP Processor
 
-Install php-fpm and the MySQL driver for php.  FPM is `fastCGI process manager` for PHP.
+Install php-fpm and the MySQL driver for php.  FPM is 'fastCGI process manager' for PHP.
 
 `sudo apt-get install php-fpm php-mysql`
 
@@ -376,10 +378,6 @@ server {
 If you have a domain, you can further secure your site with HTTPS via Let's Encrypt.
 
 [Easily add HTTPS via Let's Encrypt using Nginx](https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-16-04)
-
-## Conclusion
-
-Now you should have a fully setup Vue SPA with a Laravel 6 backend set up and ready to go.  Happy developing!
 
 #### Articles referenced:
 
