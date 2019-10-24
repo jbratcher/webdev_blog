@@ -6,10 +6,10 @@
 
         <section v-if="resource.name">
             <h5>{{resource.name}}</h5>
-            <img class="img-fluid" :src="resource.profile_pic_src" :alt="resource.name">
+            <img class="img-fluid" :src="resource.image_src" :alt="resource.name">
         </section>
 
-        <section class="admin-actions">
+        <section v-if="resource.title" class="admin-actions">
             <router-link
                 class="btn btn-primary"
                 :to="{ name: `edit-${resource.category}-item`, params: { slug: resource.slug, id: resource.id} }"

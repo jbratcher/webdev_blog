@@ -42,7 +42,7 @@ export const getResourcesMixin = {
                     id: null,
                     name: "",
                     email: "",
-                    profile_pic_src: "",
+                    image_src: "",
                     intro: "",
                     bio: "",
                 }

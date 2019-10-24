@@ -28,8 +28,8 @@ export default {
     props: ['resources'],
     computed: {
         capitalizedResourceName: function() {
-            if(this.resources[0].type) {
-                let string = this.resources[0].type;
+            if(this.resources[0].category) {
+                let string = this.resources[0].category;
                 return string.charAt(0).toUpperCase() + string.slice(1) + " Items";
             }
         }

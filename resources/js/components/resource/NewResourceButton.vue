@@ -1,6 +1,6 @@
 <template>
 
-    <div v-if="resources" class="container admin-menu">
+    <div v-if="resources.title" class="container admin-menu">
         <i class="fas fa-plus-circle fa-2x"></i>
         <router-link :to="{ name: `create-${resources[0].category}-item` }">New {{ resources[0].category }}</router-link>
     </div>

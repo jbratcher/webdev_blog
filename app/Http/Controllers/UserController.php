@@ -41,18 +41,18 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required',
             'password' => 'required',
-            'profile_pic' => 'nullable'
+            'image_src' => 'nullable'
         ]);
 
         $user = new User();
 
-        if ($request->hasFile('profile_pic') && $request->file('profile_pic')->isValid()) {
-            $profile_pic = $request->file('profile_pic');
-            $name = Str::slug($request->title) . '.' . $profile_pic->getClientOriginalExtension();
+        if ($request->hasFile('image_src') && $request->file('image_src')->isValid()) {
+            $image_src = $request->file('image_src');
+            $name = Str::slug($request->title) . '.' . $image_src->getClientOriginalExtension();
             $destinationPath = public_path('/uploads/user');
             $imagePath = $destinationPath . "/" . $name;
-            $profile_pic->move($destinationPath, $name);
-            $user->profile_pic_src = $imagePath;
+            $image_src->move($destinationPath, $name);
+            $user->image_src = $imagePath;
         }
 
         $user->name = $request->name;
