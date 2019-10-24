@@ -1,17 +1,15 @@
 <template>
 
     <div class="main-container">
-        <main>
 
-            <section class="container content-section contact-intro" id="contact">
+        <section class="container content-section contact-intro" id="contact">
 
-                <UserAbout :users="this.users" />
+            <UserAbout :users="this.users" />
 
-                <ContactForm />
+            <ContactForm />
 
-            </section>
+        </section>
 
-        </main>
     </div>
 
 </template>

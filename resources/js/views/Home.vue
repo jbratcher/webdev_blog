@@ -1,46 +1,42 @@
 <template>
     <div class="main-container">
 
-        <main>
+        <div class="container-fluid global-banner">
+            <h1>Jeremy Bratcher</h1>
+            <p class="lead">Full Stack Web Developer</p>
+        </div>
 
-            <div class="container-fluid global-banner">
-                <h1>Jeremy Bratcher</h1>
-                <p class="lead">Full Stack Web Developer</p>
-            </div>
+        <!-- Blog  -->
 
-            <!-- Blog  -->
+        <section class="container content-section">
+            <h2 class="underline">Blog</h2>
+            <p class="lead">Latest posts</p>
+            <ResourceList :resources="this.posts" />
+        </section>
 
-            <section class="container content-section">
-                <h2 class="underline">Blog</h2>
-                <p class="lead">Latest posts</p>
-                <ResourceList :resources="this.posts" />
-            </section>
+        <!-- Portfolio  -->
 
-            <!-- Portfolio  -->
+        <section class="container content-section">
+            <h2 class="underline">Portfolio</h2>
+            <p class="lead">Some of my best work</p>
+            <ResourceList :resources="this.portfolioitems" />
+        </section>
 
-            <section class="container content-section">
-                <h2 class="underline">Portfolio</h2>
-                <p class="lead">Some of my best work</p>
-                <ResourceList :resources="this.portfolioitems" />
-            </section>
+        <!-- Tutorials  -->
 
-            <!-- Tutorials  -->
+        <section class="container content-section">
+            <h2 class="underline">Tutorials</h2>
+            <p class="lead">Learn something new</p>
+            <ResourceList :resources="this.tutorials" />
+        </section>
 
-            <section class="container content-section">
-                <h2 class="underline">Tutorials</h2>
-                <p class="lead">Learn something new</p>
-                <ResourceList :resources="this.tutorials" />
-            </section>
+        <!-- About -->
 
-            <!-- About -->
+        <section class="container-fluid content-section about-intro">
 
-            <section class="container-fluid content-section about-intro">
+            <UserAbout :users="this.users" />
 
-                <UserAbout :users="this.users" />
-
-            </section>
-
-        </main>
+        </section>
 
     </div>
 </template>
