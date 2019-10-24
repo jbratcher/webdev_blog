@@ -59,7 +59,7 @@ export const getResourceMixin = {
         getUser() {
             axios.get("/api/users").then(response => {
                 this.users = response.data;
-                this.user = this.users.filter(user => user.user_id = this.resource[0].user_id)
+                this.user = this.users.filter(user => user.id === this.resource[0].user_id)
             })
             .then(() => console.log("Username: " + JSON.stringify(this.user[0].name)))
             .catch(error => {

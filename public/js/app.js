@@ -76135,12 +76135,12 @@ var render = function() {
             _c("div", { staticClass: "card-information" }, [
               _c("img", {
                 staticClass: "card-profile-thumb",
-                attrs: { src: _vm.users[0].image_src, alt: _vm.users[0].name }
+                attrs: { src: _vm.user[0].image_src, alt: _vm.user[0].name }
               }),
               _vm._v(" "),
               _c("div", { staticClass: "card-info-holder" }, [
                 _c("p", { staticClass: "card-profile-name" }, [
-                  _vm._v(_vm._s(_vm.users[0].name))
+                  _vm._v(_vm._s(_vm.user[0].name))
                 ]),
                 _vm._v(" "),
                 _c("p", { staticClass: "card-publication-date" }, [
@@ -100740,7 +100740,7 @@ var getResourceMixin = {
       axios.get("/api/users").then(function (response) {
         _this2.users = response.data;
         _this2.user = _this2.users.filter(function (user) {
-          return user.user_id = _this2.resource[0].user_id;
+          return user.id === _this2.resource[0].user_id;
         });
       }).then(function () {
         return console.log("Username: " + JSON.stringify(_this2.user[0].name));
