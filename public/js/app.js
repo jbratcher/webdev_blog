@@ -2645,7 +2645,6 @@ __webpack_require__.r(__webpack_exports__);
   mixins: [_mixins_getResourceMixin__WEBPACK_IMPORTED_MODULE_0__["getResourceMixin"]],
   created: function created() {
     this.getResource('posts');
-    this.getUser();
     console.log("Blog post vue mounted");
   }
 });
@@ -76136,15 +76135,12 @@ var render = function() {
               ? _c("div", { staticClass: "card-information" }, [
                   _c("img", {
                     staticClass: "card-profile-thumb",
-                    attrs: {
-                      src: _vm.users[0].image_src,
-                      alt: _vm.users[0].name
-                    }
+                    attrs: { src: _vm.user[0].image_src, alt: _vm.user[0].name }
                   }),
                   _vm._v(" "),
                   _c("div", { staticClass: "card-info-holder" }, [
                     _c("p", { staticClass: "card-profile-name" }, [
-                      _vm._v(_vm._s(_vm.users[0].name))
+                      _vm._v(_vm._s(_vm.user[0].name))
                     ]),
                     _vm._v(" "),
                     _c("p", { staticClass: "card-publication-date" }, [
@@ -100734,7 +100730,7 @@ var getResourceMixin = {
         });
       }).then(function () {
         return console.log("Item title: " + JSON.stringify(_this.resource[0].title));
-      })["catch"](function (error) {
+      }).then(this.getUser())["catch"](function (error) {
         _this.error = error.response.data.message || error.message;
         console.log("Error in getResource: ".concat(_this.error));
       });

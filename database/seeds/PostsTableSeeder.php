@@ -24,10 +24,8 @@ class PostsTableSeeder extends Seeder
 
         $post = new Post;
         $post->user_id = 1;
-        $post->title = "Deploying Larsavel 6 to a Digital Ocean Droplet";
-
+        $post->title = "Deploying Laravel 6 to a Digital Ocean Droplet";
         $post->body = $this->body;
-
         $post->image_src = "/images/blog2.jpg";
         $post->slug = "deploying-laravel-6-to-a-digital-ocean-droplet";
         $post->intro = "";

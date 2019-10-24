@@ -51,6 +51,7 @@ export const getResourceMixin = {
                 })
             })
             .then(() => console.log("Item title: " + JSON.stringify(this.resource[0].title)))
+            .then(this.getUser())
             .catch(error => {
                 this.error = error.response.data.message || error.message;
                 console.log(`Error in getResource: ${this.error}`);
