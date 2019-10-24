@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Post;
 
-require("Database/seeds/postsSeed.php");
+require("database/seeds/postsSeed.php");
 
 class PostsTableSeeder extends Seeder
 {
