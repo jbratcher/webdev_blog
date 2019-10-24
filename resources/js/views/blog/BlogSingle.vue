@@ -7,9 +7,9 @@
                 <div class="card-body">
                     <h2 class="card-title">{{resource[0].title}}</h2>
                     <div class="card-information">
-                        <img class="card-profile-thumb" :src="users[0].image_src" :alt="users[0].name" />
+                        <img class="card-profile-thumb" :src="user[0].image_src" :alt="user[0].name" />
                         <div class="card-info-holder">
-                            <p class="card-profile-name">{{users[0].name}}</p>
+                            <p class="card-profile-name">{{user[0].name}}</p>
                             <p class="card-publication-date">{{publicationDate}}</p>
                         </div>
                     </div>
