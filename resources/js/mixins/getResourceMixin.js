@@ -30,12 +30,14 @@ export const getResourceMixin = {
             ],
             user: [
                 {
-
+                    img_src: null,
+                    name: ""
                 }
             ],
             users: [
                 {
-
+                    img_src: null,
+                    name: ""
                 }
             ]
         };

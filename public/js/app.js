@@ -100708,8 +100708,14 @@ var getResourceMixin = {
         image_src: null,
         body: ""
       }],
-      user: [{}],
-      users: [{}]
+      user: [{
+        img_src: null,
+        name: ""
+      }],
+      users: [{
+        img_src: null,
+        name: ""
+      }]
     };
   },
   methods: {
