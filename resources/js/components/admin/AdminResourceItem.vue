@@ -43,7 +43,7 @@ export default {
     props: ['resource'],
     methods: {
         deleteModalDataTarget(data) {
-            const dataTargetValue = `#confirmDelete${data.type}${data.id}Modal`;
+            const dataTargetValue = `#confirmDelete${data.category}${data.id}Modal`;
             return dataTargetValue;
         },
     },

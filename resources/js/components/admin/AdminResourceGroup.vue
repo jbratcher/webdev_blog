@@ -8,7 +8,7 @@
 
         <AdminResourceList
             :resources="this.resources"
-            @delete-resource="$emit('delete-resource', resource.api_route, resource.id)"
+            @delete-resource="deleteResource"
         />
 
     </section>
@@ -18,6 +18,8 @@
 <script>
 import AdminResourceList from './AdminResourceList'
 import NewResourceButton from '../resource/NewResourceButton.vue';
+import { deleteResourceMixin } from '../../mixins/deleteResourceMixin.js';
+import { getResourcesMixin } from '../../mixins/getResourcesMixin.js';
 
 export default {
     name: 'AdminResourceGroup',
@@ -25,6 +27,10 @@ export default {
         AdminResourceList,
         NewResourceButton,
     },
+    mixins: [
+        deleteResourceMixin,
+        getResourcesMixin
+    ],
     props: ['resources'],
     computed: {
         capitalizedResourceName: function() {

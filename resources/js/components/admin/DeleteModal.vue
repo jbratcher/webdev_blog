@@ -14,7 +14,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-danger" @click="$emit('delete-resource', resource.id)">Confirm Deletion</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" @click="$emit('delete-resource', resource.id)">Confirm Deletion</button>
             </div>
             </div>
         </div>
@@ -28,7 +28,7 @@ export default {
     props: ['resource'],
     methods: {
         deleteModalId(data) {
-            const dataTargetValue = `confirmDelete${data.type}${data.id}Modal`;
+            const dataTargetValue = `confirmDelete${data.category}${data.id}Modal`;
             return dataTargetValue;
         },
     },

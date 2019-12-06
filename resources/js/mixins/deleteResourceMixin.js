@@ -6,7 +6,6 @@ export const deleteResourceMixin = {
         deleteResource(type, id) {
             axios.delete(`/api/${type}/${id}`)
                 .then(response => this.getResources(type))
-                $('.modal-backdrop').remove();
         },
     },
 }

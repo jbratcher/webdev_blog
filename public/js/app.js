@@ -1966,6 +1966,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AdminResourceList__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AdminResourceList */ "./resources/js/components/admin/AdminResourceList.vue");
 /* harmony import */ var _resource_NewResourceButton_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../resource/NewResourceButton.vue */ "./resources/js/components/resource/NewResourceButton.vue");
+/* harmony import */ var _mixins_deleteResourceMixin_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../mixins/deleteResourceMixin.js */ "./resources/js/mixins/deleteResourceMixin.js");
+/* harmony import */ var _mixins_getResourcesMixin_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../mixins/getResourcesMixin.js */ "./resources/js/mixins/getResourcesMixin.js");
 //
 //
 //
@@ -1983,6 +1985,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1991,6 +1995,7 @@ __webpack_require__.r(__webpack_exports__);
     AdminResourceList: _AdminResourceList__WEBPACK_IMPORTED_MODULE_0__["default"],
     NewResourceButton: _resource_NewResourceButton_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
+  mixins: [_mixins_deleteResourceMixin_js__WEBPACK_IMPORTED_MODULE_2__["deleteResourceMixin"], _mixins_getResourcesMixin_js__WEBPACK_IMPORTED_MODULE_3__["getResourcesMixin"]],
   props: ['resources'],
   computed: {
     capitalizedResourceName: function capitalizedResourceName() {
@@ -2058,7 +2063,7 @@ __webpack_require__.r(__webpack_exports__);
   props: ['resource'],
   methods: {
     deleteModalDataTarget: function deleteModalDataTarget(data) {
-      var dataTargetValue = "#confirmDelete".concat(data.type).concat(data.id, "Modal");
+      var dataTargetValue = "#confirmDelete".concat(data.category).concat(data.id, "Modal");
       return dataTargetValue;
     }
   }
@@ -2135,7 +2140,7 @@ __webpack_require__.r(__webpack_exports__);
   props: ['resource'],
   methods: {
     deleteModalId: function deleteModalId(data) {
-      var dataTargetValue = "confirmDelete".concat(data.type).concat(data.id, "Modal");
+      var dataTargetValue = "confirmDelete".concat(data.category).concat(data.id, "Modal");
       return dataTargetValue;
     }
   }
@@ -2324,7 +2329,6 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_admin_AdminResourceGroup_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/admin/AdminResourceGroup.vue */ "./resources/js/components/admin/AdminResourceGroup.vue");
 /* harmony import */ var _mixins_getResourcesMixin_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../mixins/getResourcesMixin.js */ "./resources/js/mixins/getResourcesMixin.js");
-/* harmony import */ var _mixins_deleteResourceMixin_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../mixins/deleteResourceMixin.js */ "./resources/js/mixins/deleteResourceMixin.js");
 //
 //
 //
@@ -2357,26 +2361,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     AdminResourceGroup: _components_admin_AdminResourceGroup_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-  mixins: [_mixins_getResourcesMixin_js__WEBPACK_IMPORTED_MODULE_1__["getResourcesMixin"], _mixins_deleteResourceMixin_js__WEBPACK_IMPORTED_MODULE_2__["deleteResourceMixin"]],
+  mixins: [_mixins_getResourcesMixin_js__WEBPACK_IMPORTED_MODULE_1__["getResourcesMixin"]],
   created: function created() {
     this.getResources('posts');
     this.getResources('portfolioitems');
     this.getResources('tutorials');
     this.getResources('users');
     console.log("Admin vue mounted");
-  },
-  methods: {
-    deleteModalDataTarget: function deleteModalDataTarget(data) {
-      var dataTargetValue = "#confirmDelete".concat(data.type).concat(data.id, "Modal");
-      return dataTargetValue;
-    }
   }
 });
 
@@ -75280,15 +75277,7 @@ var render = function() {
       _vm._v(" "),
       _c("AdminResourceList", {
         attrs: { resources: this.resources },
-        on: {
-          "delete-resource": function($event) {
-            return _vm.$emit(
-              "delete-resource",
-              _vm.resource.api_route,
-              _vm.resource.id
-            )
-          }
-        }
+        on: { "delete-resource": _vm.deleteResource }
       })
     ],
     1
@@ -75497,7 +75486,7 @@ var render = function() {
               "button",
               {
                 staticClass: "btn btn-danger",
-                attrs: { type: "button" },
+                attrs: { type: "button", "data-dismiss": "modal" },
                 on: {
                   click: function($event) {
                     return _vm.$emit("delete-resource", _vm.resource.id)
@@ -75849,25 +75838,13 @@ var render = function() {
       [
         _vm._m(0),
         _vm._v(" "),
-        _c("AdminResourceGroup", {
-          attrs: { resources: this.posts },
-          on: { "delete-resource": _vm.deleteResource }
-        }),
+        _c("AdminResourceGroup", { attrs: { resources: this.posts } }),
         _vm._v(" "),
-        _c("AdminResourceGroup", {
-          attrs: { resources: this.portfolioitems },
-          on: { "delete-resource": _vm.deleteResource }
-        }),
+        _c("AdminResourceGroup", { attrs: { resources: this.portfolioitems } }),
         _vm._v(" "),
-        _c("AdminResourceGroup", {
-          attrs: { resources: this.tutorials },
-          on: { "delete-resource": _vm.deleteResource }
-        }),
+        _c("AdminResourceGroup", { attrs: { resources: this.tutorials } }),
         _vm._v(" "),
-        _c("AdminResourceGroup", {
-          attrs: { resources: this.users },
-          on: { "delete-resource": _vm.deleteResource }
-        })
+        _c("AdminResourceGroup", { attrs: { resources: this.users } })
       ],
       1
     )
@@ -100595,7 +100572,6 @@ var deleteResourceMixin = {
       axios["delete"]("/api/".concat(type, "/").concat(id)).then(function (response) {
         return _this.getResources(type);
       });
-      $('.modal-backdrop').remove();
     }
   }
 };
