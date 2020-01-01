@@ -41,6 +41,7 @@ class PostController extends Controller
 
         $this->validate($request, [
             'title' => 'required',
+            'intro' => 'nullable',
             'body' => 'required',
             'image' => 'nullable',
         ]);
@@ -57,6 +58,13 @@ class PostController extends Controller
         }
         else {
             $post->image_src = "\images\blog1.jpg";
+        }
+
+        if($request->intro) {
+            $post->intro = $request->intro;
+        }
+        else {
+            $post->intro = "";
         }
 
         $post->user_id = $request->user_id;

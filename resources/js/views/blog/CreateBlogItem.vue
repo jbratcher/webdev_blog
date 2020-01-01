@@ -61,11 +61,7 @@
 </template>
 
 <script>
-
     export default {
-        created() {
-            console.log(`Create props:\n Username: ${this.userName}\n User ID: ${this.userId}`);
-        },
         data() {
             return {
                 editorValue: "",
@@ -102,5 +98,13 @@
                 this.$refs.body.value = "";
             }
         },
+        props: {
+            userId: {
+                type: Number
+            },
+            userName: {
+                type: String
+            }
+        }
     };
 </script>

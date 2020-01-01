@@ -2720,9 +2720,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  created: function created() {
-    console.log("Create props:\n Username: ".concat(this.userName, "\n User ID: ").concat(this.userId));
-  },
   data: function data() {
     return {
       editorValue: "",
@@ -2755,6 +2752,14 @@ __webpack_require__.r(__webpack_exports__);
       });
       this.$refs.title.value = "";
       this.$refs.body.value = "";
+    }
+  },
+  props: {
+    userId: {
+      type: Number
+    },
+    userName: {
+      type: String
     }
   }
 });
@@ -75680,7 +75685,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.resources.title
+  return _vm.resources[0].title
     ? _c(
         "div",
         { staticClass: "container admin-menu" },

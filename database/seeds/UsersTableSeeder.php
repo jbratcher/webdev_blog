@@ -3,7 +3,6 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use App\User;
-use App\Role;
 
 class UsersTableSeeder extends Seeder
 {
